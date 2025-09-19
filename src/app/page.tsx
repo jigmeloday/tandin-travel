@@ -1,103 +1,114 @@
-import Image from "next/image";
+import BestSelling from '@/components/landing-component/best-selling';
+import SliderComponent from '@/components/landing-component/slider';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main>
+      <section className="h-screen w-full overflow-hidden">
+        <SliderComponent />
+      </section>
+      <section className="flex flex-col items-center justify-center px-[16px]">
+        <div className="border-2 border-black h-[80px] my-[40px]" />
+        <div className="flex flex-col items-center text-center">
+          <div className="w-[740px]">
+            <h2 className="font-extrabold text-[48px]">
+              Best banner Description on this page for travel
+            </h2>
+          </div>
+          <div className="w-[900px]">
+            <p className="text-[32px] text-center my-[24px]">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad
+            </p>
+          </div>
+          <div className="w-[250px]">
+            <span className="font-bold">
+              Best banner Description on this page for travel
+            </span>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="border-2 border-black h-[80px] my-[40px]" />
+        <div className="grid grid-cols-3 gap-8 w-full h-[230px] mb-[20px]">
+          <div className="border text-center h-full">1</div>
+          <div className="border text-center h-full">2</div>
+          <div className="border text-center h-full">3</div>
+        </div>
+      </section>
+      <section className="flex flex-col justify-center items-center text-center my-[42px]">
+        <h3 className="font-extrabold text-[32px]">
+          Our best selling signature tour
+        </h3>
+        <BestSelling />
+      </section>
+      <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px]">
+        <div className="border-2 border-black h-[80px] w-0 my-[40px]" />
+
+        <h3 className="font-extrabold text-[32px]">OUR BOOKING PROCESS</h3>
+        <div className="flex my-[40px] space-x-8">
+          {[1, 2, 3, 4].map((item) => (
+            <div
+              key={item}
+              className="flex flex-col items-center justify-center"
+            >
+              <div className="size-[80px] rounded-full bg-black"></div>
+              <p className="mt-4 text-[24px] text-primary">
+                01. MAKE AN ENQUIRY
+              </p>
+              <div className="w-[180px]">
+                <p className="text-[18px]">
+                  Submit a holiday enquiry online or by phone
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button className="px-[24px] py-[12px] bg-black text-white text-2xl">
+          ENQUIRE NOW
+        </button>
+        <div className="border-2 border-black h-[80px] w-0 my-[40px]" />
+      </section>
+      <section className="px-[24px] my-[42px]">
+        <div className="flex border w-full my-[40px] h-[420px]"></div>
+        <div className="space-y-[32px]">
+          <div className="flex space-x-4">
+            <div className="border flex-1 h-[320px]"></div>
+            <div className="border flex-4"></div>
+          </div>
+          <div className="flex space-x-4">
+            <div className="border flex-4 h-[320px]"></div>
+            <div className="border flex-1"></div>
+          </div>
+        </div>
+      </section>
+      <section className="w-full h-[80vh]">
+        <div className="h-full w-full bg-[url('/images/slide.jpg')] bg-fixed bg-center bg-cover bg-no-repeat">
+          <div className="h-full w-full flex items-center justify-center bg-black/40 text-3xl" />
+        </div>
+      </section>
+      <section className="flex flex-col items-center justify-center px-[16px]">
+        <div className="border-2 border-black h-[80px] my-[40px]" />
+        <div className="flex flex-col items-center text-center">
+          <div className="w-[740px]">
+            <h2 className="font-extrabold text-[48px]">
+              Best banner Description on this page for travel
+            </h2>
+          </div>
+          <div className="w-[900px]">
+            <p className="text-[32px] text-center my-[24px]">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat. Ut wisi enim ad
+            </p>
+          </div>
+          <div className="w-[250px]">
+            <span className="font-bold">
+              Best banner Description on this page for travel
+            </span>
+          </div>
+        </div>
+        <div className="border-2 border-black h-[80px] my-[40px]" />
+      </section>
+    </main>
   );
 }
