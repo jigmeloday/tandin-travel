@@ -10,42 +10,42 @@ export default function Home() {
       <section className="flex flex-col items-center justify-center px-[16px]">
         <div className="border-2 border-black h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
-          <div className="w-[740px]">
-            <h2 className="font-extrabold text-[48px]">
+          <div className="w-full lg:w-[740px]">
+            <h2 className="font-extrabold text-[32px] lg:text-[48px]">
               Best banner Description on this page for travel
             </h2>
           </div>
-          <div className="w-[900px]">
-            <p className="text-[32px] text-center my-[24px]">
+          <div className="lg:w-[900px]">
+            <p className="text-[18px] lg:text-[32px] text-center my-[24px]">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
               nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
               erat volutpat. Ut wisi enim ad
             </p>
           </div>
-          <div className="w-[250px]">
+          <div className="lg:w-[250px]">
             <span className="font-bold">
               Best banner Description on this page for travel
             </span>
           </div>
         </div>
         <div className="border-2 border-black h-[80px] my-[40px]" />
-        <div className="grid grid-cols-3 gap-8 w-full h-[230px] mb-[20px]">
+        <div className="grid lg:grid-cols-3 gap-8 w-full h-[500px] lg:h-[230px] mb-[20px]">
           <div className="border text-center h-full">1</div>
           <div className="border text-center h-full">2</div>
           <div className="border text-center h-full">3</div>
         </div>
       </section>
-      <section className="flex flex-col justify-center items-center text-center my-[42px]">
+      {/* <section className="flex flex-col justify-center items-center text-center my-[42px]">
         <h3 className="font-extrabold text-[32px]">
           Our best selling signature tour
         </h3>
         <BestSelling />
-      </section>
+      </section> */}
       <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px]">
         <div className="border-2 border-black h-[80px] w-0 my-[40px]" />
 
-        <h3 className="font-extrabold text-[32px]">OUR BOOKING PROCESS</h3>
-        <div className="flex my-[40px] space-x-8">
+        <h3 className="font-extrabold text-[24px] lg:text-[32px]">OUR BOOKING PROCESS</h3>
+        <div className="flex flex-col lg:flex-row my-[40px] gap-8">
           {[1, 2, 3, 4].map((item) => (
             <div
               key={item}
@@ -71,13 +71,13 @@ export default function Home() {
       <section className="px-[24px] my-[42px]">
         <div className="flex border w-full my-[40px] h-[420px]"></div>
         <div className="space-y-[32px]">
-          <div className="flex space-x-4">
-            <div className="border flex-1 h-[320px]"></div>
-            <div className="border flex-4"></div>
+          <div className="flex flex-col lg:flex-row gap-4">
+            <div className="border w-full lg:flex-1 h-[320px]"></div>
+            <div className="border w-full lg:flex-4"></div>
           </div>
-          <div className="flex space-x-4">
-            <div className="border flex-4 h-[320px]"></div>
-            <div className="border flex-1"></div>
+          <div className="flex flex-col lg:flex-row gap-4">
+            <div className="border w-full lg:flex-4 h-[320px]"></div>
+            <div className="border lg:flex-1 w-full h-[320px]"></div>
           </div>
         </div>
       </section>
@@ -89,19 +89,19 @@ export default function Home() {
       <section className="flex flex-col items-center justify-center px-[16px]">
         <div className="border-2 border-black h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
-          <div className="w-[740px]">
-            <h2 className="font-extrabold text-[48px]">
+          <div className="w-full lg:w-[740px]">
+            <h2 className="font-extrabold text-[32px] lg:text-[48px]">
               Best banner Description on this page for travel
             </h2>
           </div>
-          <div className="w-[900px]">
-            <p className="text-[32px] text-center my-[24px]">
+          <div className="lg:w-[900px]">
+            <p className="text-[18px] lg:text-[32px] text-center my-[24px]">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
               nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
               erat volutpat. Ut wisi enim ad
             </p>
           </div>
-          <div className="w-[250px]">
+          <div className="lg:w-[250px]">
             <span className="font-bold">
               Best banner Description on this page for travel
             </span>
