@@ -3,11 +3,22 @@ import SliderComponent from '@/components/landing-component/slider';
 import Image from 'next/image';
 
 export default function Home() {
+  const ImageBox = [
+    { id: 1, image: '/images/dummy/img6.jpg', label: 'BHUTAN IN THE CLOUD' },
+    {
+      id: 2,
+      image: '/images/dummy/img5.jpg',
+      label: 'BHUTAN THROUGH THE LENS',
+    },
+    { id: 3, image: '/images/dummy/img3.jpg', label: 'CULINARY TAPESTRY' },
+    { id: 4, image: '/images/dummy/img11.jpg', label: 'RIVER RAFTING' },
+    { id: 5, image: '/images/dummy/img2.jpg', label: 'EDUCATION TOUR' },
+    { id: 6, image: '/images/dummy/img7.jpg', label: 'FUTURE TRAVEL' },
+  ];
   return (
     <main>
-      <section className="h-screen w-full overflow-hidden">
-        <SliderComponent />
-      </section>
+      <section className="h-screen w-full overflow-hidden bg-[url('/images/slide.jpg')] bg-cover bg-center bg-no-repeat"></section>
+
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px]">
         <div className="border-2 border-black h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
@@ -30,10 +41,28 @@ export default function Home() {
           </div>
         </div>
         <div className="border-2 border-black h-[80px] my-[40px]" />
-        <div className="grid lg:grid-cols-3 gap-8 w-full h-[500px] lg:h-[230px] mb-[20px]">
-          <div className="border text-center h-full">1</div>
-          <div className="border text-center h-full">2</div>
-          <div className="border text-center h-full">3</div>
+        <div className="grid lg:grid-cols-3 gap-8 w-full mb-5">
+          {['img6', 'img7', 'img8'].map((img, idx) => (
+            <div
+              key={idx}
+              className="border relative h-[300px] lg:h-[230px] w-full text-center overflow-hidden"
+            >
+              <Image
+                src={`/images/dummy/${img}.jpg`}
+                alt=""
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/30 lg:bg-black/40 flex flex-col items-center justify-center">
+                <span className="text-white text-lg font-extrabold lg:text-xl">
+                  ROYAL PATHWAYS
+                </span>
+                <span className="text-[16px] lg:text-[18px] text-white">
+                  Luxury and Boutique Stays
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
       {/* <section className="flex flex-col justify-center items-center text-center my-[42px]">
@@ -72,7 +101,7 @@ export default function Home() {
         <div className="border-2 border-black h-[80px] w-0 my-[40px]" />
       </section>
       <section className="px-[16px] lg:px-[32px] my-[42px]">
-        <div className="flex flex-col lg:flex-row border w-full my-[40px] lg:h-[520px]">
+        <div className="flex flex-col lg:flex-row w-full my-[40px] h-[520px]">
           <div className="lg:flex-3">
             <Image
               src="/images/slide.jpg"
@@ -82,13 +111,13 @@ export default function Home() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="flex flex-col justify-between lg:flex-1 px-[24px] py-[42px] text-white bg-black">
+          <div className="flex flex-col justify-between flex-1 px-[24px] py-[42px] text-white bg-black">
             <div>
               <span className="font-extrabold">WOMEN ONLY TOUR</span>
-              <h2 className="mt-[32px] mb-[12px] font-extrabold text-[42px] text-primary">
+              <h2 className="mt-[32px] mb-[12px] font-extrabold text-[24px] lg:text-[42px] text-primary">
                 HER BHUTAN, HER STORY
               </h2>
-              <span className="text-[24px] font-thin">
+              <span className="text-[18px] lg:text-[24px] font-thin">
                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
               </span>
             </div>
@@ -98,8 +127,8 @@ export default function Home() {
           </div>
         </div>
         <div className="space-y-[32px]">
-          <div className="flex flex-col lg:flex-row gap-4">
-            <div className="border w-full lg:flex-1 h-fit">
+          <div className="flex flex-col lg:flex-row gap-4 items-stretch">
+            <div className="border w-full lg:flex-[1] flex flex-col">
               <div className="h-[70vh]">
                 <Image
                   src="/images/dummy/img1.jpg"
@@ -109,17 +138,18 @@ export default function Home() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="bg-black min-h-[30%] text-white p-[20px] ">
-                <p className="font-extrabold"> WOMEN ONLY TOUR</p>
-
-                <h3 className="text-[28px] font-extrabold">
+              <div className="bg-black text-white p-5 flex flex-col flex-1">
+                <p className="font-extrabold">WOMEN ONLY TOUR</p>
+                <h3 className="text-2xl lg:text-3xl font-extrabold">
                   Her Bhutan, Her Story
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
-                <div className='py-[8px] px-[16px] bg-primary mt-[24px] w-fit'>VIEW DETAILS</div>
+                <button className="py-2 px-4 bg-primary mt-6 w-fit">
+                  VIEW DETAILS
+                </button>
               </div>
             </div>
-            <div className="border w-full lg:flex-4 h-full">
+            <div className="border w-full lg:flex-[2] flex flex-col">
               <div className="h-[70vh]">
                 <Image
                   src="/images/dummy/img2.jpg"
@@ -129,40 +159,43 @@ export default function Home() {
                   className="h-full w-full object-cover"
                 />
               </div>
-               <div className="bg-black min-h-[30%] text-white p-[20px] ">
-                <p className="font-extrabold"> WOMEN ONLY TOUR</p>
-
-                <h3 className="text-[32px] font-extrabold">
-                  Her Bhutan, <br/> Her Story
+              <div className="bg-black text-white p-5 flex flex-col flex-1">
+                <p className="font-extrabold">WOMEN ONLY TOUR</p>
+                <h3 className="text-2xl lg:text-4xl font-extrabold leading-snug">
+                  Her Bhutan, <br /> Her Story
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
-                <div className='py-[8px] px-[16px] bg-primary mt-[24px] w-fit'>VIEW DETAILS</div>
+                <button className="py-2 px-4 bg-primary mt-6 w-fit">
+                  VIEW DETAILS
+                </button>
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row gap-4">
-            <div className="border w-full lg:flex-4">
+
+          <div className="flex flex-col lg:flex-row gap-4 items-stretch">
+            <div className="border w-full lg:flex-[2] flex flex-col">
               <div className="h-[70vh]">
                 <Image
-                  src="/images/dummy/img3.jpg"
+                  src="/images/dummy/img1.jpg"
                   alt="img"
                   height={1000}
                   width={1000}
                   className="h-full w-full object-cover"
                 />
               </div>
-               <div className="bg-black min-h-[30%] text-white p-[20px] ">
-                <p className="font-extrabold"> WOMEN ONLY TOUR</p>
-
-                <h3 className="text-[32px] font-extrabold">
-                  Her Bhutan, <br/> Her Story
+              <div className="bg-black text-white p-5 flex flex-col flex-1">
+                <p className="font-extrabold">WOMEN ONLY TOUR</p>
+                <h3 className="text-2xl lg:text-3xl font-extrabold">
+                  Her Bhutan, Her Story
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
-                <div className='py-[8px] px-[16px] bg-primary mt-[24px] w-fit'>VIEW DETAILS</div>
+                <button className="py-2 px-4 bg-primary mt-6 w-fit">
+                  VIEW DETAILS
+                </button>
               </div>
             </div>
-            <div className="border lg:flex-1 w-full h-[720px]">
-              <div className="h-[70%]">
+            <div className="border w-full lg:flex-[1] flex flex-col">
+              <div className="h-[70vh]">
                 <Image
                   src="/images/dummy/img2.jpg"
                   alt="img"
@@ -171,14 +204,15 @@ export default function Home() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="bg-black min-h-[30%] text-white p-[20px] ">
-                <p className="font-extrabold"> WOMEN ONLY TOUR</p>
-
-                <h3 className="text-[28px] font-extrabold">
-                  Her Bhutan, Her Story
+              <div className="bg-black text-white p-5 flex flex-col flex-1">
+                <p className="font-extrabold">WOMEN ONLY TOUR</p>
+                <h3 className="text-2xl lg:text-4xl font-extrabold leading-snug">
+                  Her Bhutan, <br /> Her Story
                 </h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
-                <div className='py-[8px] px-[16px] bg-primary mt-[24px] w-fit'>VIEW DETAILS</div>
+                <button className="py-2 px-4 bg-primary mt-6 w-fit">
+                  VIEW DETAILS
+                </button>
               </div>
             </div>
           </div>
@@ -213,11 +247,28 @@ export default function Home() {
         <div className="border-2 border-black h-[80px] my-[40px]" />
       </section>
       <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[24px] lg:gap-[32px]">
-        {[1, 2, 3, 4, 5, 6].map((item) => (
-          <div key={item} className="border h-[240px]">
-            hello
+        {ImageBox.map(({ id, image, label }) => (
+          <div key={id} className="relative border h-[240px] overflow-hidden">
+            {/* Image */}
+            <Image
+              src={image}
+              alt="image"
+              height={500}
+              width={500}
+              className="object-cover h-full w-full"
+            />
+
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center">
+              <div className="border-b-2 border-primary">
+                <span className="text-white text-lg font-bold">{label}</span>
+              </div>
+            </div>
           </div>
         ))}
+      </section>
+      <section className="my-[42px] px-[16px] lgpx-[32px]">
+        <SliderComponent />
       </section>
     </main>
   );

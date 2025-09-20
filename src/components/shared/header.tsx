@@ -21,11 +21,11 @@ function Header() {
 
   return (
     <div
-      className={`fixed w-full px-[16px] py-[24px] flex justify-between items-center transition-all duration-300 ${
+      className={`fixed w-full px-[16px] py-[24px] flex justify-between items-center transition-all duration-300 z-50 ${
         scrolled ? "bg-black" : "bg-transparent"
       }`}
     >
-      <div className="flex justify-center items-center w-full text-white h-full">
+      <div className="flex lg:justify-center items-center w-full text-white h-full">
         <Image src='/logo/logo.webp' alt='logo' height={1000} width={1000} className='size-[50px] object-contain' />
       </div>
       <div>
