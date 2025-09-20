@@ -41,17 +41,17 @@ export default function Home() {
           </div>
         </div>
         <div className="border-2 border-black h-[80px] my-[40px]" />
-        <div className="grid lg:grid-cols-3 gap-8 w-full mb-5">
+        <div className="grid lg:grid-cols-3 gap-4 w-full mb-5">
           {['img6', 'img7', 'img8'].map((img, idx) => (
             <div
               key={idx}
-              className="relative h-[300px] lg:h-[450px] w-full text-center overflow-hidden"
+              className="relative h-[300px] lg:h-[450px] w-full text-center overflow-hidden group cursor-pointer"
             >
               <Image
                 src={`/images/dummy/${img}.jpg`}
                 alt=""
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-110 transition-all duration-500 ease-in-out "
               />
               <div className="absolute inset-0 bg-black/30 lg:bg-black/40 flex flex-col items-center justify-center">
                 <span className="text-white text-lg font-extrabold lg:text-xl">
@@ -256,16 +256,16 @@ export default function Home() {
         </div>
         <div className="border-2 border-black h-[80px] my-[40px]" />
       </section>
-      <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[24px] lg:gap-[32px]">
+      <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[18px] lg:gap-[24px]">
         {ImageBox.map(({ id, image, label }) => (
-          <div key={id} className="relative border h-[370px] overflow-hidden">
+          <div key={id} className="relative border h-[370px] overflow-hidden group cursor-pointer">
             {/* Image */}
             <Image
               src={image}
               alt="image"
               height={500}
               width={500}
-              className="object-cover h-full w-full"
+              className="object-cover h-full w-full group-hover:scale-110 transition-all duration-500 ease-in-out"
             />
 
             {/* Overlay */}
