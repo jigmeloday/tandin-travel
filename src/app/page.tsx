@@ -218,11 +218,25 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="w-full h-[80vh]">
-        <div className="h-full w-full bg-[url('/images/slide.jpg')] bg-fixed bg-center bg-cover bg-no-repeat">
-          <div className="h-full w-full flex items-center justify-center bg-black/40 text-3xl" />
+
+      <section className="relative w-full h-[80vh]">
+        {/* Background */}
+        <div
+          className="absolute inset-0 bg-center bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: "url('/images/slide.jpg')",
+            backgroundAttachment: 'fixed', // fixed for desktop
+          }}
+        ></div>
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+          <span className="text-white text-3xl font-bold text-center px-4">
+            Your Text Here
+          </span>
         </div>
       </section>
+
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px]">
         <div className="border-2 border-black h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
