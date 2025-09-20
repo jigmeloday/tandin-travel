@@ -45,7 +45,7 @@ export default function Home() {
           {['img6', 'img7', 'img8'].map((img, idx) => (
             <div
               key={idx}
-              className="border relative h-[300px] lg:h-[230px] w-full text-center overflow-hidden"
+              className="relative h-[300px] lg:h-[450px] w-full text-center overflow-hidden"
             >
               <Image
                 src={`/images/dummy/${img}.jpg`}
@@ -101,7 +101,7 @@ export default function Home() {
         <div className="border-2 border-black h-[80px] w-0 my-[40px]" />
       </section>
       <section className="px-[16px] lg:px-[32px] my-[42px]">
-        <div className="flex flex-col lg:flex-row w-full my-[40px] h-[520px]">
+        <div className="flex flex-col lg:flex-row w-full my-[40px] h-[550px]">
           <div className="lg:flex-3">
             <Image
               src="/images/slide.jpg"
@@ -219,7 +219,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative w-full h-[80vh]">
+      <section className="relative w-full h-[80vh] hidden lg:block">
         {/* Background */}
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
@@ -230,11 +230,7 @@ export default function Home() {
         ></div>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <span className="text-white text-3xl font-bold text-center px-4">
-            Your Text Here
-          </span>
-        </div>
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center"/>
       </section>
 
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px]">
@@ -262,7 +258,7 @@ export default function Home() {
       </section>
       <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[24px] lg:gap-[32px]">
         {ImageBox.map(({ id, image, label }) => (
-          <div key={id} className="relative border h-[240px] overflow-hidden">
+          <div key={id} className="relative border h-[370px] overflow-hidden">
             {/* Image */}
             <Image
               src={image}
@@ -281,7 +277,7 @@ export default function Home() {
           </div>
         ))}
       </section>
-      <section className="my-[42px] px-[16px] lgpx-[32px]">
+      <section className="my-[42px] px-[16px] lg:px-[32px]">
         <SliderComponent />
       </section>
     </main>

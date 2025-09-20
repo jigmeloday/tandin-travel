@@ -32,12 +32,12 @@ function BestSelling() {
           {cards.map((card, idx) => (
             <div
               key={idx}
-              className="flex-shrink-0 w-[90vw] max-w-[650px] lg:w-[600px] h-[400px] lg:h-[400px] border-l-8 border-primary overflow-hidden group"
+              className="flex-shrink-0 max-w-[650px] lg:w-[650px] h-[400px] lg:h-[600px] border-l-8 border-primary overflow-hidden group"
             >
               {/* Card container */}
               <div className="flex flex-col lg:flex-row h-full w-full bg-black transition-transform duration-300 group-hover:scale-105">
                 {/* Image section */}
-                <div className="w-full lg:w-[40%] h-64 lg:h-full relative">
+                <div className="w-full lg:w-[60%] h-64 lg:h-full relative">
                   <Image
                     src="/images/dummy/img5.jpg"
                     alt="img"
