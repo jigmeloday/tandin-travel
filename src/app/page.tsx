@@ -65,13 +65,13 @@ export default function Home() {
           ))}
         </div>
       </section>
-      {/* <section className="flex flex-col justify-center items-center text-center my-[42px]">
+      <section className="flex flex-col justify-center items-center text-center my-[42px]">
         <h3 className="font-extrabold text-[32px]">
           Our best selling signature tour
         </h3>
         <BestSelling />
-      </section> */}
-      <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px] lg:px-[32px]">
+      </section>
+      <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px] lg:px-[32px] scrollbar-hide">
         <div className="border-2 border-black h-[80px] w-0 my-[40px]" />
 
         <h3 className="font-extrabold text-[24px] lg:text-[32px]">
