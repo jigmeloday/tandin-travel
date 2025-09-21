@@ -101,7 +101,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <button className="px-[24px] py-[12px] bg-black text-white text-2xl">
+        <button className="px-[24px] py-[12px] bg-primary text-white text-2xl">
           ENQUIRE NOW
         </button>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
@@ -230,7 +230,7 @@ export default function Home() {
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
             backgroundImage: "url('/images/slide.jpg')",
-            backgroundAttachment: 'fixed', // fixed for desktop
+            backgroundAttachment: 'fixed',
           }}
         ></div>
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center" />
