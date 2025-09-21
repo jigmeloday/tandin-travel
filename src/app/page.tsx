@@ -1,4 +1,5 @@
 import BestSelling from '@/components/landing-component/best-selling';
+import HeroSwapper from '@/components/landing-component/hero-swapper';
 import SliderComponent from '@/components/landing-component/slider';
 import Image from 'next/image';
 
@@ -17,10 +18,12 @@ export default function Home() {
   ];
   return (
     <main>
-      <section className="h-screen w-full overflow-hidden bg-[url('/images/slide.jpg')] bg-cover bg-center bg-no-repeat"></section>
+      <section className="h-screen w-full overflow-hidden">
+        <HeroSwapper />
+      </section>
 
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px]">
-        <div className="border-2 border-black h-[80px] my-[40px]" />
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[142px]">
+        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
             <h2 className="font-extrabold text-[32px] lg:text-[48px]">
@@ -40,20 +43,22 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="border-2 border-black h-[80px] my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+      </section>
+      <section className="px-[32px] mb-[142px]">
         <div className="grid lg:grid-cols-3 gap-4 w-full mb-5">
           {['img6', 'img7', 'img8'].map((img, idx) => (
             <div
               key={idx}
-              className="relative h-[300px] lg:h-[450px] w-full text-center overflow-hidden group cursor-pointer"
+              className="relative w-full aspect-square text-center overflow-hidden group cursor-pointer"
             >
               <Image
                 src={`/images/dummy/${img}.jpg`}
                 alt=""
                 fill
-                className="object-cover group-hover:scale-110 transition-all duration-500 ease-in-out "
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/30 lg:bg-black/40 flex flex-col items-center justify-center">
+              <div className="absolute inset-0 bg-black/30 hover:bg-black/60 transition-all duration-500 ease-in-out flex flex-col items-center justify-center">
                 <span className="text-white text-lg font-extrabold lg:text-xl">
                   ROYAL PATHWAYS
                 </span>
@@ -65,6 +70,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+
       <section className="flex flex-col justify-center items-center text-center my-[42px]">
         <h3 className="font-extrabold text-[32px]">
           Our best selling signature tour
@@ -72,7 +78,7 @@ export default function Home() {
         <BestSelling />
       </section>
       <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px] lg:px-[32px] scrollbar-hide">
-        <div className="border-2 border-black h-[80px] w-0 my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
 
         <h3 className="font-extrabold text-[24px] lg:text-[32px]">
           OUR BOOKING PROCESS
@@ -98,7 +104,7 @@ export default function Home() {
         <button className="px-[24px] py-[12px] bg-black text-white text-2xl">
           ENQUIRE NOW
         </button>
-        <div className="border-2 border-black h-[80px] w-0 my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="px-[16px] lg:px-[32px] my-[42px]">
         <div className="flex flex-col lg:flex-row w-full my-[40px] h-[550px]">
@@ -230,11 +236,11 @@ export default function Home() {
         ></div>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center"/>
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center" />
       </section>
 
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px]">
-        <div className="border-2 border-black h-[80px] my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
             <h2 className="font-extrabold text-[32px] lg:text-[48px]">
@@ -254,29 +260,33 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="border-2 border-black h-[80px] my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[18px] lg:gap-[24px]">
+      <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] lg:gap-[8px]">
         {ImageBox.map(({ id, image, label }) => (
-          <div key={id} className="relative border h-[370px] overflow-hidden group cursor-pointer">
+          <div
+            key={id}
+            className="relative border aspect-square overflow-hidden group cursor-pointer"
+          >
             {/* Image */}
             <Image
               src={image}
               alt="image"
               height={500}
               width={500}
-              className="object-cover h-full w-full group-hover:scale-110 transition-all duration-500 ease-in-out"
+              className="object-cover h-full w-full"
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center">
-              <div className="border-b-2 border-primary">
+            <div className="absolute inset-0 bg-black/30 hover:bg-black/60 transition-all duration-500 ease-in-out flex flex-col items-center justify-center">
+              <div className="border-b-2 border-transparent group-hover:border-primary transition-all duration-300">
                 <span className="text-white text-lg font-bold">{label}</span>
               </div>
             </div>
           </div>
         ))}
       </section>
+
       <section className="my-[42px] px-[16px] lg:px-[32px]">
         <SliderComponent />
       </section>
