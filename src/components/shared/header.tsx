@@ -1,35 +1,53 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
-import Image from 'next/image';
+import Image from "next/image";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 140) {
-        setScrolled(true);
+      const currentScrollY = window.scrollY;
+
+      // background toggle
+      setScrolled(currentScrollY > 100);
+
+      // hide on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 750) {
+        setHidden(true);
       } else {
-        setScrolled(false);
+        setHidden(false);
       }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <div
-      className={`fixed w-full px-[16px] py-[24px] flex justify-between items-center transition-all duration-300 z-50 ${
-        scrolled ? "bg-black" : "bg-transparent"
-      }`}
+      className={`fixed w-full px-[16px] py-[24px] flex justify-between items-center 
+        transition-all duration-300 z-50
+        ${scrolled ? "bg-white shadow-2xl" : "bg-transparent"}
+        ${hidden ? "-translate-y-full" : "translate-y-0"}
+      `}
     >
       <div className="flex lg:justify-center items-center w-full text-white h-full">
-        <Image src='/logo/logo.webp' alt='logo' height={1000} width={1000} className='size-[50px] object-contain' />
+        <Image
+          src="/logo/logo.webp"
+          alt="logo"
+          height={1000}
+          width={1000}
+          className="size-[50px] object-contain"
+        />
       </div>
       <div>
-        <Menu size={40} className="text-white cursor-pointer" />
+        <Menu size={40} className="text-primary cursor-pointer" />
       </div>
     </div>
   );

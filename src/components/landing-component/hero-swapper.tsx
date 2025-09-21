@@ -39,7 +39,7 @@ export default function HeroSwapper() {
               backgroundPosition: 'center',
             }}
           >
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-black/10"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <h2 className="text-white text-3xl lg:text-5xl font-bold mb-2">
             {slide.title}
