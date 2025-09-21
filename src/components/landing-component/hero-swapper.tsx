@@ -9,9 +9,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 const slides = [
-  { img: 'images/dummy/img10.jpg', id: 1, title: 'UNIQUE TO YOU' },
-  { img: 'images/dummy/img9.jpg', id: 2, title: 'ADVENTURE AWAITS' },
-  { img: 'images/slide.jpg', id: 3, title: 'EPIC JOURNEYS' },
+  { img: 'images/dummy/img7.jpg', id: 1, title: 'Discover Bhutan, Beyond Imagination' },
+  { img: 'images/dummy/img5.jpg', id: 2, title: 'Every Journey, Exclusively Yours' },
+  { img: 'images/slide.jpg', id: 3, title: 'Where Culture, Nature, and Luxury Meet' },
+  { img: 'images/dummy/img1.jpg', id: 4, title: 'Travel Deeper. Experience Bhutan' },
+  { img: 'images/dummy/img2.jpg', id: 5, title: 'Crafting Moments, Curating Memories' },
+
 ];
 
 export default function HeroSwapper() {

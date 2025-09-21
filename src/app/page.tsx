@@ -21,25 +21,24 @@ export default function Home() {
       <section className="h-screen w-full overflow-hidden">
         <HeroSwapper />
       </section>
-
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[142px]">
-        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+        <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
-            <h2 className="font-extrabold text-[32px] lg:text-[48px] text-primary">
-              Best banner Description on this page for travel
-            </h2>
+            <h1>Where Nature Meets Nirvana</h1>
           </div>
-          <div className="lg:w-[900px]">
+          <div className="lg:w-[920px]">
             <p className="text-[18px] lg:text-[32px] text-center my-[24px]">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad
+              Every journey is crafted entirely around you, blending seamless
+              planning with rare, meaningful encounters. Each experience unfolds
+              with thoughtful detail—from the first welcome to the quiet moments
+              in nature—creating memories that linger long after you return home
+              and leaving a gentle, positive imprint on the places you visit.
             </p>
           </div>
-          <div className="lg:w-[250px]">
+          <div className="lg:min-w-[250px]">
             <span className="font-bold">
-              Best banner Description on this page for travel
+              EVERY JOURNEY TELLS A STORY – FIND THE ONE THAT’S YOURS
             </span>
           </div>
         </div>
@@ -47,42 +46,67 @@ export default function Home() {
       </section>
       <section className="px-[32px] mb-[142px]">
         <div className="grid lg:grid-cols-3 gap-4 w-full mb-5">
-          {['img6', 'img7', 'img8'].map((img, idx) => (
+          {[
+            {
+              id: 1,
+              img: 'img1',
+              title: 'BESPOKE JOURNEYS',
+              subtitle: '(Your story, perfectly tailored)',
+            },
+            {
+              id: 2,
+              img: 'img2',
+              title: 'EXQUISITE STAYS',
+              subtitle: '(Where elegance feels effortless) ',
+            },
+            {
+              id: 3,
+              img: 'img3',
+              title: 'CULTURE & WELLNESS',
+              subtitle: '(Revive, connect, and awaken)',
+            },
+          ].map(({ id, img, title, subtitle }, idx) => (
             <div
               key={idx}
               className="relative w-full aspect-square text-center overflow-hidden group cursor-pointer"
             >
               <Image
                 src={`/images/dummy/${img}.jpg`}
-                alt=""
+                alt="img"
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/30 hover:bg-black/60 transition-all duration-500 ease-in-out flex flex-col items-center justify-center">
-                <span className="text-white text-lg font-extrabold lg:text-xl">
-                  ROYAL PATHWAYS
-                </span>
+              <div className="absolute inset-0 bg-black/30 hover:bg-black/50 transition-all duration-500 ease-in-out flex flex-col items-center justify-center">
+                <h4
+                  className="relative inline-block text-white after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-white/80 after:transition-all after:duration-300 after:ease-out group-hover:after:left-0 group-hover:after:w-full"
+                  >
+                  {title}
+                </h4>
                 <span className="text-[16px] lg:text-[18px] text-white">
-                  Luxury and Boutique Stays
+                  {subtitle}
                 </span>
               </div>
             </div>
           ))}
         </div>
       </section>
-
       <section className="flex flex-col justify-center items-center text-center my-[42px]">
-        <h3 className="font-extrabold text-[32px] text-primary">
-          Our best selling signature tour
-        </h3>
+        <h1>
+          Flagship Signature Journey
+        </h1>
         <BestSelling />
       </section>
       <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px] lg:px-[32px] scrollbar-hide">
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
-
-        <h3 className="font-extrabold text-[24px] lg:text-[32px] text-primary">
-          OUR BOOKING PROCESS
-        </h3>
+        <h1>
+          From Dream to Departure
+        </h1>
+        <p>
+          Every remarkable journey begins with a single step. Our simple,
+          seamless process ensures your Bhutan experience is perfectly tailored,
+          effortless, and unforgettable—from first inquiry to the moment you
+          depart.
+        </p>
         <div className="flex flex-col lg:flex-row my-[40px] gap-8">
           {[1, 2, 3, 4].map((item) => (
             <div
@@ -224,7 +248,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="relative w-full h-[80vh] hidden lg:block">
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
@@ -235,26 +258,21 @@ export default function Home() {
         ></div>
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center" />
       </section>
-
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px]">
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
-          <div className="w-full lg:w-[740px]">
-            <h2 className="font-extrabold text-[32px] lg:text-[48px] text-primary">
-              Best banner Description on this page for travel
-            </h2>
+          <div className="w-full lg:w-[780px]">
+            <h1>
+              We don’t just promise—we deliver every detail
+            </h1>
           </div>
           <div className="lg:w-[900px]">
             <p className="text-[18px] lg:text-[32px] text-center my-[24px]">
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-              erat volutpat. Ut wisi enim ad
+              Every adventure is led by experts who know the land intimately,
+              granting access to rare moments and authentic encounters. Here,
+              each step creates lasting memories, and every journey deepens your
+              connection to this extraordinary kingdom.
             </p>
-          </div>
-          <div className="lg:w-[250px]">
-            <span className="font-bold">
-              Best banner Description on this page for travel
-            </span>
           </div>
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
@@ -283,7 +301,6 @@ export default function Home() {
           </div>
         ))}
       </section>
-
       <section className="my-[42px] px-[16px] lg:px-[32px]">
         <SliderComponent />
       </section>
