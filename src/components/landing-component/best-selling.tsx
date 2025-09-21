@@ -46,9 +46,7 @@ function BestSelling() {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden my-8 px-4">
-      <h2 className="text-3xl font-bold text-center mb-8">Best Selling Tours</h2>
-      
+    <div className="relative w-full overflow-hidden my-8 px-4">      
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}

@@ -26,7 +26,7 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
-            <h2 className="font-extrabold text-[32px] lg:text-[48px]">
+            <h2 className="font-extrabold text-[32px] lg:text-[48px] text-primary">
               Best banner Description on this page for travel
             </h2>
           </div>
@@ -72,7 +72,7 @@ export default function Home() {
       </section>
 
       <section className="flex flex-col justify-center items-center text-center my-[42px]">
-        <h3 className="font-extrabold text-[32px]">
+        <h3 className="font-extrabold text-[32px] text-primary">
           Our best selling signature tour
         </h3>
         <BestSelling />
@@ -80,7 +80,7 @@ export default function Home() {
       <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px] lg:px-[32px] scrollbar-hide">
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
 
-        <h3 className="font-extrabold text-[24px] lg:text-[32px]">
+        <h3 className="font-extrabold text-[24px] lg:text-[32px] text-primary">
           OUR BOOKING PROCESS
         </h3>
         <div className="flex flex-col lg:flex-row my-[40px] gap-8">
@@ -226,7 +226,6 @@ export default function Home() {
       </section>
 
       <section className="relative w-full h-[80vh] hidden lg:block">
-        {/* Background */}
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
@@ -234,8 +233,6 @@ export default function Home() {
             backgroundAttachment: 'fixed', // fixed for desktop
           }}
         ></div>
-
-        {/* Overlay */}
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center" />
       </section>
 
@@ -243,7 +240,7 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
-            <h2 className="font-extrabold text-[32px] lg:text-[48px]">
+            <h2 className="font-extrabold text-[32px] lg:text-[48px] text-primary">
               Best banner Description on this page for travel
             </h2>
           </div>
