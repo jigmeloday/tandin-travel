@@ -11,35 +11,42 @@ function BestSelling() {
     {
       id: 1,
       title: "HER BHUTAN, HER STORY",
-      description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+      description: "Discover Bhutan through inspiring women’s eyes—intimate stories, hidden traditions, and unique encounters that reveal a side of the kingdom rarely seen by travelers.",
       category: "WOMEN ONLY TOUR",
       image: "/images/dummy/img5.jpg"
     },
     {
       id: 2,
-      title: "CULTURAL JOURNEY",
-      description: "Explore the rich cultural heritage of the region.",
-      category: "CULTURAL TOUR",
+      title: "Bhutan Soul Walk",
+      description: "Step into Bhutan’s serene landscapes and sacred corners, where every path inspires reflection, every view awakens wonder, and your soul leaves footprints of tranquility.",
+      category: "A GENTLE JOURNEY",
       image: "/images/dummy/img6.jpg"
     },
     {
       id: 3,
-      title: "ADVENTURE EXPEDITION",
-      description: "Thrilling adventures for the brave at heart.",
+      title: "Mysteries of Gangkar Puensum",
+      description: "Venture where few have tread: mystical peaks, untouched valleys, and sacred secrets await in the shadow of Bhutan’s enigmatic Gangkar Puensum.",
       category: "ADVENTURE TOUR",
       image: "/images/dummy/img7.jpg"
     },
     {
       id: 4,
-      title: "NATURE RETREAT",
-      description: "Connect with nature in its purest form.",
+      title: "Tribal Ties: East to West",
+      description: "Journey across Bhutan’s diverse lands, meeting vibrant tribes, witnessing age-old rituals, and connecting deeply with traditions that span the kingdom’s rich tapestry.",
       category: "NATURE TOUR",
       image: "/images/dummy/img8.jpg"
     },
     {
       id: 5,
-      title: "SPIRITUAL PILGRIMAGE",
-      description: "A journey of self-discovery and enlightenment.",
+      title: "Druk Path Awakening",
+      description: "Awaken your senses on this iconic trek, where alpine lakes, misty valleys, and ancient monasteries invite awe, adventure, and spiritual reflection at every step.",
+      category: "SPIRITUAL TOUR",
+      image: "/images/dummy/img9.jpg"
+    },
+    {
+      id: 6,
+      title: "Sacred Symphony",
+      description: "Feel Bhutan’s heartbeat through ritual, music, and heritage, where every moment resonates in harmony, crafting an unforgettable journey of culture, spirit, and discovery.",
       category: "SPIRITUAL TOUR",
       image: "/images/dummy/img9.jpg"
     }
@@ -89,9 +96,9 @@ function BestSelling() {
                     <span className="font-extrabold text-xs sm:text-sm tracking-wider uppercase text-white">
                       {tour.category}
                     </span>
-                    <h2 className="mt-2 sm:mt-4 mb-1 sm:mb-2 font-extrabold text-lg sm:text-2xl lg:text-3xl text-primary">
+                    <h4>
                       {tour.title}
-                    </h2>
+                    </h4>
                     <p className="text-sm sm:text-[16px] lg:text-[18px] font-light text-gray-200">
                       {tour.description}
                     </p>

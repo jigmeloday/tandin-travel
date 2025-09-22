@@ -65,7 +65,7 @@ export default function Home() {
               title: 'CULTURE & WELLNESS',
               subtitle: '(Revive, connect, and awaken)',
             },
-          ].map(({ id, img, title, subtitle }, idx) => (
+          ].map(({ img, title, subtitle }, idx) => (
             <div
               key={idx}
               className="relative w-full aspect-square text-center overflow-hidden group cursor-pointer"
@@ -108,18 +108,23 @@ export default function Home() {
           depart.
         </p>
         <div className="flex flex-col lg:flex-row my-[40px] gap-8">
-          {[1, 2, 3, 4].map((item) => (
+          {[
+            {id: 1, title: 'Make an Enquiry', description: 'Submit your travel request online or by phone—let us know your dreams, preferences, and travel dates.'},
+            {id: 2, title: 'Speak to an Expert', description: 'Connect with your dedicated Travel Specialist to discuss your vision, fine-tune details, and craft your personalized itinerary.'},
+            {id: 3, title: 'Receive a Quote', description: 'We design your bespoke holiday and provide a detailed quote, ensuring every experience meets your expectations.'},
+            {id: 4, title: 'Book Your Trip', description: 'Once everything is perfectly tailored to your wishes, we confirm your booking and prepare you for an unforgettable journey.'},
+          ].map(({id, title, description }) => (
             <div
-              key={item}
+              key={id}
               className="flex flex-col items-center justify-center"
             >
               <div className="size-[80px] rounded-full bg-black"></div>
               <p className="mt-4 text-[24px] text-primary">
-                01. MAKE AN ENQUIRY
+                0{id}. {title}
               </p>
               <div className="w-[180px]">
                 <p className="text-[18px]">
-                  Submit a holiday enquiry online or by phone
+                  {description}
                 </p>
               </div>
             </div>
