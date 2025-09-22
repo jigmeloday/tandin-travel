@@ -77,9 +77,7 @@ export default function Home() {
                 className="object-cover"
               />
               <div className="absolute inset-0 bg-black/30 hover:bg-black/50 transition-all duration-500 ease-in-out flex flex-col items-center justify-center">
-                <h4
-                  className="relative inline-block text-white after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-white/80 after:transition-all after:duration-300 after:ease-out group-hover:after:left-0 group-hover:after:w-full"
-                  >
+                <h4 className="relative inline-block text-white after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-white/80 after:transition-all after:duration-300 after:ease-out group-hover:after:left-0 group-hover:after:w-full">
                   {title}
                 </h4>
                 <span className="text-[16px] lg:text-[18px] text-white">
@@ -91,41 +89,54 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col justify-center items-center text-center my-[42px]">
-        <h1>
-          Flagship Signature Journey
-        </h1>
+        <h1>Flagship Signature Journey</h1>
         <BestSelling />
       </section>
       <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px] lg:px-[32px] scrollbar-hide">
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
-        <h1>
-          From Dream to Departure
-        </h1>
-        <p>
-          Every remarkable journey begins with a single step. Our simple,
-          seamless process ensures your Bhutan experience is perfectly tailored,
-          effortless, and unforgettable—from first inquiry to the moment you
-          depart.
-        </p>
+        <h1>From Dream to Departure</h1>
+        <div className='w-[840px]'>
+          <p className='text-[20px]'>
+            Every remarkable journey begins with a single step. Our simple,
+            seamless process ensures your Bhutan experience is perfectly
+            tailored, effortless, and unforgettable—from first inquiry to the
+            moment you depart.
+          </p>
+        </div>
         <div className="flex flex-col lg:flex-row my-[40px] gap-8">
           {[
-            {id: 1, title: 'Make an Enquiry', description: 'Submit your travel request online or by phone—let us know your dreams, preferences, and travel dates.'},
-            {id: 2, title: 'Speak to an Expert', description: 'Connect with your dedicated Travel Specialist to discuss your vision, fine-tune details, and craft your personalized itinerary.'},
-            {id: 3, title: 'Receive a Quote', description: 'We design your bespoke holiday and provide a detailed quote, ensuring every experience meets your expectations.'},
-            {id: 4, title: 'Book Your Trip', description: 'Once everything is perfectly tailored to your wishes, we confirm your booking and prepare you for an unforgettable journey.'},
-          ].map(({id, title, description }) => (
-            <div
-              key={id}
-              className="flex flex-col items-center justify-center"
-            >
+            {
+              id: 1,
+              title: 'Make an Enquiry',
+              description:
+                'Submit your travel request online or by phone—let us know your dreams, preferences, and travel dates.',
+            },
+            {
+              id: 2,
+              title: 'Speak to an Expert',
+              description:
+                'Connect with your dedicated Travel Specialist to discuss your vision, fine-tune details, and craft your personalized itinerary.',
+            },
+            {
+              id: 3,
+              title: 'Receive a Quote',
+              description:
+                'We design your bespoke holiday and provide a detailed quote, ensuring every experience meets your expectations.',
+            },
+            {
+              id: 4,
+              title: 'Book Your Trip',
+              description:
+                'Once everything is perfectly tailored to your wishes, we confirm your booking and prepare you for an unforgettable journey.',
+            },
+          ].map(({ id, title, description }) => (
+            <div key={id} className="flex flex-col items-center justify-center">
               <div className="size-[80px] rounded-full bg-black"></div>
               <p className="mt-4 text-[24px] text-primary">
                 0{id}. {title}
               </p>
               <div className="w-[180px]">
-                <p className="text-[18px]">
-                  {description}
-                </p>
+                <p className="text-[18px]">{description}</p>
               </div>
             </div>
           ))}
@@ -267,9 +278,7 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[780px]">
-            <h1>
-              We don’t just promise—we deliver every detail
-            </h1>
+            <h1>We don’t just promise—we deliver every detail</h1>
           </div>
           <div className="lg:w-[900px]">
             <p className="text-[18px] lg:text-[32px] text-center my-[24px]">
