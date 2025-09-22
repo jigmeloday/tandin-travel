@@ -168,12 +168,12 @@ export default function Home() {
           </div>
           <div className="flex flex-col justify-between flex-1 px-[24px] py-[42px] text-white bg-black">
             <div>
-              <span className="font-extrabold">WOMEN ONLY TOUR</span>
-              <h2 className="mt-[32px] mb-[12px] font-extrabold text-[24px] lg:text-[42px] text-primary">
-                HER BHUTAN, HER STORY
-              </h2>
-              <span className="text-[18px] lg:text-[24px] font-thin">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+              <span className="font-extrabold text-[24px]">Silent Monks</span>
+              <h3>
+               Whisper, wonder, wander
+              </h3>
+              <span className="text-[18px]">
+                Step into Bhutan’s serene sanctuaries, where quiet moments, mindful rituals, and tranquil landscapes invite reflection, wonder, and a gentle escape from the everyday.
               </span>
             </div>
             <div className="bg-primary w-fit px-[16px] py-[8px] cursor-pointer">
@@ -194,11 +194,11 @@ export default function Home() {
                 />
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
-                <p className="font-extrabold">WOMEN ONLY TOUR</p>
-                <h3 className="text-2xl lg:text-3xl font-extrabold">
-                  Her Bhutan, Her Story
+                <p className="font-extrabold text-[24px]">Family Legacy Tour</p>
+                <h3>
+                   Together, every step  
                 </h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
+                <p className='text-[18px]'>Forge unforgettable memories exploring Bhutan’s culture, nature, and traditions together, crafting shared experiences that delight every generation in elegance and comfort.</p>
                 <button className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
                 </button>
@@ -215,11 +215,11 @@ export default function Home() {
                 />
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
-                <p className="font-extrabold">WOMEN ONLY TOUR</p>
-                <h3 className="text-2xl lg:text-4xl font-extrabold leading-snug">
-                  Her Bhutan, <br /> Her Story
+                <p className="font-extrabold text-[24px]">Curated Adventure</p>
+                <h3>
+                  Thrills, tailored just for you
                 </h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
+                <p className='text-[18px]'>Tailored for the discerning thrill-seeker, this journey blends Bhutan’s majestic landscapes, hidden trails, and exhilarating activities into a perfectly crafted adventure.</p>
                 <button className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
                 </button>
@@ -239,11 +239,11 @@ export default function Home() {
                 />
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
-                <p className="font-extrabold">WOMEN ONLY TOUR</p>
+                <p className="font-extrabold text-[24px]">Wildside Bhutan</p>
                 <h3 className="text-2xl lg:text-3xl font-extrabold">
-                  Her Bhutan, Her Story
+                  Go wild, go Bhutan
                 </h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
+                <p className='text-[18px]'>Venture into Bhutan’s untamed corners—remote valleys, pristine forests, and rare wildlife—where luxury meets the exhilaration of the kingdom’s wild heart.</p>
                 <button className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
                 </button>
@@ -260,11 +260,11 @@ export default function Home() {
                 />
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
-                <p className="font-extrabold">WOMEN ONLY TOUR</p>
-                <h3 className="text-2xl lg:text-4xl font-extrabold leading-snug">
+                <p className="font-extrabold text-[24px]">WOMEN ONLY TOUR</p>
+                <h3>
                   Her Bhutan, <br /> Her Story
                 </h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
+                <p className='text-[18px]'>Celebrate female travelers with a journey of empowerment, connecting with Bhutanese women, cultural treasures, and shared experiences in refined comfort and style.</p>
                 <button className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
                 </button>
