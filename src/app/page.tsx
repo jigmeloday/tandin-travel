@@ -1,6 +1,7 @@
 import BestSelling from '@/components/landing-component/best-selling';
 import HeroSwapper from '@/components/landing-component/hero-swapper';
 import SliderComponent from '@/components/landing-component/slider';
+import { Headphones, Mail, Plane, Search } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Home() {
@@ -103,35 +104,43 @@ export default function Home() {
             moment you depart.
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row my-[40px] gap-8">
+        <div className="flex flex-col items-center justify-center lg:flex-row my-[40px] gap-8">
           {[
             {
               id: 1,
+              icon: Search,
               title: 'Make an Enquiry',
               description:
                 'Submit your travel request online or by phone—let us know your dreams, preferences, and travel dates.',
             },
             {
               id: 2,
+              icon: Headphones,
               title: 'Speak to an Expert',
               description:
                 'Connect with your dedicated Travel Specialist to discuss your vision, fine-tune details, and craft your personalized itinerary.',
             },
             {
               id: 3,
+              icon: Mail,
               title: 'Receive a Quote',
               description:
                 'We design your bespoke holiday and provide a detailed quote, ensuring every experience meets your expectations.',
             },
             {
               id: 4,
+              icon: Plane,
               title: 'Book Your Trip',
               description:
                 'Once everything is perfectly tailored to your wishes, we confirm your booking and prepare you for an unforgettable journey.',
             },
-          ].map(({ id, title, description }) => (
+          ].map(({ id, title, description, icon }) => {
+            const IconCoponent = icon;
+            return(
             <div key={id} className="flex flex-col items-center justify-center">
-              <div className="size-[80px] rounded-full bg-black"></div>
+              <div className="flex items-center justify-center size-[80px] rounded-full bg-primary">
+                <IconCoponent className='text-white' />
+              </div>
               <p className="mt-4 text-[24px] text-primary">
                 0{id}. {title}
               </p>
@@ -139,7 +148,7 @@ export default function Home() {
                 <p className="text-[18px]">{description}</p>
               </div>
             </div>
-          ))}
+          )})}
         </div>
         <button className="px-[24px] py-[12px] bg-primary text-white text-2xl">
           ENQUIRE NOW
