@@ -383,19 +383,19 @@ export default function Home() {
             {
               id: 1,
               image: '/images/dummy/img6.jpg',
-              label: 'BHUTAN IN THE CLOUD',
+              label: 'MONASTIC SERENITY',
               subtitle: 'Above the ordinary',
             },
             {
               id: 2,
               image: '/images/dummy/img5.jpg',
-              label: 'BHUTAN THROUGH THE LENS',
+              label: 'FESTIVALS IN FULL COLOR',
               subtitle: 'Capture the extraordinary',
             },
             {
               id: 3,
               image: '/images/dummy/img3.jpg',
-              label: 'CULINARY TAPESTRY',
+              label: 'HIDDEN WILDERNESS',
               subtitle: 'Savor the sublime',
             },
           ].map(({ id, image, label }) => (
@@ -410,7 +410,9 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition duration-300"></div>
               <div className="relative text-center text-white">
-                <h4 className="text-xl font-bold text-white relative inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full">
+                <h4
+                  className="text-xl font-bold text-white relative inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-primary after:mx-auto after:transition-all after:duration-500 delay-75 group-hover:after:w-full"
+                >
                   {label}
                 </h4>
               </div>
