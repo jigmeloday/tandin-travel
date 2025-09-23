@@ -33,7 +33,7 @@ function Header() {
     <div
       className={`fixed w-full px-[16px] py-[24px] flex justify-between items-center 
         transition-all duration-300 z-50
-        ${scrolled ? "bg-white shadow-2xl" : "bg-transparent"}
+        ${scrolled ? "bg-white shadow-2xl border-b" : "bg-transparent"}
         ${hidden ? "-translate-y-full" : "translate-y-0"}
       `}
     >

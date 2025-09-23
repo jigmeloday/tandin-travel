@@ -6,17 +6,42 @@ import Image from 'next/image';
 
 export default function Home() {
   const ImageBox = [
-    { id: 1, image: '/images/dummy/img6.jpg', label: 'BHUTAN IN THE CLOUD', subtitle: 'Above the ordinary' },
+    {
+      id: 1,
+      image: '/images/dummy/img6.jpg',
+      label: 'BHUTAN IN THE CLOUD',
+      subtitle: 'Above the ordinary',
+    },
     {
       id: 2,
       image: '/images/dummy/img5.jpg',
       label: 'BHUTAN THROUGH THE LENS',
       subtitle: 'Capture the extraordinary',
     },
-    { id: 3, image: '/images/dummy/img3.jpg', label: 'CULINARY TAPESTRY', subtitle: 'Savor the sublime'},
-    { id: 4, image: '/images/dummy/img11.jpg', label: 'RIVER RAFTING', subtitle: 'Heritage in full color' },
-    { id: 5, image: '/images/dummy/img2.jpg', label: 'EDUCATION TOUR', subtitle: 'Enrich your journey' },
-    { id: 6, image: '/images/dummy/img7.jpg', label: 'FUTURE TRAVEL', subtitle: 'Bhutan, reimagined' },
+    {
+      id: 3,
+      image: '/images/dummy/img3.jpg',
+      label: 'CULINARY TAPESTRY',
+      subtitle: 'Savor the sublime',
+    },
+    {
+      id: 4,
+      image: '/images/dummy/img11.jpg',
+      label: 'RIVER RAFTING',
+      subtitle: 'Heritage in full color',
+    },
+    {
+      id: 5,
+      image: '/images/dummy/img2.jpg',
+      label: 'EDUCATION TOUR',
+      subtitle: 'Enrich your journey',
+    },
+    {
+      id: 6,
+      image: '/images/dummy/img7.jpg',
+      label: 'FUTURE TRAVEL',
+      subtitle: 'Bhutan, reimagined',
+    },
   ];
   return (
     <main>
@@ -97,8 +122,8 @@ export default function Home() {
       <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px] lg:px-[32px] scrollbar-hide">
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <h1>From Dream to Departure</h1>
-        <div className='w-[840px]'>
-          <p className='text-[20px]'>
+        <div className="w-[840px]">
+          <p className="text-[20px]">
             Every remarkable journey begins with a single step. Our simple,
             seamless process ensures your Bhutan experience is perfectly
             tailored, effortless, and unforgettable—from first inquiry to the
@@ -137,19 +162,23 @@ export default function Home() {
             },
           ].map(({ id, title, description, icon }) => {
             const IconCoponent = icon;
-            return(
-            <div key={id} className="flex flex-col items-center justify-center">
-              <div className="flex items-center justify-center size-[80px] rounded-full bg-primary">
-                <IconCoponent className='text-white' />
+            return (
+              <div
+                key={id}
+                className="flex flex-col items-center justify-center"
+              >
+                <div className="flex items-center justify-center size-[80px] rounded-full bg-primary">
+                  <IconCoponent className="text-white" />
+                </div>
+                <p className="mt-4 text-[24px] text-primary font-bold">
+                  0{id}. {title}
+                </p>
+                <div className="w-[180px]">
+                  <p className="text-[18px]">{description}</p>
+                </div>
               </div>
-              <p className="mt-4 text-[24px] text-primary font-bold">
-                0{id}. {title}
-              </p>
-              <div className="w-[180px]">
-                <p className="text-[18px]">{description}</p>
-              </div>
-            </div>
-          )})}
+            );
+          })}
         </div>
         <button className="px-[24px] py-[12px] bg-primary text-white text-2xl cursor-pointer">
           ENQUIRE NOW
@@ -170,11 +199,11 @@ export default function Home() {
           <div className="flex flex-col justify-between flex-1 px-[24px] py-[42px] text-white bg-black">
             <div>
               <span className="font-extrabold text-[24px]">Silent Monks</span>
-              <h3>
-               Whisper, wonder, wander
-              </h3>
+              <h3>Whisper, wonder, wander</h3>
               <span className="text-[18px]">
-                Step into Bhutan’s serene sanctuaries, where quiet moments, mindful rituals, and tranquil landscapes invite reflection, wonder, and a gentle escape from the everyday.
+                Step into Bhutan’s serene sanctuaries, where quiet moments,
+                mindful rituals, and tranquil landscapes invite reflection,
+                wonder, and a gentle escape from the everyday.
               </span>
             </div>
             <div className="bg-primary w-fit px-[16px] py-[8px] cursor-pointer">
@@ -196,10 +225,12 @@ export default function Home() {
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
                 <p className="font-extrabold text-[24px]">Family Legacy Tour</p>
-                <h3>
-                   Together, every step  
-                </h3>
-                <p className='text-[18px]'>Forge unforgettable memories exploring Bhutan’s culture, nature, and traditions together, crafting shared experiences that delight every generation in elegance and comfort.</p>
+                <h3>Together, every step</h3>
+                <p className="text-[18px]">
+                  Forge unforgettable memories exploring Bhutan’s culture,
+                  nature, and traditions together, crafting shared experiences
+                  that delight every generation in elegance and comfort.
+                </p>
                 <button className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
                 </button>
@@ -217,10 +248,12 @@ export default function Home() {
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
                 <p className="font-extrabold text-[24px]">Curated Adventure</p>
-                <h3>
-                  Thrills, tailored just for you
-                </h3>
-                <p className='text-[18px]'>Tailored for the discerning thrill-seeker, this journey blends Bhutan’s majestic landscapes, hidden trails, and exhilarating activities into a perfectly crafted adventure.</p>
+                <h3>Thrills, tailored just for you</h3>
+                <p className="text-[18px]">
+                  Tailored for the discerning thrill-seeker, this journey blends
+                  Bhutan’s majestic landscapes, hidden trails, and exhilarating
+                  activities into a perfectly crafted adventure.
+                </p>
                 <button className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
                 </button>
@@ -244,7 +277,11 @@ export default function Home() {
                 <h3 className="text-2xl lg:text-3xl font-extrabold">
                   Go wild, go Bhutan
                 </h3>
-                <p className='text-[18px]'>Venture into Bhutan’s untamed corners—remote valleys, pristine forests, and rare wildlife—where luxury meets the exhilaration of the kingdom’s wild heart.</p>
+                <p className="text-[18px]">
+                  Venture into Bhutan’s untamed corners—remote valleys, pristine
+                  forests, and rare wildlife—where luxury meets the exhilaration
+                  of the kingdom’s wild heart.
+                </p>
                 <button className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
                 </button>
@@ -265,7 +302,11 @@ export default function Home() {
                 <h3>
                   Her Bhutan, <br /> Her Story
                 </h3>
-                <p className='text-[18px]'>Celebrate female travelers with a journey of empowerment, connecting with Bhutanese women, cultural treasures, and shared experiences in refined comfort and style.</p>
+                <p className="text-[18px]">
+                  Celebrate female travelers with a journey of empowerment,
+                  connecting with Bhutanese women, cultural treasures, and
+                  shared experiences in refined comfort and style.
+                </p>
                 <button className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
                 </button>
@@ -319,8 +360,10 @@ export default function Home() {
             {/* Overlay */}
             <div className="absolute inset-0 bg-black/30 hover:bg-black/80 transition-all duration-500 ease-in-out flex flex-col items-center justify-center">
               <div className="text-center border-b-2 border-transparent group-hover:border-white transition-all duration-300">
-                <span className="text-white text-[32px] font-bold">{label}</span>
-                <p className='text-primary font-bold text-[24px]'>{subtitle}</p>
+                <span className="text-white text-[32px] font-bold">
+                  {label}
+                </span>
+                <p className="text-primary font-bold text-[24px]">{subtitle}</p>
               </div>
             </div>
           </div>
@@ -328,6 +371,52 @@ export default function Home() {
       </section>
       <section className="my-[42px] px-[16px] lg:px-[32px]">
         <SliderComponent />
+      </section>
+      <section className="flex flex-col items-center justify-center my-[80px] lg:px-[32px] px-[16px]">
+        <h1 className="text-3xl font-bold">Moments from Bhutan (Blog Post)</h1>
+        <p className="font-bold text-[18px] mt-2">
+          FRESHLY DISCOVERED, EXCLUSIVELY FOR YOU
+        </p>
+
+        <div className="flex flex-wrap gap-3 my-[42px]">
+          {[
+            {
+              id: 1,
+              image: '/images/dummy/img6.jpg',
+              label: 'BHUTAN IN THE CLOUD',
+              subtitle: 'Above the ordinary',
+            },
+            {
+              id: 2,
+              image: '/images/dummy/img5.jpg',
+              label: 'BHUTAN THROUGH THE LENS',
+              subtitle: 'Capture the extraordinary',
+            },
+            {
+              id: 3,
+              image: '/images/dummy/img3.jpg',
+              label: 'CULINARY TAPESTRY',
+              subtitle: 'Savor the sublime',
+            },
+          ].map(({ id, image, label }) => (
+            <div
+              key={id}
+              className="relative size-[450px] flex items-center justify-center  overflow-hidden group cursor-pointer"
+              style={{
+                backgroundImage: `url(${image})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            >
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition duration-300"></div>
+              <div className="relative text-center text-white">
+                <h4 className="text-xl font-bold text-white relative inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 group-hover:after:w-full">
+                  {label}
+                </h4>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
