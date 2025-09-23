@@ -6,16 +6,17 @@ import Image from 'next/image';
 
 export default function Home() {
   const ImageBox = [
-    { id: 1, image: '/images/dummy/img6.jpg', label: 'BHUTAN IN THE CLOUD' },
+    { id: 1, image: '/images/dummy/img6.jpg', label: 'BHUTAN IN THE CLOUD', subtitle: 'Above the ordinary' },
     {
       id: 2,
       image: '/images/dummy/img5.jpg',
       label: 'BHUTAN THROUGH THE LENS',
+      subtitle: 'Capture the extraordinary',
     },
-    { id: 3, image: '/images/dummy/img3.jpg', label: 'CULINARY TAPESTRY' },
-    { id: 4, image: '/images/dummy/img11.jpg', label: 'RIVER RAFTING' },
-    { id: 5, image: '/images/dummy/img2.jpg', label: 'EDUCATION TOUR' },
-    { id: 6, image: '/images/dummy/img7.jpg', label: 'FUTURE TRAVEL' },
+    { id: 3, image: '/images/dummy/img3.jpg', label: 'CULINARY TAPESTRY', subtitle: 'Savor the sublime'},
+    { id: 4, image: '/images/dummy/img11.jpg', label: 'RIVER RAFTING', subtitle: 'Heritage in full color' },
+    { id: 5, image: '/images/dummy/img2.jpg', label: 'EDUCATION TOUR', subtitle: 'Enrich your journey' },
+    { id: 6, image: '/images/dummy/img7.jpg', label: 'FUTURE TRAVEL', subtitle: 'Bhutan, reimagined' },
   ];
   return (
     <main>
@@ -104,7 +105,7 @@ export default function Home() {
             moment you depart.
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center lg:flex-row my-[40px] gap-8">
+        <div className="flex flex-col items-start justify-center lg:flex-row my-[40px] gap-8">
           {[
             {
               id: 1,
@@ -141,7 +142,7 @@ export default function Home() {
               <div className="flex items-center justify-center size-[80px] rounded-full bg-primary">
                 <IconCoponent className='text-white' />
               </div>
-              <p className="mt-4 text-[24px] text-primary">
+              <p className="mt-4 text-[24px] text-primary font-bold">
                 0{id}. {title}
               </p>
               <div className="w-[180px]">
@@ -150,7 +151,7 @@ export default function Home() {
             </div>
           )})}
         </div>
-        <button className="px-[24px] py-[12px] bg-primary text-white text-2xl">
+        <button className="px-[24px] py-[12px] bg-primary text-white text-2xl cursor-pointer">
           ENQUIRE NOW
         </button>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
@@ -301,7 +302,7 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] lg:gap-[8px]">
-        {ImageBox.map(({ id, image, label }) => (
+        {ImageBox.map(({ id, image, label, subtitle }) => (
           <div
             key={id}
             className="relative border aspect-square overflow-hidden group cursor-pointer"
@@ -316,9 +317,10 @@ export default function Home() {
             />
 
             {/* Overlay */}
-            <div className="absolute inset-0 bg-black/30 hover:bg-black/60 transition-all duration-500 ease-in-out flex flex-col items-center justify-center">
-              <div className="border-b-2 border-transparent group-hover:border-primary transition-all duration-300">
-                <span className="text-white text-lg font-bold">{label}</span>
+            <div className="absolute inset-0 bg-black/30 hover:bg-black/80 transition-all duration-500 ease-in-out flex flex-col items-center justify-center">
+              <div className="text-center border-b-2 border-transparent group-hover:border-white transition-all duration-300">
+                <span className="text-white text-[32px] font-bold">{label}</span>
+                <p className='text-primary font-bold text-[24px]'>{subtitle}</p>
               </div>
             </div>
           </div>
