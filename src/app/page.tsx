@@ -410,14 +410,39 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition duration-300"></div>
               <div className="relative text-center text-white">
-                <h4
-                  className="text-xl font-bold text-white relative inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-primary after:mx-auto after:transition-all after:duration-500 delay-75 group-hover:after:w-full"
-                >
+                <h4 className="text-xl font-bold text-white relative inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-primary after:mx-auto after:transition-all after:duration-500 delay-75 group-hover:after:w-full">
                   {label}
                 </h4>
               </div>
             </div>
           ))}
+        </div>
+        <div className="bg-black w-full p-[24px]">
+          <div className="flex flex-col lg:flex-row gap-6">
+            <div className="flex-3">
+              <h3>Let’s Talk</h3>
+            </div>
+            <div className="flex-2">
+              <p className="text-white text-[20px] leading-relaxed">
+                Combine helicopter journeys with sustainable luxury lodges,
+                curated local cuisine, and intimate cultural experiences for a
+                fully bespoke Bhutanese exploration.
+              </p>
+            </div>
+          </div>
+          <div
+            className="w-full mt-[32px] h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
+            style={{
+              backgroundImage: "url('/images/slide.jpg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
+            <h4 className="relative z-10 text-white inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full">
+              Connect Now – We’ll throw in enlightenment
+            </h4>
+          </div>
         </div>
       </section>
     </main>
