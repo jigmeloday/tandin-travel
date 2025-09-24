@@ -1,6 +1,59 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 function Footer() {
+  const COMAPNY_LINK = [
+    {
+      link: '/',
+      label: 'About Us'
+    },
+    {
+      link: '/',
+      label: 'Terms & Conditions'
+    },
+    {
+      link: '/',
+      label: 'Privacy Policy'
+    },
+    {
+      link: '/',
+      label: 'Testimonial'
+    },
+    {
+      link: '/',
+      label: 'Responsible Travel'
+    },
+    {
+      link: '/',
+      label: 'Our Blogs'
+    }
+  ]
+  const SERVICES_LINK = [
+    {
+      link: '/',
+      label: 'About Us'
+    },
+    {
+      link: '/',
+      label: 'Terms & Conditions'
+    },
+    {
+      link: '/',
+      label: 'Privacy Policy'
+    },
+    {
+      link: '/',
+      label: 'Testimonial'
+    },
+    {
+      link: '/',
+      label: 'Responsible Travel'
+    },
+    {
+      link: '/',
+      label: 'Our Blogs'
+    }
+  ]
   return (
     <div className="flex space-x-8 w-full bg-black py-[32px] px-[112px]">
       <div className="flex flex-1 space-x-6">
@@ -23,11 +76,29 @@ function Footer() {
           </p>
         </div>
       </div>
-      <div className="flex-1">
-        <p className='text-white text-1xl font-[700] font-sans'>COMPANY</p>
+      <div className='flex flex-2 w-full justify-end'>
+        <div className="flex-1 flex flex-col items-center">
+       <div>
+         <p className='text-white text-1xl font-[700] font-sans'>COMPANY</p>
+        <div className='flex flex-col text-white space-y-1'>
+          {
+            COMAPNY_LINK.map(({ link, label }) => (
+              <Link key={label} href={link}>{label}</Link>
+            ))
+          }
+        </div>
+       </div>
       </div>
-       <div className="flex-1">
-        <p className='text-white text-1xl font-[700] font-sans'>SERVICES</p>
+       <div className="flex flex-col items-center flex-1">
+        <div><p className='text-white text-1xl font-[700] font-sans'>SERVICES</p>
+        <div className='flex flex-col text-white space-y-1'>
+          {
+            SERVICES_LINK.map(({ link, label }) => (
+              <Link key={label} href={link}>{label}</Link>
+            ))
+          }
+        </div></div>
+      </div>
       </div>
     </div>
   );

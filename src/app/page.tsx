@@ -378,7 +378,7 @@ export default function Home() {
           FRESHLY DISCOVERED, EXCLUSIVELY FOR YOU
         </p>
 
-        <div className="flex flex-wrap gap-3 my-[42px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full gap-2 my-[40px]">
           {[
             {
               id: 1,
@@ -401,7 +401,7 @@ export default function Home() {
           ].map(({ id, image, label }) => (
             <div
               key={id}
-              className="relative size-[450px] flex items-center justify-center  overflow-hidden group cursor-pointer"
+              className="relative w-full aspect-square flex items-center justify-center overflow-hidden group cursor-pointer"
               style={{
                 backgroundImage: `url(${image})`,
                 backgroundSize: 'cover',
@@ -417,6 +417,7 @@ export default function Home() {
             </div>
           ))}
         </div>
+
         <div className="bg-black w-full p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-3">
