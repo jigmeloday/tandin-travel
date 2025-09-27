@@ -3,6 +3,7 @@ import HeroSwapper from '@/components/landing-component/hero-swapper';
 import SliderComponent from '@/components/landing-component/slider';
 import { Headphones, Mail, Plane, Search } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   const ImageBox = [
@@ -79,21 +80,25 @@ export default function Home() {
               img: 'img1',
               title: 'BESPOKE JOURNEYS',
               subtitle: '(Your story, perfectly tailored)',
+              link: '/bespoke-journey',
             },
             {
               id: 2,
               img: 'img2',
               title: 'EXQUISITE STAYS',
               subtitle: '(Where elegance feels effortless) ',
+              link: '/culture-wellness',
             },
             {
               id: 3,
               img: 'img3',
               title: 'CULTURE & WELLNESS',
               subtitle: '(Revive, connect, and awaken)',
+              link: '/culture-wellness',
             },
-          ].map(({ img, title, subtitle }, idx) => (
-            <div
+          ].map(({ img, title, subtitle, link }, idx) => (
+            <Link
+              href={link}
               key={idx}
               className="relative w-full aspect-square text-center overflow-hidden group cursor-pointer"
             >
@@ -111,7 +116,7 @@ export default function Home() {
                   {subtitle}
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -421,7 +426,7 @@ export default function Home() {
         <div className="bg-black w-full p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-3">
-              <h3>Let’s Talk</h3>
+              <h1>Let’s Talk</h1>
             </div>
             <div className="flex-2">
               <p className="text-white text-[20px] leading-relaxed">
