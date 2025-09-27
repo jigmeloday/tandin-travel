@@ -101,7 +101,7 @@ function Page() {
           ))}
         </div>
       </section>
-       <section className="w-full h-screen bg-black">
+       <section className="w-full h-[70vh] bg-black">
               <div className="flex h-full">
                 <div className="flex-1 h-full">
                   <div className="relative w-full h-full flex items-center justify-center gap-4">
