@@ -87,7 +87,7 @@ export default function Home() {
               img: 'img2',
               title: 'EXQUISITE STAYS',
               subtitle: '(Where elegance feels effortless) ',
-              link: '/culture-wellness',
+              link: '/exquisite-stays',
             },
             {
               id: 3,

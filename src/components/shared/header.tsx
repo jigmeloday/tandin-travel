@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import Image from "next/image";
+import Link from 'next/link';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,7 +38,7 @@ function Header() {
         ${hidden ? "-translate-y-full" : "translate-y-0"}
       `}
     >
-      <div className="flex lg:justify-center items-center w-full text-white h-full">
+      <Link href='/' className="flex lg:justify-center items-center w-full text-white h-full cursor-pointer">
         <Image
           src="/logo/logo.webp"
           alt="logo"
@@ -45,7 +46,7 @@ function Header() {
           width={1000}
           className="size-[50px] object-contain"
         />
-      </div>
+      </Link>
       <div>
         <Menu size={40} className="text-primary cursor-pointer" />
       </div>

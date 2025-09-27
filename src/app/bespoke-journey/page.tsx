@@ -175,7 +175,6 @@ function Page() {
           </div>
         </div>
       </section>
-
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
