@@ -5,7 +5,7 @@ import Link from 'next/link';
 function Page() {
   return (
     <main>
-      <section className="relative h-screen w-full overflow-hidden">
+      <section className="relative h-[70vh] w-full overflow-hidden">
         <Image
           src="/images/hotel/h5.jpg"
           alt="Bespoke Journey"
@@ -37,7 +37,6 @@ function Page() {
           </div>
         </div>
       </section>
-
       <section className="px-[16px] lg:px-[32px] my-[50px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-[24px]">
           <div className="aspect-square bg-gray-200">
@@ -80,7 +79,7 @@ function Page() {
               />
             </div>
           </div>
-          <div className="flex-1">
+          <div className="relative flex-1">
             <div className="flex flex-col justify-between h-full p-2">
               <div className="w-[80%]">
                 <h1>Enjoy Your Dream Vacation</h1>
@@ -96,6 +95,51 @@ function Page() {
                 </p>
               </div>
             </div>
+            <div className="absolute -bottom-2 right-0 w-[64%] border-b-4 border-primary rounded-full" />
+          </div>
+        </div>
+      </section>
+      <section className="w-full h-screen bg-black">
+        <div className="flex h-full">
+          <div className="flex-1 h-full">
+            <div className="relative w-full h-full flex items-center justify-center gap-4">
+              <div className="transform translate-y-6">
+                <Image
+                  src="/images/hotel/h4.jpg"
+                  alt="Exquisite Stays"
+                  width={800}
+                  height={1080}
+                  className="w-[240px] h-[430px] object-cover"
+                />
+              </div>
+
+              {/* Right Image - slightly down */}
+              <div className="transform -translate-y-6">
+                <Image
+                  src="/images/hotel/h3.jpg"
+                  alt="Exquisite Stays"
+                  width={800}
+                  height={1080}
+                  className="w-[240px] h-[430px] object-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col justify-between gap-6 p-[32px] lg:p-[64px] flex-1">
+            <div>
+              <h1 className="mb-0 leading-[1.2]">Luxury Experience You’ll</h1>
+              <h1 className="leading-[1.2] border-b-4 border-white pb-2 w-fit">
+                Remember
+              </h1>
+            </div>
+            <p className="text-white text-[32px]">
+              Combine helicopter journeys with sustainable luxury lodges,
+              curated local cuisine, and intimate cultural experiences for a
+              fully bespoke Bhutanese exploration.
+            </p>
+            <p className="text-white font-bold font-sans text-[20px]">
+              YOU ARE BHUTANA AND OTES EHTE
+            </p>
           </div>
         </div>
       </section>

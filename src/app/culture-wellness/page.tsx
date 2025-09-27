@@ -39,9 +39,9 @@ function Page() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="px-[32px] mb-[142px] bg-black py-[32px]">
-       <div className='text-center'>
-        <h1 className='text-white'> Bhutan From Above</h1>
-       </div>
+        <div className="text-center">
+          <h1 className="text-white"> Bhutan From Above</h1>
+        </div>
         <div className="grid lg:grid-cols-3 gap-2 w-full my-6">
           {[
             {
@@ -101,6 +101,50 @@ function Page() {
           ))}
         </div>
       </section>
+       <section className="w-full h-screen bg-black">
+              <div className="flex h-full">
+                <div className="flex-1 h-full">
+                  <div className="relative w-full h-full flex items-center justify-center gap-4">
+                    <div className="transform translate-y-6">
+                      <Image
+                        src="/images/dummy/img2.jpg"
+                        alt="Exquisite Stays"
+                        width={800}
+                        height={1080}
+                        className="w-[240px] h-[430px] object-cover"
+                      />
+                    </div>
+      
+                    {/* Right Image - slightly down */}
+                    <div className="transform -translate-y-6">
+                      <Image
+                        src="/images/dummy/img1.jpg"
+                        alt="Exquisite Stays"
+                        width={800}
+                        height={1080}
+                        className="w-[240px] h-[430px] object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col justify-between gap-6 p-[32px] lg:p-[64px] flex-1">
+                  <div>
+                    <h1 className="mb-0 leading-[1.2]">Luxury Experience You’ll</h1>
+                    <h1 className="leading-[1.2] border-b-4 border-white pb-2 w-fit">
+                      Remember
+                    </h1>
+                  </div>
+                  <p className="text-white text-[32px]">
+                    Combine helicopter journeys with sustainable luxury lodges,
+                    curated local cuisine, and intimate cultural experiences for a
+                    fully bespoke Bhutanese exploration.
+                  </p>
+                  <p className="text-white font-bold font-sans text-[20px]">
+                    YOU ARE BHUTANA AND OTES EHTE
+                  </p>
+                </div>
+              </div>
+            </section>
       <section className="relative w-full h-[80vh] hidden lg:block">
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
@@ -128,7 +172,7 @@ function Page() {
           </div>
         </div>
       </section>
-        <section className="px-[32px] mb-[142px]">
+      <section className="px-[32px] mb-[142px]">
         <div className="grid lg:grid-cols-2 gap-8 w-full mb-5">
           {[
             {
