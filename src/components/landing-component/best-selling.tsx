@@ -5,53 +5,11 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { IMAGE_BOX } from '@/lib/dummy-data/dummy-data';
+import Link from 'next/link';
 
 function BestSelling() {
-  const tours = [
-    {
-      id: 1,
-      title: "HER BHUTAN, HER STORY",
-      description: "Discover Bhutan through inspiring women’s eyes—intimate stories, hidden traditions, and unique encounters that reveal a side of the kingdom rarely seen by travelers.",
-      category: "WOMEN ONLY TOUR",
-      image: "/images/dummy/img5.jpg"
-    },
-    {
-      id: 2,
-      title: "Bhutan Soul Walk",
-      description: "Step into Bhutan’s serene landscapes and sacred corners, where every path inspires reflection, every view awakens wonder, and your soul leaves footprints of tranquility.",
-      category: "A GENTLE JOURNEY",
-      image: "/images/dummy/img6.jpg"
-    },
-    {
-      id: 3,
-      title: "Mysteries of Gangkar Puensum",
-      description: "Venture where few have tread: mystical peaks, untouched valleys, and sacred secrets await in the shadow of Bhutan’s enigmatic Gangkar Puensum.",
-      category: "ADVENTURE TOUR",
-      image: "/images/dummy/img7.jpg"
-    },
-    {
-      id: 4,
-      title: "Tribal Ties: East to West",
-      description: "Journey across Bhutan’s diverse lands, meeting vibrant tribes, witnessing age-old rituals, and connecting deeply with traditions that span the kingdom’s rich tapestry.",
-      category: "NATURE TOUR",
-      image: "/images/dummy/img8.jpg"
-    },
-    {
-      id: 5,
-      title: "Druk Path Awakening",
-      description: "Awaken your senses on this iconic trek, where alpine lakes, misty valleys, and ancient monasteries invite awe, adventure, and spiritual reflection at every step.",
-      category: "SPIRITUAL TOUR",
-      image: "/images/dummy/img9.jpg"
-    },
-    {
-      id: 6,
-      title: "Sacred Symphony",
-      description: "Feel Bhutan’s heartbeat through ritual, music, and heritage, where every moment resonates in harmony, crafting an unforgettable journey of culture, spirit, and discovery.",
-      category: "SPIRITUAL TOUR",
-      image: "/images/dummy/img9.jpg"
-    }
-  ];
-
+  
   return (
     <div className="relative w-full overflow-hidden my-8 px-4">      
       <Swiper
@@ -72,7 +30,7 @@ function BestSelling() {
         
         className="w-full"
       >
-        {tours.map((tour) => (
+        {IMAGE_BOX.filter((item) => item.best_sell).map((tour) => (
           <SwiperSlide
            key={tour.id}>
             <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[400px] border-l-8 border-primary overflow-hidden group">
@@ -82,7 +40,7 @@ function BestSelling() {
                 <div className="w-full lg:w-[60%] h-64 lg:h-full relative">
                   <Image
                     src={tour.image}
-                    alt={tour.title}
+                    alt={tour.title || 'img'}
                     fill
                     className="object-cover"
                   />
@@ -108,9 +66,9 @@ function BestSelling() {
 
                   {/* Call to action */}
                   <div className="mt-2 sm:mt-4 self-start">
-                    <button className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
+                    <Link href={`/packages/${tour.id}`} className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
                       VIEW DETAILS
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

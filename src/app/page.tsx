@@ -2,7 +2,7 @@ import BestSelling from '@/components/landing-component/best-selling';
 import HeroSwapper from '@/components/landing-component/hero-swapper';
 import SliderComponent from '@/components/landing-component/slider';
 import ImageBox from '@/components/shared/image-box';
-import { IMAGE_BOX } from '@/lib/dummy-data/dummy-data';
+import { IMAGE_BOX, TOUR_TYPE } from '@/lib/dummy-data/dummy-data';
 import { Headphones, Mail, Plane, Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -38,29 +38,7 @@ export default function Home() {
       </section>
       <section className="px-[32px] mb-[142px]">
         <div className="grid lg:grid-cols-3 gap-4 w-full mb-5">
-          {[
-            {
-              id: 1,
-              img: 'img1',
-              title: 'BESPOKE JOURNEYS',
-              subtitle: '(Your story, perfectly tailored)',
-              link: '/bespoke-journey',
-            },
-            {
-              id: 2,
-              img: 'img2',
-              title: 'EXQUISITE STAYS',
-              subtitle: '(Where elegance feels effortless) ',
-              link: '/exquisite-stays',
-            },
-            {
-              id: 3,
-              img: 'img3',
-              title: 'CULTURE & WELLNESS',
-              subtitle: '(Revive, connect, and awaken)',
-              link: '/culture-wellness',
-            },
-          ].map(({ img, title, subtitle, link }, idx) => (
+          {TOUR_TYPE.map(({ img, title, subtitle, link }, idx) => (
             <Link
               href={link}
               key={idx}
@@ -312,8 +290,14 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] lg:gap-[8px]">
-        {IMAGE_BOX.map(({ id, image, label, subtitle }) => (
-          <ImageBox key={id} image={image} label={label} subtitle={subtitle} />
+        {IMAGE_BOX.filter((item) => !item.best_sell).map(({ id, image, label, subtitle }) => (
+          <ImageBox
+            id={id}
+            key={id}
+            image={image}
+            label={label || ''}
+            subtitle={subtitle}
+          />
         ))}
       </section>
       <section className="my-[42px] px-[16px] lg:px-[32px]">

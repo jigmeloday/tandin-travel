@@ -81,8 +81,8 @@ function Page() {
         </div>
       </section>
       <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] lg:gap-[8px] my-[24px] lg:my-[50px]">
-        {IMAGE_BOX.map(({ id, image, label, subtitle }) => (
-          <ImageBox key={id} image={image} label={label} subtitle={subtitle} />
+        {IMAGE_BOX.filter((item) => !item.best_sell).map(({ id, image, label, subtitle }) => (
+          <ImageBox id={id} key={id} image={image} label={label || ''} subtitle={subtitle} />
         ))}
       </section>
     </main>

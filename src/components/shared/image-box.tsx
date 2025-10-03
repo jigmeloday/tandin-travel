@@ -1,16 +1,19 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 function ImageBox({
+  id,
   image,
   label,
   subtitle
 }: {
+  id: string | number
   image: string;
   label: string;
   subtitle?: string;
 }) {
   return (
-    <div className="relative border aspect-square overflow-hidden group cursor-pointer">
+    <Link href={`/packages/${id}`} className="relative border aspect-square overflow-hidden group cursor-pointer">
       {/* Image */}
       <Image
         src={image}
@@ -27,7 +30,7 @@ function ImageBox({
           <p className="text-primary font-bold text-[24px]">{subtitle}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
