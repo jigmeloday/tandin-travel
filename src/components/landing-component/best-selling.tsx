@@ -75,7 +75,7 @@ function BestSelling() {
         {tours.map((tour) => (
           <SwiperSlide
            key={tour.id}>
-            <div className="flex-shrink-0 w-full h-[300px] lg:h-[600px] border-l-8 border-primary overflow-hidden group">
+            <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[400px] border-l-8 border-primary overflow-hidden group">
               {/* Card container */}
               <div className="flex flex-col lg:flex-row h-full w-full bg-black transition-transform duration-300">
                 {/* Image section */}
@@ -96,10 +96,12 @@ function BestSelling() {
                     <span className="font-extrabold text-xs sm:text-sm tracking-wider uppercase text-white">
                       {tour.category}
                     </span>
-                    <h4>
+                   <div className='my-[12px]'>
+                     <h3 className='leading-8'>
                       {tour.title}
-                    </h4>
-                    <p className="text-sm sm:text-[16px] lg:text-[18px] font-light text-gray-200">
+                    </h3>
+                   </div>
+                    <p className="text-sm sm:text-[16px] lg:text-[20px] font-light text-gray-200">
                       {tour.description}
                     </p>
                   </div>

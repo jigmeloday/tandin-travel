@@ -1,49 +1,13 @@
 import BestSelling from '@/components/landing-component/best-selling';
 import HeroSwapper from '@/components/landing-component/hero-swapper';
 import SliderComponent from '@/components/landing-component/slider';
+import ImageBox from '@/components/shared/image-box';
+import { IMAGE_BOX } from '@/lib/dummy-data/dummy-data';
 import { Headphones, Mail, Plane, Search } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
-  const ImageBox = [
-    {
-      id: 1,
-      image: '/images/dummy/img6.jpg',
-      label: 'BHUTAN IN THE CLOUD',
-      subtitle: 'Above the ordinary',
-    },
-    {
-      id: 2,
-      image: '/images/dummy/img5.jpg',
-      label: 'BHUTAN THROUGH THE LENS',
-      subtitle: 'Capture the extraordinary',
-    },
-    {
-      id: 3,
-      image: '/images/dummy/img3.jpg',
-      label: 'CULINARY TAPESTRY',
-      subtitle: 'Savor the sublime',
-    },
-    {
-      id: 4,
-      image: '/images/dummy/img11.jpg',
-      label: 'RIVER RAFTING',
-      subtitle: 'Heritage in full color',
-    },
-    {
-      id: 5,
-      image: '/images/dummy/img2.jpg',
-      label: 'EDUCATION TOUR',
-      subtitle: 'Enrich your journey',
-    },
-    {
-      id: 6,
-      image: '/images/dummy/img7.jpg',
-      label: 'FUTURE TRAVEL',
-      subtitle: 'Bhutan, reimagined',
-    },
-  ];
   return (
     <main>
       <section className="h-screen w-full overflow-hidden">
@@ -348,30 +312,8 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] lg:gap-[8px]">
-        {ImageBox.map(({ id, image, label, subtitle }) => (
-          <div
-            key={id}
-            className="relative border aspect-square overflow-hidden group cursor-pointer"
-          >
-            {/* Image */}
-            <Image
-              src={image}
-              alt="image"
-              height={500}
-              width={500}
-              className="object-cover h-full w-full"
-            />
-
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/30 hover:bg-black/80 transition-all duration-500 ease-in-out flex flex-col items-center justify-center">
-              <div className="text-center border-b-2 border-transparent group-hover:border-white transition-all duration-300">
-                <span className="text-white text-[32px] font-bold">
-                  {label}
-                </span>
-                <p className="text-primary font-bold text-[24px]">{subtitle}</p>
-              </div>
-            </div>
-          </div>
+        {IMAGE_BOX.map(({ id, image, label, subtitle }) => (
+          <ImageBox key={id} image={image} label={label} subtitle={subtitle} />
         ))}
       </section>
       <section className="my-[42px] px-[16px] lg:px-[32px]">
