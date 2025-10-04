@@ -41,8 +41,8 @@ function Header() {
   return (
     <div
       className={`fixed w-full px-[16px] py-[24px] flex justify-between items-center 
-        transition-all duration-300 z-50
-        ${scrolled ? 'bg-white shadow-2xl border-b' : 'bg-transparent'}
+        transition-all duration-300 z-50 bg-white 
+        ${scrolled ? 'shadow-2xl border-b' : 'bg-transparent'}
         ${hidden ? '-translate-y-full' : 'translate-y-0'}
       `}
     >
@@ -64,12 +64,23 @@ function Header() {
         </SheetTrigger>
         <SheetContent side='top'>
           <SheetHeader>
-            <SheetTitle>Are you absolutely sure?</SheetTitle>
-            <SheetDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </SheetDescription>
+            <SheetTitle/>
+            <SheetDescription />
           </SheetHeader>
+          <nav className="flex flex-col items-center justify-center w-full md:gap-8 mb-[50px]">
+          <Link href="/" className="text-[32px] font-medium hover:text-primary transition">
+            Home
+          </Link>
+          <Link href="/about" className="text-[32px] font-medium hover:text-primary transition">
+            About
+          </Link>
+          <Link href="/services" className="text-[32px] font-medium hover:text-primary transition">
+            Services
+          </Link>
+          <Link href="/contact" className="text-[32px] font-medium hover:text-primary transition">
+            Contact
+          </Link>
+        </nav>
         </SheetContent>
       </Sheet>
     </div>
