@@ -16,15 +16,14 @@ function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [open, setOpen] = useState(false); // <-- Sheet open state
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // background toggle
       setScrolled(currentScrollY > 100);
 
-      // hide on scroll down, show on scroll up
       if (currentScrollY > lastScrollY && currentScrollY > 750) {
         setHidden(true);
       } else {
@@ -37,6 +36,9 @@ function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
+
+  // function to close Sheet on link click
+  const handleLinkClick = () => setOpen(false);
 
   return (
     <div
@@ -58,29 +60,47 @@ function Header() {
           className="size-[50px] object-contain"
         />
       </Link>
-      <Sheet>
+
+      <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger>
           <Menu size={40} className="text-primary cursor-pointer" />
         </SheetTrigger>
-        <SheetContent side='top'>
+        <SheetContent side='top' className='h-screen'>
           <SheetHeader>
             <SheetTitle/>
             <SheetDescription />
           </SheetHeader>
+
           <nav className="flex flex-col items-center justify-center w-full md:gap-8 mb-[50px]">
-          <Link href="/" className="text-[32px] font-medium hover:text-primary transition">
-            Home
-          </Link>
-          <Link href="/about" className="text-[32px] font-medium hover:text-primary transition">
-            About
-          </Link>
-          <Link href="/services" className="text-[32px] font-medium hover:text-primary transition">
-            Services
-          </Link>
-          <Link href="/contact" className="text-[32px] font-medium hover:text-primary transition">
-            Contact
-          </Link>
-        </nav>
+            <Link
+              href="/"
+              className="text-[32px] font-medium hover:text-primary transition"
+              onClick={handleLinkClick}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              className="text-[32px] font-medium hover:text-primary transition"
+              onClick={handleLinkClick}
+            >
+              About
+            </Link>
+            <Link
+              href="/services"
+              className="text-[32px] font-medium hover:text-primary transition"
+              onClick={handleLinkClick}
+            >
+              Services
+            </Link>
+            <Link
+              href="/contact"
+              className="text-[32px] font-medium hover:text-primary transition"
+              onClick={handleLinkClick}
+            >
+              Contact
+            </Link>
+          </nav>
         </SheetContent>
       </Sheet>
     </div>
