@@ -153,9 +153,9 @@ export default function Home() {
                 wonder, and a gentle escape from the everyday.
               </span>
             </div>
-            <div className="bg-primary w-fit px-[16px] py-[8px] cursor-pointer">
+            <Link href={`/packages/${12}`} className="bg-primary w-fit px-[16px] py-[8px] cursor-pointer">
               VIEW DETAILS
-            </div>
+            </Link>
           </div>
         </div>
         <div className="space-y-[32px]">
@@ -178,9 +178,9 @@ export default function Home() {
                   nature, and traditions together, crafting shared experiences
                   that delight every generation in elegance and comfort.
                 </p>
-                <button className="py-2 px-4 bg-primary mt-6 w-fit">
+                <Link href={`/packages/${13}`} className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
-                </button>
+                </Link>
               </div>
             </div>
             <div className="border w-full lg:flex-[2] flex flex-col">
@@ -201,9 +201,9 @@ export default function Home() {
                   Bhutan’s majestic landscapes, hidden trails, and exhilarating
                   activities into a perfectly crafted adventure.
                 </p>
-                <button className="py-2 px-4 bg-primary mt-6 w-fit">
+                <Link href={`/packages/${14}`} className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -229,9 +229,9 @@ export default function Home() {
                   forests, and rare wildlife—where luxury meets the exhilaration
                   of the kingdom’s wild heart.
                 </p>
-                <button className="py-2 px-4 bg-primary mt-6 w-fit">
+                <Link href={`/packages/${15}`} className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
-                </button>
+                </Link>
               </div>
             </div>
             <div className="border w-full lg:flex-[1] flex flex-col">
@@ -246,7 +246,7 @@ export default function Home() {
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
                 <p className="font-extrabold text-[24px]">WOMEN ONLY TOUR</p>
-                <h3>
+                <h3 className='leading-6 my-[12px]'>
                   Her Bhutan, <br /> Her Story
                 </h3>
                 <p className="text-[18px]">
@@ -254,9 +254,9 @@ export default function Home() {
                   connecting with Bhutanese women, cultural treasures, and
                   shared experiences in refined comfort and style.
                 </p>
-                <button className="py-2 px-4 bg-primary mt-6 w-fit">
+                <Link href={`/packages/${16}`} className="py-2 px-4 bg-primary mt-6 w-fit">
                   VIEW DETAILS
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -290,12 +290,12 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] lg:gap-[8px]">
-        {IMAGE_BOX.filter((item) => !item.best_sell).map(({ id, image, label, subtitle }) => (
+        {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(({ id, image, title, subtitle }) => (
           <ImageBox
             id={id}
             key={id}
             image={image}
-            label={label || ''}
+            label={title || ''}
             subtitle={subtitle}
           />
         ))}
@@ -355,7 +355,7 @@ export default function Home() {
               <h1>Let’s Talk</h1>
             </div>
             <div className="flex-2">
-              <p className="text-white text-[20px] leading-relaxed">
+              <p className="text-white text-[20px]">
                 Combine helicopter journeys with sustainable luxury lodges,
                 curated local cuisine, and intimate cultural experiences for a
                 fully bespoke Bhutanese exploration.

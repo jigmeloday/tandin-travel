@@ -1,8 +1,16 @@
-"use client";
-import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
-import Image from "next/image";
+'use client';
+import { useEffect, useState } from 'react';
+import { Menu } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '../ui/sheet';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -26,19 +34,22 @@ function Header() {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
   return (
     <div
       className={`fixed w-full px-[16px] py-[24px] flex justify-between items-center 
         transition-all duration-300 z-50
-        ${scrolled ? "bg-white shadow-2xl border-b" : "bg-transparent"}
-        ${hidden ? "-translate-y-full" : "translate-y-0"}
+        ${scrolled ? 'bg-white shadow-2xl border-b' : 'bg-transparent'}
+        ${hidden ? '-translate-y-full' : 'translate-y-0'}
       `}
     >
-      <Link href='/' className="flex lg:justify-center items-center w-full text-white h-full cursor-pointer">
+      <Link
+        href="/"
+        className="flex lg:justify-center items-center w-full text-white h-full cursor-pointer"
+      >
         <Image
           src="/logo/logo.webp"
           alt="logo"
@@ -47,9 +58,20 @@ function Header() {
           className="size-[50px] object-contain"
         />
       </Link>
-      <div>
-        <Menu size={40} className="text-primary cursor-pointer" />
-      </div>
+      <Sheet>
+        <SheetTrigger>
+          <Menu size={40} className="text-primary cursor-pointer" />
+        </SheetTrigger>
+        <SheetContent side='top'>
+          <SheetHeader>
+            <SheetTitle>Are you absolutely sure?</SheetTitle>
+            <SheetDescription>
+              This action cannot be undone. This will permanently delete your
+              account and remove your data from our servers.
+            </SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }

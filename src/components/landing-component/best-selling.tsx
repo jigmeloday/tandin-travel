@@ -17,7 +17,7 @@ function BestSelling() {
         spaceBetween={30}
         slidesPerView={2}
         autoplay={{
-          delay: 2000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
          pagination={{
@@ -59,7 +59,7 @@ function BestSelling() {
                       {tour.title}
                     </h3>
                    </div>
-                    <p className="text-sm sm:text-[16px] lg:text-[20px] font-light text-gray-200">
+                    <p className="text-sm sm:text-[16px] lg:text-[20px] font-light text-gray-200 leading-[24px]">
                       {tour.description}
                     </p>
                   </div>

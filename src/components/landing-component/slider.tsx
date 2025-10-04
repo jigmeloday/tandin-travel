@@ -59,7 +59,7 @@ export default function SliderComponent() {
               <div className="border-t-4 border-red-700 mb-4" />
               <p className="uppercase text-sm font-bold">{slide.subtitle}</p>
               <h2 className="text-3xl font-extrabold my-4">{slide.title}</h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
+              <p className="text-gray-700 mb-6">
                 {slide.description}
               </p>
               <p className="uppercase text-sm font-bold border-b-2 border-red-700 inline-block">

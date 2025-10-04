@@ -2,37 +2,37 @@ export const IMAGE_BOX = [
   {
     id: 1,
     image: '/images/dummy/img6.jpg',
-    label: 'BHUTAN IN THE CLOUD',
+    title: 'BHUTAN IN THE CLOUD',
     subtitle: 'Above the ordinary',
   },
   {
     id: 2,
     image: '/images/dummy/img5.jpg',
-    label: 'BHUTAN THROUGH THE LENS',
+    title: 'BHUTAN THROUGH THE LENS',
     subtitle: 'Capture the extraordinary',
   },
   {
     id: 3,
     image: '/images/dummy/img3.jpg',
-    label: 'CULINARY TAPESTRY',
+    title: 'CULINARY TAPESTRY',
     subtitle: 'Savor the sublime',
   },
   {
     id: 4,
     image: '/images/dummy/img11.jpg',
-    label: 'RIVER RAFTING',
+    title: 'RIVER RAFTING',
     subtitle: 'Heritage in full color',
   },
   {
     id: 5,
     image: '/images/dummy/img2.jpg',
-    label: 'EDUCATION TOUR',
+    title: 'EDUCATION TOUR',
     subtitle: 'Enrich your journey',
   },
   {
     id: 6,
     image: '/images/dummy/img7.jpg',
-    label: 'FUTURE TRAVEL',
+    title: 'FUTURE TRAVEL',
     subtitle: 'Bhutan, reimagined',
   },
 
@@ -83,12 +83,53 @@ export const IMAGE_BOX = [
   },
   {
     id: 12,
-    title: 'Sacred Symphony',
+    subtitle: 'Whisper, wonder, wander',
+    title: 'Silent Monks',
     description:
-      'Feel Bhutan’s heartbeat through ritual, music, and heritage, where every moment resonates in harmony, crafting an unforgettable journey of culture, spirit, and discovery.',
+      'Step into Bhutan’s serene sanctuaries, where quiet moments, mindful rituals, and tranquil landscapes invite reflection, wonder, and a gentle escape from the everyday.',
     category: 'SPIRITUAL TOUR',
     image: '/images/dummy/img9.jpg',
     best_sell: true,
+  },
+  {
+    id: 13,
+    subtitle: 'Together, every step',
+    title: 'Family Legacy Tour',
+    description:
+      'Forge unforgettable memories exploring Bhutan’s culture, nature, and traditions together, crafting shared experiences that delight every generation in elegance and comfort.',
+    category: 'SPIRITUAL TOUR',
+    image: '/images/dummy/img10.jpg',
+    other: true,
+  },
+  {
+    id: 14,
+    subtitle: 'Thrills, tailored just for you',
+    title: 'Curated Adventure',
+    description:
+      'Tailored for the discerning thrill-seeker, this journey blends Bhutan’s majestic landscapes, hidden trails, and exhilarating activities into a perfectly crafted adventure.',
+    category: 'SPIRITUAL TOUR',
+    image: '/images/dummy/img1.jpg',
+    other: true,
+  },
+  {
+    id: 15,
+    subtitle: 'Sacred Symphony',
+    title: 'Silent Monks',
+    description:
+      'Feel Bhutan’s heartbeat through ritual, music, and heritage, where every moment resonates in harmony, crafting an unforgettable journey of culture, spirit, and discovery.',
+    category: 'SPIRITUAL TOUR',
+    image: '/images/dummy/img2.jpg',
+    other: true,
+  },
+  {
+    id: 16,
+    subtitle: 'Go wild, go Bhutan',
+    title: 'Wildside Bhutan',
+    description:
+      'Venture into Bhutan’s untamed corners—remote valleys, pristine forests, and rare wildlife—where luxury meets the exhilaration of the kingdom’s wild heart.',
+    category: 'SPIRITUAL TOUR',
+    image: '/images/dummy/img3.jpg',
+    other: true,
   },
 ];
 
@@ -116,3 +157,53 @@ export const TOUR_TYPE = [
   },
 ];
 
+export const OTHER_PACKAGE = [
+  {
+    id: 1,
+    img: 'img1.jpg',
+    title: 'Immersive experiences',
+    subtitile: 'STEPPING INTO ANOTHER WORLD',
+    description:
+      'Experience Bhutan like never before with premium helicopter journeys. Soar above sacred valleys, majestic mountains, and hidden monasteries in unrivaled luxury. ',
+  },
+  {
+    id: 2,
+    img: 'img2.jpg',
+    title: 'Education',
+    subtitile: 'STEPPING INTO ANOTHER WORLD',
+    description:
+      'Experience Bhutan like never before with premium helicopter journeys. Soar above sacred valleys, majestic mountains, and hidden monasteries in unrivaled luxury.',
+  },
+  {
+    id: 3,
+    img: 'img3.jpg',
+    title: 'Conservation',
+    subtitile: 'STEPPING INTO ANOTHER WORLD',
+    description:
+      'Experience Bhutan like never before with premium helicopter journeys. Soar above sacred valleys, majestic mountains, and hidden monasteries in unrivaled luxury.',
+  },
+  {
+    id: 4,
+    img: 'img8.jpg',
+    title: 'Real skills',
+    subtitile: 'STEPPING INTO ANOTHER WORLD',
+    description:
+      'Experience Bhutan like never before with premium helicopter journeys. Soar above sacred valleys, majestic mountains, and hidden monasteries in unrivaled luxury.',
+  },
+  {
+    id: 5,
+    img: 'img5.jpg',
+    title: 'Unique treasure hunts',
+    subtitile: 'STEPPING INTO ANOTHER WORLD',
+    description:
+      'Experience Bhutan like never before with premium helicopter journeys. Soar above sacred valleys, majestic mountains, and hidden monasteries in unrivaled luxury.',
+  },
+  {
+    id: 6,
+    img: 'img6.jpg',
+    title: 'Custom collateral',
+    subtitile: 'STEPPING INTO ANOTHER WORLD',
+    description:
+      'Experience Bhutan like never before with premium helicopter journeys. Soar above sacred valleys, majestic mountains, and hidden monasteries in unrivaled luxury.',
+  },
+];
