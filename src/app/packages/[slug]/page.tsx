@@ -2,8 +2,8 @@ import ImageBox from '@/components/shared/image-box';
 import { IMAGE_BOX, OTHER_PACKAGE } from '@/lib/dummy-data/dummy-data';
 import Image from 'next/image';
 
-function Page({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params as { slug: string };
   const data = IMAGE_BOX.find((item) => item.id === parseInt(slug));
 
   return (
