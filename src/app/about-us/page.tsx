@@ -2,6 +2,37 @@ import Image from 'next/image';
 import Testimonial from './components/testimonial';
 
 function Page() {
+  const steps = [
+    {
+      id: 1,
+      title: 'Enquiry',
+      description:
+        'From global event planners to submersible specialists, our in-house team of experts make authoritative recommendations and facilitate your interests from the first conversation.',
+      icon: '/icons/search.svg', // replace with your image path
+    },
+    {
+      id: 2,
+      title: 'Planning stage',
+      description:
+        'After identifying a project together, an initial deposit lets us mobilise the resources for a dedicated project manager and the consultation of world-leading authorities to conceptualise your perfect trip with you.',
+      icon: '/icons/chat.svg',
+    },
+    {
+      id: 3,
+      title: 'Recce and detailing',
+      description:
+        'Dance floors in the African bush, desert-island access and world-first wildlife encounters – on-the-ground recces and the engagement of global or local bodies let us fine-tune truly unique experiences, all tailored to you.',
+      icon: '/icons/map.svg',
+    },
+    {
+      id: 4,
+      title: 'On-trip',
+      description:
+        'Backed by our full support team in London, on-the-ground experts and specialist guides will guarantee the seamless delivery of your project, able to adapt on the fly to your preferences.',
+      icon: '/icons/helicopter.svg',
+    },
+  ];
+
   return (
     <main>
       <section className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden">
@@ -180,14 +211,72 @@ function Page() {
         <div className="grid grid-cols-3 gap-[24px]">
           {[1, 2, 3].map((item) => (
             <div key={item} className="flex flex-col items-center w-full">
-              <Image src='/images/dummy/img1.jpg' alt='img' height={400} width={500} className='w-full h-[450px]'/>
-              <div className='flex flex-col text-center items-center my-[32px] space-y-[16px]'>
-                <p className='text-[42px] font-sans'>Full Name</p>
-              <p className='text-[28px] font-bold text-primary'>Job Title</p>
-              <p className='text-center text-[24px]'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s</p>
+              <Image
+                src="/images/dummy/img1.jpg"
+                alt="img"
+                height={400}
+                width={500}
+                className="w-full h-[450px]"
+              />
+              <div className="flex flex-col text-center items-center my-[32px] space-y-[16px]">
+                <p className="text-[42px] font-sans">Full Name</p>
+                <p className="text-[28px] font-bold text-primary">Job Title</p>
+                <p className="text-center text-[24px]">
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industrys
+                  standard dummy text ever since the 1500s
+                </p>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-center text-3xl font-semibold text-gray-700 mb-16">
+            How it works
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+            {steps.map((step) => (
+              <div key={step.id} className={`flex items-start gap-6`}>
+                {/* Icon */}
+                {/* <div className="flex-shrink-0 w-12 h-12 relative mx-auto md:mx-0">
+                <Image
+                  src={step.icon}
+                  alt={step.title}
+                  fill
+                  className="object-contain"
+                />
+              </div> */}
+
+                {/* Text */}
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-700">
+                    {step.id}. {step.title}
+                  </h3>
+                  <p className="mt-2 text-gray-600 leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="h-screen bg-black p-[50px] flex flex-col items-center justify-center">
+        <h2 className="text-center text-white font-sans text-2xl mb-8">
+          Footage shot entirely on our adventures
+        </h2>
+
+        <div className="w-full h-full overflow-hidden shadow-lg border border-gray-700">
+          <video
+            className="w-full h-full object-cover"
+            controls
+          >
+            <source src="https://www.youtube.com/embed/Scxs7L0vhZ4?autoplay=0&mute=0&rel=0" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </section>
     </main>
