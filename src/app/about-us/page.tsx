@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Testimonial from './components/testimonial';
+import Link from 'next/link';
 
 function Page() {
   const steps = [
@@ -240,22 +241,11 @@ function Page() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
             {steps.map((step) => (
               <div key={step.id} className={`flex items-start gap-6`}>
-                {/* Icon */}
-                {/* <div className="flex-shrink-0 w-12 h-12 relative mx-auto md:mx-0">
-                <Image
-                  src={step.icon}
-                  alt={step.title}
-                  fill
-                  className="object-contain"
-                />
-              </div> */}
-
-                {/* Text */}
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-700">
+                  <h3 className="text-gray-700">
                     {step.id}. {step.title}
                   </h3>
-                  <p className="mt-2 text-gray-600 leading-relaxed">
+                  <p className="mt-2 text-gray-600 leading-relaxed text-[18px]">
                     {step.description}
                   </p>
                 </div>
@@ -270,13 +260,56 @@ function Page() {
         </h2>
 
         <div className="w-full h-full overflow-hidden shadow-lg border border-gray-700">
-          <video
-            className="w-full h-full object-cover"
-            controls
-          >
-            <source src="https://www.youtube.com/embed/Scxs7L0vhZ4?autoplay=0&mute=0&rel=0" type="video/mp4" />
+          <video className="w-full h-full object-cover" controls>
+            <source
+              src="https://www.youtube.com/embed/Scxs7L0vhZ4?autoplay=0&mute=0&rel=0"
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
+        </div>
+      </section>
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+        <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
+        <div className="flex flex-col items-center text-center">
+          <div className="lg:w-[920px] mt-[42px]">
+            <p className="text-[42px] leading-[70px] font-sans text-black/60">
+              Contact our expert team today <br /> and see where it takes you.
+            </p>
+            <div className="mt-2">
+              <Link
+                href="/"
+                className="relative text-primary font-bold text-[18px] after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full"
+              >
+                BEGIN YOUR ADVENTURE
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+      </section>
+      <section className="flex px-[16px] lg:px-[52px] space-x-4">
+        <div className="flex-1 flex flex-col justify-center items-center aspect-square border cursor-pointer group">
+          <p className="text-[52px]">Our Journeys</p>
+          <div className="mt-8">
+            <Link
+              href="/"
+              className="relative text-primary font-bold text-[18px] after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 group-hover:after:left-0 group-hover:after:w-full"
+            >
+              EXPLORE
+            </Link>
+          </div>
+        </div>
+        <div className="flex-1 flex flex-col items-center justify-center aspect-square border group">
+          <p className="text-[52px]">We on film</p>
+          <div className="mt-8">
+            <Link
+              href="/"
+              className="relative text-primary font-bold text-[18px] after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 group-hover:after:left-0 group-hover:after:w-full"
+            >
+              EXPLORE
+            </Link>
+          </div>
         </div>
       </section>
     </main>
