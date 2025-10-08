@@ -80,7 +80,7 @@ function Header() {
               Home
             </Link>
             <Link
-              href="/about"
+              href="/about-us"
               className="text-[32px] font-medium hover:text-primary transition"
               onClick={handleLinkClick}
             >
@@ -94,7 +94,7 @@ function Header() {
               Services
             </Link>
             <Link
-              href="/contact"
+              href="/contact-us"
               className="text-[32px] font-medium hover:text-primary transition"
               onClick={handleLinkClick}
             >
