@@ -14,7 +14,7 @@ function BestSelling() {
     <div className="relative w-full overflow-hidden my-8 px-4">      
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={30}
+        spaceBetween={10}
         slidesPerView={2}
         autoplay={{
           delay: 5000,

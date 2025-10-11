@@ -37,7 +37,7 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="px-[32px] mb-[142px]">
-        <div className="grid lg:grid-cols-3 gap-4 w-full mb-5">
+        <div className="grid lg:grid-cols-3 lg:gap-2 gap-3 w-full mb-5">
           {TOUR_TYPE.map(({ img, title, subtitle, link }, idx) => (
             <Link
               href={link}
@@ -159,7 +159,7 @@ export default function Home() {
           </div>
         </div>
         <div className="space-y-[32px]">
-          <div className="flex flex-col lg:flex-row gap-4 items-stretch">
+          <div className="flex flex-col lg:flex-row gap-2 items-stretch">
             <div className="border w-full lg:flex-[1] flex flex-col">
               <div className="h-[70vh]">
                 <Image
@@ -208,7 +208,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-4 items-stretch">
+          <div className="flex flex-col lg:flex-row gap-2 items-stretch">
             <div className="border w-full lg:flex-[2] flex flex-col">
               <div className="h-[70vh]">
                 <Image
@@ -289,7 +289,7 @@ export default function Home() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] lg:gap-[8px]">
+      <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-2">
         {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(({ id, image, title, subtitle }) => (
           <ImageBox
             id={id}
