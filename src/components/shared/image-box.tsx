@@ -13,7 +13,7 @@ function ImageBox({
   subtitle?: string;
 }) {
   return (
-    <Link href={`/packages/${id}`} className="relative border aspect-square overflow-hidden group cursor-pointer">
+    <Link href={`/itineries/${id}`} className="relative border aspect-square overflow-hidden group cursor-pointer">
       {/* Image */}
       <Image
         src={image}
