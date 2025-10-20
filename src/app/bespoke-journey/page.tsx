@@ -78,7 +78,7 @@ function Page() {
 
       {/* Grid Cards */}
       <section className="px-[16px] lg:px-[32px] mb-[142px]">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full mb-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full mb-5">
           {[
             {
               id: 1,

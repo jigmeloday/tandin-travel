@@ -42,7 +42,7 @@ function Page() {
         <div className="text-center mb-6">
           <h1 className="text-white text-3xl md:text-4xl">Bhutan From Above</h1>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full my-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full my-6">
           {[
             { id: 1, img: 'img1', title: 'Unique Culture', subtitle: 'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.', link: '/bespoke-journey' },
             { id: 2, img: 'img2', title: 'Wellness in the Himalayas', subtitle: 'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.', link: '/culture-wellness' },
@@ -128,7 +128,7 @@ function Page() {
 
       {/* Tours Grid */}
       <section className="px-4 md:px-8 mb-36">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:grid-cols-2 w-full mb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:grid-cols-2 w-full mb-5">
           {[
             { id: 1, img: 'img1', title: 'Her Bhutan; Her Story', subtitle: 'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.', link: '/bespoke-journey' },
             { id: 2, img: 'img2', title: 'Bhutan Soul Walk', subtitle: 'Tailored flight routes and timing cater to your preferences, weather, and comfort, ensuring a seamless, personalized, and indulgent adventure.', link: '/culture-wellness' },

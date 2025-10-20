@@ -87,11 +87,11 @@ function Header() {
               About
             </Link>
             <Link
-              href="/services"
+              href="/travel-purpose"
               className="text-[32px] font-medium hover:text-primary transition"
               onClick={handleLinkClick}
             >
-              Services
+              Travel purpose
             </Link>
             <Link
               href="/contact-us"

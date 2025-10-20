@@ -209,7 +209,7 @@ function Page() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
-        <div className="grid grid-cols-3 gap-[24px]">
+        <div className="grid grid-cols-3 gap-2">
           {[1, 2, 3].map((item) => (
             <div key={item} className="flex flex-col items-center w-full">
               <Image
@@ -288,7 +288,7 @@ function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="flex px-[16px] lg:px-[52px] space-x-4">
+      <section className="flex px-[16px] lg:px-[52px] space-x-2">
         <div className="flex-1 flex flex-col justify-center items-center aspect-square border cursor-pointer group">
           <p className="text-[52px]">Our Journeys</p>
           <div className="mt-8">

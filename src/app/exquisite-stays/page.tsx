@@ -38,7 +38,7 @@ function Page() {
 
       {/* Two Square Images */}
       <section className="px-4 lg:px-[32px] my-[50px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="aspect-square bg-gray-200">
             <Image
               src="/images/hotel/h2.jpg"
@@ -60,8 +60,8 @@ function Page() {
         </div>
 
         {/* Horizontal Image Section */}
-        <div className="flex flex-col md:flex-row w-full mt-3 md:mt-[12px] gap-4 md:gap-[24px]">
-          <div className="flex flex-1 gap-4 flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row w-full mt-3 md:mt-[12px] gap-4 md:gap-2">
+          <div className="flex flex-1 gap-2 flex-col md:flex-row">
             <div className="w-full h-64 md:h-[440px] bg-gray-200">
               <Image
                 src="/images/hotel/h4.jpg"
@@ -106,7 +106,7 @@ function Page() {
       {/* Luxury Experience Section */}
       <section className="w-full h-auto md:h-[70vh] bg-black">
         <div className="flex flex-col md:flex-row h-full">
-          <div className="flex-1 flex items-center justify-center gap-4 mb-6 md:mb-0">
+          <div className="flex-1 flex items-center justify-center gap-2 mb-6 md:mb-0">
             <div className="transform translate-y-0 md:translate-y-6 w-48 md:w-60 h-64 md:h-[430px]">
               <Image
                 src="/images/hotel/h4.jpg"
@@ -211,11 +211,11 @@ function Page() {
 
       {/* Grid Section */}
       <section className="px-4 lg:px-[32px] my-[50px]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[24px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
          {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(({ image, title, subtitle }, idx) => (
             <Link
               key={idx}
-              href={''}
+              href={`/itineries/${idx}`}
               className="relative flex flex-col items-center justify-center w-full aspect-square text-center overflow-hidden group cursor-pointer"
             >
               <div
