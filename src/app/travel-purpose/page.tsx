@@ -40,8 +40,8 @@ function Page() {
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-4">
         {[1, 2, 3, 4, 5, 6].map((item) => (
-          <div key={item} className={`flex w-full justify-center space-x-2 ${item%2 === 0 ? 'flex-row-reverse': ''}`}>
-            <div className="h-[500px] w-[550px]">
+          <div key={item} className={`flex md:flex-row flex-col w-full justify-center gap-2 ${item%2 === 0 ? 'md:flex-row-reverse': ''}`}>
+            <div className="md:h-[500px] md:w-[550px]">
               <Image
                 src="/images/dummy/img1.jpg"
                 alt=""
@@ -50,9 +50,9 @@ function Page() {
                 width={500}
               />
             </div>
-            <div className="flex flex-col justify-center px-4 h-[500px] w-[550px]">
+            <div className="flex flex-col justify-center md:px-4 md:h-[500px] md:w-[550px]">
               <h1>Cultural Connection</h1>
-              <p className='text-[24px]'>
+              <p className='text-[18px] md:text-[24px]'>
                 Combine helicopter journeys with sustainable luxury lodges,
                 curated local cuisine, and intimate cultural experiences for a
                 fully bespoke Bhutanese exploration.
@@ -63,12 +63,12 @@ function Page() {
         ))}
       </section>
       <section className='px-[16px] lg:px-[32px]'>
-        <div className='flex flex-col items-center justify-center bg-primary w-full py-[52px]'>
+        <div className='flex flex-col items-center justify-center bg-primary w-full py-[24px] md:py-[52px]'>
           <h2 className='text-white'>JOIN THE MOVEMENT</h2>
-          <p className='text-[24px]'>Travel that restores balance</p>
-          <p className='text-[24px]'>Travel that listens to nature</p>
-          <p className='text-[24px]'>Travel that leaves the world better</p>
-          <p className='mt-4 font-bold text-[24px]'>Born Explorer — where every journey has a purpose</p>
+          <p className='text-[18px] md:text-[24px]'>Travel that restores balance</p>
+          <p className='text-[18px] md:text-[24px]'>Travel that listens to nature</p>
+          <p className='text-[18px] md:text-[24px]'>Travel that leaves the world better</p>
+          <p className='mt-4 font-bold md:text-[24px]'>Born Explorer — where every journey has a purpose</p>
         </div>
       </section>
     </div>

@@ -69,7 +69,7 @@ export default function Home() {
       <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px] lg:px-[32px] scrollbar-hide">
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <h1>From Dream to Departure</h1>
-        <div className="w-[840px]">
+        <div className="md:w-[840px]">
           <p className="text-[20px]">
             Every remarkable journey begins with a single step. Our simple,
             seamless process ensures your Bhutan experience is perfectly
@@ -120,7 +120,7 @@ export default function Home() {
                 <p className="mt-4 text-[24px] text-primary font-bold">
                   0{id}. {title}
                 </p>
-                <div className="w-[180px]">
+                <div className="md:w-[180px]">
                   <p className="text-[18px]">{description}</p>
                 </div>
               </div>

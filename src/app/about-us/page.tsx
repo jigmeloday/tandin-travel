@@ -82,81 +82,45 @@ function Page() {
         <h2 className="text-black/70 font-light">
           We create stories that are talked about
         </h2>
-        <div className="w-[40%] h-fit">
+        <div className="md:w-[40%] h-fit">
           <Testimonial />
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
-        <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
-        <div className="flex flex-col items-center text-center">
-          <div className="w-full lg:w-[740px]">
-            <h1>Cookson in numbers</h1>
-          </div>
-          <div className="grid grid-cols-5 gap-[52px] my-[24px]">
-            {[
-              {
-                id: 1,
-                title: 'COUNTRIES VISITED',
-                count: 100,
-              },
-              {
-                id: 2,
-                title: 'COUNTRIES VISITED',
-                count: 100,
-              },
-              {
-                id: 3,
-                title: 'COUNTRIES VISITED',
-                count: 100,
-              },
-              {
-                id: 4,
-                title: 'COUNTRIES VISITED',
-                count: 150,
-              },
-              {
-                id: 5,
-                title: 'COUNTRIES VISITED',
-                count: 150,
-              },
-              {
-                id: 6,
-                title: 'COUNTRIES VISITED',
-                count: 150,
-              },
-              {
-                id: 7,
-                title: 'COUNTRIES VISITED',
-                count: 150,
-              },
-              {
-                id: 8,
-                title: 'COUNTRIES VISITED',
-                count: 150,
-              },
-              {
-                id: 9,
-                title: 'COUNTRIES VISITED',
-                count: 150,
-              },
-              {
-                id: 10,
-                title: 'COUNTRIES VISITED',
-                count: 150,
-              },
-            ].map(({ id, title, count }) => (
-              <div key={id} className="my-[52px]">
-                <p className="font-sans text-[50px] text-primary">{count}</p>
-                <p className="text-[28px] mt-[24px]">{title}</p>
-              </div>
-            ))}
-          </div>
+    <section className="flex flex-col items-center justify-center px-4 sm:px-8 lg:px-32 my-12">
+  <div className="border-[0.5px] border-primary h-20 mb-10" />
+  
+  <div className="flex flex-col items-center text-center">
+    <div className="w-full lg:w-[740px]">
+      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">Cookson in numbers</h1>
+    </div>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 my-6 w-full">
+      {[
+        { id: 1, title: 'COUNTRIES VISITED', count: 100 },
+        { id: 2, title: 'CITIES EXPLORED', count: 200 },
+        { id: 3, title: 'TOURS COMPLETED', count: 50 },
+        { id: 4, title: 'HAPPY CLIENTS', count: 150 },
+        { id: 5, title: 'AWARDS WON', count: 20 },
+        { id: 6, title: 'TOURS COMPLETED', count: 150 },
+        { id: 7, title: 'HAPPY CLIENTS', count: 150 },
+        { id: 8, title: 'AWARDS WON', count: 150 },
+        { id: 9, title: 'PROJECTS DONE', count: 150 },
+        { id: 10, title: 'COUNTRIES VISITED', count: 150 },
+      ].map(({ id, title, count }) => (
+        <div key={id} className="flex flex-col items-center">
+          <p className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary">{count}</p>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mt-2 sm:mt-4 text-center">{title}</p>
         </div>
-        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
-      </section>
-      <section className="flex items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
-        <div className="flex-1 flex justify-center w-[60%]">
+      ))}
+    </div>
+  </div>
+
+  <div className="border-[0.5px] border-primary h-20 my-10" />
+</section>
+
+      <section className="flex flex-col md:flex-row items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-2">
+        <div className="flex-1 flex justify-center md:w-[60%]">
           <Image
             src="/images/dummy/img1.jpg"
             height={500}
@@ -165,23 +129,23 @@ function Page() {
             className="h-full"
           />
         </div>
-        <div className="flex flex-col items-center w-[40%] text-center">
-          <p className="text-[42px] text-black/70 font-sans">Founder Name</p>
+        <div className="flex flex-col items-center md:w-[40%] text-center">
+          <p className="text-[32px] md:text-[42px] text-black/70 font-sans">Founder Name</p>
           <p className="text-primary text-[24px] font-bold mt-[16px]">
             Founder & Chairman
           </p>
-          <p className="text-[24px] mt-[32px]">
+          <p className="text-[18px] md:text-[24px] mt-[32px]">
             After a past life guiding horseback safaris in Kenya, Henry’s start
             in polar exploration began in 2005, winning the Polar Challenge race
             to the Magnetic North Pole.
           </p>
-          <p className="text-[24px] mt-[16px]">
+          <p className="text-[18px] md:text-[24px] mt-[16px]">
             Since then, he’s set a world record as part of the very first team
             to reach the South Pole of Inaccessibility without mechanical means
             and gone on to guide the Walking With The Wounded charity expedition
             to the North Pole with HRH Prince Harry.
           </p>
-          <p className="text-[24px] mt-[16px]">
+          <p className="text-[18px] md:text-[24px] mt-[16px]">
             It’s these expeditions that served as inspiration in founding
             Cookson Adventures, bringing the same standards of ground-breaking
             excellence to the world of private travel. That’s whether working
@@ -194,12 +158,12 @@ function Page() {
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
-            <p className="text-[52px] text-black/70 font-sans">
+            <p className="text-[32px] md:text-[52px] text-black/70 font-sans">
               A few of the team
             </p>
           </div>
           <div className="lg:w-[920px] mt-[42px]">
-            <p className="text-[24px]">
+            <p className="text-[18px] md:text-[24px]">
               Our in-house experts build all of our adventures from the ground
               up, drawing on a global network of contacts – from biologists and
               conservationists to archaeologists.
@@ -209,7 +173,7 @@ function Page() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-col-1 md:grid-cols-3 gap-2">
           {[1, 2, 3].map((item) => (
             <div key={item} className="flex flex-col items-center w-full">
               <Image
@@ -254,7 +218,7 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="h-screen bg-black p-[50px] flex flex-col items-center justify-center">
+      <section className="h-screen bg-black p-[16px] md:p-[50px] flex flex-col items-center justify-center">
         <h2 className="text-center text-white font-sans text-2xl mb-8">
           Footage shot entirely on our adventures
         </h2>
@@ -288,7 +252,7 @@ function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="flex px-[16px] lg:px-[52px] space-x-2">
+      <section className="flex flex-col md:flex-row px-[16px] lg:px-[52px] gap-2">
         <div className="flex-1 flex flex-col justify-center items-center aspect-square border cursor-pointer group">
           <p className="text-[52px]">Our Journeys</p>
           <div className="mt-8">

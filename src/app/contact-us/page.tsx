@@ -19,8 +19,8 @@ function Page() {
           </h1>
         </div>
       </section>
-      <section className="flex px-[32px] my-[50px] justify-center w-full">
-        <div className="bg-black w-[40%] p-[32px]">
+      <section className="flex flex-col md:flex-row px-[16px] md:px-[32px] my-[50px] justify-center w-full">
+        <div className="bg-black md:w-[40%] p-[32px]">
           <h1>Start the Conversation</h1>
           <p className='text-white text-[24px]'>
             Every remarkable journey begins with a simple hello — share your
@@ -43,11 +43,11 @@ function Page() {
           />
         </div>
       </section>
-      <section className="flex justify-center space-x-[54px] my-[50px]">
+      <section className="flex flex-col md:flex-row justify-center gap-[54px] my-[50px]">
         {CONTACT_US.map(({ title, description, icon }) => {
           const Icon = icon;
           return (
-            <div className="flex flex-col items-center w-[220px]" key={title}>
+            <div className="flex flex-col items-center md:w-[220px]" key={title}>
               <div className="size-[80px] rounded-full flex items-center justify-center bg-primary text-white">
                 <Icon size={32} />
               </div>
