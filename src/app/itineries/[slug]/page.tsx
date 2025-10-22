@@ -74,16 +74,16 @@ function Page() {
         <HeroSwapper />
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-4">
-        <div className="w-full py-[50px] bg-primary flex justify-center space-x-6">
-          <div className="w-[70%]">
+        <div className="w-full py-[50px] bg-primary flex flex-col md:flex-row justify-center md:space-x-6">
+          <div className="md:w-[70%] px-[12px]">
             <h6 className="text-white">MAKE THIS ITINERARY YOURS</h6>
-            <p className="text-[24px] mt-[14px]">
+            <p className="text-[18px]  md:text-[24px] mt-[14px]">
               Each and every Born Explorer trip is tailored exactly to who you
               are and what you want to do So tell us about yourself and we’ll
               create something that’s entirely you.
             </p>
           </div>
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-4 px-[12px]">
             <Button className="bg-black rounded-none text-white font-bold text-[24px] py-[24px]">
               {' '}
               ENQUIRE NOW
@@ -98,11 +98,11 @@ function Page() {
         {[1, 2, 3, 4].map((item) => (
           <div
             key={item}
-            className={`flex w-full justify-center space-x-2 ${
-              item % 2 === 0 ? 'flex-row-reverse' : ''
+            className={`flex flex-col md:flex-row w-full justify-center md:space-x-2 ${
+              item % 2 === 0 ? 'md:flex-row-reverse' : ''
             }`}
           >
-            <div className="h-[500px] w-[550px]">
+            <div className="md:h-[500px] md:w-[550px]">
               <Image
                 src="/images/dummy/img1.jpg"
                 alt=""
@@ -111,9 +111,9 @@ function Page() {
                 width={500}
               />
             </div>
-            <div className="flex flex-col justify-center px-4 h-[500px] w-[550px]">
+            <div className="flex flex-col justify-center md:px-4 md:h-[500px] md:w-[550px]">
               <h1>Cultural Connection</h1>
-              <p className="text-[24px]">
+              <p className="text-[18px] md:text-[24px]">
                 Combine helicopter journeys with sustainable luxury lodges,
                 curated local cuisine, and intimate cultural experiences for a
                 fully bespoke Bhutanese exploration.
@@ -127,14 +127,14 @@ function Page() {
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-4">
         <h2>Boutique Hotels</h2>
-        <div className="my-[32px] flex gap-3 w-full">
+        <div className="my-[32px] flex flex-col md:flex-row gap-2 w-full">
           <div className="bg-primary flex-1 min-h-[520px] flex flex-col items-center justify-center">
             <h1 className="text-white">BESPOKE JOURNEYS</h1>
             <p className="text-[24px] font-bold">
               Your story, perfectly tailored
             </p>
           </div>
-          <div className="bg-primary flex-1 flex flex-col items-center justify-center">
+          <div className="bg-primary flex-1 min-h-[520px] flex flex-col items-center justify-center">
             <h1 className="text-white">ESQUISITE STAYS</h1>
             <p className="text-[24px] font-bold">
               Where elegance feels effortless
@@ -173,7 +173,7 @@ function Page() {
         <div className="border-[0.5px] border-primary h-20 my-10" />
       </section>
       <section className="flex flex-col items-center justify-center px-4 md:px-8 my-12 md:my-20">
-        <div className="grid grid-cols-3 mx-auto md:max-w-[80%] gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 mx-auto md:max-w-[80%] gap-2">
         {
           [1,2,3].map((item) => (
              <div className="bg-gray-100" key={item}>
@@ -191,7 +191,7 @@ function Page() {
           ))
         }
         </div>
-        <div className="grid grid-cols-2 mx-auto md:max-w-[80%] gap-2 my-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 mx-auto md:max-w-[80%] gap-2 my-4">
         {
           [1,2].map((item) => (
              <div className="bg-gray-100" key={item}>
