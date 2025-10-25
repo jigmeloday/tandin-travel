@@ -1,63 +1,65 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
 
 function Footer() {
   const COMAPNY_LINK = [
     {
       link: '/',
-      label: 'About Us'
+      label: 'About Us',
     },
     {
       link: '/',
-      label: 'Terms & Conditions'
+      label: 'Terms & Conditions',
     },
     {
       link: '/',
-      label: 'Privacy Policy'
+      label: 'Privacy Policy',
     },
     {
       link: '/',
-      label: 'Testimonial'
+      label: 'Testimonial',
     },
     {
       link: '/',
-      label: 'Responsible Travel'
+      label: 'Responsible Travel',
     },
     {
       link: '/',
-      label: 'Our Blogs'
-    }
-  ]
+      label: 'Our Blogs',
+    },
+  ];
   const SERVICES_LINK = [
     {
       link: '/',
-      label: 'About Us'
+      label: 'About Us',
     },
     {
       link: '/',
-      label: 'Terms & Conditions'
+      label: 'Terms & Conditions',
     },
     {
       link: '/',
-      label: 'Privacy Policy'
+      label: 'Privacy Policy',
     },
     {
       link: '/',
-      label: 'Testimonial'
+      label: 'Testimonial',
     },
     {
       link: '/',
-      label: 'Responsible Travel'
+      label: 'Responsible Travel',
     },
     {
       link: '/',
-      label: 'Our Blogs'
-    }
-  ]
+      label: 'Our Blogs',
+    },
+  ];
   return (
     <div className="flex flex-col md:flex-row md:space-x-8 w-full bg-black py-[32px] px-[16px] md:px-[112px]">
       <div className="flex flex-col md:flex-col md:flex-1 md:space-x-6">
-        <div className='size-[100px]'>
+        <div className="size-[100px]">
           <Image
             src="/logo/logo.webp"
             alt="logo"
@@ -74,31 +76,61 @@ function Footer() {
             Born Explorer’s newsletter brings you curated inspiration for your
             next unforgettable journey.
           </p>
+          <div className='gap-3'>
+            <div className='flex gap-2 my-3'>
+              <Input />
+              <Input />
+            </div>
+            <Input />
+          </div>
+          <p className="text-white">
+            LOVE TRAVEL? SUBSCRIBE FOR TIPS & UPDATES
+          </p>
+          <p className="text-white">
+            Subscribe to Born Explorer&apos;s newsletter and receive curated
+            inspiration, insider tips, and exclusive ideas to plan your next
+            unforgettable journey through Bhutan and beyond.
+          </p>
+          <div className="w-full flex justify-end">
+            <Button className="rounded-none text-[18px] font-bold">
+              SUBSCRIBE NOW
+            </Button>
+          </div>
+          <div className="flex my-[24px]">
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <div
+                key={item}
+                className="size-[42px] bg-white rounded-full"
+              ></div>
+            ))}
+          </div>
         </div>
       </div>
-      <div className='flex flex-col md:flex-row md:flex-2 w-full md:justify-end'>
+      <div className="flex flex-col md:flex-row md:flex-2 w-full md:justify-end">
         <div className="flex-1 flex flex-col md:items-center my-[20px] md:my-0">
-       <div>
-         <p className='text-white text-1xl font-[700] font-sans'>COMPANY</p>
-        <div className='flex flex-col text-white space-y-1'>
-          {
-            COMAPNY_LINK.map(({ link, label }) => (
-              <Link key={label} href={link}>{label}</Link>
-            ))
-          }
+          <div>
+            <p className="text-white text-1xl font-[700] font-sans">COMPANY</p>
+            <div className="flex flex-col text-white space-y-1">
+              {COMAPNY_LINK.map(({ link, label }) => (
+                <Link key={label} href={link}>
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
-       </div>
-      </div>
-       <div className="flex flex-col md:items-center flex-1 my-[20px] md:my-0">
-        <div><p className='text-white text-1xl font-[700] font-sans'>SERVICES</p>
-        <div className='flex flex-col text-white space-y-1'>
-          {
-            SERVICES_LINK.map(({ link, label }) => (
-              <Link key={label} href={link}>{label}</Link>
-            ))
-          }
-        </div></div>
-      </div>
+        <div className="flex flex-col md:items-center flex-1 my-[20px] md:my-0">
+          <div>
+            <p className="text-white text-1xl font-[700] font-sans">SERVICES</p>
+            <div className="flex flex-col text-white space-y-1">
+              {SERVICES_LINK.map(({ link, label }) => (
+                <Link key={label} href={link}>
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
