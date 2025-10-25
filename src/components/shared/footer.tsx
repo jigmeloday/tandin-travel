@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import { FaFacebookF, FaInstagram, FaPinterest, FaTelegram, FaYoutube } from 'react-icons/fa6';
+import { FaLinkedinIn, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 
 function Footer() {
   const COMAPNY_LINK = [
@@ -76,8 +78,8 @@ function Footer() {
             Born Explorer’s newsletter brings you curated inspiration for your
             next unforgettable journey.
           </p>
-          <div className='gap-3'>
-            <div className='flex gap-2 my-3'>
+          <div className="gap-3">
+            <div className="flex gap-2 my-3">
               <Input />
               <Input />
             </div>
@@ -96,13 +98,31 @@ function Footer() {
               SUBSCRIBE NOW
             </Button>
           </div>
-          <div className="flex my-[24px]">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div
-                key={item}
-                className="size-[42px] bg-white rounded-full"
-              ></div>
-            ))}
+          <div className="flex my-[24px] gap-2">
+            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+              <FaWhatsapp />
+            </div>
+            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+              <FaTelegram />
+            </div>
+            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+              <FaFacebookF />
+            </div>
+            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+              <FaInstagram />
+            </div>
+            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+              <FaLinkedinIn />
+            </div>
+            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+              <FaYoutube />
+            </div>
+            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+              <FaPinterest />
+            </div>
+            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+              <FaTiktok />
+            </div>
           </div>
         </div>
       </div>
@@ -112,7 +132,7 @@ function Footer() {
             <p className="text-white text-1xl font-[700] font-sans">COMPANY</p>
             <div className="flex flex-col text-white space-y-1">
               {COMAPNY_LINK.map(({ link, label }) => (
-                <Link key={label} href={link}>
+                <Link className='text-[20px]' key={label} href={link}>
                   {label}
                 </Link>
               ))}
@@ -124,7 +144,7 @@ function Footer() {
             <p className="text-white text-1xl font-[700] font-sans">SERVICES</p>
             <div className="flex flex-col text-white space-y-1">
               {SERVICES_LINK.map(({ link, label }) => (
-                <Link key={label} href={link}>
+                <Link className='text-[20px]' key={label} href={link}>
                   {label}
                 </Link>
               ))}
