@@ -39,7 +39,7 @@ export default function SliderComponent() {
         disableOnInteraction: false, // keep autoplay even after user interacts
       }}
       slidesPerView={1}
-      className="w-full h-[500px]"
+      className="w-full h-[70vh]"
     >
       {slides.map((slide) => (
         <SwiperSlide key={slide.id}>
@@ -55,14 +55,14 @@ export default function SliderComponent() {
             <div className="absolute inset-0 bg-black/40"></div>
 
             {/* Slide content */}
-            <div className="relative bg-white text-black max-w-[300px] p-6 shadow-lg">
+            <div className="relative bg-white text-black max-w-[300px] p-4 shadow-lg">
               <div className="border-t-4 border-red-700 mb-4" />
-              <p className="uppercase text-sm font-bold">{slide.subtitle}</p>
-              <h2 className="text-3xl font-extrabold my-4">{slide.title}</h2>
-              <p className="text-gray-700 mb-6">
+              <p className="uppercase text-sm font-bold text-[24px]">{slide.subtitle}</p>
+              <h3 className="my-4">{slide.title}</h3>
+              <p className="text-gray-700 mb-6 text-[18px]">
                 {slide.description}
               </p>
-              <p className="uppercase text-sm font-bold border-b-2 border-red-700 inline-block">
+              <p className="uppercase text-sm font-bold border-b-2 border-red-700 inline-block text-[18px]">
                 {slide.cta}
               </p>
             </div>

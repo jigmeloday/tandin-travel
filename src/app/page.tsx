@@ -153,7 +153,10 @@ export default function Home() {
                 wonder, and a gentle escape from the everyday.
               </span>
             </div>
-            <Link href={`/packages/${12}`} className="bg-primary w-fit px-[16px] py-[8px] cursor-pointer">
+            <Link
+              href={`/packages/${12}`}
+              className="bg-primary w-fit px-[16px] py-[8px] cursor-pointer"
+            >
               VIEW DETAILS
             </Link>
           </div>
@@ -178,7 +181,10 @@ export default function Home() {
                   nature, and traditions together, crafting shared experiences
                   that delight every generation in elegance and comfort.
                 </p>
-                <Link href={`/packages/${13}`} className="py-2 px-4 bg-primary mt-6 w-fit">
+                <Link
+                  href={`/packages/${13}`}
+                  className="py-2 px-4 bg-primary mt-6 w-fit"
+                >
                   VIEW DETAILS
                 </Link>
               </div>
@@ -201,7 +207,10 @@ export default function Home() {
                   Bhutan’s majestic landscapes, hidden trails, and exhilarating
                   activities into a perfectly crafted adventure.
                 </p>
-                <Link href={`/packages/${14}`} className="py-2 px-4 bg-primary mt-6 w-fit">
+                <Link
+                  href={`/packages/${14}`}
+                  className="py-2 px-4 bg-primary mt-6 w-fit"
+                >
                   VIEW DETAILS
                 </Link>
               </div>
@@ -229,7 +238,10 @@ export default function Home() {
                   forests, and rare wildlife—where luxury meets the exhilaration
                   of the kingdom’s wild heart.
                 </p>
-                <Link href={`/packages/${15}`} className="py-2 px-4 bg-primary mt-6 w-fit">
+                <Link
+                  href={`/packages/${15}`}
+                  className="py-2 px-4 bg-primary mt-6 w-fit"
+                >
                   VIEW DETAILS
                 </Link>
               </div>
@@ -246,7 +258,7 @@ export default function Home() {
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
                 <p className="font-extrabold text-[24px]">WOMEN ONLY TOUR</p>
-                <h3 className='leading-6 my-[12px]'>
+                <h3 className="leading-6 my-[12px]">
                   Her Bhutan, <br /> Her Story
                 </h3>
                 <p className="text-[18px]">
@@ -254,7 +266,10 @@ export default function Home() {
                   connecting with Bhutanese women, cultural treasures, and
                   shared experiences in refined comfort and style.
                 </p>
-                <Link href={`/packages/${16}`} className="py-2 px-4 bg-primary mt-6 w-fit">
+                <Link
+                  href={`/packages/${16}`}
+                  className="py-2 px-4 bg-primary mt-6 w-fit"
+                >
                   VIEW DETAILS
                 </Link>
               </div>
@@ -290,15 +305,44 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-2">
-        {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(({ id, image, title, subtitle }) => (
-          <ImageBox
-            id={id}
-            key={id}
-            image={image}
-            label={title || ''}
-            subtitle={subtitle}
-          />
-        ))}
+        {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(
+          ({ id, image, title, subtitle }) => (
+            <ImageBox
+              id={id}
+              key={id}
+              image={image}
+              label={title || ''}
+              subtitle={subtitle}
+            />
+          )
+        )}
+      </section>
+      <section className="flex px-[16px] lg:px-[32px] mt-[42px] ">
+        <div className="w-[70%] h-[80vh] bg-black/70">
+        <Image
+          src="/images/dummy/img4.jpg"
+          alt="img"
+          height={1000}
+          width={1000}
+          className="h-full w-full object-cover"
+        />
+        </div>
+        <div className="w-[30%] bg-black p-[24px] flex flex-col justify-center">
+          <h2>TRAVEL WITH PURPOSE</h2>
+          <p className="text-white text-[28px] mt-[32px]">
+            At Born Explorer, we believe every journey should enrich both
+            traveler and destination. By embracing sustainable practices,
+            respecting local cultures, and supporting communities, we ensure
+            your Bhutan experience leaves a positive footprint.
+          </p>
+          <p className="text-white text-[28px] mt-[32px]">
+            Travel consciously, discover authentically, and create memories that
+            honor the land, its people, and its timeless traditions.
+          </p>
+         <div className='mt-[32px] flex'>
+           <Link className='bg-primary py-2 px-3 text-[20px] font-bold text-white' href='/travel-purpose'>VIEW DETAILS</Link>
+         </div>
+        </div>
       </section>
       <section className="my-[42px] px-[16px] lg:px-[32px]">
         <SliderComponent />
