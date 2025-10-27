@@ -33,7 +33,7 @@ function BestSelling() {
         {IMAGE_BOX.filter((item) => item.best_sell).map((tour) => (
           <SwiperSlide
            key={tour.id}>
-            <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[400px] border-l-8 border-primary overflow-hidden group">
+            <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[550px] border-l-8 border-primary overflow-hidden group">
               {/* Card container */}
               <div className="flex flex-col lg:flex-row h-full w-full bg-black transition-transform duration-300">
                 {/* Image section */}
