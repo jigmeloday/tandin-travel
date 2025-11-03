@@ -133,7 +133,7 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
       <section className="px-[16px] lg:px-[32px] my-[42px]">
-        <div className="flex flex-col lg:flex-row w-full my-[40px] h-[550px]">
+        <div className="flex flex-col lg:flex-row w-full mt-[40px] mb-2 h-[550px]">
           <div className="lg:flex-3">
             <Image
               src="/images/slide.jpg"
@@ -161,7 +161,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="space-y-[32px]">
+        <div className="space-y-2">
           <div className="flex flex-col lg:flex-row gap-2 items-stretch">
             <div className="border w-full lg:flex-[1] flex flex-col">
               <div className="h-[70vh]">
@@ -329,13 +329,13 @@ export default function Home() {
         </div>
         <div className="w-[30%] bg-black p-[24px] flex flex-col justify-center">
           <h2>TRAVEL WITH PURPOSE</h2>
-          <p className="text-white text-[28px] mt-[32px]">
+          <p className="text-white text-[18px] mt-[32px]">
             At Born Explorer, we believe every journey should enrich both
             traveler and destination. By embracing sustainable practices,
             respecting local cultures, and supporting communities, we ensure
             your Bhutan experience leaves a positive footprint.
           </p>
-          <p className="text-white text-[28px] mt-[32px]">
+          <p className="text-white text-[18px] mt-[32px]">
             Travel consciously, discover authentically, and create memories that
             honor the land, its people, and its timeless traditions.
           </p>

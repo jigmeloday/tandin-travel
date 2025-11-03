@@ -87,49 +87,17 @@ function Page() {
         </div>
       </section>
 
-    <section className="flex flex-col items-center justify-center px-4 sm:px-8 lg:px-32 my-12">
-  <div className="border-[0.5px] border-primary h-20 mb-10" />
-  
-  <div className="flex flex-col items-center text-center">
-    <div className="w-full lg:w-[740px]">
-      <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold">Cookson in numbers</h1>
-    </div>
-
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12 my-6 w-full">
-      {[
-        { id: 1, title: 'COUNTRIES VISITED', count: 100 },
-        { id: 2, title: 'CITIES EXPLORED', count: 200 },
-        { id: 3, title: 'TOURS COMPLETED', count: 50 },
-        { id: 4, title: 'HAPPY CLIENTS', count: 150 },
-        { id: 5, title: 'AWARDS WON', count: 20 },
-        { id: 6, title: 'TOURS COMPLETED', count: 150 },
-        { id: 7, title: 'HAPPY CLIENTS', count: 150 },
-        { id: 8, title: 'AWARDS WON', count: 150 },
-        { id: 9, title: 'PROJECTS DONE', count: 150 },
-        { id: 10, title: 'COUNTRIES VISITED', count: 150 },
-      ].map(({ id, title, count }) => (
-        <div key={id} className="flex flex-col items-center">
-          <p className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary">{count}</p>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mt-2 sm:mt-4 text-center">{title}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-
-  <div className="border-[0.5px] border-primary h-20 my-10" />
-</section>
-
       <section className="flex flex-col md:flex-row items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-2">
-        <div className="flex-1 flex justify-center md:w-[60%]">
+        <div className="flex-1 flex justify-center md:w-[60%] h-full">
           <Image
             src="/images/dummy/img1.jpg"
             height={500}
             width={500}
             alt="profile"
-            className="h-full"
+            className="h-[70vh] w-[80%] object-cover"
           />
         </div>
-        <div className="flex flex-col items-center md:w-[40%] text-center">
+        <div className="flex flex-col items-start md:w-[40%]">
           <p className="text-[32px] md:text-[42px] text-black/70 font-sans">Founder Name</p>
           <p className="text-primary text-[24px] font-bold mt-[16px]">
             Founder & Chairman
@@ -174,7 +142,7 @@ function Page() {
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
         <div className="grid grid-col-1 md:grid-cols-3 gap-2">
-          {[1, 2, 3].map((item) => (
+          {[1, 2, 3,4,5,6].map((item) => (
             <div key={item} className="flex flex-col items-center w-full">
               <Image
                 src="/images/dummy/img1.jpg"
@@ -252,27 +220,32 @@ function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="flex flex-col md:flex-row px-[16px] lg:px-[52px] gap-2">
-        <div className="flex-1 flex flex-col justify-center items-center aspect-square border cursor-pointer group">
-          <p className="text-[52px]">Our Journeys</p>
-          <div className="mt-8">
-            <Link
-              href="/"
-              className="relative text-primary font-bold text-[18px] after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 group-hover:after:left-0 group-hover:after:w-full"
-            >
-              EXPLORE
-            </Link>
+       <section className="flex flex-col items-center justify-center my-[80px] px-[16px] lg:px-[32px]">
+        <div className="bg-black w-full p-[24px]">
+          <div className="flex flex-col lg:flex-row gap-6">
+            <div className="flex-1">
+              <h1>Let’s Talk</h1>
+            </div>
+            <div className="flex-1">
+              <p className="text-white text-[18px] lg:text-[24px]">
+                We love challenges big and small—what’s yours? Let’s craft
+                unique journeys that turn bold ideas into unforgettable travel
+                experiences.
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="flex-1 flex flex-col items-center justify-center aspect-square border group">
-          <p className="text-[52px]">We on film</p>
-          <div className="mt-8">
-            <Link
-              href="/"
-              className="relative text-primary font-bold text-[18px] after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 group-hover:after:left-0 group-hover:after:w-full"
-            >
-              EXPLORE
-            </Link>
+          <div
+            className="w-full mt-[32px] h-[300px] sm:h-[400px] lg:h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
+            style={{
+              backgroundImage: "url('/images/dummy/img10.jpg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
+            <h4 className="relative z-10 text-white inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full">
+              Connect Now – We’ll throw in enlightenment
+            </h4>
           </div>
         </div>
       </section>
