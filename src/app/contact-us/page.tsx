@@ -20,7 +20,7 @@ function Page() {
         </div>
       </section>
       <section className="flex flex-col md:flex-row px-[16px] md:px-[32px] my-[50px] justify-center w-full">
-        <div className="bg-black md:w-[40%] p-[32px]">
+        <div className="bg-[#111820] md:w-[40%] p-[32px]">
           <h2>Start the Conversation</h2>
           <p className='text-white text-[14px] lg:text-[16px]'>
             Every remarkable journey begins with a simple hello — share your

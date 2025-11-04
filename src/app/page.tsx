@@ -143,7 +143,7 @@ export default function Home() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="flex flex-col justify-between flex-1 px-[24px] py-[42px] text-white bg-black">
+          <div className="flex flex-col justify-between flex-1 px-[24px] py-[42px] text-white bg-[#111820]">
             <div>
               <span className="font-extrabold text-[18px]">Silent Monks</span>
               <h3>Whisper, wonder, wander</h3>
@@ -173,7 +173,7 @@ export default function Home() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="bg-black text-white p-5 flex flex-col flex-1">
+              <div className="bg-[#111820] text-white p-5 flex flex-col flex-1">
                 <p className="font-extrabold text-[18px]">Family Legacy Tour</p>
                 <h3>Together, every step</h3>
                 <p className="text-[16px]">
@@ -199,7 +199,7 @@ export default function Home() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="bg-black text-white p-5 flex flex-col flex-1">
+              <div className="bg-[#111820] text-white p-5 flex flex-col flex-1">
                 <p className="font-extrabold text-[18px]">Curated Adventure</p>
                 <h3>Thrills, tailored just for you</h3>
                 <p className="text-[16px]">
@@ -228,7 +228,7 @@ export default function Home() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="bg-black text-white p-5 flex flex-col flex-1">
+              <div className="bg-[#111820] text-white p-5 flex flex-col flex-1">
                 <p className="font-extrabold text-[18px]">Wildside Bhutan</p>
                 <h3 className="text-2xl lg:text-3xl font-extrabold">
                   Go wild, go Bhutan
@@ -256,7 +256,7 @@ export default function Home() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="bg-black text-white p-5 flex flex-col flex-1">
+              <div className="bg-[#111820] text-white p-5 flex flex-col flex-1">
                 <p className="font-extrabold text-[18px]">WOMEN ONLY TOUR</p>
                 <h3 className="leading-6 my-[12px]">
                   Her Bhutan, <br /> Her Story
@@ -327,7 +327,7 @@ export default function Home() {
           className="h-full w-full object-cover"
         />
         </div>
-        <div className="w-[30%] bg-black p-[24px] flex flex-col justify-between">
+        <div className="w-[30%] bg-[#111820] p-[24px] flex flex-col justify-between">
          <div>
            <h2>TRAVEL WITH PURPOSE</h2>
            <p className="text-white text-[16px] mt-[32px]">
@@ -395,7 +395,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="bg-black w-full p-[24px]">
+        <div className="bg-[#111820] w-full p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-3">
               <h1>Let’s Talk</h1>

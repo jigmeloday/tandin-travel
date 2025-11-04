@@ -183,7 +183,7 @@ function Page() {
 
       {/* Final CTA */}
       <section className="flex flex-col items-center justify-center my-[80px] px-[16px] lg:px-[32px]">
-        <div className="bg-black w-full p-[24px]">
+        <div className="bg-[#111820] w-full p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-1">
               <h1>Let’s Talk</h1>

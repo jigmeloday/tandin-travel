@@ -38,7 +38,7 @@ function Page() {
       </section>
 
       {/* Grid Cards Section */}
-      <section className="px-4 md:px-8 mb-36 bg-black py-8">
+      <section className="px-4 md:px-8 mb-36 bg-[#111820] py-8">
         <div className="text-center mb-6">
           <h1 className="text-white text-3xl md:text-4xl">Bhutan From Above</h1>
         </div>
@@ -65,7 +65,7 @@ function Page() {
       </section>
 
       {/* Hero Images Section */}
-     <section className="w-full bg-black mb-12 flex flex-col md:flex-row h-auto md:h-[70vh]">
+     <section className="w-full bg-[#111820] mb-12 flex flex-col md:flex-row h-auto md:h-[70vh]">
   {/* Images */}
   <div className="flex flex-col md:flex-row flex-1 items-center justify-center gap-4 mb-6 md:mb-0">
     <div className="transform translate-y-0 md:translate-y-6 w-48 md:w-60 h-[260px] md:h-[430px]">
@@ -144,7 +144,7 @@ function Page() {
               <div className="p-4 md:p-6 flex flex-col items-center">
                 <h3 className="text-lg md:text-xl">{title}</h3>
                 <p className="text-[14px] md:text-[16px] mb-4">{subtitle}</p>
-                <Link href={link} className="w-[160px] bg-black text-white font-semibold py-2 md:py-3 text-center hover:bg-gray-800 transition">View Detail</Link>
+                <Link href={link} className="w-[160px] bg-[#111820] text-white font-semibold py-2 md:py-3 text-center hover:bg-gray-800 transition">View Detail</Link>
               </div>
             </div>
           ))}
@@ -153,7 +153,7 @@ function Page() {
 
       {/* Freedom Section */}
       <section className="flex flex-col items-center justify-center my-20 md:px-8 px-4">
-        <div className="bg-black w-full p-6 md:p-12">
+        <div className="bg-[#111820] w-full p-6 md:p-12">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-3">
               <h1 className="text-2xl md:text-4xl">Freedom and Independence</h1>

@@ -213,7 +213,7 @@ function Page() {
       <section className="flex flex-col items-center justify-center px-4 md:px-8 my-12 md:my-20">
         <BestSelling />
       </section>
-      <section className="bg-black w-full p-[24px]">
+      <section className="bg-[#111820] w-full p-[24px]">
         <div className="flex flex-col lg:flex-row gap-6">
           <div className="flex-3">
             <h1>Let’s Talk</h1>

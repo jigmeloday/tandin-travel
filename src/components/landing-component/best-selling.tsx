@@ -35,7 +35,7 @@ function BestSelling() {
            key={tour.id}>
             <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[550px] border-l-8 border-primary overflow-hidden group">
               {/* Card container */}
-              <div className="flex flex-col lg:flex-row h-full w-full bg-black transition-transform duration-300">
+              <div className="flex flex-col lg:flex-row h-full w-full bg-[#111820] transition-transform duration-300">
                 {/* Image section */}
                 <div className="w-full lg:w-[60%] h-64 lg:h-full relative">
                   <Image
@@ -49,7 +49,7 @@ function BestSelling() {
                 </div>
 
                 {/* Text content */}
-                <div className="flex flex-col justify-between flex-1 px-4 sm:px-6 py-4 sm:py-6 text-white bg-black">
+                <div className="flex flex-col justify-between flex-1 px-4 sm:px-6 py-4 sm:py-6 text-white bg-[#111820]">
                   <div className="flex flex-col items-start text-start">
                     <span className="font-extrabold text-xs sm:text-sm tracking-wider uppercase text-white">
                       {tour.category}

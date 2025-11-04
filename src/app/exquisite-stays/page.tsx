@@ -104,7 +104,7 @@ function Page() {
       </section>
 
       {/* Luxury Experience Section */}
-      <section className="w-full h-auto md:h-[70vh] bg-black">
+      <section className="w-full h-auto md:h-[70vh] bg-[#111820]">
         <div className="flex flex-col md:flex-row h-full">
           <div className="flex-1 flex items-center justify-center gap-2 mb-6 md:mb-0">
             <div className="transform translate-y-0 md:translate-y-6 w-48 md:w-60 h-64 md:h-[430px]">
@@ -143,7 +143,7 @@ function Page() {
 
       {/* Let’s Talk Section */}
       <section className="flex flex-col items-center justify-center my-12 px-4 md:px-[32px]">
-        <div className="bg-black w-full p-4 md:p-6 lg:p-8">
+        <div className="bg-[#111820] w-full p-4 md:p-6 lg:p-8">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-1">
               <h1 className="text-2xl md:text-4xl">Let’s Talk</h1>

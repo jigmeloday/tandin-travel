@@ -71,7 +71,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             key={id}
           >
             {/* Left Content */}
-            <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-black p-[20px]">
+            <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-[#111820] p-[20px]">
               <h1 className="text-white">{title}</h1>
               <p className="text-primary font-bold text-[14px] lg:text-[16px] mt-2">
                 {subtitile}
@@ -98,7 +98,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
 
       {/* Freedom Section */}
       <section className="px-[16px] lg:px-[32px]">
-        <div className="bg-black w-full p-[16px] lg:p-[24px]">
+        <div className="bg-[#111820] w-full p-[16px] lg:p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-3">
               <h3 className="text-white">

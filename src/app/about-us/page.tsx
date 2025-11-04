@@ -186,7 +186,7 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="h-screen bg-black p-[16px] md:p-[50px] flex flex-col items-center justify-center">
+      <section className="h-screen bg-[#111820] p-[16px] md:p-[50px] flex flex-col items-center justify-center">
         <h2 className="text-center text-white font-sans text-2xl mb-8">
           Footage shot entirely on our adventures
         </h2>
@@ -221,7 +221,7 @@ function Page() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
        <section className="flex flex-col items-center justify-center my-[80px] px-[16px] lg:px-[32px]">
-        <div className="bg-black w-full p-[24px]">
+        <div className="bg-[#111820] w-full p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-1">
               <h1>Let’s Talk</h1>
