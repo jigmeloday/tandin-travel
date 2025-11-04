@@ -64,7 +64,7 @@ function Page() {
             <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
               <h1>{title}</h1>
               <div className="w-full lg:w-[80%] mx-auto lg:mx-0">
-                <p className="text-base lg:text-[24px] text-gray-700 mb-6">
+                <p className="text-base lg:text-[16px] text-gray-700 mb-6">
                   {description}
                 </p>
               </div>
@@ -110,19 +110,19 @@ function Page() {
               className="bg-[#f7f7f7] flex flex-col items-center text-center shadow-sm"
             >
               {/* Image */}
-              <div className="w-full h-[200px] sm:h-[280px] relative">
+              <div className="w-full h-[280px] sm:h-[280px] relative">
                 <Image
                   src={`/images/dummy/${img}.jpg`}
                   alt={title}
                   fill
-                  className="object-cover"
+                  className="object-cover h-full w-full"
                 />
               </div>
 
               {/* Text */}
               <div className="p-6 flex flex-col items-center">
                 <h3>{title}</h3>
-                <p className="text-[16px] lg:text-[20px] mb-4">{subtitle}</p>
+                <p className="text-[14px] lg:text-[16px] mb-4">{subtitle}</p>
                 <Link
                   href={link}
                   className="w-[160px] bg-black text-white font-semibold py-3 text-center hover:bg-gray-800 transition"
@@ -189,7 +189,7 @@ function Page() {
               <h1>Let’s Talk</h1>
             </div>
             <div className="flex-1">
-              <p className="text-white text-[18px] lg:text-[24px]">
+              <p className="text-white text-[14px] lg:text-[16px]">
                 We love challenges big and small—what’s yours? Let’s craft
                 unique journeys that turn bold ideas into unforgettable travel
                 experiences.

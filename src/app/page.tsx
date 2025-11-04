@@ -20,7 +20,7 @@ export default function Home() {
             <h1>Where Nature Meets Nirvana</h1>
           </div>
           <div className="lg:w-[920px]">
-            <p className="text-[18px] lg:text-[32px] text-center my-[24px]">
+            <p className="text-center my-[24px]">
               Every journey is crafted entirely around you, blending seamless
               planning with rare, meaningful encounters. Each experience unfolds
               with thoughtful detail—from the first welcome to the quiet moments
@@ -54,7 +54,7 @@ export default function Home() {
                 <h4 className="relative inline-block text-white after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:bg-white/80 after:transition-all after:duration-300 after:ease-out group-hover:after:left-0 group-hover:after:w-full">
                   {title}
                 </h4>
-                <span className="text-[16px] lg:text-[18px] text-white">
+                <span className="text-[14px] lg:text-[16px] text-white">
                   {subtitle}
                 </span>
               </div>
@@ -70,7 +70,7 @@ export default function Home() {
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <h1>From Dream to Departure</h1>
         <div className="md:w-[840px]">
-          <p className="text-[20px]">
+          <p>
             Every remarkable journey begins with a single step. Our simple,
             seamless process ensures your Bhutan experience is perfectly
             tailored, effortless, and unforgettable—from first inquiry to the
@@ -117,11 +117,11 @@ export default function Home() {
                 <div className="flex items-center justify-center size-[80px] rounded-full bg-primary">
                   <IconCoponent className="text-white" />
                 </div>
-                <p className="mt-4 text-[24px] text-primary font-bold">
+                <p className="mt-4 text-[18px] text-primary font-bold">
                   0{id}. {title}
                 </p>
-                <div className="md:w-[180px]">
-                  <p className="text-[18px]">{description}</p>
+                <div className="md:w-[300px]">
+                  <p>{description}</p>
                 </div>
               </div>
             );
@@ -145,9 +145,9 @@ export default function Home() {
           </div>
           <div className="flex flex-col justify-between flex-1 px-[24px] py-[42px] text-white bg-black">
             <div>
-              <span className="font-extrabold text-[24px]">Silent Monks</span>
+              <span className="font-extrabold text-[18px]">Silent Monks</span>
               <h3>Whisper, wonder, wander</h3>
-              <span className="text-[18px]">
+              <span className="text-[14px] lg:text-[16px]">
                 Step into Bhutan’s serene sanctuaries, where quiet moments,
                 mindful rituals, and tranquil landscapes invite reflection,
                 wonder, and a gentle escape from the everyday.
@@ -174,9 +174,9 @@ export default function Home() {
                 />
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
-                <p className="font-extrabold text-[24px]">Family Legacy Tour</p>
+                <p className="font-extrabold text-[18px]">Family Legacy Tour</p>
                 <h3>Together, every step</h3>
-                <p className="text-[18px]">
+                <p className="text-[16px]">
                   Forge unforgettable memories exploring Bhutan’s culture,
                   nature, and traditions together, crafting shared experiences
                   that delight every generation in elegance and comfort.
@@ -200,9 +200,9 @@ export default function Home() {
                 />
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
-                <p className="font-extrabold text-[24px]">Curated Adventure</p>
+                <p className="font-extrabold text-[18px]">Curated Adventure</p>
                 <h3>Thrills, tailored just for you</h3>
-                <p className="text-[18px]">
+                <p className="text-[16px]">
                   Tailored for the discerning thrill-seeker, this journey blends
                   Bhutan’s majestic landscapes, hidden trails, and exhilarating
                   activities into a perfectly crafted adventure.
@@ -229,11 +229,11 @@ export default function Home() {
                 />
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
-                <p className="font-extrabold text-[24px]">Wildside Bhutan</p>
+                <p className="font-extrabold text-[18px]">Wildside Bhutan</p>
                 <h3 className="text-2xl lg:text-3xl font-extrabold">
                   Go wild, go Bhutan
                 </h3>
-                <p className="text-[18px]">
+                <p className="text-[16px]">
                   Venture into Bhutan’s untamed corners—remote valleys, pristine
                   forests, and rare wildlife—where luxury meets the exhilaration
                   of the kingdom’s wild heart.
@@ -257,11 +257,11 @@ export default function Home() {
                 />
               </div>
               <div className="bg-black text-white p-5 flex flex-col flex-1">
-                <p className="font-extrabold text-[24px]">WOMEN ONLY TOUR</p>
+                <p className="font-extrabold text-[18px]">WOMEN ONLY TOUR</p>
                 <h3 className="leading-6 my-[12px]">
                   Her Bhutan, <br /> Her Story
                 </h3>
-                <p className="text-[18px]">
+                <p className="text-[16px]">
                   Celebrate female travelers with a journey of empowerment,
                   connecting with Bhutanese women, cultural treasures, and
                   shared experiences in refined comfort and style.
@@ -294,7 +294,7 @@ export default function Home() {
             <h1>We don’t just promise—we deliver every detail</h1>
           </div>
           <div className="lg:w-[900px]">
-            <p className="text-[18px] lg:text-[32px] text-center my-[24px]">
+            <p className="text-[14px] lg:text-[16px] text-center my-[24px]">
               Every adventure is led by experts who know the land intimately,
               granting access to rare moments and authentic encounters. Here,
               each step creates lasting memories, and every journey deepens your
@@ -318,7 +318,7 @@ export default function Home() {
         )}
       </section>
       <section className="flex px-[16px] lg:px-[32px] mt-[42px] ">
-        <div className="w-[70%] h-[80vh] bg-black/70">
+        <div className="w-[70%] min-h-[80vh] bg-black/70">
         <Image
           src="/images/dummy/img4.jpg"
           alt="img"
@@ -327,18 +327,20 @@ export default function Home() {
           className="h-full w-full object-cover"
         />
         </div>
-        <div className="w-[30%] bg-black p-[24px] flex flex-col justify-center">
-          <h2>TRAVEL WITH PURPOSE</h2>
-          <p className="text-white text-[18px] mt-[32px]">
+        <div className="w-[30%] bg-black p-[24px] flex flex-col justify-between">
+         <div>
+           <h2>TRAVEL WITH PURPOSE</h2>
+           <p className="text-white text-[16px] mt-[32px]">
             At Born Explorer, we believe every journey should enrich both
             traveler and destination. By embracing sustainable practices,
             respecting local cultures, and supporting communities, we ensure
             your Bhutan experience leaves a positive footprint.
           </p>
-          <p className="text-white text-[18px] mt-[32px]">
+          <p className="text-white text-[16px] mt-[32px]">
             Travel consciously, discover authentically, and create memories that
             honor the land, its people, and its timeless traditions.
           </p>
+         </div>
          <div className='mt-[32px] flex'>
            <Link className='bg-primary py-2 px-3 text-[20px] font-bold text-white' href='/travel-purpose'>VIEW DETAILS</Link>
          </div>
@@ -348,8 +350,8 @@ export default function Home() {
         <SliderComponent />
       </section>
       <section className="flex flex-col items-center justify-center my-[80px] lg:px-[32px] px-[16px]">
-        <h1 className="text-3xl font-bold">Moments from Bhutan (Blog Post)</h1>
-        <p className="font-bold text-[18px] mt-2">
+        <h1 className="text-3xl font-bold">Travel Blogs</h1>
+        <p className="font-bold mt-2">
           FRESHLY DISCOVERED, EXCLUSIVELY FOR YOU
         </p>
 
@@ -399,7 +401,7 @@ export default function Home() {
               <h1>Let’s Talk</h1>
             </div>
             <div className="flex-2">
-              <p className="text-white text-[20px]">
+              <p className="text-white text-[14px] lg:text-[16px]">
                 Combine helicopter journeys with sustainable luxury lodges,
                 curated local cuisine, and intimate cultural experiences for a
                 fully bespoke Bhutanese exploration.

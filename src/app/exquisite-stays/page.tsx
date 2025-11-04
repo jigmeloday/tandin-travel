@@ -86,7 +86,7 @@ function Page() {
             <div className="flex flex-col justify-between h-full p-2 md:p-4">
               <div className="w-full md:w-[80%]">
                 <h1 className="text-xl md:text-2xl lg:text-3xl">Enjoy Your Dream Vacation</h1>
-                <p className="text-base md:text-[24px] mt-2">
+                <p className="text-[14px] md:text-[16px] mt-2">
                   Nestled in Bhutan’s serene landscapes, Six Senses invites you
                   to relax, explore, and savor every moment of luxurious,
                   mindful living.
@@ -131,10 +131,10 @@ function Page() {
                 Remember
               </h1>
             </div>
-            <p className="text-white text-base md:text-[32px]">
+            <p className="text-white text-[14px] md:text-[16px]">
               Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.
             </p>
-            <p className="text-white font-bold font-sans text-base md:text-[20px]">
+            <p className="text-white font-bold font-sans text-base md:text-[18px]">
               YOU ARE BHUTANA AND OTES EHTE
             </p>
           </div>
@@ -149,7 +149,7 @@ function Page() {
               <h1 className="text-2xl md:text-4xl">Let’s Talk</h1>
             </div>
             <div className="flex-1">
-              <p className="text-white text-base md:text-[24px]">
+              <p className="text-white text-[14px] md:text-[16px]">
                 We love challenges big and small—what’s yours? Let’s craft
                 unique journeys that turn bold ideas into unforgettable travel
                 experiences.
@@ -192,7 +192,7 @@ function Page() {
             <h1>Where Nature Meets Nirvana</h1>
           </div>
           <div className="lg:w-[920px]">
-            <p className="text-[16px] md:text-[18px] lg:text-[32px] text-center my-[24px]">
+            <p className="text-[14px] md:text-[16px] text-center my-[24px]">
               Every journey is crafted entirely around you, blending seamless
               planning with rare, meaningful encounters. Each experience unfolds
               with thoughtful detail—from the first welcome to the quiet moments

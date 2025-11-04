@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Playfair_Display, Barlow_Condensed } from "next/font/google";
+import { Geist, Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -15,7 +15,7 @@ const playfair = Playfair_Display({
   weight: ["500"], // Medium for H1
 });
 
-const barlowCondensed = Barlow_Condensed({
+const barlowCondensed = Poppins({
   subsets: ["latin"],
   variable: "--font-barlow-condensed",
   weight: ["300", "600"], // Light (body), Semi-Bold (H2)

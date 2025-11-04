@@ -26,7 +26,7 @@ function Page() {
             <h1 className="text-2xl md:text-4xl font-semibold">Bhutan From Above</h1>
           </div>
           <div className="w-full md:w-[920px]">
-            <p className="text-[16px] md:text-[24px] my-6">
+            <p className="text-[14px] md:text-[16px] my-6">
               Experience Bhutan like never before with premium helicopter journeys. Soar above sacred valleys, majestic mountains, and hidden monasteries in unrivaled luxury. Each flight blends adventure, comfort, and breathtaking discovery, turning travel into a transformative, mindful experience where nature, culture, and serenity converge seamlessly.
             </p>
           </div>
@@ -54,7 +54,7 @@ function Page() {
               </div>
               <div className="p-4 md:p-6 flex flex-col items-center">
                 <h3 className="relative text-xl md:text-2xl font-semibold after:content-[''] after:block after:w-2/5 after:h-[3px] after:bg-white after:mx-auto after:mt-2">{title}</h3>
-                <p className="text-base md:text-lg my-4">{subtitle}</p>
+                <p className="text-[14px] md:text-[16px] my-4">{subtitle}</p>
                 <Link href={link} className="w-[160px] text-white font-semibold py-2 md:py-3 text-center hover:bg-gray-800 transition">
                   SAVOR THE SUBLIME
                 </Link>
@@ -96,10 +96,10 @@ function Page() {
         Remember
       </h1>
     </div>
-    <p className="text-white text-base md:text-2xl">
+    <p className="text-white text-[14px] md:text-[16px]">
       Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.
     </p>
-    <p className="text-white font-bold text-base md:text-[20px]">
+    <p className="text-white font-bold text-base md:text-[18px]">
       YOU ARE BHUTANA AND OTES EHTE
     </p>
   </div>
@@ -119,7 +119,7 @@ function Page() {
             <h1 className="text-2xl md:text-4xl font-semibold">Signature Tours</h1>
           </div>
           <div className="w-full md:w-[920px]">
-            <p className="text-[16px] md:text-[24px] text-center my-6">
+            <p className="text-[14px] md:text-[16px] text-center my-6">
               Experience Bhutan like never before with premium helicopter journeys. Soar above sacred valleys, majestic mountains, and hidden monasteries in unrivaled luxury. Each flight blends adventure, comfort, and breathtaking discovery, turning travel into a transformative, mindful experience where nature, culture, and serenity converge seamlessly.
             </p>
           </div>
@@ -138,12 +138,12 @@ function Page() {
             { id: 6, img: 'img3', title: 'Her Bhutan; Her Story', subtitle: 'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.', link: '/culture-wellness' },
           ].map(({ img, title, subtitle, link }, idx) => (
             <div key={idx} className="bg-gray-400/20 flex flex-col items-center text-center shadow-sm">
-              <div className="w-full h-64 md:h-72 relative">
+              <div className="w-full aspect-square relative">
                 <Image src={`/images/dummy/${img}.jpg`} alt={title} fill className="object-cover" />
               </div>
               <div className="p-4 md:p-6 flex flex-col items-center">
                 <h3 className="text-lg md:text-xl">{title}</h3>
-                <p className="text-[16px] md:text-[20px] mb-4">{subtitle}</p>
+                <p className="text-[14px] md:text-[16px] mb-4">{subtitle}</p>
                 <Link href={link} className="w-[160px] bg-black text-white font-semibold py-2 md:py-3 text-center hover:bg-gray-800 transition">View Detail</Link>
               </div>
             </div>
@@ -159,7 +159,7 @@ function Page() {
               <h1 className="text-2xl md:text-4xl">Freedom and Independence</h1>
             </div>
             <div className="flex-2">
-              <p className="text-white text-lg md:text-2xl">
+              <p className="text-white text-[14px] md:text-[16px]">
                 Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.
               </p>
             </div>

@@ -21,8 +21,8 @@ function Page() {
       </section>
       <section className="flex flex-col md:flex-row px-[16px] md:px-[32px] my-[50px] justify-center w-full">
         <div className="bg-black md:w-[40%] p-[32px]">
-          <h1>Start the Conversation</h1>
-          <p className='text-white text-[24px]'>
+          <h2>Start the Conversation</h2>
+          <p className='text-white text-[14px] lg:text-[16px]'>
             Every remarkable journey begins with a simple hello — share your
             thoughts, dreams, or travel inspirations with us, and we’ll
             gracefully guide you forward, transforming your vision into an

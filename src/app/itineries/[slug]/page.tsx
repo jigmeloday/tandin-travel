@@ -27,7 +27,7 @@ function Page() {
             </h1>
           </div>
           <div className="w-full md:w-[920px]">
-            <p className="text-[16px] md:text-[24px] my-6">
+            <p className="text-[14px] md:text-[16px] my-6">
               Every journey is crafted entirely around you, blending seamless
               planning with rare, meaningful encounters. Each experience unfolds
               with thoughtful detail—from the first welcome to the quiet moments
@@ -77,7 +77,7 @@ function Page() {
         <div className="w-full py-[50px] bg-primary flex flex-col md:flex-row justify-center md:space-x-6">
           <div className="md:w-[70%] px-[12px]">
             <h6 className="text-white">MAKE THIS ITINERARY YOURS</h6>
-            <p className="text-[18px]  md:text-[24px] mt-[14px]">
+            <p className="text-[14px]  md:text-[16px] mt-[14px]">
               Each and every Born Explorer trip is tailored exactly to who you
               are and what you want to do So tell us about yourself and we’ll
               create something that’s entirely you.
@@ -102,7 +102,7 @@ function Page() {
               item % 2 === 0 ? 'md:flex-row-reverse' : ''
             }`}
           >
-            <div className="md:h-[500px] md:w-[550px]">
+            <div className="md:h-[500px] aspect-square w-full">
               <Image
                 src="/images/dummy/img1.jpg"
                 alt=""
@@ -111,9 +111,9 @@ function Page() {
                 width={500}
               />
             </div>
-            <div className="flex flex-col justify-center md:px-4 md:h-[500px] md:w-[550px]">
+            <div className="flex flex-col justify-center md:px-4 md:h-[500px] aspect-square w-full">
               <h1>Cultural Connection</h1>
-              <p className="text-[18px] md:text-[24px]">
+              <p className="text-[14px] md:text-[16px]">
                 Combine helicopter journeys with sustainable luxury lodges,
                 curated local cuisine, and intimate cultural experiences for a
                 fully bespoke Bhutanese exploration.
@@ -156,7 +156,7 @@ function Page() {
             </h1>
           </div>
           <div className="w-full md:w-[920px]">
-            <p className="text-[16px] md:text-[24px] my-6">
+            <p className="text-[14px] md:text-[16px] my-6">
               Every journey is crafted entirely around you, blending seamless
               planning with rare, meaningful encounters. Each experience unfolds
               with thoughtful detail—from the first welcome to the quiet moments

@@ -32,7 +32,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             <h1>{data?.title}</h1>
           </div>
           <div className="w-full lg:w-[920px]">
-            <p className="text-[16px] lg:text-[32px] text-center my-[16px] lg:my-[24px]">
+            <p className="text-[14px] lg:text-[16px] text-center my-[16px] lg:my-[24px]">
               Experience Bhutan like never before with premium helicopter
               journeys. Soar above sacred valleys, majestic mountains, and
               hidden monasteries in unrivaled luxury. Each flight blends
@@ -51,7 +51,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       </section>
 
       {/* Full Image Section */}
-      <section className="h-[300px] lg:h-[600px] my-[30px] lg:my-[50px]">
+      <section className="h-[300px] lg:h-[80vh] my-[30px] lg:my-[50px]">
         <Image
           src="/images/dummy/img1.jpg"
           alt="img"
@@ -73,11 +73,11 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             {/* Left Content */}
             <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-black p-[20px]">
               <h1 className="text-white">{title}</h1>
-              <p className="text-primary font-bold text-[18px] lg:text-[24px] mt-2">
+              <p className="text-primary font-bold text-[14px] lg:text-[16px] mt-2">
                 {subtitile}
               </p>
               <div className="px-[20px] lg:px-[60px] mt-[16px] lg:mt-[24px] pb-[20px] lg:pb-[32px]">
-                <p className="text-white text-center text-[16px] lg:text-[24px]">
+                <p className="text-white text-center text-[14px] lg:text-[16px]">
                   {description}
                 </p>
               </div>
@@ -101,12 +101,12 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         <div className="bg-black w-full p-[16px] lg:p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-3">
-              <h1 className="text-white">
+              <h3 className="text-white">
                 Freedom and <br /> Independence
-              </h1>
+              </h3>
             </div>
             <div className="flex-2">
-              <p className="text-white text-[16px] lg:text-[20px]">
+              <p className="text-white text-[14px] lg:text-[16px]">
                 Combine helicopter journeys with sustainable luxury lodges,
                 curated local cuisine, and intimate cultural experiences for a
                 fully bespoke Bhutanese exploration.

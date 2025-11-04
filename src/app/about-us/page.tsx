@@ -55,14 +55,14 @@ function Page() {
             <h1>Genuinely next-level travel & events</h1>
           </div>
           <div className="lg:w-[920px]">
-            <p className="text-[18px] lg:text-[24px] text-center my-[24px]">
+            <p className="text-[14px] lg:text-[16px] text-center my-[24px]">
               We deliver truly next-level travel experiences, from discovering
               unknown Roman shipwrecks and a new species of orca as part of
               family yacht trips to organising epic celebrations in bespoke
               luxury camps and thought leadership events focused on
               transformative wellness.
             </p>
-            <p className="text-[18px] lg:text-[24px] text-center my-[24px]">
+            <p className="text-[14px] lg:text-[16px] text-center my-[24px]">
               Founded by polar explorer Henry Cookson, we apply the same
               standards of expedition excellence and innovation that saw him
               break Antarctic world records to every trip we deliver. Everything
@@ -70,7 +70,7 @@ function Page() {
               of in-house experts and their network of global experts, from
               regional authorities and leading scientists to international DJs.
             </p>
-            <p className="text-[18px] lg:text-[24px] text-center my-[24px]">
+            <p className="text-[14px] lg:text-[16px] text-center my-[24px]">
               We only work on a small volume of projects each year, which means
               we can dedicate unrivalled attention and resources to every trip.
             </p>
@@ -102,18 +102,18 @@ function Page() {
           <p className="text-primary text-[24px] font-bold mt-[16px]">
             Founder & Chairman
           </p>
-          <p className="text-[18px] md:text-[24px] mt-[32px]">
+          <p className="text-[14px] md:text-[16px] mt-[32px]">
             After a past life guiding horseback safaris in Kenya, Henry’s start
             in polar exploration began in 2005, winning the Polar Challenge race
             to the Magnetic North Pole.
           </p>
-          <p className="text-[18px] md:text-[24px] mt-[16px]">
+          <p className="text-[14px] md:text-[16px] mt-[16px]">
             Since then, he’s set a world record as part of the very first team
             to reach the South Pole of Inaccessibility without mechanical means
             and gone on to guide the Walking With The Wounded charity expedition
             to the North Pole with HRH Prince Harry.
           </p>
-          <p className="text-[18px] md:text-[24px] mt-[16px]">
+          <p className="text-[14px] md:text-[16px] mt-[16px]">
             It’s these expeditions that served as inspiration in founding
             Cookson Adventures, bringing the same standards of ground-breaking
             excellence to the world of private travel. That’s whether working
@@ -154,7 +154,7 @@ function Page() {
               <div className="flex flex-col text-center items-center my-[32px] space-y-[16px]">
                 <p className="text-[42px] font-sans">Full Name</p>
                 <p className="text-[28px] font-bold text-primary">Job Title</p>
-                <p className="text-center text-[24px]">
+                <p className="text-center text-[16px]">
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industrys
                   standard dummy text ever since the 1500s
@@ -227,7 +227,7 @@ function Page() {
               <h1>Let’s Talk</h1>
             </div>
             <div className="flex-1">
-              <p className="text-white text-[18px] lg:text-[24px]">
+              <p className="text-white text-[14px] lg:text-[16px]">
                 We love challenges big and small—what’s yours? Let’s craft
                 unique journeys that turn bold ideas into unforgettable travel
                 experiences.

@@ -59,7 +59,7 @@ function BestSelling() {
                       {tour.title}
                     </h3>
                    </div>
-                    <p className="text-sm sm:text-[16px] lg:text-[20px] font-light text-gray-200 leading-[24px]">
+                    <p className="text-sm sm:text-[14px] lg:text-[16px] font-light text-gray-200 leading-[24px]">
                       {tour.description}
                     </p>
                   </div>

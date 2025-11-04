@@ -42,7 +42,7 @@ function Testimonial() {
               <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-black">
                 {slide.title}
               </h1>
-              <p className="text-center text-base md:text-lg lg:text-xl font-bold text-black/70 mt-4">
+              <p className="text-center text-base md:text-[14] lg:text-[16] font-bold text-black/70 mt-4">
                 {slide.description}
               </p>
               <p className="font-bold mt-3 text-sm md:text-base">

@@ -22,7 +22,7 @@ function Page() {
             <h1>Where Nature Meets Nirvana</h1>
           </div>
           <div className="lg:w-[920px]">
-            <p className="text-[18px] lg:text-[32px] text-center my-[24px]">
+            <p className="text-[14px] lg:text-[16px] text-center my-[24px]">
               Every journey is crafted entirely around you, blending seamless
               planning with rare, meaningful encounters. Each experience unfolds
               with thoughtful detail—from the first welcome to the quiet moments
@@ -41,7 +41,7 @@ function Page() {
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-4">
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <div key={item} className={`flex md:flex-row flex-col w-full justify-center gap-2 ${item%2 === 0 ? 'md:flex-row-reverse': ''}`}>
-            <div className="md:h-[500px] md:w-[550px]">
+            <div className="border w-full aspect-square">
               <Image
                 src="/images/dummy/img1.jpg"
                 alt=""
@@ -50,14 +50,14 @@ function Page() {
                 width={500}
               />
             </div>
-            <div className="flex flex-col justify-center md:px-4 md:h-[500px] md:w-[550px]">
+            <div className="flex flex-col justify-center md:px-4 md:h-[500px] md:w-full aspect-square">
               <h1>Cultural Connection</h1>
-              <p className='text-[18px] md:text-[24px]'>
+              <p className='text-[14px] md:text-[16px]'>
                 Combine helicopter journeys with sustainable luxury lodges,
                 curated local cuisine, and intimate cultural experiences for a
                 fully bespoke Bhutanese exploration.
               </p>
-              <p className='font-bold mt-4 italic text-[18px] text-primary'>Where culture isn’t watched — it’s lived</p>
+              <p className='font-bold mt-4 italic text-[16px] text-primary'>Where culture isn’t watched — it’s lived</p>
             </div>
           </div>
         ))}
@@ -65,10 +65,10 @@ function Page() {
       <section className='px-[16px] lg:px-[32px]'>
         <div className='flex flex-col items-center justify-center bg-primary w-full py-[24px] md:py-[52px]'>
           <h2 className='text-white'>JOIN THE MOVEMENT</h2>
-          <p className='text-[18px] md:text-[24px]'>Travel that restores balance</p>
-          <p className='text-[18px] md:text-[24px]'>Travel that listens to nature</p>
-          <p className='text-[18px] md:text-[24px]'>Travel that leaves the world better</p>
-          <p className='mt-4 font-bold md:text-[24px]'>Born Explorer — where every journey has a purpose</p>
+          <p className='text-[14px] md:text-[16px]'>Travel that restores balance</p>
+          <p className='text-[14px] md:text-[16px]'>Travel that listens to nature</p>
+          <p className='text-[14px] md:text-[16px]'>Travel that leaves the world better</p>
+          <p className='mt-4 font-bold md:text-[16px]'>Born Explorer — where every journey has a purpose</p>
         </div>
       </section>
     </div>
