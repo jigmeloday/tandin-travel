@@ -52,18 +52,26 @@ function Header() {
         href="/"
         className="flex lg:justify-center items-center w-full text-white h-full cursor-pointer"
       >
-        <Image
-          src="/logo/logo.webp"
+        {
+          !scrolled ? <Image
+          src="/logo/logo2.png"
+          alt="logo"
+          height={1000}
+          width={1000}
+          className="size-[50px] object-contain"
+        /> : <Image
+          src="/logo/logo1.png"
           alt="logo"
           height={1000}
           width={1000}
           className="size-[50px] object-contain"
         />
+        }
       </Link>
 
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger>
-          <Menu size={40} className="text-primary cursor-pointer" />
+        <SheetTrigger className='cursor-pointer'>
+          <Menu size={40} className={scrolled ? "text-primary " : "text-white"} />
         </SheetTrigger>
         <SheetContent side='top' className='h-screen'>
           <SheetHeader>
