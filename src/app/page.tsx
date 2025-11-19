@@ -77,7 +77,7 @@ export default function Home() {
             moment you depart.
           </p>
         </div>
-        <div className="flex flex-col items-start justify-center lg:flex-row my-[40px] gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 items-start justify-center  my-[40px] gap-4">
           {[
             {
               id: 1,
@@ -114,13 +114,13 @@ export default function Home() {
                 key={id}
                 className="flex flex-col items-center justify-center"
               >
-                <div className="flex items-center justify-center size-[80px] rounded-full bg-primary">
+                <div className="flex items-center justify-center size-[60px] rounded-full bg-primary">
                   <IconCoponent className="text-white" />
                 </div>
-                <p className="mt-4 text-[18px] text-primary font-bold">
+                <p className="mt-4 text-[16px] text-primary font-bold">
                   0{id}. {title}
                 </p>
-                <div className="md:w-[300px]">
+                <div className="md:w-[300px] text-[12px]">
                   <p>{description}</p>
                 </div>
               </div>
@@ -327,7 +327,7 @@ export default function Home() {
           className="h-full w-full object-cover"
         />
         </div>
-        <div className="w-[30%] bg-[#111820] p-[24px] flex flex-col justify-between">
+        <div className="w-[32%] bg-[#111820] p-[24px] flex flex-col justify-between">
          <div>
            <h2>TRAVEL WITH PURPOSE</h2>
            <p className="text-white text-[16px] mt-[32px]">
