@@ -1,3 +1,4 @@
+import LetsTalk from '@/components/shared/let-talk';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -183,7 +184,7 @@ function Page() {
 
       {/* Final CTA */}
       <section className="flex flex-col items-center justify-center my-[80px] px-[16px] lg:px-[32px]">
-        <div className="bg-[#111820] w-full p-[24px]">
+        {/* <div className="bg-[#111820] w-full p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-1">
               <h1>Let’s Talk</h1>
@@ -209,6 +210,15 @@ function Page() {
               Connect Now – We’ll throw in enlightenment
             </h4>
           </div>
+        </div> */}
+        <div className="h-[60vh]">
+          <LetsTalk
+            images="/images/dummy/img2.jpg"
+            description="For decades, our team has been crafting journeys that go beyond the
+                  ordinary. Share your dream destination and your passions with us, and
+                  we’ll design a one-of-a-kind adventure that’s truly yours—a journey
+                  you’ll remember for a lifetime."
+          />
         </div>
       </section>
     </main>

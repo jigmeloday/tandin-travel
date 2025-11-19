@@ -2,6 +2,7 @@ import BestSelling from '@/components/landing-component/best-selling';
 import HeroSwapper from '@/components/landing-component/hero-swapper';
 import SliderComponent from '@/components/landing-component/slider';
 import ImageBox from '@/components/shared/image-box';
+import LetsTalk from '@/components/shared/let-talk';
 import { IMAGE_BOX, TOUR_TYPE } from '@/lib/dummy-data/dummy-data';
 import { Headphones, Mail, Plane, Search } from 'lucide-react';
 import Image from 'next/image';
@@ -395,7 +396,7 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="bg-[#111820] w-full p-[24px]">
+        {/* <div className="bg-[#111820] w-full p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-3">
               <h1>Let’s Talk</h1>
@@ -421,7 +422,13 @@ export default function Home() {
               Connect Now – We’ll throw in enlightenment
             </h4>
           </div>
-        </div>
+        </div> */}
+      <div className="h-[60vh]">
+          <LetsTalk images='/images/dummy/img1.jpg' description='For decades, our team has been crafting journeys that go beyond the
+          ordinary. Share your dream destination and your passions with us, and
+          we’ll design a one-of-a-kind adventure that’s truly yours—a journey
+          you’ll remember for a lifetime.' />
+      </div>
       </section>
     </main>
   );

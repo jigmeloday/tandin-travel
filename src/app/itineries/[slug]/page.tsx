@@ -1,5 +1,6 @@
 import BestSelling from '@/components/landing-component/best-selling';
 import HeroSwapper from '@/components/landing-component/hero-swapper';
+import LetsTalk from '@/components/shared/let-talk';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
@@ -174,46 +175,46 @@ function Page() {
       </section>
       <section className="flex flex-col items-center justify-center px-4 md:px-8 my-12 md:my-20">
         <div className="grid grid-cols-1 md:grid-cols-3 mx-auto md:max-w-[80%] gap-2">
-        {
-          [1,2,3].map((item) => (
-             <div className="bg-gray-100" key={item}>
-            <div className="bg-primary h-[240px]"></div>
-            <div className="flex flex-col items-center justify-center p-[20px] text-center">
-              <h4>Her Bhutan; Her Story</h4>
-              <p className='mb-[18px] text-[18px]'>
-                Combine helicopter journeys with sustainable luxury lodges,
-                curated local cuisine, and intimate cultural experiences for a
-                fully bespoke Bhutanese exploration.
-              </p>
-              <Button className='rounded-none bg-black text-[24px]'>View Details</Button>
+          {[1, 2, 3].map((item) => (
+            <div className="bg-gray-100" key={item}>
+              <div className="bg-primary h-[240px]"></div>
+              <div className="flex flex-col items-center justify-center p-[20px] text-center">
+                <h4>Her Bhutan; Her Story</h4>
+                <p className="mb-[18px] text-[18px]">
+                  Combine helicopter journeys with sustainable luxury lodges,
+                  curated local cuisine, and intimate cultural experiences for a
+                  fully bespoke Bhutanese exploration.
+                </p>
+                <Button className="rounded-none bg-black text-[24px]">
+                  View Details
+                </Button>
+              </div>
             </div>
-          </div>
-          ))
-        }
+          ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 mx-auto md:max-w-[80%] gap-2 my-4">
-        {
-          [1,2].map((item) => (
-             <div className="bg-gray-100" key={item}>
-            <div className="bg-primary h-[340px]"></div>
-            <div className="flex flex-col items-center justify-center p-[20px] text-center">
-              <h4>Her Bhutan; Her Story</h4>
-              <p className='text-[18px] mb-[18px]'>
-                Combine helicopter journeys with sustainable luxury lodges,
-                curated local cuisine, and intimate cultural experiences for a
-                fully bespoke Bhutanese exploration.
-              </p>
-              <Button className='rounded-none bg-black text-[24px]'>View Details</Button>
+          {[1, 2].map((item) => (
+            <div className="bg-gray-100" key={item}>
+              <div className="bg-primary h-[340px]"></div>
+              <div className="flex flex-col items-center justify-center p-[20px] text-center">
+                <h4>Her Bhutan; Her Story</h4>
+                <p className="text-[18px] mb-[18px]">
+                  Combine helicopter journeys with sustainable luxury lodges,
+                  curated local cuisine, and intimate cultural experiences for a
+                  fully bespoke Bhutanese exploration.
+                </p>
+                <Button className="rounded-none bg-black text-[24px]">
+                  View Details
+                </Button>
+              </div>
             </div>
-          </div>
-          ))
-        }
+          ))}
         </div>
       </section>
       <section className="flex flex-col items-center justify-center px-4 md:px-8 my-12 md:my-20">
         <BestSelling />
       </section>
-      <section className="bg-[#111820] w-full p-[24px]">
+      {/* <section className="bg-[#111820] w-full p-[24px]">
         <div className="flex flex-col lg:flex-row gap-6">
           <div className="flex-3">
             <h1>Let’s Talk</h1>
@@ -239,7 +240,16 @@ function Page() {
             Connect Now – We’ll throw in enlightenment
           </h4>
         </div>
-      </section>
+      </section> */}
+      <div className="h-[60vh]">
+        <LetsTalk
+          images="/images/dummy/img3.jpg"
+          description="For decades, our team has been crafting journeys that go beyond the
+                        ordinary. Share your dream destination and your passions with us, and
+                        we’ll design a one-of-a-kind adventure that’s truly yours—a journey
+                        you’ll remember for a lifetime."
+        />
+      </div>
     </main>
   );
 }
