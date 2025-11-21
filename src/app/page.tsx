@@ -318,35 +318,47 @@ export default function Home() {
           )
         )}
       </section>
-      <section className="flex px-[16px] lg:px-[32px] mt-[42px] ">
-        <div className="w-[70%] min-h-[80vh] bg-black/70">
-        <Image
-          src="/images/dummy/img4.jpg"
-          alt="img"
-          height={1000}
-          width={1000}
-          className="h-full w-full object-cover"
-        />
-        </div>
-        <div className="w-[32%] bg-[#111820] p-[24px] flex flex-col justify-between">
-         <div>
-           <h2>TRAVEL WITH PURPOSE</h2>
-           <p className="text-white text-[16px] mt-[32px]">
-            At Born Explorer, we believe every journey should enrich both
-            traveler and destination. By embracing sustainable practices,
-            respecting local cultures, and supporting communities, we ensure
-            your Bhutan experience leaves a positive footprint.
-          </p>
-          <p className="text-white text-[16px] mt-[32px]">
-            Travel consciously, discover authentically, and create memories that
-            honor the land, its people, and its timeless traditions.
-          </p>
-         </div>
-         <div className='mt-[32px] flex'>
-           <Link className='bg-primary py-2 px-3 text-[20px] font-bold text-white' href='/travel-purpose'>VIEW DETAILS</Link>
-         </div>
-        </div>
-      </section>
+     <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[42px] gap-4">
+  {/* LEFT IMAGE SECTION */}
+  <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
+    <Image
+      src="/images/dummy/img4.jpg"
+      alt="img"
+      height={1000}
+      width={1000}
+      className="h-full w-full object-cover"
+    />
+  </div>
+
+  {/* RIGHT CONTENT SECTION */}
+  <div className="w-full lg:w-[32%] bg-[#111820] p-[24px] flex flex-col justify-between">
+    <div>
+      <h2>TRAVEL WITH PURPOSE</h2>
+
+      <p className="text-white text-[16px] mt-[32px]">
+        At Born Explorer, we believe every journey should enrich both traveler
+        and destination. By embracing sustainable practices, respecting local
+        cultures, and supporting communities, we ensure your Bhutan experience
+        leaves a positive footprint.
+      </p>
+
+      <p className="text-white text-[16px] mt-[32px]">
+        Travel consciously, discover authentically, and create memories that
+        honor the land, its people, and its timeless traditions.
+      </p>
+    </div>
+
+    <div className="mt-[32px] flex">
+      <Link
+        className="bg-primary py-2 px-3 text-[20px] font-bold text-white"
+        href="/travel-purpose"
+      >
+        VIEW DETAILS
+      </Link>
+    </div>
+  </div>
+</section>
+
       <section className="my-[42px] px-[16px] lg:px-[32px]">
         <SliderComponent />
       </section>
