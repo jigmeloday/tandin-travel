@@ -63,11 +63,11 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="flex flex-col justify-center items-center text-center my-[42px]">
+      <section className="flex flex-col justify-center items-center text-center">
         <h1>Flagship Signature Journey</h1>
         <BestSelling />
       </section>
-      <section className="flex flex-col justify-center items-center text-center my-[42px] px-[16px] lg:px-[32px] scrollbar-hide">
+      <section className="flex flex-col justify-center items-center text-center px-[16px] lg:px-[32px] scrollbar-hide">
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
         <h1>From Dream to Departure</h1>
         <div className="md:w-[840px]">
@@ -121,7 +121,7 @@ export default function Home() {
                 <p className="mt-4 text-[16px] text-primary font-bold">
                   0{id}. {title}
                 </p>
-                <div className="md:w-[300px] text-[12px]">
+                <div className="md:w-[300px]">
                   <p>{description}</p>
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function Home() {
         </button>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="px-[16px] lg:px-[32px] my-[42px]">
+      <section className="px-[16px] lg:px-[32px] mb-[42px]">
         <div className="flex flex-col lg:flex-row w-full mt-[40px] mb-2 h-[550px]">
           <div className="lg:flex-3">
             <Image
@@ -318,46 +318,46 @@ export default function Home() {
           )
         )}
       </section>
-     <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[42px] gap-4">
-  {/* LEFT IMAGE SECTION */}
-  <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
-    <Image
-      src="/images/dummy/img4.jpg"
-      alt="img"
-      height={1000}
-      width={1000}
-      className="h-full w-full object-cover"
-    />
-  </div>
+      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[42px] gap-2">
+        {/* LEFT IMAGE SECTION */}
+        <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
+          <Image
+            src="/images/dummy/img4.jpg"
+            alt="img"
+            height={1000}
+            width={1000}
+            className="h-full w-full object-cover"
+          />
+        </div>
 
-  {/* RIGHT CONTENT SECTION */}
-  <div className="w-full lg:w-[32%] bg-[#111820] p-[24px] flex flex-col justify-between">
-    <div>
-      <h2>TRAVEL WITH PURPOSE</h2>
+        {/* RIGHT CONTENT SECTION */}
+        <div className="w-full lg:w-[34.5%] bg-[#111820] p-[24px] flex flex-col justify-between">
+          <div>
+            <h2>TRAVEL WITH PURPOSE</h2>
 
-      <p className="text-white text-[16px] mt-[32px]">
-        At Born Explorer, we believe every journey should enrich both traveler
-        and destination. By embracing sustainable practices, respecting local
-        cultures, and supporting communities, we ensure your Bhutan experience
-        leaves a positive footprint.
-      </p>
+            <p className="text-white text-[16px] mt-[32px]">
+              At Born Explorer, we believe every journey should enrich both
+              traveler and destination. By embracing sustainable practices,
+              respecting local cultures, and supporting communities, we ensure
+              your Bhutan experience leaves a positive footprint.
+            </p>
 
-      <p className="text-white text-[16px] mt-[32px]">
-        Travel consciously, discover authentically, and create memories that
-        honor the land, its people, and its timeless traditions.
-      </p>
-    </div>
+            <p className="text-white text-[16px] mt-[32px]">
+              Travel consciously, discover authentically, and create memories
+              that honor the land, its people, and its timeless traditions.
+            </p>
+          </div>
 
-    <div className="mt-[32px] flex">
-      <Link
-        className="bg-primary py-2 px-3 text-[20px] font-bold text-white"
-        href="/travel-purpose"
-      >
-        VIEW DETAILS
-      </Link>
-    </div>
-  </div>
-</section>
+          <div className="mt-[32px] flex">
+            <Link
+              className="bg-primary py-2 px-3 text-[20px] font-bold text-white"
+              href="/travel-purpose"
+            >
+              VIEW DETAILS
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="my-[42px] px-[16px] lg:px-[32px]">
         <SliderComponent />
@@ -435,12 +435,15 @@ export default function Home() {
             </h4>
           </div>
         </div> */}
-      <div className="h-[60vh]">
-          <LetsTalk images='/images/dummy/img1.jpg' description='For decades, our team has been crafting journeys that go beyond the
+        <div className="h-[60vh]">
+          <LetsTalk
+            images="/images/dummy/img1.jpg"
+            description="For decades, our team has been crafting journeys that go beyond the
           ordinary. Share your dream destination and your passions with us, and
           we’ll design a one-of-a-kind adventure that’s truly yours—a journey
-          you’ll remember for a lifetime.' />
-      </div>
+          you’ll remember for a lifetime."
+          />
+        </div>
       </section>
     </main>
   );

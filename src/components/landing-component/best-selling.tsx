@@ -33,7 +33,7 @@ function BestSelling() {
         {IMAGE_BOX.filter((item) => item.best_sell).map((tour) => (
           <SwiperSlide
            key={tour.id}>
-            <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[550px] border-l-8 border-primary overflow-hidden group">
+            <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[400px] border-l-8 border-primary overflow-hidden group">
               {/* Card container */}
               <div className="flex flex-col lg:flex-row h-full w-full bg-[#111820] transition-transform duration-300">
                 {/* Image section */}
@@ -48,7 +48,7 @@ function BestSelling() {
                   <div className="absolute inset-0 bg-black/20"></div>
                 </div>
                 <div className="flex flex-col justify-between flex-1 px-4 sm:px-6 py-4 sm:py-6 text-white bg-[#111820]">
-                  <div className="flex flex-col items-start text-start">
+                  <div className="flex flex-col items-center text-center">
                     <span className="font-extrabold text-xs sm:text-sm tracking-wider uppercase text-white">
                       {tour.category}
                     </span>
