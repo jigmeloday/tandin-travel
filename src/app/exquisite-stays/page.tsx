@@ -1,4 +1,5 @@
 import BestSelling from '@/components/landing-component/best-selling';
+import LetsTalk from '@/components/shared/let-talk';
 import { IMAGE_BOX } from '@/lib/dummy-data/dummy-data';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -30,7 +31,9 @@ function Page() {
               <p className="text-xl md:text-[40px] font-sans">
                 Exclusive Journeys, Inspired by
               </p>
-              <p className="text-xl md:text-[40px] font-sans">Bhutan’s Spirit</p>
+              <p className="text-xl md:text-[40px] font-sans">
+                Bhutan’s Spirit
+              </p>
             </div>
           </div>
         </div>
@@ -85,7 +88,9 @@ function Page() {
           <div className="relative flex-1 mt-4 md:mt-0">
             <div className="flex flex-col justify-between h-full p-2 md:p-4">
               <div className="w-full md:w-[80%]">
-                <h1 className="text-xl md:text-2xl lg:text-3xl">Enjoy Your Dream Vacation</h1>
+                <h1 className="text-xl md:text-2xl lg:text-3xl">
+                  Enjoy Your Dream Vacation
+                </h1>
                 <p className="text-[14px] md:text-[16px] mt-2">
                   Nestled in Bhutan’s serene landscapes, Six Senses invites you
                   to relax, explore, and savor every moment of luxurious,
@@ -126,13 +131,17 @@ function Page() {
           </div>
           <div className="flex flex-col justify-between gap-4 md:gap-6 p-4 md:p-[64px] flex-1 text-center md:text-left">
             <div>
-              <h1 className="mb-0 leading-[1.2] text-2xl md:text-4xl">Luxury Experience You’ll</h1>
+              <h1 className="mb-0 leading-[1.2] text-2xl md:text-4xl">
+                Luxury Experience You’ll
+              </h1>
               <h1 className="leading-[1.2] border-b-4 border-white pb-2 w-fit mx-auto md:mx-0 text-2xl md:text-4xl">
                 Remember
               </h1>
             </div>
             <p className="text-white text-[14px] md:text-[16px]">
-              Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.
+              Combine helicopter journeys with sustainable luxury lodges,
+              curated local cuisine, and intimate cultural experiences for a
+              fully bespoke Bhutanese exploration.
             </p>
             <p className="text-white font-bold font-sans text-base md:text-[18px]">
               YOU ARE BHUTANA AND OTES EHTE
@@ -142,36 +151,16 @@ function Page() {
       </section>
 
       {/* Let’s Talk Section */}
-      <section className="flex flex-col items-center justify-center my-12 px-4 md:px-[32px]">
-        <div className="bg-[#111820] w-full p-4 md:p-6 lg:p-8">
-          <div className="flex flex-col lg:flex-row gap-6">
-            <div className="flex-1">
-              <h1 className="text-2xl md:text-4xl">Let’s Talk</h1>
-            </div>
-            <div className="flex-1">
-              <p className="text-white text-[14px] md:text-[16px]">
-                We love challenges big and small—what’s yours? Let’s craft
+ <section className="flex flex-col items-center justify-center my-12 px-4 md:px-[16px]">
+        <div className="h-[60vh] w-full">
+          <LetsTalk
+            description=" We love challenges big and small—what’s yours? Let’s craft
                 unique journeys that turn bold ideas into unforgettable travel
-                experiences.
-              </p>
-            </div>
-          </div>
-          <div
-            className="w-full mt-8 h-64 md:h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
-            style={{
-              backgroundImage: "url('/images/dummy/img8.jpg')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-            <h4 className="relative z-10 text-white text-sm md:text-lg inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full">
-              Connect Now – We’ll throw in enlightenment
-            </h4>
-          </div>
+                experiences."
+            images="/images/dummy/img8.jpg"
+          />
         </div>
       </section>
-
       {/* Parallax Section */}
       <section className="relative w-full h-[80vh] hidden lg:block">
         <div
@@ -212,23 +201,27 @@ function Page() {
       {/* Grid Section */}
       <section className="px-4 lg:px-[32px] my-[50px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-         {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(({ image, title, subtitle }, idx) => (
-            <Link
-              key={idx}
-              href={`/itineries/${idx}`}
-              className="relative flex flex-col items-center justify-center w-full aspect-square text-center overflow-hidden group cursor-pointer"
-            >
-              <div
-                className="absolute inset-0 bg-center bg-cover transition duration-300"
-                style={{ backgroundImage: `url('${image}')` }}
-              ></div>
-              <div className="absolute inset-0 bg-black/40 transition duration-300 group-hover:bg-black/60"></div>
-              <h3 className="relative z-10 text-white text-lg md:text-xl font-semibold after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full after:origin-center">
-                {title}
-              </h3>
-              <p className="relative z-10 text-white text-sm md:text-base">{subtitle}</p>
-            </Link>
-          ))}
+          {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(
+            ({ image, title, subtitle }, idx) => (
+              <Link
+                key={idx}
+                href={`/itineries/${idx}`}
+                className="relative flex flex-col items-center justify-center w-full aspect-square text-center overflow-hidden group cursor-pointer"
+              >
+                <div
+                  className="absolute inset-0 bg-center bg-cover transition duration-300"
+                  style={{ backgroundImage: `url('${image}')` }}
+                ></div>
+                <div className="absolute inset-0 bg-black/40 transition duration-300 group-hover:bg-black/60"></div>
+                <h3 className="relative z-10 text-white text-lg md:text-xl font-semibold after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full after:origin-center">
+                  {title}
+                </h3>
+                <p className="relative z-10 text-white text-sm md:text-base">
+                  {subtitle}
+                </p>
+              </Link>
+            )
+          )}
         </div>
       </section>
 
@@ -237,6 +230,7 @@ function Page() {
         <h1>Flagship Signature Journey</h1>
         <BestSelling />
       </section>
+     
     </main>
   );
 }

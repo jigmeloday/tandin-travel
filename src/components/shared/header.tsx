@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '../ui/sheet';
+import { ScrollArea } from '../ui/scroll-area';
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -52,63 +53,142 @@ function Header() {
         href="/"
         className="flex lg:justify-center items-center w-full text-white h-full cursor-pointer"
       >
-        {
-          !scrolled ? <Image
-          src="/logo/logo2.png"
-          alt="logo"
-          height={1000}
-          width={1000}
-          className="size-[50px] object-contain"
-        /> : <Image
-          src="/logo/logo1.png"
-          alt="logo"
-          height={1000}
-          width={1000}
-          className="size-[50px] object-contain"
-        />
-        }
+        {!scrolled ? (
+          <Image
+            src="/logo/logo2.png"
+            alt="logo"
+            height={1000}
+            width={1000}
+            className="size-[50px] object-contain"
+          />
+        ) : (
+          <Image
+            src="/logo/logo1.png"
+            alt="logo"
+            height={1000}
+            width={1000}
+            className="size-[50px] object-contain"
+          />
+        )}
       </Link>
 
       <Sheet open={open} onOpenChange={setOpen}>
-        <SheetTrigger className='cursor-pointer'>
-          <Menu size={40} className={scrolled ? "text-primary " : "text-white"} />
+        <SheetTrigger className="cursor-pointer">
+          <Menu
+            size={40}
+            className={scrolled ? 'text-primary ' : 'text-white'}
+          />
         </SheetTrigger>
-        <SheetContent side='top' className='h-screen'>
+        <SheetContent side="top" className="h-screen">
           <SheetHeader>
-            <SheetTitle/>
+            <SheetTitle />
             <SheetDescription />
           </SheetHeader>
-
-          <nav className="flex flex-col items-center justify-center w-full md:gap-8 mb-[50px]">
-            <Link
-              href="/"
-              className="text-[32px] font-medium hover:text-primary transition"
-              onClick={handleLinkClick}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about-us"
-              className="text-[32px] font-medium hover:text-primary transition"
-              onClick={handleLinkClick}
-            >
-              About
-            </Link>
-            <Link
-              href="/travel-purpose"
-              className="text-[32px] font-medium hover:text-primary transition"
-              onClick={handleLinkClick}
-            >
-              Travel purpose
-            </Link>
-            <Link
-              href="/contact-us"
-              className="text-[32px] font-medium hover:text-primary transition"
-              onClick={handleLinkClick}
-            >
-              Contact
-            </Link>
-          </nav>
+          <ScrollArea className='h-full overflow-scroll'>
+              <div className="flex-1 overflow-y-auto  flex flex-col items-center justify-center h-full w-full">
+            <div className="flex flex-col items-center max-w-[550px] h-full">
+             <div className='flex flex-col items-center justify-center mb-8'>
+               <Image
+                src="/logo/logo1.png"
+                alt="logo"
+                height={1000}
+                width={1000}
+                className="size-[80px] object-contain "
+              />
+              <span className='playfair-sans'>Born Explorer</span>
+             </div>
+              <div className="flex flex-col items-center">
+                <Link
+                  href="/"
+                  className="text-[26px] font-medium hover:text-primary transition playfair-sans mb-[5px] py-2"
+                  onClick={handleLinkClick}
+                >
+                  About us
+                </Link>
+                <p className="text-[26px] playfair-sans mb-[5px] py-2">
+                  Our platforms
+                </p>
+                <div className="text-[16px] font-[500] flex flex-col items-center justify-center playfair-sans">
+                  <Link
+                    href="/bespoke-journey"
+                    className="hover:text-primary transition"
+                    onClick={handleLinkClick}
+                  >
+                    Bespoke Journeys
+                  </Link>
+                  <Link
+                    href="/exquisite-stays"
+                    className="hover:text-primary transition"
+                    onClick={handleLinkClick}
+                  >
+                    Exquisite Stays
+                  </Link>
+                  <Link
+                    href="/culture-wellness"
+                    className="hover:text-primary transition"
+                    onClick={handleLinkClick}
+                  >
+                    Culture & Wellness
+                  </Link>
+                </div>
+                <p className="text-[26px] playfair-sans my-[5px] py-2">
+                  Trip types
+                </p>
+                <div className="text-[16px] gap-2 font-[500] grid md:grid-cols-3 text-center items-center justify-items-center playfair-sans my-[5px]">
+                  <Link
+                    href="packages/12"
+                    className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
+                    onClick={handleLinkClick}
+                  >
+                    Silent Monks
+                  </Link>
+                  <Link
+                   href="packages/13"
+                    className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
+                    onClick={handleLinkClick}
+                  >
+                    Family Legacy Tour
+                  </Link>
+                  <Link
+                    href="packages/14"
+                    className="hover:text-primary transition px-4 md:leading-[20px] flex items-center"
+                    onClick={handleLinkClick}
+                  >
+                    Curated Adventure
+                  </Link>
+                  <Link
+                    href="packages/15"
+                    className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
+                    onClick={handleLinkClick}
+                  >
+                    Wildside Bhutan
+                  </Link>
+                  <Link
+                    href="/packages/16"
+                    className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
+                    onClick={handleLinkClick}
+                  >
+                    Women Only Tour
+                  </Link>
+                </div>
+                <Link
+                  href="/travel-purpose"
+                  className="text-[26px] font-medium hover:text-primary transition playfair-sans mt-[18px] py-2"
+                  onClick={handleLinkClick}
+                >
+                  Travel With Purpose
+                </Link>
+                <Link
+                  href="/contact-us"
+                  className="text-[26px] font-medium hover:text-primary transition playfair-sans mb-[5px] py-2"
+                  onClick={handleLinkClick}
+                >
+                  Get in touch
+                </Link>
+              </div>
+            </div>
+          </div>
+          </ScrollArea>
         </SheetContent>
       </Sheet>
     </div>

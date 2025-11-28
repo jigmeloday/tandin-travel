@@ -1,4 +1,5 @@
 import LetsTalk from '@/components/shared/let-talk';
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -181,36 +182,70 @@ function Page() {
           </div>
         </div>
       </section>
-
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+        <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
+        <div className="flex flex-col items-center text-center">
+          <div className="w-full lg:w-[740px]">
+            <h1>Other Related Adventures</h1>
+          </div>
+          <div className="lg:w-[920px]">
+            <p className="text-center my-[24px]">
+              Experience Bhutan like never before with premium helicopter
+              journeys. Soar above sacred valleys, majestic mountains, and
+              hidden monasteries in unrivaled luxury. Each flight blends
+              adventure, comfort, and breathtaking discovery, turning travel
+              into a transformative, mindful experience where nature, culture,
+              and serenity converge seamlessly
+            </p>
+          </div>
+          <div className="lg:min-w-[250px]">
+            <span className="font-bold">
+              SKIP THE ROADS, CATCH THE VIEWS 
+            </span>
+          </div>
+        </div>
+        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+      </section>
+       <section className="flex flex-col items-center justify-center px-4 md:px-8 my-12 md:my-20 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 mx-auto md:max-w-[99%] gap-2">
+          {[1, 2, 3].map((item) => (
+            <div className="bg-gray-100" key={item}>
+              <div className="bg-primary h-[240px]"></div>
+              <div className="flex flex-col items-center justify-center p-[20px] text-center">
+                <h4>Her Bhutan; Her Story</h4>
+                <p className="mb-[18px] text-[18px]">
+                  Combine helicopter journeys with sustainable luxury lodges,
+                  curated local cuisine, and intimate cultural experiences for a
+                  fully bespoke Bhutanese exploration.
+                </p>
+                <Button className="rounded-none bg-black text-[24px]">
+                  View Details
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 mx-auto md:max-w-[99%] gap-2 mb-4">
+          {[1, 2].map((item) => (
+            <div className="bg-gray-100" key={item}>
+              <div className="bg-primary h-[340px]"></div>
+              <div className="flex flex-col items-center justify-center p-[20px] text-center">
+                <h4>Her Bhutan; Her Story</h4>
+                <p className="text-[18px] mb-[18px]">
+                  Combine helicopter journeys with sustainable luxury lodges,
+                  curated local cuisine, and intimate cultural experiences for a
+                  fully bespoke Bhutanese exploration.
+                </p>
+                <Button className="rounded-none bg-black text-[24px]">
+                  View Details
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
       {/* Final CTA */}
       <section className="flex flex-col items-center justify-center my-[80px] px-[16px] lg:px-[32px]">
-        {/* <div className="bg-[#111820] w-full p-[24px]">
-          <div className="flex flex-col lg:flex-row gap-6">
-            <div className="flex-1">
-              <h1>Let’s Talk</h1>
-            </div>
-            <div className="flex-1">
-              <p className="text-white text-[14px] lg:text-[16px]">
-                We love challenges big and small—what’s yours? Let’s craft
-                unique journeys that turn bold ideas into unforgettable travel
-                experiences.
-              </p>
-            </div>
-          </div>
-          <div
-            className="w-full mt-[32px] h-[300px] sm:h-[400px] lg:h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
-            style={{
-              backgroundImage: "url('/images/dummy/img10.jpg')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-            <h4 className="relative z-10 text-white inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full">
-              Connect Now – We’ll throw in enlightenment
-            </h4>
-          </div>
-        </div> */}
         <div className="h-[60vh]">
           <LetsTalk
             images="/images/dummy/img2.jpg"

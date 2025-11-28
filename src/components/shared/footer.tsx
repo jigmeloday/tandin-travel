@@ -1,9 +1,10 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
-import { FaFacebookF, FaInstagram, FaPinterest, FaTelegram, FaYoutube } from 'react-icons/fa6';
-import { FaLinkedinIn, FaTiktok, FaWhatsapp } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaPinterest, FaYoutube } from 'react-icons/fa6';
+import { FaLinkedinIn, FaTiktok } from 'react-icons/fa';
 
 function Footer() {
   const COMAPNY_LINK = [
@@ -58,6 +59,10 @@ function Footer() {
       label: 'Our Blogs',
     },
   ];
+
+  const handleRedirect = (url: string) => {
+   window.open(url, "_blank", "noopener,noreferrer");
+  };
   return (
     <div className="flex flex-col md:flex-row md:space-x-8 w-full bg-black py-[32px] px-[16px] md:px-[112px]">
       <div className="flex flex-col md:flex-col md:flex-1 md:space-x-6">
@@ -99,28 +104,28 @@ function Footer() {
             </Button>
           </div>
           <div className="flex my-[24px] gap-2">
-            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+            {/* <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
               <FaWhatsapp />
-            </div>
-            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+            </div> */}
+            {/* <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
               <FaTelegram />
-            </div>
-            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+            </div> */}
+            <div onClick={() => handleRedirect('https://www.facebook.com/profile.php?id=61572859044377')} className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
               <FaFacebookF />
             </div>
-            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+            <div onClick={() => handleRedirect('https://www.instagram.com/bornexplorer0/')} className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
               <FaInstagram />
             </div>
-            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+            <div onClick={() => handleRedirect('https://www.linkedin.com/company/bornexplorer/?viewAsMember=true')} className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
               <FaLinkedinIn />
             </div>
-            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+            <div onClick={() => handleRedirect('https://www.youtube.com/@tandin4905')} className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
               <FaYoutube />
             </div>
-            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+            <div onClick={() => handleRedirect('https://www.pinterest.com/bornexplorer0')} className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
               <FaPinterest />
             </div>
-            <div className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
+            <div onClick={() => handleRedirect('https://www.tiktok.com/@bornexplorer0')} className="size-[32px] md:size-[42px] bg-white rounded-full flex items-center justify-center cursor-pointer">
               <FaTiktok />
             </div>
           </div>
