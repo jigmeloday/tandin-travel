@@ -22,6 +22,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
           <h1 className="text-white text-center px-4">{data?.title}</h1>
         </div>
       </section>
+
       <section className="grid grid-cols-4">
         {[1, 2, 3, 4].map((id) => (
           <div
@@ -45,7 +46,27 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
           </div>
         ))}
       </section>
-
+      <section className="flex flex-col px-[16px] lg:px-[120px] my-[150px] py-[80px] bg-black">
+        <div className="flex text-start space-x-8">
+          <div className="flex-1 relative flex">
+            <div className="bg-primary h-[520px] w-[50%] absolute -top-40 -left-20">Image</div>
+            <div className="bg-primary h-[520px] w-[50%] absolute -bottom-40 right-12">Image</div>
+          </div>
+          <div className="flex-1 px-4">
+            <h2 className="leading-[52px] text-start">
+              Where every vista unfolds in comfort, wonder, and timeless beauty
+            </h2>
+            <div className="border border-white w-[58%] my-4" />
+            <p className="text-white text-[18px] font-medium">
+              Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
+              monasteries from the comfort of a spacious, private aircraft,{' '}
+            </p>
+            <p className="text-white mt-[32px] font-bold text-[20px]">
+              Discover Bhutan from Above Today
+            </p>
+          </div>
+        </div>
+      </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[302px] my-[50px] text-center">
         <h1 className="text-center leading-[50px]">
           See Bhutan from the Skies in Unmatched <br /> Luxury and Wonder
@@ -61,42 +82,40 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
 
       {/* Other Packages */}
       <section className="flex flex-col lg:px-[32px] px-[16px] my-[30px] lg:my-[50px] gap-2">
-        {OTHER_PACKAGE.map(
-          ({ id, img }, index) => (
-            <div
-              className={`flex flex-col lg:flex-row gap-2 ${
-                index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
-              }`}
-              key={id}
-            >
-              {/* Left Content */}
-              <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-[#111820] p-[20px]">
-                <h1>Valley & Peak Aerial Tours</h1>
-                <p className="text-white font-bold text-[14px] lg:text-[16px] mt-2">
-                  Panoramic Views of Majestic Peaks and Lush Valleys
+        {OTHER_PACKAGE.map(({ id, img }, index) => (
+          <div
+            className={`flex flex-col lg:flex-row gap-2 ${
+              index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
+            }`}
+            key={id}
+          >
+            {/* Left Content */}
+            <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-[#111820] p-[20px]">
+              <h1>Valley & Peak Aerial Tours</h1>
+              <p className="text-white font-bold text-[14px] lg:text-[16px] mt-2">
+                Panoramic Views of Majestic Peaks and Lush Valleys
+              </p>
+              <div className="px-[20px] lg:px-[60px] mt-[16px] lg:mt-[24px] pb-[20px] lg:pb-[32px]">
+                <p className="text-white text-center text-[14px] lg:text-[16px]">
+                  Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
+                  monasteries from the comfort of a spacious, private aircraft,
+                  turning every view into a breathtaking, first-class
+                  experience.
                 </p>
-                <div className="px-[20px] lg:px-[60px] mt-[16px] lg:mt-[24px] pb-[20px] lg:pb-[32px]">
-                  <p className="text-white text-center text-[14px] lg:text-[16px]">
-                    Marvel at Bhutan’s towering peaks, emerald valleys, and
-                    sacred monasteries from the comfort of a spacious, private
-                    aircraft, turning every view into a breathtaking,
-                    first-class experience.
-                  </p>
-                </div>
-              </div>
-
-              {/* Right Image */}
-              <div className="w-full lg:w-[50%] relative h-[240px] lg:h-[420px] overflow-hidden">
-                <Image
-                  src={`/images/dummy/${img}`}
-                  alt="img"
-                  fill
-                  className="object-cover"
-                />
               </div>
             </div>
-          )
-        )}
+
+            {/* Right Image */}
+            <div className="w-full lg:w-[50%] relative h-[240px] lg:h-[420px] overflow-hidden">
+              <Image
+                src={`/images/dummy/${img}`}
+                alt="img"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        ))}
       </section>
       {/* Intro Section */}
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
@@ -162,10 +181,8 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         <div className="h-[60vh]">
           <LetsTalk
             images="/images/dummy/img1.jpg"
-            description="For decades, our team has been crafting journeys that go beyond the
-                ordinary. Share your dream destination and your passions with us, and
-                we’ll design a one-of-a-kind adventure that’s truly yours—a journey
-                you’ll remember for a lifetime."
+            description="For decades, our team has been crafting journeys that go beyond the ordinary. Share your dream destination and your passions with us, and we’ll design a one-of-a-kind adventure that’s truly yours—a
+                journey you’ll remember for a lifetime."
           />
         </div>
       </section>
