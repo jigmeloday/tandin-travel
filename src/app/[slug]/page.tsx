@@ -23,7 +23,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         </div>
       </section>
 
-      <section className="grid grid-cols-4">
+      <section className="grid grid-cols-1 md:grid-cols-4">
         {[1, 2, 3, 4].map((id) => (
           <div
             key={id}
@@ -47,10 +47,10 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         ))}
       </section>
       <section className="flex flex-col px-[16px] lg:px-[120px] my-[150px] py-[80px] bg-black">
-        <div className="flex text-start space-x-8">
-          <div className="flex-1 relative flex">
-            <div className="bg-primary h-[520px] w-[50%] absolute -top-40 -left-20">Image</div>
-            <div className="bg-primary h-[520px] w-[50%] absolute -bottom-40 right-12">Image</div>
+        <div className="flex lg:flex-row flex-col text-start space-x-8">
+          <div className="flex-1 relative flex lg:flex-row flex-col space-y-4 lg:space-x-4 w-full">
+            <div className="bg-primary lg:h-[520px] h-[240px] w-full lg:w-[50%] lg:absolute lg:-top-40 lg:-left-20">Image</div>
+            <div className="bg-primary lg:h-[520px] h-[240px] w-full lg:w-[50%] lg:absolute lg:-bottom-40 lg:right-12">Image</div>
           </div>
           <div className="flex-1 px-4">
             <h2 className="leading-[52px] text-start">
