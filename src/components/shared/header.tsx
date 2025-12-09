@@ -87,7 +87,7 @@ function Header() {
           <ScrollArea className='h-full overflow-scroll'>
               <div className="flex-1 overflow-y-auto  flex flex-col items-center justify-center h-full w-full">
             <div className="flex flex-col items-center max-w-[550px] h-full">
-             <div className='flex flex-col items-center justify-center mb-8'>
+             <Link onClick={handleLinkClick} href="/" className='flex flex-col items-center justify-center mb-8'>
                <Image
                 src="/logo/logo1.png"
                 alt="logo"
@@ -96,7 +96,7 @@ function Header() {
                 className="size-[80px] object-contain "
               />
               <span className='playfair-sans'>Born Explorer</span>
-             </div>
+             </Link>
               <div className="flex flex-col items-center">
                 <Link
                   href="/"

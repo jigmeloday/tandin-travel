@@ -1,0 +1,176 @@
+import ImageBox from '@/components/shared/image-box';
+import LetsTalk from '@/components/shared/let-talk';
+import { IMAGE_BOX, OTHER_PACKAGE } from '@/lib/dummy-data/dummy-data';
+import Image from 'next/image';
+
+async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = (await params) as { slug: string };
+  const data = IMAGE_BOX.find((item) => item.id === parseInt(slug));
+
+  return (
+    <main>
+      {/* Hero Section */}
+      <section className="h-[60vh] lg:h-screen w-full relative overflow-hidden">
+        <Image
+          src={data?.image || ''}
+          alt={data?.title || 'img'}
+          width={1920}
+          height={1080}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+          <h1 className="text-white text-center px-4">{data?.title}</h1>
+        </div>
+      </section>
+      <section className="grid grid-cols-4">
+        {[1, 2, 3, 4].map((id) => (
+          <div
+            key={id}
+            className={`${
+              id % 2 === 0 ? 'bg-black text-white' : 'bg-primary'
+            } h-[350px] flex flex-col items-center justify-center px-8 font-medium`}
+          >
+            <p className="font-bold text-[20px] text-center">
+              A Bird’s-Eye View of Majesty
+            </p>
+            <div
+              className={`${
+                id % 2 === 0 ? 'border border-primary' : ' border border-black'
+              }  w-[40%] my-4`}
+            />
+            <p className="text-center">
+              Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
+              monasteries from the comfort of a spacious, private{' '}
+            </p>
+          </div>
+        ))}
+      </section>
+
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[302px] my-[50px] text-center">
+        <h1 className="text-center leading-[50px]">
+          See Bhutan from the Skies in Unmatched <br /> Luxury and Wonder
+        </h1>
+        <p className="mt-[24px]">
+          Every journey is crafted entirely around you, blending seamless
+          planning with rare, meaningful encounters. Each experience unfolds
+          with thoughtful detail—from the first welcome to the quiet moments in
+          nature—creating memories that linger long after you return home and
+          leaving a gentle, positive imprint on the places you visit.
+        </p>
+      </section>
+
+      {/* Other Packages */}
+      <section className="flex flex-col lg:px-[32px] px-[16px] my-[30px] lg:my-[50px] gap-2">
+        {OTHER_PACKAGE.map(
+          ({ id, img }, index) => (
+            <div
+              className={`flex flex-col lg:flex-row gap-2 ${
+                index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
+              }`}
+              key={id}
+            >
+              {/* Left Content */}
+              <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-[#111820] p-[20px]">
+                <h1>Valley & Peak Aerial Tours</h1>
+                <p className="text-white font-bold text-[14px] lg:text-[16px] mt-2">
+                  Panoramic Views of Majestic Peaks and Lush Valleys
+                </p>
+                <div className="px-[20px] lg:px-[60px] mt-[16px] lg:mt-[24px] pb-[20px] lg:pb-[32px]">
+                  <p className="text-white text-center text-[14px] lg:text-[16px]">
+                    Marvel at Bhutan’s towering peaks, emerald valleys, and
+                    sacred monasteries from the comfort of a spacious, private
+                    aircraft, turning every view into a breathtaking,
+                    first-class experience.
+                  </p>
+                </div>
+              </div>
+
+              {/* Right Image */}
+              <div className="w-full lg:w-[50%] relative h-[240px] lg:h-[420px] overflow-hidden">
+                <Image
+                  src={`/images/dummy/${img}`}
+                  alt="img"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          )
+        )}
+      </section>
+      {/* Intro Section */}
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+        <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mb-[20px] lg:mb-[40px]" />
+        <div className="flex flex-col items-center text-center">
+          <div className="w-full lg:w-[740px]">
+            <h1>Additional Getaways Crafted For You</h1>
+          </div>
+          <div className="w-full lg:w-[920px]">
+            <p className="text-[14px] lg:text-[16px] text-center my-[16px] lg:my-[24px]">
+              Explore a selection of exclusive travel packages designed to
+              complement your journey. Each experience offers unique adventures,
+              cultural encounters, and premium comfort, ensuring memorable
+              holidays that inspire, delight, and leave you eager for your next
+              exploration.
+            </p>
+          </div>
+          <div className="lg:min-w-[250px]">
+            <span className="font-bold text-sm lg:text-lg">
+              EXPAND YOUR HORIZONS
+            </span>
+          </div>
+        </div>
+        <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mt-[20px] lg:mt-[40px]" />
+      </section>
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] my-[24px] lg:my-[50px]">
+        {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(
+          ({ id, image, title, subtitle }) => (
+            <ImageBox
+              id={id}
+              key={id}
+              image={image}
+              label={title || ''}
+              subtitle={subtitle}
+            />
+          )
+        )}
+      </section>
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+        <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mb-[20px] lg:mb-[40px]" />
+        <div className="flex flex-col items-center text-center">
+          <div className="w-full lg:w-[740px]">
+            <h1>Trails & Feathers of Bhutan</h1>
+          </div>
+          <div className="w-full lg:w-[920px]">
+            <p className="text-[14px] lg:text-[16px] text-center my-[16px] lg:my-[24px]">
+              Embark on an extraordinary journey through Bhutan’s pristine
+              landscapes, combining invigorating treks with immersive
+              birdwatching experiences. Discover rare species, scenic trails,
+              and cultural encounters, creating unforgettable memories for
+              nature lovers, adventurers, and birding enthusiasts alike.
+            </p>
+          </div>
+          <div className="lg:min-w-[250px]">
+            <span className="font-bold text-sm lg:text-lg">
+              WHERE NATURE INSPIRES ADVENTURE
+            </span>
+          </div>
+        </div>
+        <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mt-[20px] lg:mt-[40px]" />
+      </section>
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+        <div className="h-[60vh]">
+          <LetsTalk
+            images="/images/dummy/img1.jpg"
+            description="For decades, our team has been crafting journeys that go beyond the
+                ordinary. Share your dream destination and your passions with us, and
+                we’ll design a one-of-a-kind adventure that’s truly yours—a journey
+                you’ll remember for a lifetime."
+          />
+        </div>
+      </section>
+    </main>
+  );
+}
+
+export default Page;
