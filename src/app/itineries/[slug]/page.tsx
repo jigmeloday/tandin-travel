@@ -174,7 +174,7 @@ function Page() {
         <div className="border-[0.5px] border-primary h-20 mt-10" />
       </section>
       <section className="flex flex-col items-center justify-center px-4 md:px-8 my-12 md:my-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 mx-auto md:max-w-[80%] gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           {[1, 2, 3].map((item) => (
             <div className="bg-gray-100" key={item}>
               <div className="bg-primary h-[240px]"></div>
@@ -192,7 +192,7 @@ function Page() {
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 mx-auto md:max-w-[80%] gap-2 my-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-4">
           {[1, 2].map((item) => (
             <div className="bg-gray-100" key={item}>
               <div className="bg-primary h-[340px]"></div>
