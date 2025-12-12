@@ -2,6 +2,7 @@ import LetsTalk from '@/components/shared/let-talk';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
+import SideSelling from './components/slider';
 
 export default function Page() {
   return (
@@ -35,10 +36,12 @@ export default function Page() {
           </p>
           <Button className="rounded-none">SPEAK TO AN EXPERT </Button>
         </div>
-        <div className="flex-1 border ">Swapper</div>
+        <div className="flex-1 w-full lg:w-[500px] lg:h-[500px]">
+          <SideSelling />
+        </div>
       </section>
       <section className="gap-[50px] px-[16px] lg:px-[32px] my-[50px]">
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {[1, 2, 3].map((item) => (
             <div
               key={item}
@@ -65,10 +68,10 @@ export default function Page() {
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-3 gap-2 mt-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-2">
           {[1, 2, 3].map((item) =>
             item <= 2 ? (
-              <div key={item} className="relative aspect-square border">
+              <div key={item} className="relative lg:aspect-square border">
                 <Image
                   src="/images/slide.jpg"
                   alt="bg"
@@ -86,7 +89,7 @@ export default function Page() {
               </div>
             ) : (
               <div
-                className="flex flex-col items-center justify-center px-4 "
+                className="flex flex-col items-center justify-center lg:px-4 "
                 key={item}
               >
                 <h1 className="leading-[52px]">
@@ -106,8 +109,8 @@ export default function Page() {
         </div>
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
-        <h1>Getaways Crafted For You</h1>
-        <p className="px-[240px] text-center font-medium">
+        <h1 className='text-center'>Getaways Crafted For You</h1>
+        <p className="lg:px-[240px] text-center font-medium">
           Exclusive itineraries thoughtfully designed to immerse you in unique
           experiences, local culture, and unforgettable adventures, creating
           memories that last forever.
@@ -124,9 +127,9 @@ export default function Page() {
                   alt={'img'}
                 />
               </div>
-              <div className="bg-primary p-[24px] flex flex-col items-center justify-center">
-                <h2 className="text-white">Gangkar Puensum Trek</h2>
-                <p className='text-center font-medium px-[46px] my-6'>
+              <div className="bg-primary p-4 lg:p-[24px] flex flex-col items-center justify-center">
+                <h2 className="text-white text-center">Gangkar Puensum Trek</h2>
+                <p className='text-center font-medium lg:px-[46px] my-6'>
                   Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private Marvel at
                   Bhutan’s towering peaks, emerald valleys, and sacred

@@ -172,6 +172,13 @@ function Header() {
                   </Link>
                 </div>
                 <Link
+                  href="/curated-bhutan-birding"
+                  className="text-[26px] font-medium hover:text-primary transition playfair-sans mt-[18px] py-2"
+                  onClick={handleLinkClick}
+                >
+                  Curated Adventure & Bhutan Birding
+                </Link>
+                 <Link
                   href="/travel-purpose"
                   className="text-[26px] font-medium hover:text-primary transition playfair-sans mt-[18px] py-2"
                   onClick={handleLinkClick}
