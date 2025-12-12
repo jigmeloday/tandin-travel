@@ -36,7 +36,7 @@ export default function Page() {
           </p>
           <Button className="rounded-none">SPEAK TO AN EXPERT </Button>
         </div>
-        <div className="flex-1 w-full lg:w-[500px] lg:h-[500px]">
+        <div className="flex-1 w-full !h-[400px] lg:w-[500px] lg:h-[500px]">
           <SideSelling />
         </div>
       </section>

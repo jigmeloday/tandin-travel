@@ -11,7 +11,7 @@ import Link from 'next/link';
 function SideSelling() {
   
   return (
-    <div className="relative w-full overflow-hidden h-full">      
+    <div className="relative w-full overflow-hidden h-[400px] lg:h-full">      
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={10}
