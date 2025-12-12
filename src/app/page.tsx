@@ -358,7 +358,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <section className="my-[42px] px-[16px] lg:px-[32px]">
         <SliderComponent />
       </section>

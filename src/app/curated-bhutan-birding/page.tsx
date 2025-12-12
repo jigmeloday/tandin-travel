@@ -36,7 +36,7 @@ export default function Page() {
           </p>
           <Button className="rounded-none">SPEAK TO AN EXPERT </Button>
         </div>
-        <div className="flex-1 w-full !h-[400px] lg:w-[500px] lg:h-[500px]">
+        <div className="flex-1 w-full !h-[400px] lg:w-[422px] lg:h-[500px]">
           <SideSelling />
         </div>
       </section>
@@ -117,7 +117,7 @@ export default function Page() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-6">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-            <div key={item} className="w-full border">
+            <Link href={`/curated-bhutan-birding/trekking/${item}`} key={item} className="w-full border">
               <div className="h-[400px]">
                 <Image
                   src="/images/dummy/img3.jpg"
@@ -137,7 +137,7 @@ export default function Page() {
                 </p>
                 <Button className='bg-black rounded-none text-primary font-bold hover:bg-black/60'>View Details</Button>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
