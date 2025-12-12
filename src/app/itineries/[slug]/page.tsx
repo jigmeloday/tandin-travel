@@ -27,7 +27,7 @@ function Page() {
               Where Nature Meets Nirvana
             </h1>
           </div>
-          <div className="w-full md:w-[920px]">
+          <div className="w-full">
             <p className="text-[14px] md:text-[16px] my-6">
               Every journey is crafted entirely around you, blending seamless
               planning with rare, meaningful encounters. Each experience unfolds
@@ -43,7 +43,7 @@ function Page() {
           </div>
         </div>
         <div className="border-[0.5px] border-primary h-20 my-10" />
-        <div className="grid grid-cols-1 md:grid-cols-3 w-[60%] gap-3 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-3 justify-items-center">
           <div className="w-full bg-gray-100">
             <div className="bg-primary text-white px-[20px] text-center">
               <h4 className="text-white">WHEN</h4>
@@ -75,7 +75,7 @@ function Page() {
         <HeroSwapper />
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-4">
-        <div className="w-full py-[50px] bg-primary flex flex-col md:flex-row justify-center md:space-x-6">
+        <div className="w-full py-[50px] bg-primary h-[420px] flex flex-col md:flex-row justify-center md:space-x-6">
           <div className="md:w-[70%] px-[12px]">
             <h6 className="text-white">MAKE THIS ITINERARY YOURS</h6>
             <p className="text-[14px]  md:text-[16px] mt-[14px]">
@@ -177,7 +177,7 @@ function Page() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           {[1, 2, 3].map((item) => (
             <div className="bg-gray-100" key={item}>
-              <div className="bg-primary h-[240px]"></div>
+              <div className="bg-primary aspect-square"></div>
               <div className="flex flex-col items-center justify-center p-[20px] text-center">
                 <h4>Her Bhutan; Her Story</h4>
                 <p className="mb-[18px] text-[18px]">
@@ -195,7 +195,7 @@ function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-4">
           {[1, 2].map((item) => (
             <div className="bg-gray-100" key={item}>
-              <div className="bg-primary h-[340px]"></div>
+              <div className="bg-primary aspect-square"></div>
               <div className="flex flex-col items-center justify-center p-[20px] text-center">
                 <h4>Her Bhutan; Her Story</h4>
                 <p className="text-[18px] mb-[18px]">
