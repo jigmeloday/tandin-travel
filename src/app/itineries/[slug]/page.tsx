@@ -241,7 +241,7 @@ function Page() {
           </h4>
         </div>
       </section> */}
-      <div className="h-[60vh] mb-24 px-[32px]">
+      <div className="lg:h-[60vh] mb-24 px-[32px]">
         <LetsTalk
           images="/images/dummy/img3.jpg"
           description="For decades, our team has been crafting journeys that go beyond the
