@@ -7,7 +7,7 @@ import Image from 'next/image';
 function Page() {
   return (
     <main>
-      <section className="relative h-[60vh] md:h-screen w-full overflow-hidden">
+      <section className="relative h-[60vh] md:h-screen w-full overflow-hidden mb-[90px]">
         <Image
           src="/images/dummy/img5.jpg"
           alt="Bespoke Journey"
@@ -19,7 +19,7 @@ function Page() {
           <h1 className="text-white text-center px-4">Her Bhutan, Her Story</h1>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-4 md:px-8 my-12 md:my-20">
+      <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-12 md:mb-[90px]">
         <div className="border-[0.5px] border-primary h-20 mb-10" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full md:w-[740px]">
@@ -27,7 +27,7 @@ function Page() {
               Where Nature Meets Nirvana
             </h1>
           </div>
-          <div className="w-full">
+          <div className="w-full px-0 md:px-[200px]">
             <p className="text-[14px] md:text-[16px] my-6">
               Every journey is crafted entirely around you, blending seamless
               planning with rare, meaningful encounters. Each experience unfolds
@@ -43,7 +43,7 @@ function Page() {
           </div>
         </div>
         <div className="border-[0.5px] border-primary h-20 my-10" />
-        <div className="grid grid-cols-1 md:grid-cols-3  gap-3 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-3 justify-items-center px-[200px]">
           <div className="w-full bg-gray-100">
             <div className="bg-primary text-white px-[20px] text-center">
               <h4 className="text-white">WHEN</h4>
@@ -71,10 +71,10 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="my-[50px]">
+      <section className="mb-[90px]">
         <HeroSwapper />
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-4">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
         <div className="w-full py-[50px] bg-primary h-[420px] flex flex-col md:flex-row justify-center md:space-x-6">
           <div className="md:w-[70%] px-[12px]">
             <h6 className="text-white">MAKE THIS ITINERARY YOURS</h6>
@@ -95,7 +95,7 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-4">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
         {[1, 2, 3, 4].map((item) => (
           <div
             key={item}
@@ -126,7 +126,7 @@ function Page() {
           </div>
         ))}
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-4">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
         <h2>Boutique Hotels</h2>
         <div className="my-[32px] flex flex-col md:flex-row gap-2 w-full">
           <div className="bg-primary flex-1 min-h-[520px] flex flex-col items-center justify-center">
@@ -148,7 +148,7 @@ function Page() {
           </Button>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-4 md:px-8">
+      <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px]">
         <div className="border-[0.5px] border-primary h-20 mb-10" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full md:w-[740px]">
@@ -173,11 +173,11 @@ function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-20 mt-10" />
       </section>
-      <section className="flex flex-col items-center justify-center px-4 md:px-8 my-12 md:my-20">
+      <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px]">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           {[1, 2, 3].map((item) => (
             <div className="bg-gray-100" key={item}>
-              <div className="bg-primary aspect-square"></div>
+              <div className="bg-primary w-full h-[350px]"></div>
               <div className="flex flex-col items-center justify-center p-[20px] text-center">
                 <h4>Her Bhutan; Her Story</h4>
                 <p className="mb-[18px] text-[18px]">
@@ -195,7 +195,7 @@ function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-4">
           {[1, 2].map((item) => (
             <div className="bg-gray-100" key={item}>
-              <div className="bg-primary aspect-square"></div>
+              <div className="bg-primary w-full h-[520px]"></div>
               <div className="flex flex-col items-center justify-center p-[20px] text-center">
                 <h4>Her Bhutan; Her Story</h4>
                 <p className="text-[18px] mb-[18px]">
@@ -211,7 +211,7 @@ function Page() {
           ))}
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[calc(32px-16px)] my-12 md:my-20">
+      <section className="flex flex-col items-center justify-center px-[calc(32px-16px)] mb-[90px]">
         <BestSelling />
       </section>
       {/* <section className="bg-[#111820] w-full p-[24px]">

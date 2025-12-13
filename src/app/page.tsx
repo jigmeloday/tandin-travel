@@ -64,7 +64,7 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col justify-center items-center text-center mb-[90px]">
-        <h1>Flagship Signature Journey</h1>
+        <h1 className='mb-8'>Flagship Signature Journey</h1>
         <BestSelling />
       </section>
       <section className="flex flex-col justify-center items-center text-center px-[16px] lg:px-[32px] scrollbar-hide mb-[90px]">

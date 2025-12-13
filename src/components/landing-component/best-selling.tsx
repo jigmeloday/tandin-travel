@@ -11,7 +11,7 @@ import Link from 'next/link';
 function BestSelling() {
   
   return (
-    <div className="relative w-full overflow-hidden mt-8 px-4">      
+    <div className="relative w-full overflow-hidden px-4">      
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={10}
