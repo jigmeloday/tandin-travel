@@ -22,7 +22,7 @@ export default function Page() {
           </h1>
         </div>
       </section>
-      <section className="flex flex-col lg:flex-row gap-[24px] px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col lg:flex-row gap-[24px] px-[16px] lg:px-[32px] mt-[90px]">
         <div className="flex-2">
           <h1 className="leading-[52px]">
             Journey Through Nature Culture and Serenity in Every Step
@@ -40,7 +40,7 @@ export default function Page() {
           <SideSelling />
         </div>
       </section>
-      <section className="gap-[50px] px-[16px] lg:px-[32px] my-[50px]">
+      <section className="gap-[50px] px-[16px] lg:px-[32px] mt-[90px]">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {[1, 2, 3].map((item) => (
             <div
@@ -108,7 +108,7 @@ export default function Page() {
           )}
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mt-[90px]">
         <h1 className='text-center'>Getaways Crafted For You</h1>
         <p className="lg:px-[240px] text-center font-medium">
           Exclusive itineraries thoughtfully designed to immerse you in unique
@@ -141,7 +141,7 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[42px] gap-2">
+      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[90px] gap-2">
         {/* LEFT IMAGE SECTION */}
         <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
           <Image
@@ -181,7 +181,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center my-[80px] px-[16px] lg:px-[32px]">
+      <section className="flex flex-col items-center justify-center my-[90px] px-[16px] lg:px-[32px]">
         <div className="h-[60vh]">
           <LetsTalk
             images="/images/dummy/img2.jpg"
