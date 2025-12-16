@@ -128,9 +128,9 @@ export default function Home() {
             );
           })}
         </div>
-        <button className="px-[24px] py-[12px] bg-primary text-white text-2xl cursor-pointer">
+        <Link href='/contact-us' className="px-[24px] py-[12px] bg-primary text-white text-2xl cursor-pointer">
           ENQUIRE NOW
-        </button>
+        </Link>
         <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
       <section className="px-[16px] lg:px-[32px] mb-[90px]">

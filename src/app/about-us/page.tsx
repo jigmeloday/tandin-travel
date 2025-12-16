@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Testimonial from './components/testimonial';
 import Link from 'next/link';
+import LetsTalk from '@/components/shared/let-talk';
 
 function Page() {
   const steps = [
@@ -203,7 +204,7 @@ function Page() {
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
-          <div className="lg:w-[920px] mt-[42px]">
+          <div className="lg:w-[920px]">
             <p className="text-[42px] leading-[70px] font-sans text-black/60">
               Contact our expert team today <br /> and see where it takes you.
             </p>
@@ -219,34 +220,10 @@ function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
-       <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px]">
-        <div className="bg-[#111820] w-full p-[24px]">
-          <div className="flex flex-col lg:flex-row gap-6">
-            <div className="flex-1">
-              <h1>Let’s Talk</h1>
-            </div>
-            <div className="flex-1">
-              <p className="text-white text-[14px] lg:text-[16px]">
-                We love challenges big and small—what’s yours? Let’s craft
+       <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px] h-[60vh]">
+        <LetsTalk images='/images/dummy/img1.jpg' description='We love challenges big and small—what’s yours? Let’s craft
                 unique journeys that turn bold ideas into unforgettable travel
-                experiences.
-              </p>
-            </div>
-          </div>
-          <div
-            className="w-full mt-[32px] h-[300px] sm:h-[400px] lg:h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
-            style={{
-              backgroundImage: "url('/images/dummy/img10.jpg')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-            <h4 className="relative z-10 text-white inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full">
-              Connect Now – We’ll throw in enlightenment
-            </h4>
-          </div>
-        </div>
+                experiences.' />
       </section>
     </main>
   );

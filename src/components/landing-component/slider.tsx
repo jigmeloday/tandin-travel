@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
@@ -62,9 +63,9 @@ export default function SliderComponent() {
               <p className="text-gray-700 mb-6 text-[14px] lg:text-[16px]">
                 {slide.description}
               </p>
-              <p className="uppercase text-sm font-bold border-b-2 border-red-700 inline-block text-[16px]">
+              <Link href='/contact-us' className="uppercase text-sm font-bold border-b-2 border-red-700 inline-block text-[16px]">
                 {slide.cta}
-              </p>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
