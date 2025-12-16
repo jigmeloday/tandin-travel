@@ -87,17 +87,17 @@ function Page() {
         </div>
       </section>
 
-      <section className="flex flex-col md:flex-row items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-2">
-        <div className="flex-1 flex justify-center md:w-[60%] h-full">
+      <section className="flex flex-col md:flex-row items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
+        <div className="flex-1 flex justify-start md:w-[50%] h-full px-[10px]">
           <Image
             src="/images/dummy/img1.jpg"
             height={500}
             width={500}
             alt="profile"
-            className="h-[70vh] w-[80%] object-cover"
+            className="h-[70vh] w-full object-cover"
           />
         </div>
-        <div className="flex flex-col items-start md:w-[40%]">
+        <div className="flex flex-col items-start md:w-[50%] px-[10px]">
           <p className="text-[32px] md:text-[42px] text-black/70 font-sans">Founder Name</p>
           <p className="text-primary text-[24px] font-bold mt-[16px]">
             Founder & Chairman
