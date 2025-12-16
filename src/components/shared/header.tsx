@@ -99,7 +99,7 @@ function Header() {
              </Link>
               <div className="flex flex-col items-center">
                 <Link
-                  href="/"
+                  href="/about-us"
                   className="text-[26px] font-medium hover:text-primary transition playfair-sans mb-[5px] py-2"
                   onClick={handleLinkClick}
                 >
@@ -136,28 +136,28 @@ function Header() {
                 </p>
                 <div className="text-[16px] gap-2 font-[500] grid md:grid-cols-3 text-center items-center justify-items-center playfair-sans my-[5px]">
                   <Link
-                    href="packages/12"
+                    href="/packages/12"
                     className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
                     onClick={handleLinkClick}
                   >
                     Silent Monks
                   </Link>
                   <Link
-                   href="packages/13"
+                   href="/packages/13"
                     className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
                     onClick={handleLinkClick}
                   >
                     Family Legacy Tour
                   </Link>
                   <Link
-                    href="packages/14"
+                    href="/packages/14"
                     className="hover:text-primary transition px-4 md:leading-[20px] flex items-center"
                     onClick={handleLinkClick}
                   >
                     Curated Adventure
                   </Link>
                   <Link
-                    href="packages/15"
+                    href="/packages/15"
                     className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
                     onClick={handleLinkClick}
                   >
