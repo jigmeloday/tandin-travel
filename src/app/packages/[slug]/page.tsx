@@ -9,7 +9,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
   return (
     <main>
       {/* Hero Section */}
-      <section className="h-[60vh] lg:h-screen w-full relative overflow-hidden">
+      <section className="h-[60vh] lg:h-screen w-full relative overflow-hidden mb-[90px]">
         <Image
           src={data?.image || ''}
           alt={data?.title || 'img'}
@@ -25,7 +25,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       </section>
 
       {/* Intro Section */}
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mb-[20px] lg:mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
@@ -47,11 +47,11 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             </span>
           </div>
         </div>
-        <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] my-[20px] lg:my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mt-[20px] lg:mt-[40px]" />
       </section>
 
       {/* Full Image Section */}
-      <section className="h-[300px] lg:h-[80vh] my-[30px] lg:my-[50px]">
+      <section className="h-[300px] lg:h-[80vh] mb-[90px]">
         <Image
           src="/images/dummy/img1.jpg"
           alt="img"
@@ -62,7 +62,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       </section>
 
       {/* Other Packages */}
-      <section className="flex flex-col lg:px-[32px] px-[16px] my-[30px] lg:my-[50px]">
+      <section className="flex flex-col lg:px-[32px] px-[16px] my-[90px]">
         {OTHER_PACKAGE.map(({ id, description, img, subtitile, title }, index) => (
           <div
             className={`flex flex-col lg:flex-row ${
@@ -97,7 +97,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       </section>
 
       {/* Freedom Section */}
-      <section className="px-[16px] lg:px-[32px]">
+      <section className="px-[16px] lg:px-[32px] mb-[90px]">
         <div className="bg-[#111820] w-full p-[16px] lg:p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-3">
@@ -130,7 +130,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       </section>
 
       {/* Grid Section */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] my-[24px] lg:my-[50px]">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] mb-[90px]">
         {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(
           ({ id, image, title, subtitle }) => (
             <ImageBox
