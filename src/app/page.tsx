@@ -64,7 +64,7 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col justify-center items-center text-center mb-[90px]">
-        <h1 className='mb-8'>Flagship Signature Journey</h1>
+        <h1 className="mb-8">Flagship Signature Journey</h1>
         <BestSelling />
       </section>
       <section className="flex flex-col justify-center items-center text-center px-[16px] lg:px-[32px] scrollbar-hide mb-[90px]">
@@ -278,16 +278,26 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="relative w-full h-[80vh] hidden lg:block mb-[90px]">
+      <section className="relative w-full h-[80vh] hidden lg:block mb-[90px] border">
+        {/* Background image */}
         <div
-          className="absolute inset-0 bg-center bg-cover bg-no-repeat"
+          className="absolute inset-0 bg-center bg-cover bg-no-repeat z-0"
           style={{
             backgroundImage: "url('/images/slide.jpg')",
             backgroundAttachment: 'fixed',
           }}
-        ></div>
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center" />
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 z-10" />
+
+        {/* Text content */}
+        <div className="relative z-20 flex flex-col items-center justify-center h-full text-white">
+          <h1 className='text-white'>Titile</h1>
+          <p className='px-[112px] text-center font-bold'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
       </section>
+
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
@@ -407,7 +417,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className='mb-[90px]'>
+      <section className="mb-[90px]">
         <div className="h-[60vh]">
           <LetsTalk
             images="/images/dummy/img1.jpg"
