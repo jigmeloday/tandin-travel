@@ -5,7 +5,7 @@ import ContactForm from './components/form';
 function Page() {
   return (
     <main>
-      <section className="h-[calc(100vh-20vh)] w-full overflow-hidden relative">
+      <section className="h-[calc(100vh-20vh)] w-full overflow-hidden relative mb-[90px]">
         <Image
           src="/images/dummy/img5.jpg"
           alt="Bespoke Journey"
@@ -19,7 +19,7 @@ function Page() {
           </h1>
         </div>
       </section>
-      <section className="flex flex-col md:flex-row px-[16px] md:px-[32px] my-[50px] justify-center w-full">
+      <section className="flex flex-col md:flex-row px-[16px] md:px-[32px] mb-[90px] justify-center w-full">
         <div className="bg-[#111820] md:w-[40%] p-[32px]">
           <h2>Start the Conversation</h2>
           <p className='text-white text-[14px] lg:text-[16px]'>
@@ -43,7 +43,7 @@ function Page() {
           />
         </div>
       </section>
-      <section className="flex flex-col md:flex-row justify-center gap-[54px] my-[50px]">
+      <section className="flex flex-col md:flex-row justify-center gap-[54px] mb-[90px]">
         {CONTACT_US.map(({ title, description, icon }) => {
           const Icon = icon;
           return (

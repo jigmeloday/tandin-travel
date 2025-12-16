@@ -8,7 +8,7 @@ function Page() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="relative h-[50vh] md:h-[70vh] w-full overflow-hidden">
+      <section className="relative h-[50vh] md:h-[70vh] w-full overflow-hidden mb-[90px]">
         <Image
           src="/images/hotel/h5.jpg"
           alt="Bespoke Journey"
@@ -40,7 +40,7 @@ function Page() {
       </section>
 
       {/* Two Square Images */}
-      <section className="px-4 lg:px-[32px] my-[50px]">
+      <section className="px-4 lg:px-[32px] mb-[90px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div className="aspect-square bg-gray-200">
             <Image
@@ -109,7 +109,7 @@ function Page() {
       </section>
 
       {/* Luxury Experience Section */}
-      <section className="w-full h-auto md:h-[70vh] bg-[#111820]">
+      <section className="w-full h-auto md:h-[70vh] bg-[#111820] mb-[90px]">
         <div className="flex flex-col md:flex-row h-full">
           <div className="flex-1 flex items-center justify-center gap-2 mb-6 md:mb-0">
             <div className="transform translate-y-0 md:translate-y-6 w-48 md:w-60 h-64 md:h-[430px]">
@@ -151,7 +151,7 @@ function Page() {
       </section>
 
       {/* Let’s Talk Section */}
- <section className="flex flex-col items-center justify-center my-12 px-4 md:px-[16px]">
+ <section className="flex flex-col items-center justify-center my-12 px-4 md:px-[16px] mb-[90px]">
         <div className="h-[60vh] w-full">
           <LetsTalk
             description=" We love challenges big and small—what’s yours? Let’s craft
@@ -162,7 +162,7 @@ function Page() {
         </div>
       </section>
       {/* Parallax Section */}
-      <section className="relative w-full h-[80vh] hidden lg:block">
+      <section className="relative w-full h-[80vh] hidden lg:block mb-[90px]">
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
@@ -174,7 +174,7 @@ function Page() {
       </section>
 
       {/* Nature Section */}
-      <section className="flex flex-col items-center justify-center px-4 lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-4 lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
@@ -195,11 +195,11 @@ function Page() {
             </span>
           </div>
         </div>
-        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
 
       {/* Grid Section */}
-      <section className="px-4 lg:px-[32px] my-[50px]">
+      <section className="px-4 lg:px-[32px] mb-[90px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(
             ({ image, title, subtitle }, idx) => (
@@ -226,8 +226,8 @@ function Page() {
       </section>
 
       {/* Flagship Section */}
-      <section className="flex flex-col justify-center items-center text-center my-[42px]">
-        <h1>Flagship Signature Journey</h1>
+      <section className="flex flex-col justify-center items-center text-center mb-[90px]">
+        <h1 className='mb-10'>Flagship Signature Journey</h1>
         <BestSelling />
       </section>
      
