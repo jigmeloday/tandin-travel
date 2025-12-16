@@ -294,7 +294,7 @@ export default function Home() {
         {/* Text content */}
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-white">
           <h1 className='text-white'>Titile</h1>
-          <p className='px-[112px] text-center font-bold'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <p className='px-[112px] text-center font-bold'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
         </div>
       </section>
 

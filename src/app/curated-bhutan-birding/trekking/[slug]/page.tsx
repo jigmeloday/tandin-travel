@@ -7,7 +7,7 @@ import SideSelling from '../../components/slider';
 export default function Page() {
   return (
     <main>
-      <section className="relative h-[60vh] md:h-screen w-full overflow-hidden">
+      <section className="relative h-[60vh] md:h-screen w-full overflow-hidden mb-[90px]">
         <Image
           src="/images/dummy/img5.jpg"
           alt="Bespoke Journey"
@@ -22,7 +22,7 @@ export default function Page() {
           </h1>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mt-[90px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
@@ -45,7 +45,7 @@ export default function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="flex items-center justify-center px-[16px] lg:px-[32px] mt-[90px] gap-2">
+      <section className="flex items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-2">
         <div className="flex-1 h-[362px] w-[50%]">
           <SideSelling />
         </div>
@@ -67,17 +67,17 @@ export default function Page() {
           </div>
           <div className="flex gap-2">
             <div className="flex-1 border bg-primary py-6 px-4 text-center">
-               <h3 className="text-black">On Trek</h3>
+              <h3 className="text-black">On Trek</h3>
               <p className="text-white font-medium">15 Days on Trek</p>
             </div>
             <div className="flex-1 border bg-primary py-6 px-4 text-center">
-               <h3 className="text-black">Grade</h3>
+              <h3 className="text-black">Grade</h3>
               <p className="text-white font-medium">Strenous</p>
             </div>
           </div>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mt-[90px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <h1 className="text-center">Essential Information for the Trek</h1>
         <p className="lg:px-[240px] text-center font-medium">
           The Gangkar puensum Trek is one of Bhutan’s most legendary
@@ -118,7 +118,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-center mt-[90px] px-[16px] lg:px-[32px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="h-[60vh]">
           <LetsTalk
             images="/images/dummy/img2.jpg"
@@ -129,7 +129,7 @@ export default function Page() {
           />
         </div>
       </section>
-      <section className="relative w-full h-[80vh] hidden lg:block mt-[90px]">
+      <section className="relative w-full h-[80vh] hidden lg:block mb-[90px]">
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
@@ -139,7 +139,7 @@ export default function Page() {
         ></div>
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center" />
       </section>
-      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[90px] gap-2">
+      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] gap-2 mb-[90px]">
         {/* LEFT IMAGE SECTION */}
         <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
           <Image
@@ -177,6 +177,33 @@ export default function Page() {
               VIEW DETAILS
             </Link>
           </div>
+        </div>
+      </section>
+      <section className="flex flex-col px-[16px] lg:px-[32px] items-center justify-center gap-2 mb-[90px]">
+        <h2>Next-Level Adventures & More</h2>
+        <p className="my-[24px] text-center px-[142px]">
+          Continue your exploration with our other related adventures, each
+          crafted to showcase Bhutan’s rugged beauty, cultural depth, and
+          pristine wilderness—perfect for trekkers seeking powerful experiences,
+          breathtaking landscapes, and meaningful moments beyond the main
+          journey.
+        </p>
+        <div className="grid grid-cols-3 gap-2 w-full">
+          {[1, 2, 3, 4].map((item) => (
+            <div key={item} className="w-full">
+              <div className="w-full border h-[400px]">hello</div>
+              <div className="p-[24px] bg-primary text-center">
+                <h3 className="text-white">Gangkar Puensum Trek</h3>
+                <p className='my-4'>
+                  Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
+                  monasteries from the comfort of a spacious, private Marvel at
+                  Bhutan’s towering peaks, emerald valleys, and sacred
+                  monasteries from the comfort of a spacious, private
+                </p>
+                <Button className='bg-black rounded-none text-primary font-bold'>View Details</Button>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>

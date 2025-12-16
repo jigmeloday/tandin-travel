@@ -6,7 +6,6 @@ import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { IMAGE_BOX } from '@/lib/dummy-data/dummy-data';
-import Link from 'next/link';
 
 function SideSelling() {
   
