@@ -189,9 +189,26 @@ export default function Page() {
           journey.
         </p>
         <div className="grid grid-cols-3 gap-2 w-full">
-          {[1, 2, 3, 4].map((item) => (
+          {[1, 2, 3].map((item) => (
             <div key={item} className="w-full">
-              <div className="w-full border h-[400px]">hello</div>
+              <div className="w-full border h-[400px]">Image</div>
+              <div className="p-[24px] bg-primary text-center">
+                <h3 className="text-white">Gangkar Puensum Trek</h3>
+                <p className='my-4'>
+                  Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
+                  monasteries from the comfort of a spacious, private Marvel at
+                  Bhutan’s towering peaks, emerald valleys, and sacred
+                  monasteries from the comfort of a spacious, private
+                </p>
+                <Button className='bg-black rounded-none text-primary font-bold'>View Details</Button>
+              </div>
+            </div>
+          ))}
+        </div>
+         <div className="grid grid-cols-2 gap-2 w-full mt-2">
+          {[1, 2].map((item) => (
+            <div key={item} className="w-full">
+              <div className="w-full border h-[540px]">hello</div>
               <div className="p-[24px] bg-primary text-center">
                 <h3 className="text-white">Gangkar Puensum Trek</h3>
                 <p className='my-4'>
