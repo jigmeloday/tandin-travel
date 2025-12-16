@@ -22,7 +22,7 @@ export default function Page() {
           </h1>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mt-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
@@ -45,7 +45,7 @@ export default function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="flex items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-2">
+      <section className="flex items-center justify-center px-[16px] lg:px-[32px] mt-[90px] gap-2">
         <div className="flex-1 h-[362px] w-[50%]">
           <SideSelling />
         </div>
@@ -77,7 +77,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mt-[90px]">
         <h1 className="text-center">Essential Information for the Trek</h1>
         <p className="lg:px-[240px] text-center font-medium">
           The Gangkar puensum Trek is one of Bhutan’s most legendary
@@ -118,7 +118,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-center my-[80px] px-[16px] lg:px-[32px]">
+      <section className="flex flex-col items-center justify-center mt-[90px] px-[16px] lg:px-[32px]">
         <div className="h-[60vh]">
           <LetsTalk
             images="/images/dummy/img2.jpg"
@@ -129,7 +129,7 @@ export default function Page() {
           />
         </div>
       </section>
-      <section className="relative w-full h-[80vh] hidden lg:block">
+      <section className="relative w-full h-[80vh] hidden lg:block mt-[90px]">
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
@@ -139,7 +139,7 @@ export default function Page() {
         ></div>
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center" />
       </section>
-      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[42px] gap-2">
+      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[90px] gap-2">
         {/* LEFT IMAGE SECTION */}
         <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
           <Image
