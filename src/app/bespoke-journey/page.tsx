@@ -7,7 +7,7 @@ function Page() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative h-[60vh] md:h-screen w-full overflow-hidden">
+      <section className="relative h-[60vh] md:h-screen w-full overflow-hidden mb-[90px]">
         <Image
           src="/images/dummy/img5.jpg"
           alt="Bespoke Journey"
@@ -21,7 +21,7 @@ function Page() {
       </section>
 
       {/* Packages */}
-      <section className="flex flex-col gap-[50px] px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col gap-[50px] px-[16px] lg:px-[32px] mb-[90px]">
         {[
           {
             id: 1,
@@ -79,7 +79,7 @@ function Page() {
       </section>
 
       {/* Grid Cards */}
-      <section className="px-[16px] lg:px-[32px] mb-[142px]">
+      <section className="px-[16px] lg:px-[32px] mb-[90px]">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full mb-5">
           {[
             {
@@ -138,7 +138,7 @@ function Page() {
       </section>
 
       {/* Parallax */}
-      <section className="relative w-full h-[50vh] lg:h-[80vh] hidden md:block">
+      <section className="relative w-full h-[50vh] lg:h-[80vh] hidden md:block mb-[90px]">
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
@@ -150,7 +150,7 @@ function Page() {
       </section>
 
       {/* Split Section */}
-      <section className="w-full flex flex-col lg:flex-row px-[16px] lg:px-[32px] my-[82px] gap-6">
+      <section className="w-full flex flex-col lg:flex-row px-[16px] lg:px-[32px] mb-[90px] gap-6">
         <div className="flex flex-col lg:flex-row w-full">
           {/* Image */}
           <div className="flex-1 h-[260px] sm:h-[320px] lg:h-[580px] bg-[#2a2423]">
@@ -182,7 +182,7 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
@@ -204,13 +204,13 @@ function Page() {
             </span>
           </div>
         </div>
-        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
-       <section className="flex flex-col items-center justify-center px-4 md:px-8 my-12 md:my-20 gap-2">
+       <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px] md:mb-20 gap-2">
         <div className="grid grid-cols-1 md:grid-cols-3 mx-auto md:max-w-[99%] gap-2">
           {[1, 2, 3].map((item) => (
             <div className="bg-gray-100" key={item}>
-              <div className="bg-primary h-[240px]"></div>
+              <div className="bg-primary h-[400px]"></div>
               <div className="flex flex-col items-center justify-center p-[20px] text-center">
                 <h4>Her Bhutan; Her Story</h4>
                 <p className="mb-[18px] text-[18px]">
@@ -228,7 +228,7 @@ function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 mx-auto md:max-w-[99%] gap-2 mb-4">
           {[1, 2].map((item) => (
             <div className="bg-gray-100" key={item}>
-              <div className="bg-primary h-[340px]"></div>
+              <div className="bg-primary h-[500px]"></div>
               <div className="flex flex-col items-center justify-center p-[20px] text-center">
                 <h4>Her Bhutan; Her Story</h4>
                 <p className="text-[18px] mb-[18px]">
@@ -245,7 +245,7 @@ function Page() {
         </div>
       </section>
       {/* Final CTA */}
-      <section className="flex flex-col items-center justify-center my-[80px] px-[16px] lg:px-[32px]">
+      <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px]">
         <div className="h-[60vh]">
           <LetsTalk
             images="/images/dummy/img2.jpg"

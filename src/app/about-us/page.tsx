@@ -86,7 +86,6 @@ function Page() {
           <Testimonial />
         </div>
       </section>
-
       <section className="flex flex-col md:flex-row items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
         <div className="flex-1 flex justify-start md:w-[50%] h-full px-[10px]">
           <Image
