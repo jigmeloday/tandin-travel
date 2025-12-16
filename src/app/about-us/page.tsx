@@ -36,7 +36,7 @@ function Page() {
 
   return (
     <main>
-      <section className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden">
+      <section className="relative h-[60vh] md:h-[70vh] w-full overflow-hidden mb-[90px]">
         <Image
           src="/images/dummy/img5.jpg"
           alt="Bespoke Journey"
@@ -48,7 +48,7 @@ function Page() {
           <h1 className="text-white text-center px-4">About Us</h1>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
@@ -76,9 +76,9 @@ function Page() {
             </p>
           </div>
         </div>
-        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
-      <section className="flex flex-col items-center justify-center bg-[#d3cecd] px-[16px] lg:px-[32px] my-[50px] w-full py-[100px]">
+      <section className="flex flex-col items-center justify-center bg-[#d3cecd] px-[16px] lg:px-[32px] w-full py-[100px] mb-[90px]">
         <h2 className="text-black/70 font-light">
           We create stories that are talked about
         </h2>
@@ -87,7 +87,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="flex flex-col md:flex-row items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-2">
+      <section className="flex flex-col md:flex-row items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-2">
         <div className="flex-1 flex justify-center md:w-[60%] h-full">
           <Image
             src="/images/dummy/img1.jpg"
@@ -122,7 +122,7 @@ function Page() {
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
@@ -138,9 +138,9 @@ function Page() {
             </p>
           </div>
         </div>
-        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="grid grid-col-1 md:grid-cols-3 gap-2">
           {[1, 2, 3,4,5,6].map((item) => (
             <div key={item} className="flex flex-col items-center w-full">
@@ -149,7 +149,7 @@ function Page() {
                 alt="img"
                 height={400}
                 width={500}
-                className="w-full h-[450px]"
+                className="w-full h-[430px]"
               />
               <div className="flex flex-col text-center items-center my-[32px] space-y-[16px]">
                 <p className="text-[42px] font-sans">Full Name</p>
@@ -164,7 +164,7 @@ function Page() {
           ))}
         </div>
       </section>
-      <section className="py-20 bg-white">
+      <section className="bg-white mb-[90px]">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-center text-3xl font-semibold text-gray-700 mb-16">
             How it works
@@ -186,7 +186,7 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="h-screen bg-[#111820] p-[16px] md:p-[50px] flex flex-col items-center justify-center">
+      <section className="h-screen bg-[#111820] p-[16px] md:p-[50px] flex flex-col items-center justify-center mb-[90px]">
         <h2 className="text-center text-white font-sans text-2xl mb-8">
           Footage shot entirely on our adventures
         </h2>
@@ -201,7 +201,7 @@ function Page() {
           </video>
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="lg:w-[920px] mt-[42px]">
@@ -218,9 +218,9 @@ function Page() {
             </div>
           </div>
         </div>
-        <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+        <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
-       <section className="flex flex-col items-center justify-center my-[80px] px-[16px] lg:px-[32px]">
+       <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px]">
         <div className="bg-[#111820] w-full p-[24px]">
           <div className="flex flex-col lg:flex-row gap-6">
             <div className="flex-1">
