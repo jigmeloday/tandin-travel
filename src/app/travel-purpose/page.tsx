@@ -3,7 +3,7 @@ import Image from 'next/image';
 function Page() {
   return (
     <div>
-      <section className="relative h-[50vh] md:h-[70vh] w-full overflow-hidden">
+      <section className="relative h-[50vh] md:h-[70vh] w-full overflow-hidden mb-[90px]">
         <Image
           src="/images/hotel/h5.jpg"
           alt="Bespoke Journey"
@@ -15,7 +15,7 @@ function Page() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-white/12 via-white/14 to-black/90"></div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
@@ -38,7 +38,7 @@ function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px] gap-4">
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <div key={item} className={`flex md:flex-row flex-col w-full justify-center gap-2 ${item%2 === 0 ? 'md:flex-row-reverse': ''}`}>
             <div className="border w-full aspect-square">
@@ -62,7 +62,7 @@ function Page() {
           </div>
         ))}
       </section>
-      <section className='px-[16px] lg:px-[32px]'>
+      <section className='px-[16px] lg:px-[32px] mb-[90px]'>
         <div className='flex flex-col items-center justify-center bg-primary w-full py-[24px] md:py-[52px]'>
           <h2 className='text-white'>JOIN THE MOVEMENT</h2>
           <p className='text-[14px] md:text-[16px]'>Travel that restores balance</p>

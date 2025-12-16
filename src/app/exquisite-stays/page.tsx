@@ -205,7 +205,7 @@ function Page() {
             ({ image, title, subtitle }, idx) => (
               <Link
                 key={idx}
-                href={`/itineries/${idx}`}
+                href={`/flagship/${idx}`}
                 className="relative flex flex-col items-center justify-center w-full aspect-square text-center overflow-hidden group cursor-pointer"
               >
                 <div

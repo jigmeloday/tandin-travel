@@ -3,10 +3,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
-import 'swiper/css';
-import 'swiper/css/navigation';
 import { IMAGE_BOX } from '@/lib/dummy-data/dummy-data';
 import Link from 'next/link';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 function BestSelling() {
   
@@ -64,7 +64,7 @@ function BestSelling() {
 
                   {/* Call to action */}
                   <div className="mt-2 sm:mt-4 self-center">
-                    <Link href={`/itineries/${tour.id}`} className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
+                    <Link href={`/flagship/${tour.id}`} className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
                       VIEW DETAILS
                     </Link>
                   </div>
