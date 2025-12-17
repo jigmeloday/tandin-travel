@@ -23,7 +23,7 @@ function Testimonial() {
     },
   ];
   return (
-    <div className="flex my-[32px]">
+    <div className="flex">
       <Swiper
         modules={[Pagination, Autoplay, EffectFade]}
         effect="fade"
