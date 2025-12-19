@@ -84,12 +84,12 @@ function Page() {
               key={idx}
               className="bg-primary/40 text-white flex flex-col items-center text-center"
             >
-              <div className="w-full h-64 md:h-72 relative">
+              <div className="w-full h-64 md:h-[380px] relative">
                 <Image
                   src={`/images/dummy/${img}.jpg`}
                   alt={title}
                   fill
-                  className="object-cover"
+                  className="object-cover h-full w-full"
                 />
               </div>
               <div className="p-4 md:p-6 flex flex-col items-center">
@@ -244,7 +244,7 @@ function Page() {
               key={idx}
               className="bg-gray-400/20 flex flex-col items-center text-center shadow-sm"
             >
-              <div className="w-full aspect-square relative">
+              <div className="w-full h-[520px] relative">
                 <Image
                   src={`/images/dummy/${img}.jpg`}
                   alt={title}

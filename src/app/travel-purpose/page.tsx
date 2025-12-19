@@ -41,7 +41,7 @@ function Page() {
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <div key={item} className={`flex md:flex-row flex-col w-full justify-center gap-2 ${item%2 === 0 ? 'md:flex-row-reverse': ''}`}>
-            <div className="border w-full aspect-square">
+            <div className="border w-full h-[550px]">
               <Image
                 src="/images/dummy/img1.jpg"
                 alt=""

@@ -417,8 +417,48 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="mb-[90px]">
-        <div className="h-[60vh]">
+        <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mb-[90px] gap-2">
+        {/* LEFT IMAGE SECTION */}
+        <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
+          <Image
+            src="/images/birding.jpg"
+            alt="img"
+            height={1000}
+            width={1000}
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* RIGHT CONTENT SECTION */}
+        <div className="w-full lg:w-[34.5%] bg-[#111820] p-[24px] flex flex-col justify-between">
+          <div>
+            <h3 className='leading-[32px]'>Curated Adventure & Bhutan Birding</h3>
+
+            <p className="text-white text-[16px] mt-[32px]">
+              At Born Explorer, we believe every journey should enrich both
+              traveler and destination. By embracing sustainable practices,
+              respecting local cultures, and supporting communities, we ensure
+              your Bhutan experience leaves a positive footprint.
+            </p>
+
+            <p className="text-white text-[16px] mt-[32px]">
+              Travel consciously, discover authentically, and create memories
+              that honor the land, its people, and its timeless traditions.
+            </p>
+          </div>
+
+          <div className="mt-[32px] flex">
+            <Link
+              className="bg-primary py-2 px-3 text-[20px] font-bold text-white"
+              href="/curated-bhutan-birding"
+            >
+              VIEW DETAILS
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className="mb-[90px] px-[32px]">
+        <div className="h-[70vh] ">
           <LetsTalk
             images="/images/dummy/img1.jpg"
             description="For decades, our team has been crafting journeys that go beyond the

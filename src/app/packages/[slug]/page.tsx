@@ -51,7 +51,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       </section>
 
       {/* Full Image Section */}
-      <section className="h-[300px] lg:h-[80vh] mb-[90px]">
+      <section className="h-[300px] lg:h-[90vh] mb-[90px]">
         <Image
           src="/images/dummy/img1.jpg"
           alt="img"
@@ -84,7 +84,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             </div>
 
             {/* Right Image */}
-            <div className="w-full lg:w-[50%] relative h-[240px] lg:h-[420px] overflow-hidden">
+            <div className="w-full lg:w-[50%] relative h-[240px] lg:h-[540px] overflow-hidden">
               <Image
                 src={`/images/dummy/${img}`}
                 alt="img"

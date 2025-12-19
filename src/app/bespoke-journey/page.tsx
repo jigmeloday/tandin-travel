@@ -52,7 +52,7 @@ function Page() {
             }`}
           >
             {/* Image */}
-            <div className="w-full lg:w-1/2 h-[240px] sm:h-[320px] lg:h-[420px]">
+            <div className="w-full lg:w-1/2 h-[240px] sm:h-[320px] lg:h-[480px]">
               <Image
                 src={img}
                 alt={title}
@@ -112,7 +112,7 @@ function Page() {
               className="bg-[#f7f7f7] flex flex-col items-center text-center shadow-sm"
             >
               {/* Image */}
-              <div className="w-full h-[280px] sm:h-[280px] relative">
+              <div className="w-full h-[280px] sm:h-[350px] relative">
                 <Image
                   src={`/images/dummy/${img}.jpg`}
                   alt={title}

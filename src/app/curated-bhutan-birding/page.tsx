@@ -118,7 +118,7 @@ export default function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-6">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
             <Link href={`/curated-bhutan-birding/trekking/${item}`} key={item} className="w-full border">
-              <div className="h-[400px]">
+              <div className="h-[540px]">
                 <Image
                   src="/images/dummy/img3.jpg"
                   height={500}
