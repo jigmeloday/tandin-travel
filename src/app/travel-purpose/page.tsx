@@ -35,7 +35,7 @@ function Page() {
           </div>
           <div className="lg:min-w-[250px]">
             <span className="font-bold">
-              EVERY JOURNEY TELLS A STORY – FIND THE ONE THAT’S YOURS
+              {mainSection.subtitle}
             </span>
           </div>
         </div>
@@ -56,9 +56,7 @@ function Page() {
             <div className="flex flex-col justify-center md:px-4 md:h-[500px] md:w-full aspect-square">
               <h1>{item.title}</h1>
               <p className='text-[14px] md:text-[16px]'>
-                Combine helicopter journeys with sustainable luxury lodges,
-                curated local cuisine, and intimate cultural experiences for a
-                fully bespoke Bhutanese exploration.
+                {item.description}
               </p>
               <p className='font-bold mt-4 italic text-[16px] text-primary'>{item.tagline}</p>
             </div>

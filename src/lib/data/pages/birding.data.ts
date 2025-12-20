@@ -25,6 +25,7 @@ export const BIRDING_PAGE_DATA: BirdingPageData = {
         title: 'Best Birding Seasons',
         description:
           'Spring (March-May) and autumn (September-November) offer the best birding opportunities with optimal weather and peak migration periods.',
+        tagline1: 'Part of our curated birding experience',
       },
       {
         id: 2,
@@ -33,6 +34,7 @@ export const BIRDING_PAGE_DATA: BirdingPageData = {
         title: 'Endemic Species',
         description:
           'Bhutan is home to several endemic species including the Beautiful Nuthatch, Bhutan Laughingthrush, and White-bellied Heron.',
+        tagline1: 'Part of our curated birding experience',
       },
       {
         id: 3,
@@ -41,6 +43,7 @@ export const BIRDING_PAGE_DATA: BirdingPageData = {
         title: 'Birding Locations',
         description:
           'From lowland forests to high-altitude passes, each elevation zone hosts unique bird communities worth exploring.',
+        tagline2: 'Expert guidance provided',
       },
       {
         id: 4,
@@ -49,6 +52,7 @@ export const BIRDING_PAGE_DATA: BirdingPageData = {
         title: 'Photography Tips',
         description:
           'Bring telephoto lenses, tripods, and be prepared for varying light conditions in mountain environments.',
+        tagline2: 'Expert guidance provided',
       },
     ],
   },
@@ -108,6 +112,8 @@ export const BIRDING_PAGE_DATA: BirdingPageData = {
 
   nextLevelBirding: {
     title: 'Next-Level Birding Experiences',
+    description:
+      'Continue your exploration with our other related adventures, each crafted to showcase Bhutan’s rugged beauty, cultural depth, and pristine wilderness—perfect for birders seeking powerful experiences, breathtaking landscapes, and meaningful moments beyond the main journey.',
     items: [
       {
         id: 1,

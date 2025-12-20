@@ -10,7 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
-  const { introduction, tourTypes, flagshipSection, processSection, featuredPackages, parallaxSection, promiseSection, travelWithPurpose, blogSection, curatedBirding, letsTalk } = HOME_PAGE_DATA;
+  const { introduction, tourTypes, flagshipSection, processSection, featuredPackages, parallaxSection, promiseSection, travelWithPurpose, blogSection, curatedBirding, letsTalk, sliderSection } = HOME_PAGE_DATA;
 
   // Get best selling packages for flagship section
   const bestSellingPackages = flagshipSection.packageIds.map(id => getPackageById(id)).filter((pkg): pkg is PackageCard => pkg !== undefined);
@@ -282,7 +282,7 @@ export default function Home() {
         </div>
       </section>
       <section className="my-[42px] px-[16px] lg:px-[32px]">
-        <SliderComponent />
+        <SliderComponent slides={sliderSection.slides} />
       </section>
       <section className="flex flex-col items-center justify-center my-[90px] lg:px-[32px] px-[16px]">
         <h1 className="text-3xl font-bold">{blogSection.title}</h1>

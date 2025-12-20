@@ -156,4 +156,26 @@ export const HOME_PAGE_DATA: HomePageData = {
     description:
       "For decades, our team has been crafting journeys that go beyond the ordinary. Share your dream destination and your passions with us, and we'll design a one-of-a-kind adventure that's truly yours—a journey you'll remember for a lifetime.",
   },
+  sliderSection: {
+    slides: [
+      {
+        id: 1,
+        image: '/images/dummy/img10.jpg',
+        title: 'UNIQUE TO YOU',
+        subtitle: 'WHY BORN EXPLORER',
+        description:
+          "We listen to your travel goals and craft unique trips that are bespoke to you. We’re with you every step of your life's travel journey, from honeymoons to family trips and beyond.",
+        cta: 'SPEAK TO AN EXPERT',
+      },
+      {
+        id: 2,
+        image: '/images/dummy/img9.jpg',
+        title: 'ADVENTURE AWAITS',
+        subtitle: 'WHY CHOOSE US',
+        description:
+          'Tailored adventures that connect you with the world. Experience moments you’ll never forget.',
+        cta: 'START YOUR JOURNEY',
+      },
+    ],
+  },
 };

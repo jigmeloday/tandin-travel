@@ -126,4 +126,17 @@ export const RECURRING_CONTENT = {
     messagePlaceholder: 'Message',
     submitButton: 'SUBMIT',
   },
+  trekking: {
+    bestSeason: 'Best Season',
+    altitude: 'Alt.m',
+    altitudeHigh: 'High:',
+    altitudeLow: 'Low:',
+    onTrek: 'On Trek',
+    grade: 'Grade',
+    essentialInfoTitle: 'Essential Information for the Trek',
+    nextLevelAdventuresTitle: 'Next-Level Adventures & More',
+    nextLevelAdventuresDescription:
+      "Continue your exploration with our other related adventures, each crafted to showcase Bhutan's rugged beauty, cultural depth, and pristine wilderness—perfect for trekkers seeking powerful experiences, breathtaking landscapes, and meaningful moments beyond the main journey.",
+    viewDetails: 'View Details',
+  },
 };

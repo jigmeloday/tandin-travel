@@ -45,7 +45,7 @@ export default function Page() {
           <p className="my-[24px] font-medium">
             {mainContent.subtitle}
           </p>
-          <Button className="rounded-none">SPEAK TO AN EXPERT </Button>
+          <Button className="rounded-none">{mainContent.ctaText} </Button>
         </div>
         <div className="flex-1 w-full !h-[400px] lg:w-[422px] lg:h-[500px]">
           <SideSelling />
@@ -110,9 +110,7 @@ export default function Page() {
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mt-[90px]">
         <h1 className='text-center'>{getaways.title}</h1>
         <p className="lg:px-[240px] text-center font-medium my-6">
-          Exclusive itineraries thoughtfully designed to immerse you in unique
-          experiences, local culture, and unforgettable adventures, creating
-          memories that last forever.
+          {getaways.description}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-6">
           {getawayTreks.map((trek) => (

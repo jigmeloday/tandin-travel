@@ -10,6 +10,7 @@ export const CURATED_BIRDING_PAGE_DATA: CuratedBirdingPageData = {
     title: "Discover Bhutan's Avian Paradise",
     subtitle:
       'Experience world-class birding in the Eastern Himalayas, home to over 700 species including rare and endemic birds found nowhere else on Earth.',
+    ctaText: 'SPEAK TO AN EXPERT',
   },
 
   gridBoxes: [
@@ -38,6 +39,8 @@ export const CURATED_BIRDING_PAGE_DATA: CuratedBirdingPageData = {
 
   getaways: {
     title: 'Birding Getaways & Treks',
+    description:
+      'Exclusive itineraries thoughtfully designed to immerse you in unique experiences, local culture, and unforgettable adventures, creating memories that last forever.',
     trekIds: [1, 2, 3, 4, 5],
   },
 

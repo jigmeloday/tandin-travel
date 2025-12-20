@@ -72,7 +72,7 @@ export default function Page() {
                     <h2>{item.title}</h2>
                     <p className="mt-4">{item.description}</p>
                     <p className="font-bold text-primary pt-4 uppercase">
-                      Part of our curated birding experience
+                      {item.tagline1}
                     </p>
                   </div>
                 )}
@@ -90,7 +90,7 @@ export default function Page() {
                     <h2>{item.title}</h2>
                     <p className="mt-4">{item.description}</p>
                     <p className="font-bold text-primary pt-4 uppercase">
-                      Part of our curated birding experience
+                      {item.tagline1}
                     </p>
                   </div>
                 )}
@@ -115,7 +115,7 @@ export default function Page() {
                     <h2>{item.title}</h2>
                     <p className="mt-4">{item.description}</p>
                     <p className="font-bold text-primary pt-4 uppercase">
-                      Expert guidance provided
+                      {item.tagline2}
                     </p>
                   </div>
                 )}
@@ -133,7 +133,7 @@ export default function Page() {
                     <h2>{item.title}</h2>
                     <p className="mt-4">{item.description}</p>
                     <p className="font-bold text-primary pt-4 uppercase">
-                      Expert guidance provided
+                      {item.tagline2}
                     </p>
                   </div>
                 )}
@@ -202,11 +202,7 @@ export default function Page() {
       <section className="flex flex-col px-[16px] lg:px-[32px] items-center justify-center gap-2 mb-[90px] w-full">
         <h2 className="text-center">{nextLevelBirding.title}</h2>
         <p className="my-[24px] text-center max-w-4xl font-medium px-4">
-          Continue your exploration with our other related adventures, each
-          crafted to showcase Bhutan’s rugged beauty, cultural depth, and
-          pristine wilderness—perfect for birders seeking powerful experiences,
-          breathtaking landscapes, and meaningful moments beyond the main
-          journey.
+          {nextLevelBirding.description}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
           {nextLevelBirding.items.map((item) => (

@@ -111,6 +111,9 @@ export interface HeroSlide {
   title: string;
   image: string;
   overlayOpacity?: number;
+  subtitle?: string;
+  description?: string;
+  cta?: string;
 }
 
 export interface OtherPackage {

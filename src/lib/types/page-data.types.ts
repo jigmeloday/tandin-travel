@@ -54,6 +54,9 @@ export interface HomePageData {
     image: string;
     description: string;
   };
+  sliderSection: {
+    slides: HeroSlide[];
+  };
 }
 
 export interface AboutPageData {
@@ -207,12 +210,14 @@ export interface TravelPurposePageData {
   mainSection: {
     title: string;
     description: string;
+    subtitle?: string;
   };
   alternatingContent: Array<{
     id: number;
     image: string;
     title: string;
     tagline: string;
+    description?: string;
   }>;
   movementSection: {
     title: string;
@@ -229,6 +234,7 @@ export interface CuratedBirdingPageData {
   mainContent: {
     title: string;
     subtitle: string;
+    ctaText?: string;
   };
   gridBoxes: Array<{
     id: number;
@@ -239,6 +245,7 @@ export interface CuratedBirdingPageData {
   getaways: {
     title: string;
     trekIds: number[];
+    description?: string;
   };
   travelWithPurpose: ContentSection;
   letsTalk: {
@@ -260,6 +267,8 @@ export interface BirdingPageData {
       content: string;
       title?: string;
       description?: string;
+      tagline1?: string;
+      tagline2?: string;
     }>;
   };
   packingList: {
@@ -275,6 +284,7 @@ export interface BirdingPageData {
   travelWithPurpose: ContentSection;
   nextLevelBirding: {
     title: string;
+    description?: string;
     items: Array<{
       id: number;
       title: string;

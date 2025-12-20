@@ -59,31 +59,31 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         <div className="flex-1 w-full space-y-2">
           <div className="flex flex-col sm:flex-row gap-2">
             <div className="flex-2 border p-4 bg-primary text-white">
-              <h3 className="text-white">Best Season</h3>
+              <h3 className="text-white">{RECURRING_CONTENT.trekking.bestSeason}</h3>
               <p className="text-white font-medium">
                 {trek.info.bestSeason}
               </p>
             </div>
             <div className="flex-1 border p-4 bg-primary text-center text-white">
-              <h3 className="text-white">Alt.m</h3>
-              <p className="text-white font-medium">High: {trek.info.altitude.high}</p>
-              <p className="text-white font-medium">Low: {trek.info.altitude.low}</p>
+              <h3 className="text-white">{RECURRING_CONTENT.trekking.altitude}</h3>
+              <p className="text-white font-medium">{RECURRING_CONTENT.trekking.altitudeHigh} {trek.info.altitude.high}</p>
+              <p className="text-white font-medium">{RECURRING_CONTENT.trekking.altitudeLow} {trek.info.altitude.low}</p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-2">
             <div className="flex-1 border bg-primary py-6 px-4 text-center text-white">
-              <h3 className="text-white">On Trek</h3>
+              <h3 className="text-white">{RECURRING_CONTENT.trekking.onTrek}</h3>
               <p className="text-white font-medium">{trek.info.duration}</p>
             </div>
             <div className="flex-1 border bg-primary py-6 px-4 text-center text-white">
-              <h3 className="text-white">Grade</h3>
+              <h3 className="text-white">{RECURRING_CONTENT.trekking.grade}</h3>
               <p className="text-white font-medium">{trek.info.grade}</p>
             </div>
           </div>
         </div>
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
-        <h1 className="text-center">Essential Information for the Trek</h1>
+        <h1 className="text-center">{RECURRING_CONTENT.trekking.essentialInfoTitle}</h1>
         <p className="lg:px-[240px] text-center font-medium my-6">
           {trek.description || `The ${trek.title} is one of Bhutan's most legendary high-altitude adventures. To help you prepare, here are the key things every traveler must know before embarking on this once-in-a-lifetime journey.`}
         </p>
@@ -154,13 +154,9 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         </div>
       </section>
       <section className="flex flex-col px-[16px] lg:px-[32px] items-center justify-center gap-2 mb-[90px]">
-        <h2>Next-Level Adventures & More</h2>
+        <h2>{RECURRING_CONTENT.trekking.nextLevelAdventuresTitle}</h2>
         <p className="my-[24px] text-center px-4 md:px-[142px]">
-          Continue your exploration with our other related adventures, each
-          crafted to showcase Bhutan&apos;s rugged beauty, cultural depth, and
-          pristine wilderness—perfect for trekkers seeking powerful experiences,
-          breathtaking landscapes, and meaningful moments beyond the main
-          journey.
+          {RECURRING_CONTENT.trekking.nextLevelAdventuresDescription}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 w-full">
           {otherTreks.slice(0, 3).map((otherTrek) => (
@@ -180,7 +176,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
                 </p>
                 <div className="w-full flex justify-center mt-auto">
                   <Link href={`/curated-bhutan-birding/trekking/${otherTrek.slug}`}>
-                    <Button className='bg-black rounded-none text-primary font-bold'>View Details</Button>
+                    <Button className='bg-black rounded-none text-primary font-bold'>{RECURRING_CONTENT.trekking.viewDetails}</Button>
                   </Link>
                 </div>
               </div>
@@ -205,7 +201,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
                 </p>
                 <div className="w-full flex justify-center mt-auto">
                   <Link href={`/curated-bhutan-birding/trekking/${otherTrek.slug}`}>
-                    <Button className='bg-black rounded-none text-primary font-bold'>View Details</Button>
+                    <Button className='bg-black rounded-none text-primary font-bold'>{RECURRING_CONTENT.trekking.viewDetails}</Button>
                   </Link>
                 </div>
               </div>
