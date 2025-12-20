@@ -42,7 +42,7 @@ function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
-      <section className="flex flex-col items-center justify-center bg-[#d3cecd] px-[16px] lg:px-[32px] w-full py-[100px] mb-[90px]">
+      <section id="testimonials" className="flex flex-col items-center justify-center bg-[#d3cecd] px-[16px] lg:px-[32px] w-full py-[100px] mb-[90px]">
         <h2 className="text-black/70 font-light">
           {testimonialSection.title}
         </h2>

@@ -9,7 +9,7 @@ import { FaLinkedinIn, FaTiktok } from 'react-icons/fa';
 function Footer() {
   const COMAPNY_LINK = [
     {
-      link: '/',
+      link: '/about-us',
       label: 'About Us',
     },
     {
@@ -21,11 +21,11 @@ function Footer() {
       label: 'Privacy Policy',
     },
     {
-      link: '/',
+      link: '/about-us#testimonials',
       label: 'Testimonial',
     },
     {
-      link: '/',
+      link: '/travel-purpose',
       label: 'Responsible Travel',
     },
     {
@@ -35,7 +35,7 @@ function Footer() {
   ];
   const SERVICES_LINK = [
     {
-      link: '/',
+      link: '/about-us',
       label: 'About Us',
     },
     {
@@ -47,11 +47,11 @@ function Footer() {
       label: 'Privacy Policy',
     },
     {
-      link: '/',
+      link: '/about-us#testimonials',
       label: 'Testimonial',
     },
     {
-      link: '/',
+      link: '/travel-purpose',
       label: 'Responsible Travel',
     },
     {
