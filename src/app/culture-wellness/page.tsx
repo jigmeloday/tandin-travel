@@ -1,47 +1,72 @@
+import BestSelling from '@/components/landing-component/best-selling';
+import LetsTalk from '@/components/shared/let-talk';
+import { CULTURE_WELLNESS_PAGE_DATA, getPackageById } from '@/lib/data';
 import Image from 'next/image';
-import Link from 'next/link';
 
 function Page() {
+  const {
+    hero,
+    bhutanFromAbove,
+    gridCards,
+    heroImages,
+    parallax,
+    signatureTours,
+    freedomSection,
+    letsTalk,
+  } = CULTURE_WELLNESS_PAGE_DATA;
+
+  const signaturePackages = signatureTours.packageIds
+    .map((id) => getPackageById(id))
+    .filter((pkg) => pkg !== undefined);
+
   return (
     <main>
       {/* Hero Section */}
       <section className="h-screen w-full overflow-hidden relative mb-[90px]">
         <Image
-          src="/images/dummy/img5.jpg"
-          alt="Bespoke Journey"
+          src={hero.backgroundImage}
+          alt={hero.title}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
+          priority
         />
-        <div className="absolute inset-0 bg-black/30 flex items-center justify-center px-4">
-          <h1 className="text-white text-center text-3xl md:text-5xl">
-            Culture & Wellness
-          </h1>
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center px-4">
+          <div className="flex flex-col md:flex-row w-full h-full px-4 md:px-[50px] pb-4 md:pb-[40px]">
+            <div className="flex flex-1 items-center justify-center md:justify-start mb-4 md:mb-0">
+              <h1 className="text-4xl md:text-[80px] font-bold drop-shadow-lg text-center md:text-left text-white">
+                {hero.title}
+              </h1>
+            </div>
+            <div className="flex flex-col flex-1 items-center md:items-end justify-center md:justify-end text-center md:text-right text-white">
+              <p className="text-xl md:text-[40px] font-sans">
+                {hero.subtitle.split(',')[0]}
+              </p>
+              <p className="text-xl md:text-[40px] font-sans">
+                {hero.subtitle.split(',')[1] || ''}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Bhutan From Above Section */}
+      {/* Intro Section */}
       <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px]">
         <div className="border-[0.5px] border-primary h-20 mb-10" />
         <div className="flex flex-col items-center text-center">
-          <div className="w-full md:w-[740px]">
+          <div className="w-full lg:w-[740px]">
             <h1 className="text-2xl md:text-4xl font-semibold">
-              Bhutan From Above
+              {bhutanFromAbove.title}
             </h1>
           </div>
-          <div className="w-full md:w-[920px]">
+          <div className="w-full px-4 md:px-[100px] lg:px-[200px]">
             <p className="text-[14px] md:text-[16px] my-6">
-              Experience Bhutan like never before with premium helicopter
-              journeys. Soar above sacred valleys, majestic mountains, and
-              hidden monasteries in unrivaled luxury. Each flight blends
-              adventure, comfort, and breathtaking discovery, turning travel
-              into a transformative, mindful experience where nature, culture,
-              and serenity converge seamlessly.
+              {bhutanFromAbove.description}
             </p>
           </div>
           <div className="md:min-w-[250px]">
-            <span className="font-bold text-lg md:text-xl">
-              SKIP THE ROADS, CATCH THE VIEWS
+            <span className="font-bold text-lg md:text-xl uppercase">
+              {bhutanFromAbove.tagline}
             </span>
           </div>
         </div>
@@ -49,252 +74,109 @@ function Page() {
       </section>
 
       {/* Grid Cards Section */}
-      <section className="px-4 md:px-8 bg-[#111820] py-8 mb-[90px]">
-        <div className="text-center mb-6">
-          <h1 className="text-white text-3xl md:text-4xl">Bhutan From Above</h1>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full my-6">
-          {[
-            {
-              id: 1,
-              img: 'img1',
-              title: 'Unique Culture',
-              subtitle:
-                'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
-              link: '/bespoke-journey',
-            },
-            {
-              id: 2,
-              img: 'img2',
-              title: 'Wellness in the Himalayas',
-              subtitle:
-                'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
-              link: '/culture-wellness',
-            },
-            {
-              id: 3,
-              img: 'img3',
-              title: 'Culunary Tapestary',
-              subtitle:
-                'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
-              link: '/culture-wellness',
-            },
-          ].map(({ img, title, subtitle, link }, idx) => (
+      <section className="px-4 md:px-8 mb-[90px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          {gridCards.map((card) => (
             <div
-              key={idx}
-              className="bg-primary/40 text-white flex flex-col items-center text-center"
+              key={card.id}
+              className="relative aspect-square overflow-hidden group"
             >
-              <div className="w-full h-64 md:h-[380px] relative">
-                <Image
-                  src={`/images/dummy/${img}.jpg`}
-                  alt={title}
-                  fill
-                  className="object-cover h-full w-full"
-                />
-              </div>
-              <div className="p-4 md:p-6 flex flex-col items-center">
-                <h3 className="relative text-xl md:text-2xl font-semibold after:content-[''] after:block after:w-2/5 after:h-[3px] after:bg-white after:mx-auto after:mt-2">
-                  {title}
+              <Image
+                src={card.image}
+                alt={card.title}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center p-4 text-center">
+                <h3 className="text-white text-xl font-bold mb-2">
+                  {card.title}
                 </h3>
-                <p className="text-[14px] md:text-[16px] my-4">{subtitle}</p>
-                <Link
-                  href={link}
-                  className="w-[160px] text-white font-semibold py-2 md:py-3 text-center hover:bg-gray-800 transition"
-                >
-                  SAVOR THE SUBLIME
-                </Link>
+                <p className="text-white text-sm">{card.subtitle}</p>
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Hero Images Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2 h-auto md:h-[60vh]">
+          {heroImages.map((img, idx) => (
+            <div key={idx} className="relative h-[300px] md:h-full">
+              <Image
+                src={img}
+                alt="Culture & Wellness"
+                fill
+                className="object-cover"
+              />
             </div>
           ))}
         </div>
       </section>
 
-      {/* Hero Images Section */}
-      <section className="w-full bg-[#111820] mb-[90px] flex flex-col md:flex-row h-auto md:h-[70vh]">
-        {/* Images */}
-        <div className="flex flex-col md:flex-row flex-1 items-center justify-center gap-4 mb-6 md:mb-0">
-          <div className="transform translate-y-0 md:translate-y-6 w-48 md:w-60 h-[260px] md:h-[430px]">
-            <Image
-              src="/images/dummy/img2.jpg"
-              alt="Exquisite Stays"
-              width={800}
-              height={1080}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="transform translate-y-0 md:-translate-y-6 w-48 md:w-60 h-[260px] md:h-[430px]">
-            <Image
-              src="/images/dummy/img1.jpg"
-              alt="Exquisite Stays"
-              width={800}
-              height={1080}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-
-        {/* Text */}
-        <div className="flex flex-col justify-between gap-4 md:gap-6 p-4 md:p-16 flex-1 text-center md:text-left">
-          <div>
-            <h1 className="mb-0 leading-[1.2] text-2xl md:text-4xl">
-              Luxury Experience You’ll
-            </h1>
-            <h1 className="leading-[1.2] border-b-4 border-white pb-2 w-fit mx-auto md:mx-0 text-2xl md:text-4xl">
-              Remember
-            </h1>
-          </div>
-          <p className="text-white text-[14px] md:text-[16px]">
-            Combine helicopter journeys with sustainable luxury lodges, curated
-            local cuisine, and intimate cultural experiences for a fully bespoke
-            Bhutanese exploration.
-          </p>
-          <p className="text-white font-bold text-base md:text-[18px]">
-            YOU ARE BHUTANA AND OTES EHTE
-          </p>
-        </div>
-      </section>
-
       {/* Parallax Section */}
-      <section className="relative w-full h-[80vh] hidden lg:block mb-[90px]">
+      <section className="relative w-full h-[60vh] md:h-[80vh] hidden lg:block mb-[90px]">
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/dummy/img8.jpg')",
+            backgroundImage: `url('${parallax.backgroundImage}')`,
             backgroundAttachment: 'fixed',
           }}
         />
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center" />
-      </section>
-
-      {/* Signature Tours Section */}
-      <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-12 md:mb-[90px]">
-        <div className="flex flex-col items-center text-center">
-          <div className="w-full md:w-[740px]">
-            <h1 className="text-2xl md:text-4xl font-semibold">
-              Signature Tours
-            </h1>
-          </div>
-          <div className="w-full md:w-[920px]">
-            <p className="text-[14px] md:text-[16px] text-center my-6">
-              Experience Bhutan like never before with premium helicopter
-              journeys. Soar above sacred valleys, majestic mountains, and
-              hidden monasteries in unrivaled luxury. Each flight blends
-              adventure, comfort, and breathtaking discovery, turning travel
-              into a transformative, mindful experience where nature, culture,
-              and serenity converge seamlessly.
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+          <div className="text-white text-center px-4 w-full md:w-[800px]">
+            <h1 className="text-white mb-6 font-bold">{parallax.title}</h1>
+            <p className="text-white text-lg md:text-xl font-medium">
+              {parallax.description}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Tours Grid */}
-      <section className="px-4 md:px-8 mb-[90px]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:grid-cols-2 w-full mb-5">
-          {[
-            {
-              id: 1,
-              img: 'img1',
-              title: 'Her Bhutan; Her Story',
-              subtitle:
-                'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
-              link: '/bespoke-journey',
-            },
-            {
-              id: 2,
-              img: 'img2',
-              title: 'Bhutan Soul Walk',
-              subtitle:
-                'Tailored flight routes and timing cater to your preferences, weather, and comfort, ensuring a seamless, personalized, and indulgent adventure.',
-              link: '/culture-wellness',
-            },
-            {
-              id: 3,
-              img: 'img3',
-              title: 'Her Bhutan; Her Story',
-              subtitle:
-                'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
-              link: '/culture-wellness',
-            },
-            {
-              id: 4,
-              img: 'img1',
-              title: 'Her Bhutan; Her Story',
-              subtitle:
-                'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
-              link: '/bespoke-journey',
-            },
-            {
-              id: 5,
-              img: 'img2',
-              title: 'Her Bhutan; Her Story',
-              subtitle:
-                'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
-              link: '/culture-wellness',
-            },
-            {
-              id: 6,
-              img: 'img3',
-              title: 'Her Bhutan; Her Story',
-              subtitle:
-                'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
-              link: '/culture-wellness',
-            },
-          ].map(({ img, title, subtitle, link }, idx) => (
-            <div
-              key={idx}
-              className="bg-gray-400/20 flex flex-col items-center text-center shadow-sm"
-            >
-              <div className="w-full h-[520px] relative">
+      {/* Signature Journeys */}
+      <section className="flex flex-col items-center justify-center mb-[90px] px-4 md:px-8">
+        <h1 className="mb-10 text-center">{signatureTours.title}</h1>
+        <BestSelling
+          packages={signaturePackages.filter((p): p is any => p !== undefined)}
+        />
+      </section>
+
+      {/* Freedom Section */}
+      <section className="px-4 lg:px-[32px] mb-[90px]">
+        <div className="bg-[#111820] w-full p-6 md:p-12 text-white">
+          <div className="flex flex-col lg:flex-row gap-8 mb-12">
+            <div className="flex-1">
+              <h2 className="text-white text-3xl md:text-4xl leading-tight">
+                {freedomSection.title.split(' ').slice(0, 2).join(' ')} <br />{' '}
+                {freedomSection.title.split(' ').slice(2).join(' ')}
+              </h2>
+            </div>
+            <div className="flex-1">
+              <p className="text-white text-[14px] md:text-[16px]">
+                {freedomSection.description}
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {freedomSection.images.map((img, idx) => (
+              <div key={idx} className="relative h-[250px] md:h-[350px]">
                 <Image
-                  src={`/images/dummy/${img}.jpg`}
-                  alt={title}
+                  src={img}
+                  alt="Freedom and Independence"
                   fill
                   className="object-cover"
                 />
               </div>
-              <div className="p-4 md:p-6 flex flex-col items-center">
-                <h3 className="text-lg md:text-xl">{title}</h3>
-                <p className="text-[14px] md:text-[16px] mb-4">{subtitle}</p>
-                <Link
-                  href={link}
-                  className="w-[160px] bg-[#111820] text-white font-semibold py-2 md:py-3 text-center hover:bg-gray-800 transition"
-                >
-                  View Detail
-                </Link>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Freedom Section */}
-      <section className="flex flex-col items-center justify-center mb-[90px] md:px-8 px-4">
-        <div className="bg-[#111820] w-full p-6 md:p-12">
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="flex-3">
-              <h1 className="text-2xl md:text-4xl">Freedom and Independence</h1>
-            </div>
-            <div className="flex-2">
-              <p className="text-white text-[14px] md:text-[16px]">
-                Combine helicopter journeys with sustainable luxury lodges,
-                curated local cuisine, and intimate cultural experiences for a
-                fully bespoke Bhutanese exploration.
-              </p>
-            </div>
-          </div>
-          <div
-            className="w-full mt-8 h-[420px] md:h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
-            style={{
-              backgroundImage: "url('/images/dummy/img10.jpg')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          >
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-            <h2 className="relative z-10 text-white inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full text-xl md:text-2xl">
-              Talk To Our Expert
-            </h2>
-          </div>
+      {/* Let's Talk Section */}
+      <section className="px-4 lg:px-[32px] mb-[90px]">
+        <div className="h-auto md:h-[70vh] w-full">
+          <LetsTalk
+            description={letsTalk.description}
+            images={letsTalk.image}
+          />
         </div>
       </section>
     </main>
