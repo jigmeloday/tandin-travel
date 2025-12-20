@@ -119,6 +119,7 @@ export interface BespokeJourneyPageData {
     id: number;
     title: string;
     description: string;
+    image: string;
   }>;
   parallax: {
     backgroundImage: string;
@@ -126,6 +127,8 @@ export interface BespokeJourneyPageData {
   travelWithPurpose: ContentSection;
   relatedAdventures: {
     title: string;
+    tagline: string;
+    description: string;
     packageIds: number[];
   };
   letsTalk: {
@@ -161,6 +164,7 @@ export interface CultureWellnessPageData {
     title: string;
     description: string;
     backgroundImage: string;
+    images: string[];
     cta: CTAButton;
   };
   letsTalk: {
@@ -220,6 +224,7 @@ export interface TravelPurposePageData {
 export interface CuratedBirdingPageData {
   hero: {
     title: string;
+    backgroundImage: string;
   };
   mainContent: {
     title: string;
@@ -229,6 +234,7 @@ export interface CuratedBirdingPageData {
     id: number;
     title: string;
     description: string;
+    image?: string;
   }>;
   getaways: {
     title: string;

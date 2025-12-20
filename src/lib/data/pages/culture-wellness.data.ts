@@ -57,6 +57,12 @@ export const CULTURE_WELLNESS_PAGE_DATA: CultureWellnessPageData = {
     description:
       'Experience Bhutan at your own pace with our flexible wellness programs. Choose from guided meditation sessions, cultural immersion activities, or simply relax in the tranquility of the Himalayas.',
     backgroundImage: '/images/dummy/img10.jpg',
+    images: [
+      '/images/dummy/img1.jpg',
+      '/images/dummy/img2.jpg',
+      '/images/dummy/img3.jpg',
+      '/images/dummy/img4.jpg',
+    ],
     cta: {
       text: 'EXPLORE PROGRAMS',
       href: '/packages',

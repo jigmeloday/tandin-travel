@@ -1,15 +1,18 @@
 import ImageBox from '@/components/shared/image-box';
-import { getPackageBySlug, OTHER_PACKAGES, getImageBoxPackages, RECURRING_CONTENT } from '@/lib/data';
+import { getPackageBySlug, getImageBoxPackages, RECURRING_CONTENT, getOtherPackages } from '@/lib/data';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params as { slug: string };
+  const { slug } = await params;
   const data = getPackageBySlug(slug);
 
   if (!data) {
     notFound();
   }
+
+  const otherPackages = getOtherPackages();
 
   return (
     <main>
@@ -48,11 +51,11 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             </span>
           </div>
         </div>
-        <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mt-[20px] lg:mt-[40px]" />
+        <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mt-[40px]" />
       </section>
 
       {/* Full Image Section */}
-      <section className="h-[300px] lg:h-[90vh] mb-[90px] relative">
+      <section className="h-[300px] lg:h-[90vh] mb-[90px] relative w-full">
         <Image
           src={data.image.src}
           alt={data.image.alt}
@@ -63,7 +66,10 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
 
       {/* Other Packages */}
       <section className="flex flex-col lg:px-[32px] px-[16px] my-[90px]">
-        {OTHER_PACKAGES.map(({ id, description, img, subtitle, title }, index) => (
+        <div className="text-center mb-12">
+            <h1>Other Holidays</h1>
+        </div>
+        {otherPackages.map(({ id, description, image, subtitle, title, slug }, index) => (
           <div
             className={`flex flex-col lg:flex-row ${
               index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
@@ -71,9 +77,9 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             key={id}
           >
             {/* Left Content */}
-            <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-[#111820] p-[20px] text-white">
-              <h1 className="text-white">{title}</h1>
-              <p className="text-primary font-bold text-[14px] lg:text-[16px] mt-2 uppercase">
+            <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-[#111820] p-[40px] text-white">
+              <h1 className="text-white text-center">{title}</h1>
+              <p className="text-primary font-bold text-[14px] lg:text-[16px] mt-2 uppercase text-center">
                 {subtitle}
               </p>
               <div className="px-[20px] lg:px-[60px] mt-[16px] lg:mt-[24px] pb-[20px] lg:pb-[32px]">
@@ -81,12 +87,18 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
                   {description}
                 </p>
               </div>
+              <Link
+                href={`/packages/${slug}`}
+                className="bg-primary px-6 py-2 text-white font-bold hover:bg-primary/80 transition"
+              >
+                VIEW DETAIL
+              </Link>
             </div>
 
             {/* Right Image */}
-            <div className="w-full lg:w-[50%] relative h-[240px] lg:h-[540px] overflow-hidden">
+            <div className="w-full lg:w-[50%] relative h-[300px] lg:h-[540px] overflow-hidden">
               <Image
-                src={`/images/dummy/${img}`}
+                src={image.src}
                 alt={title}
                 fill
                 className="object-cover"
@@ -96,35 +108,36 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         ))}
       </section>
 
-      {/* Freedom Section */}
+      {/* Recurring Content Section */}
       <section className="px-[16px] lg:px-[32px] mb-[90px]">
-        <div className="bg-[#111820] w-full p-[16px] lg:p-[24px] text-white">
-          <div className="flex flex-col lg:flex-row gap-6">
-            <div className="flex-3">
-              <h3 className="text-white">
-                Freedom and <br /> Independence
-              </h3>
+        <div className="bg-[#111820] w-full p-[24px] lg:p-[48px] text-white">
+          <div className="flex flex-col lg:flex-row gap-8 mb-12">
+            <div className="flex-1">
+              <h2 className="text-white text-3xl md:text-4xl">
+                {RECURRING_CONTENT.whereNatureMeetsNirvana.title}
+              </h2>
             </div>
-            <div className="flex-2">
+            <div className="flex-1">
               <p className="text-white text-[14px] lg:text-[16px]">
-                Combine helicopter journeys with sustainable luxury lodges,
-                curated local cuisine, and intimate cultural experiences for a
-                fully bespoke Bhutanese exploration.
+                {RECURRING_CONTENT.whereNatureMeetsNirvana.description}
               </p>
             </div>
           </div>
           <div
-            className="w-full mt-[24px] lg:mt-[32px] h-[300px] lg:h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
-            style={{
-              backgroundImage: `url('${RECURRING_CONTENT.letsTalk.image}')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
+            className="w-full h-[300px] lg:h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
           >
+            <Image
+                src={RECURRING_CONTENT.letsTalk.image}
+                alt="Lets Talk"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+            />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-            <h4 className="relative z-10 text-white inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full">
-              Connect Now – We’ll throw in enlightenment
-            </h4>
+            <div className="relative z-10 text-center">
+                <h4 className="text-white text-xl md:text-2xl inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full">
+                {RECURRING_CONTENT.whereNatureMeetsNirvana.tagline}
+                </h4>
+            </div>
           </div>
         </div>
       </section>

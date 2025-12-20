@@ -9,7 +9,6 @@ export default function Page() {
     hero,
     mainContent,
     essentialInfo,
-    packingList,
     parallax,
     travelWithPurpose,
     nextLevelBirding,
@@ -20,11 +19,12 @@ export default function Page() {
     <main>
       <section className="relative h-[60vh] md:h-screen w-full overflow-hidden mb-[90px]">
         <Image
-          src={hero.backgroundImage}
-          alt="Birding in Bhutan"
+          src={hero.backgroundImage.src}
+          alt={hero.backgroundImage.alt || hero.title}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
+          priority
         />
       </section>
 
@@ -32,16 +32,16 @@ export default function Page() {
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
-            <h1>{BIRDING_PAGE_DATA.hero.title}</h1>
+            <h1>{hero.title}</h1>
           </div>
           <div className="lg:w-[920px]">
             <p className="text-center my-[24px]">
-              {mainContent.description || 'Every journey is crafted entirely around you, blending seamless planning with rare, meaningful encounters. Each experience unfolds with thoughtful detail—from the first welcome to the quiet moments in nature—creating memories that linger long after you return home and leaving a gentle, positive imprint on the places you visit.'}
+              {mainContent.description}
             </p>
           </div>
           <div className="lg:min-w-[250px]">
             <span className="font-bold uppercase">
-              {BIRDING_PAGE_DATA.hero.subtitle}
+              {hero.subtitle}
             </span>
           </div>
         </div>
@@ -213,7 +213,7 @@ export default function Page() {
             <div key={item.id} className="w-full flex flex-col bg-primary overflow-hidden">
               <div className="w-full h-[300px] relative">
                  <Image
-                  src={item.image || '/images/dummy/img1.jpg'}
+                  src={item.image || ''}
                   alt={item.title}
                   fill
                   className="object-cover"

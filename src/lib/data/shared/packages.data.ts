@@ -43,7 +43,7 @@ export const PACKAGES: Record<number, PackageCard> = {
     title: 'RIVER RAFTING',
     subtitle: 'Heritage in full color',
     category: 'ADVENTURE TOUR',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Feel the adrenaline as you navigate the pristine rivers of Bhutan, blending adventure with breathtaking natural scenery.',
     image: {
       src: '/images/dummy/img11.jpg',
       alt: 'River Rafting',
@@ -55,7 +55,7 @@ export const PACKAGES: Record<number, PackageCard> = {
     title: 'EDUCATION TOUR',
     subtitle: 'Enrich your journey',
     category: 'EDUCATIONAL TOUR',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'An educational journey through Bhutans history, culture, and environmental conservation efforts, perfect for lifelong learners.',
     image: {
       src: '/images/dummy/img2.jpg',
       alt: 'Education Tour',
@@ -67,7 +67,7 @@ export const PACKAGES: Record<number, PackageCard> = {
     title: 'FUTURE TRAVEL',
     subtitle: 'Bhutan, reimagined',
     category: 'INNOVATIVE TOUR',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    description: 'Explore the future of travel in Bhutan, focusing on innovative sustainability and high-value, low-volume tourism experiences.',
     image: {
       src: '/images/dummy/img7.jpg',
       alt: 'Future Travel',

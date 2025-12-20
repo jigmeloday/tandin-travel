@@ -1,6 +1,7 @@
 import BestSelling from '@/components/landing-component/best-selling';
 import LetsTalk from '@/components/shared/let-talk';
 import { CULTURE_WELLNESS_PAGE_DATA, getPackageById } from '@/lib/data';
+import { PackageCard } from '@/lib/types';
 import Image from 'next/image';
 
 function Page() {
@@ -24,14 +25,14 @@ function Page() {
       {/* Hero Section */}
       <section className="h-screen w-full overflow-hidden relative mb-[90px]">
         <Image
-          src={hero.backgroundImage}
-          alt={hero.title}
+          src={hero.backgroundImage.src}
+          alt={hero.backgroundImage.alt || hero.title}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center px-4">
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="flex flex-col md:flex-row w-full h-full px-4 md:px-[50px] pb-4 md:pb-[40px]">
             <div className="flex flex-1 items-center justify-center md:justify-start mb-4 md:mb-0">
               <h1 className="text-4xl md:text-[80px] font-bold drop-shadow-lg text-center md:text-left text-white">
@@ -40,10 +41,10 @@ function Page() {
             </div>
             <div className="flex flex-col flex-1 items-center md:items-end justify-center md:justify-end text-center md:text-right text-white">
               <p className="text-xl md:text-[40px] font-sans">
-                {hero.subtitle.split(',')[0]}
+                {(hero.subtitle || '').split(',')[0]}
               </p>
               <p className="text-xl md:text-[40px] font-sans">
-                {hero.subtitle.split(',')[1] || ''}
+                {(hero.subtitle || '').split(',')[1] || ''}
               </p>
             </div>
           </div>
@@ -135,7 +136,7 @@ function Page() {
       <section className="flex flex-col items-center justify-center mb-[90px] px-4 md:px-8">
         <h1 className="mb-10 text-center">{signatureTours.title}</h1>
         <BestSelling
-          packages={signaturePackages.filter((p): p is any => p !== undefined)}
+          packages={signaturePackages.filter((p): p is PackageCard => p !== undefined)}
         />
       </section>
 

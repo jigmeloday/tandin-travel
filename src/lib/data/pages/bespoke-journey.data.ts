@@ -9,7 +9,7 @@ export const BESPOKE_JOURNEY_PAGE_DATA: BespokeJourneyPageData = {
     },
   },
 
-  packages: [1, 2, 3], // Package IDs for featured packages
+  packages: [1, 2, 3],
 
   gridCards: [
     {
@@ -17,18 +17,21 @@ export const BESPOKE_JOURNEY_PAGE_DATA: BespokeJourneyPageData = {
       title: 'Her Bhutan; Her Story',
       description:
         'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
+      image: '/images/dummy/img1.jpg',
     },
     {
       id: 2,
       title: 'Mystery of Gangkar Puensum',
       description:
         'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
+      image: '/images/dummy/img2.jpg',
     },
     {
       id: 3,
       title: 'Cultural Immersion Experience',
       description:
         'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
+      image: '/images/dummy/img3.jpg',
     },
   ],
 
@@ -52,7 +55,10 @@ export const BESPOKE_JOURNEY_PAGE_DATA: BespokeJourneyPageData = {
 
   relatedAdventures: {
     title: 'Other Related Adventures',
-    packageIds: [1, 2, 3, 4, 5], // Package IDs for related adventures
+    tagline: 'SKIP THE ROADS, CATCH THE VIEWS',
+    description:
+      'Experience Bhutan like never before with premium helicopter journeys. Soar above sacred valleys, majestic mountains, and hidden monasteries in unrivaled luxury. Each flight blends adventure, comfort, and breathtaking discovery, turning travel into a transformative, mindful experience where nature, culture, and serenity converge seamlessly.',
+    packageIds: [1, 2, 3, 4, 5],
   },
 
   letsTalk: {

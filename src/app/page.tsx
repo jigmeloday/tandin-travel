@@ -117,7 +117,7 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row w-full mt-[40px] mb-2 h-[550px]">
           <div className="lg:flex-3">
             <Image
-              src={primaryPackage?.image.src || '/images/slide.jpg'}
+              src={primaryPackage?.image.src || ''}
               alt={primaryPackage?.image.alt || 'img'}
               height={1000}
               width={1000}
@@ -251,7 +251,7 @@ export default function Home() {
         {/* LEFT IMAGE SECTION */}
         <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
           <Image
-            src={travelWithPurpose.image?.src || '/images/dummy/img4.jpg'}
+            src={travelWithPurpose.image?.src || ''}
             alt={travelWithPurpose.image?.alt || 'img'}
             height={1000}
             width={1000}
@@ -315,7 +315,7 @@ export default function Home() {
         {/* LEFT IMAGE SECTION */}
         <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
           <Image
-            src={curatedBirding.image?.src || '/images/birding.jpg'}
+            src={curatedBirding.image?.src || ''}
             alt={curatedBirding.image?.alt || 'img'}
             height={1000}
             width={1000}

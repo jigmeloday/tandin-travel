@@ -3,10 +3,11 @@ import { CuratedBirdingPageData } from '@/lib/types';
 export const CURATED_BIRDING_PAGE_DATA: CuratedBirdingPageData = {
   hero: {
     title: 'Curated Bhutan Birding',
+    backgroundImage: '/images/dummy/img5.jpg',
   },
 
   mainContent: {
-    title: 'Discover Bhutan\'s Avian Paradise',
+    title: "Discover Bhutan's Avian Paradise",
     subtitle:
       'Experience world-class birding in the Eastern Himalayas, home to over 700 species including rare and endemic birds found nowhere else on Earth.',
   },
@@ -17,27 +18,31 @@ export const CURATED_BIRDING_PAGE_DATA: CuratedBirdingPageData = {
       title: 'Endemic Species',
       description:
         'Spot rare endemic species like the Black-necked Crane, White-bellied Heron, and Beautiful Nuthatch in their natural habitats.',
+      image: '/images/dummy/img1.jpg',
     },
     {
       id: 2,
       title: 'Expert Guides',
       description:
-        'Our experienced birding guides know the best locations and times to observe Bhutan\'s incredible avian diversity.',
+        "Our experienced birding guides know the best locations and times to observe Bhutan's incredible avian diversity.",
+      image: '/images/dummy/img2.jpg',
     },
     {
       id: 3,
       title: 'Pristine Habitats',
       description:
         'Explore diverse ecosystems from subtropical forests to alpine meadows, each hosting unique bird communities.',
+      image: '/images/dummy/img3.jpg',
     },
   ],
 
   getaways: {
     title: 'Birding Getaways & Treks',
-    trekIds: [1, 2, 3, 4, 5], // Trek IDs for birding-focused treks
+    trekIds: [1, 2, 3, 4, 5],
   },
 
   travelWithPurpose: {
+    title: 'Travel with purpose',
     description:
       'At Born Explorer, we believe every journey should enrich both traveler and destination. By embracing sustainable practices, respecting local cultures, and supporting communities, we ensure your Bhutan experience leaves a positive footprint.\n\nTravel consciously, discover authentically, and create memories that honor the land, its people, and its timeless traditions.',
     cta: {
