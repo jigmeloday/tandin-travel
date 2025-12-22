@@ -128,7 +128,10 @@ export default function Home() {
             );
           })}
         </div>
-        <Link href='/contact-us' className="px-[24px] py-[12px] bg-primary text-white text-2xl cursor-pointer">
+        <Link
+          href="/contact-us"
+          className="px-[24px] py-[12px] bg-primary text-white text-2xl cursor-pointer"
+        >
           ENQUIRE NOW
         </Link>
         <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
@@ -293,8 +296,13 @@ export default function Home() {
 
         {/* Text content */}
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-white">
-          <h1 className='text-white'>Titile</h1>
-          <p className='px-[112px] text-center font-bold'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          <h1 className="text-white">Titile</h1>
+          <p className="px-[112px] text-center font-bold">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry&apos;s standard dummy
+            text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book.
+          </p>
         </div>
       </section>
 
@@ -417,45 +425,29 @@ export default function Home() {
           ))}
         </div>
       </section>
-        <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mb-[90px] gap-2">
-        {/* LEFT IMAGE SECTION */}
-        <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
+      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mb-[90px] gap-2 h-[80vh]">
+        <Link href="/" className="w-[50%] border relative flex items-center justify-center">
           <Image
             src="/images/birding.jpg"
-            alt="img"
-            height={1000}
-            width={1000}
-            className="h-full w-full object-cover"
+            alt="image"
+            width={400}
+            height={400}
+            className="h-full w-full object-cover absolute"
           />
-        </div>
-
-        {/* RIGHT CONTENT SECTION */}
-        <div className="w-full lg:w-[34.5%] bg-[#111820] p-[24px] flex flex-col justify-between">
-          <div>
-            <h3 className='leading-[32px]'>Curated Adventure & Bhutan Birding</h3>
-
-            <p className="text-white text-[16px] mt-[32px]">
-              At Born Explorer, we believe every journey should enrich both
-              traveler and destination. By embracing sustainable practices,
-              respecting local cultures, and supporting communities, we ensure
-              your Bhutan experience leaves a positive footprint.
-            </p>
-
-            <p className="text-white text-[16px] mt-[32px]">
-              Travel consciously, discover authentically, and create memories
-              that honor the land, its people, and its timeless traditions.
-            </p>
-          </div>
-
-          <div className="mt-[32px] flex">
-            <Link
-              className="bg-primary py-2 px-3 text-[20px] font-bold text-white"
-              href="/curated-bhutan-birding"
-            >
-              VIEW DETAILS
-            </Link>
-          </div>
-        </div>
+          <div className='w-full h-full absolute hover:opacity-50 bg-black transition-all duration-300 ease-in-out opacity-20' />
+          <h2 className='z-40 text-white'>Bhutan Birding</h2>
+        </Link>
+        <Link href="/" className="w-[50%] border relative flex items-center justify-center">
+          <Image
+            src="/images/dummy/img1.jpg"
+            alt="image"
+            width={400}
+            height={400}
+            className="h-full w-full object-cover absolute"
+          />
+          <div className='w-full h-full absolute hover:opacity-50 bg-black transition-all duration-300 ease-in-out opacity-20' />
+          <h2 className='z-40 text-white'>Curated Adventure</h2>
+        </Link>
       </section>
       <section className="mb-[90px] px-[32px]">
         <div className="h-[70vh] ">
