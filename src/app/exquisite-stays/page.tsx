@@ -152,7 +152,7 @@ function Page() {
 
       {/* Let’s Talk Section */}
  <section className="flex flex-col items-center justify-center my-12 px-4 md:px-[16px] mb-[90px]">
-        <div className="h-[60vh] w-full">
+        <div className="h-[84vh] w-full">
           <LetsTalk
             description=" We love challenges big and small—what’s yours? Let’s craft
                 unique journeys that turn bold ideas into unforgettable travel

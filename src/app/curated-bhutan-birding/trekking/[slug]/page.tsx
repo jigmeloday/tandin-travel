@@ -119,7 +119,7 @@ export default function Page() {
       </section>
 
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
-        <div className="h-[60vh]">
+        <div className="h-[84vh]">
           <LetsTalk
             images="/images/dummy/img2.jpg"
             description="For decades, our team has been crafting journeys that go beyond the

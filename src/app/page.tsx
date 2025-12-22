@@ -450,7 +450,7 @@ export default function Home() {
         </Link>
       </section>
       <section className="mb-[90px] px-[32px]">
-        <div className="h-[70vh] ">
+        <div className="h-[84vh] ">
           <LetsTalk
             images="/images/dummy/img1.jpg"
             description="For decades, our team has been crafting journeys that go beyond the

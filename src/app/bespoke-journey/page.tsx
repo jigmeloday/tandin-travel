@@ -246,7 +246,7 @@ function Page() {
       </section>
       {/* Final CTA */}
       <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px]">
-        <div className="h-[60vh]">
+        <div className="h-[84vh]">
           <LetsTalk
             images="/images/dummy/img2.jpg"
             description="For decades, our team has been crafting journeys that go beyond the

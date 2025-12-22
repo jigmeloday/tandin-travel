@@ -220,7 +220,7 @@ function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
-       <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px] h-[60vh]">
+       <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px] h-[84vh]">
         <LetsTalk images='/images/dummy/img1.jpg' description='We love challenges big and small—what’s yours? Let’s craft
                 unique journeys that turn bold ideas into unforgettable travel
                 experiences.' />

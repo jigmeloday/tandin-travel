@@ -178,7 +178,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mt-[20px] lg:mt-[40px]" />
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
-        <div className="h-[60vh]">
+        <div className="h-[84vh]">
           <LetsTalk
             images="/images/dummy/img1.jpg"
             description="For decades, our team has been crafting journeys that go beyond the ordinary. Share your dream destination and your passions with us, and we’ll design a one-of-a-kind adventure that’s truly yours—a
