@@ -2,21 +2,36 @@ import BestSelling from '@/components/landing-component/best-selling';
 import HeroSwapper from '@/components/landing-component/hero-swapper';
 import LetsTalk from '@/components/shared/let-talk';
 import { Button } from '@/components/ui/button';
+import { getFlagshipTourBySlug, getBestSellingPackages, RECURRING_CONTENT, getOtherPackages } from '@/lib/data';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
-function Page() {
+async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params as { slug: string };
+  const flagshipTour = getFlagshipTourBySlug(slug);
+
+  if (!flagshipTour) {
+    notFound();
+  }
+
+  const bestSelling = getBestSellingPackages();
+  const otherPackages = getOtherPackages();
+  const heroSlides = flagshipTour.hero.images.map((img, idx) => ({ id: idx + 1, image: img, title: flagshipTour.title }));
+
   return (
     <main>
       <section className="relative h-[60vh] md:h-screen w-full overflow-hidden mb-[90px]">
         <Image
-          src="/images/dummy/img5.jpg"
-          alt="Bespoke Journey"
+          src={flagshipTour.hero.images[0]}
+          alt={flagshipTour.title}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-          <h1 className="text-white text-center px-4">Her Bhutan, Her Story</h1>
+          <h1 className="text-white text-center px-4">{flagshipTour.title}</h1>
         </div>
       </section>
       <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-12 md:mb-[90px]">
@@ -24,33 +39,28 @@ function Page() {
         <div className="flex flex-col items-center text-center">
           <div className="w-full md:w-[740px]">
             <h1 className="text-2xl md:text-4xl font-semibold">
-              Where Nature Meets Nirvana
+              {RECURRING_CONTENT.whereNatureMeetsNirvana.title}
             </h1>
           </div>
           <div className="w-full px-0 md:px-[200px]">
-            <p className="text-[14px] md:text-[16px] my-6">
-              Every journey is crafted entirely around you, blending seamless
-              planning with rare, meaningful encounters. Each experience unfolds
-              with thoughtful detail—from the first welcome to the quiet moments
-              in nature—creating memories that linger long after you return home
-              and leaving a gentle, positive imprint on the places you visit.{' '}
+            <p className="text-[14px] md:text-[16px] my-6 text-center">
+              {RECURRING_CONTENT.whereNatureMeetsNirvana.description}
             </p>
           </div>
           <div className="md:min-w-[250px]">
-            <span className="font-bold text-lg md:text-xl">
-              EVERY JOURNEY TELLS A STORY – FIND THE ONE THAT’S YOURS
+            <span className="font-bold text-lg md:text-xl uppercase">
+              {RECURRING_CONTENT.whereNatureMeetsNirvana.tagline}
             </span>
           </div>
         </div>
         <div className="border-[0.5px] border-primary h-20 my-10" />
-        <div className="grid grid-cols-1 md:grid-cols-3  gap-3 justify-items-center px-[200px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 justify-items-center px-4 md:px-[100px] lg:px-[200px] w-full">
           <div className="w-full bg-gray-100">
             <div className="bg-primary text-white px-[20px] text-center">
               <h4 className="text-white">WHEN</h4>
             </div>
             <div className="p-[20px] font-bold text-center">
-              <p>February - June &</p>
-              <p>September - November &</p>
+              <p>{flagshipTour.info.when}</p>
             </div>
           </div>
           <div className="w-full bg-gray-100">
@@ -58,7 +68,7 @@ function Page() {
               <h4 className="text-white">PRICE</h4>
             </div>
             <div className="p-[20px] font-bold text-center">
-              <p>From £4,615pp excl. flights (based on 2 ppl sharing)</p>
+              <p>{flagshipTour.info.price}</p>
             </div>
           </div>
           <div className="w-full bg-gray-100">
@@ -66,61 +76,59 @@ function Page() {
               <h4 className="text-white">HOW LONG</h4>
             </div>
             <div className="p-[20px] font-bold text-center">
-              <p>5 nights ideal length</p>
+              <p>{flagshipTour.info.duration}</p>
             </div>
           </div>
         </div>
       </section>
       <section className="mb-[90px]">
-        <HeroSwapper />
+        <HeroSwapper slides={heroSlides} />
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
-        <div className="w-full py-[50px] bg-primary h-[420px] flex flex-col md:flex-row justify-center md:space-x-6">
-          <div className="md:w-[70%] px-[12px]">
-            <h6 className="text-white">MAKE THIS ITINERARY YOURS</h6>
-            <p className="text-[14px]  md:text-[16px] mt-[14px]">
+        <div className="w-full py-[50px] bg-primary h-auto md:h-[420px] flex flex-col md:flex-row items-center justify-center md:space-x-6 px-4">
+          <div className="md:w-[70%] text-center md:text-left mb-6 md:mb-0">
+            <h3 className="text-white">MAKE THIS ITINERARY YOURS</h3>
+            <p className="text-[14px] md:text-[16px] mt-[14px] text-white">
               Each and every Born Explorer trip is tailored exactly to who you
-              are and what you want to do So tell us about yourself and we’ll
+              are and what you want to do. So tell us about yourself and we’ll
               create something that’s entirely you.
             </p>
           </div>
-          <div className="flex flex-col space-y-4 px-[12px]">
-            <Button className="bg-black rounded-none text-white font-bold text-[24px] py-[24px]">
+          <div className="flex flex-col space-y-4 w-full md:w-auto">
+            <Button className="bg-black rounded-none text-white font-bold text-[18px] md:text-[24px] py-[20px] md:py-[24px]">
               {' '}
               ENQUIRE NOW
             </Button>
-            <Button className="bg-black rounded-none text-white font-bold text-[24px] py-[24px]">
-              DOWNLOAD INTNERARY
+            <Button className="bg-black rounded-none text-white font-bold text-[18px] md:text-[24px] py-[20px] md:py-[24px]">
+              DOWNLOAD ITINERARY
             </Button>
           </div>
         </div>
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
-        {[1, 2, 3, 4].map((item) => (
+        {flagshipTour.culturalConnections.map((connection, index) => (
           <div
-            key={item}
-            className={`flex flex-col md:flex-row w-full justify-center md:space-x-2 ${
-              item % 2 === 0 ? 'md:flex-row-reverse' : ''
+            key={connection.id}
+            className={`flex flex-col md:flex-row w-full justify-center md:space-x-12 px-4 mb-12 ${
+              index % 2 !== 0 ? 'md:flex-row-reverse md:space-x-reverse' : ''
             }`}
           >
-            <div className="md:h-[500px] aspect-square w-full">
+            <div className="w-full md:w-1/2 h-[300px] md:h-[500px]">
               <Image
-                src="/images/dummy/img1.jpg"
-                alt=""
+                src={connection.image}
+                alt={connection.title}
                 className="object-cover h-full w-full"
                 height={500}
                 width={500}
               />
             </div>
-            <div className="flex flex-col justify-center md:px-4 md:h-[500px] aspect-square w-full">
-              <h1>Cultural Connection</h1>
+            <div className="flex flex-col justify-center w-full md:w-1/2 mt-6 md:mt-0">
+              <h1>{connection.title}</h1>
               <p className="text-[14px] md:text-[16px]">
-                Combine helicopter journeys with sustainable luxury lodges,
-                curated local cuisine, and intimate cultural experiences for a
-                fully bespoke Bhutanese exploration.
+                {connection.description}
               </p>
               <p className="font-bold mt-4 italic text-[18px] text-primary">
-                Where culture isn’t watched — it’s lived
+                {connection.tagline}
               </p>
             </div>
           </div>
@@ -128,24 +136,26 @@ function Page() {
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
         <h2>Boutique Hotels</h2>
-        <div className="my-[32px] flex flex-col md:flex-row gap-2 w-full">
-          <div className="bg-primary flex-1 min-h-[520px] flex flex-col items-center justify-center">
+        <div className="my-[32px] flex flex-col md:flex-row gap-2 w-full h-auto md:h-[520px]">
+          <div className="bg-primary flex-1 p-8 flex flex-col items-center justify-center text-center text-white">
             <h1 className="text-white">BESPOKE JOURNEYS</h1>
-            <p className="text-[24px] font-bold">
+            <p className="text-[20px] md:text-[24px] font-bold">
               Your story, perfectly tailored
             </p>
           </div>
-          <div className="bg-primary flex-1 min-h-[520px] flex flex-col items-center justify-center">
-            <h1 className="text-white">ESQUISITE STAYS</h1>
-            <p className="text-[24px] font-bold">
+          <div className="bg-primary flex-1 p-8 flex flex-col items-center justify-center text-center text-white">
+            <h1 className="text-white">EXQUISITE STAYS</h1>
+            <p className="text-[20px] md:text-[24px] font-bold">
               Where elegance feels effortless
             </p>
           </div>
         </div>
         <div className="w-full flex justify-center">
-          <Button className="rounded-none bg-black text-[24px] py-8 px-[32px]">
-            VIEW ALL
-          </Button>
+          <Link href="/bespoke-journey">
+            <Button className="rounded-none bg-black text-[20px] md:text-[24px] py-6 md:py-8 px-8 md:px-[32px]">
+              VIEW ALL
+            </Button>
+          </Link>
         </div>
       </section>
       <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px]">
@@ -156,63 +166,73 @@ function Page() {
               Other Holidays
             </h1>
           </div>
-          <div className="w-full md:w-[920px]">
+          <div className="w-full md:px-4 lg:px-12">
             <p className="text-[14px] md:text-[16px] my-6">
-              Every journey is crafted entirely around you, blending seamless
-              planning with rare, meaningful encounters. Each experience unfolds
-              with thoughtful detail—from the first welcome to the quiet moments
-              in nature—creating memories that linger long after you return home
-              and leaving a gentle, positive imprint on the places you visit.
+              {RECURRING_CONTENT.whereNatureMeetsNirvana.description}
             </p>
           </div>
           <div className="md:min-w-[250px]">
-            <span className="font-bold text-lg md:text-xl">
-              EVERY JOURNEY TELLS A STORY – FIND THE ONE THAT’S YOURS
+            <span className="font-bold text-lg md:text-xl uppercase">
+              {RECURRING_CONTENT.whereNatureMeetsNirvana.tagline}
             </span>
           </div>
         </div>
         <div className="border-[0.5px] border-primary h-20 mt-10" />
       </section>
-      <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-          {[1, 2, 3].map((item) => (
-            <div className="bg-gray-100" key={item}>
-              <div className="bg-primary w-full h-[350px]"></div>
-              <div className="flex flex-col items-center justify-center p-[20px] text-center">
-                <h4>Her Bhutan; Her Story</h4>
-                <p className="mb-[18px] text-[18px]">
-                  Combine helicopter journeys with sustainable luxury lodges,
-                  curated local cuisine, and intimate cultural experiences for a
-                  fully bespoke Bhutanese exploration.
+      <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px] w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+          {otherPackages.slice(0, 3).map((pkg) => (
+            <div className="bg-gray-100 flex flex-col h-full" key={pkg.id}>
+              <div className="w-full h-[250px] md:h-[350px] relative">
+                <Image
+                  src={pkg.image.src}
+                  alt={pkg.image.alt}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col items-center justify-center p-6 text-center flex-1">
+                <h4 className="mb-4">{pkg.title}</h4>
+                <p className="mb-6 text-[14px] md:text-[16px] line-clamp-3">
+                  {pkg.description}
                 </p>
-                <Button className="rounded-none bg-black text-[24px]">
-                  View Details
-                </Button>
+                <Link href={`/packages/${pkg.slug}`} className="mt-auto">
+                  <Button className="rounded-none bg-black text-[18px] md:text-[24px] py-4 px-6">
+                    View Details
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 my-4">
-          {[1, 2].map((item) => (
-            <div className="bg-gray-100" key={item}>
-              <div className="bg-primary w-full h-[520px]"></div>
-              <div className="flex flex-col items-center justify-center p-[20px] text-center">
-                <h4>Her Bhutan; Her Story</h4>
-                <p className="text-[18px] mb-[18px]">
-                  Combine helicopter journeys with sustainable luxury lodges,
-                  curated local cuisine, and intimate cultural experiences for a
-                  fully bespoke Bhutanese exploration.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4 w-full">
+          {otherPackages.slice(3, 5).map((pkg) => (
+            <div className="bg-gray-100 flex flex-col h-full" key={pkg.id}>
+              <div className="w-full h-[300px] md:h-[520px] relative">
+                <Image
+                  src={pkg.image.src}
+                  alt={pkg.image.alt}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col items-center justify-center p-6 text-center flex-1">
+                <h4 className="mb-4">{pkg.title}</h4>
+                <p className="text-[14px] md:text-[16px] mb-6 line-clamp-3">
+                  {pkg.description}
                 </p>
-                <Button className="rounded-none bg-black text-[24px]">
-                  View Details
-                </Button>
+                <Link href={`/packages/${pkg.slug}`} className="mt-auto">
+                  <Button className="rounded-none bg-black text-[18px] md:text-[24px] py-4 px-6">
+                    View Details
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
         </div>
       </section>
-      <section className="flex flex-col items-center justify-center px-[calc(32px-16px)] mb-[90px]">
-        <BestSelling />
+      <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px] w-full">
+        <BestSelling packages={bestSelling} />
       </section>
       {/* <section className="bg-[#111820] w-full p-[24px]">
         <div className="flex flex-col lg:flex-row gap-6">
@@ -241,13 +261,10 @@ function Page() {
           </h4>
         </div>
       </section> */}
-      <div className="lg:h-[84vh] mb-24 px-[32px]">
+      <div className="h-[84vh] mb-24 px-4 md:px-[32px]">
         <LetsTalk
-          images="/images/dummy/img3.jpg"
-          description="For decades, our team has been crafting journeys that go beyond the
-                        ordinary. Share your dream destination and your passions with us, and
-                        we’ll design a one-of-a-kind adventure that’s truly yours—a journey
-                        you’ll remember for a lifetime."
+          images={RECURRING_CONTENT.letsTalk.image}
+          description={RECURRING_CONTENT.letsTalk.description}
         />
       </div>
     </main>
