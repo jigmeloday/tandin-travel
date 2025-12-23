@@ -166,11 +166,13 @@ function Page() {
         </div>
         <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
       </section>
-       <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px] h-[60vh]">
-        <LetsTalk
-          images={letsTalk.image}
-          description={letsTalk.description}
-        />
+       <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px]">
+        <div className="h-[84vh] w-full">
+          <LetsTalk
+            images={letsTalk.image}
+            description={letsTalk.description}
+          />
+        </div>
       </section>
     </main>
   );

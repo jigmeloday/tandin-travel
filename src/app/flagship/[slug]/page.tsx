@@ -261,7 +261,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
           </h4>
         </div>
       </section> */}
-      <div className="h-auto md:h-[60vh] mb-24 px-4 md:px-[32px]">
+      <div className="h-[84vh] mb-24 px-4 md:px-[32px]">
         <LetsTalk
           images={RECURRING_CONTENT.letsTalk.image}
           description={RECURRING_CONTENT.letsTalk.description}

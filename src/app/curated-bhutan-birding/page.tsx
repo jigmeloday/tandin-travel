@@ -81,7 +81,7 @@ export default function Page() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-2">
           {gridBoxes.slice(0, 2).map((item) => (
-            <div key={item.id} className="relative lg:aspect-square border">
+            <div key={item.id} className="relative h-[400px] lg:aspect-square border">
               <Image
                 src={item.image || ''}
                 alt={item.title}
@@ -174,7 +174,7 @@ export default function Page() {
       </section>
 
       <section className="flex flex-col items-center justify-center my-[90px] px-[16px] lg:px-[32px]">
-        <div className="h-auto md:h-[60vh] w-full">
+        <div className="h-[84vh] w-full">
           <LetsTalk
             images={letsTalk.image}
             description={letsTalk.description}

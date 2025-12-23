@@ -144,7 +144,7 @@ export default function Page() {
       </section>
 
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
-        <div className="h-auto md:h-[60vh] w-full">
+        <div className="h-[84vh] w-full">
           <LetsTalk
             images={letsTalk.image}
             description={letsTalk.description}

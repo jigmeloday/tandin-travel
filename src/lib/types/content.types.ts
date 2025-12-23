@@ -61,6 +61,23 @@ export interface PackageCard {
     days?: number;
   };
   season?: string[];
+  // Package detail page fields
+  longDescription?: string;
+  tagline?: string;
+  fullImage?: string;
+  detailedSections?: Array<{
+    id: number;
+    title: string;
+    subtitle: string;
+    description: string;
+    image: string;
+  }>;
+  freedomSection?: {
+    title: string;
+    description: string;
+    backgroundImage: string;
+    cta: string;
+  };
 }
 
 export interface TourType {

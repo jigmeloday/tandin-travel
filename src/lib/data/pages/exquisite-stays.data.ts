@@ -2,35 +2,67 @@ import { ExquisiteStaysPageData } from '@/lib/types';
 
 export const EXQUISITE_STAYS_PAGE_DATA: ExquisiteStaysPageData = {
   hero: {
-    title: 'Exquisite Stays',
-    subtitle: 'Where elegance feels effortless',
-    backgroundImage: '/images/dummy/img1.jpg',
+    title: 'Six Sense',
+    subtitle: 'Exclusive Journeys, Inspired by, Bhutan\'s Spirit',
+    backgroundImage: '/images/hotel/h5.jpg',
   },
 
-  imageGrid: [
-    { id: 1, src: '/images/dummy/img1.jpg', alt: 'Luxury Room' },
-    { id: 2, src: '/images/dummy/img2.jpg', alt: 'Mountain View' },
-    { id: 3, src: '/images/dummy/img3.jpg', alt: 'Resort Exterior' },
-    { id: 4, src: '/images/dummy/img5.jpg', alt: 'Pool Side' },
+  twoSquareImages: [
+    {
+      id: 1,
+      src: '/images/hotel/h2.jpg',
+      alt: 'Exquisite Stays',
+    },
+    {
+      id: 2,
+      src: '/images/hotel/h1.jpg',
+      alt: 'Exquisite Stays',
+    },
   ],
 
   horizontalSection: {
-    images: ['/images/dummy/img1.jpg', '/images/dummy/img2.jpg'],
-    title: 'Luxury Experience',
-    tagline: 'You’ll Remember',
-    description: 'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
+    images: [
+      '/images/hotel/h4.jpg',
+      '/images/hotel/h3.jpg',
+    ],
+    title: 'Enjoy Your Dream Vacation',
+    description:
+      'Nestled in Bhutan\'s serene landscapes, Six Senses invites you to relax, explore, and savor every moment of luxurious, mindful living.',
+    tagline: 'ESCAPE ORDINARY, ENTER EXTRAORDINARY',
   },
 
   luxuryExperience: {
-    images: ['/images/dummy/img6.jpg', '/images/dummy/img7.jpg', '/images/dummy/img8.jpg'],
-    description: 'Experience the pinnacle of Bhutanese hospitality in our handpicked collection of luxury stays, where traditional architecture meets modern comfort.',
+    images: [
+      '/images/hotel/h4.jpg',
+      '/images/hotel/h3.jpg',
+    ],
+    title: 'Luxury Experience You\'ll, Remember',
+    description:
+      'Combine helicopter journeys with sustainable luxury lodges, curated local cuisine, and intimate cultural experiences for a fully bespoke Bhutanese exploration.',
+    tagline: 'YOU ARE BHUTANA AND OTES EHTE',
   },
 
-  imageBoxPackageIds: [5, 6, 7],
-  flagshipPackageIds: [1, 2, 3],
-
   letsTalk: {
-    image: '/images/dummy/img1.jpg',
-    description: "For decades, our team has been crafting journeys that go beyond the ordinary. Share your dream destination and your passions with us, and we'll design a one-of-a-kind adventure that's truly yours—a journey you'll remember for a lifetime.",
+    image: '/images/dummy/img8.jpg',
+    description:
+      'We love challenges big and small—what\'s yours? Let\'s craft unique journeys that turn bold ideas into unforgettable travel experiences.',
+  },
+
+  parallaxSection: {
+    backgroundImage: '/images/dummy/img1.jpg',
+  },
+
+  natureSection: {
+    title: 'Where Nature Meets Nirvana',
+    description:
+      'Every journey is crafted entirely around you, blending seamless planning with rare, meaningful encounters. Each experience unfolds with thoughtful detail—from the first welcome to the quiet moments in nature—creating memories that linger long after you return home and leaving a gentle, positive imprint on the places you visit.',
+    tagline: 'EVERY JOURNEY TELLS A STORY – FIND THE ONE THAT\'S YOURS',
+  },
+
+  imageBoxPackageIds: [1, 2, 3, 4, 5, 6], // Non-best-selling, non-other packages
+
+  flagshipSection: {
+    title: 'Flagship Signature Journey',
+    packageIds: [7, 8, 9, 10, 11, 12], // Best-selling package IDs
   },
 };

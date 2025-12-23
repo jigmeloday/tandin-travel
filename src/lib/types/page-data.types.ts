@@ -147,32 +147,41 @@ export interface CultureWellnessPageData {
     description: string;
     tagline: string;
   };
-  gridCards: Array<{
-    id: number;
+  gridCardsSection: {
     title: string;
-    subtitle: string;
-    image: string;
-  }>;
-  heroImages: string[];
-  parallax: {
+    cards: Array<{
+      id: number;
+      image: string;
+      title: string;
+      subtitle: string;
+      link: string;
+    }>;
+  };
+  heroImages: {
+    images: string[];
     title: string;
     description: string;
+    tagline: string;
+  };
+  parallax: {
     backgroundImage: string;
   };
   signatureTours: {
     title: string;
-    packageIds: number[];
+    description: string;
+    tours: Array<{
+      id: number;
+      image: string;
+      title: string;
+      subtitle: string;
+      link: string;
+    }>;
   };
   freedomSection: {
     title: string;
     description: string;
     backgroundImage: string;
-    images: string[];
     cta: CTAButton;
-  };
-  letsTalk: {
-    image: string;
-    description: string;
   };
 }
 
@@ -182,7 +191,7 @@ export interface ExquisiteStaysPageData {
     subtitle: string;
     backgroundImage: string;
   };
-  imageGrid: Array<{
+  twoSquareImages: Array<{
     id: number;
     src: string;
     alt: string;
@@ -195,13 +204,26 @@ export interface ExquisiteStaysPageData {
   };
   luxuryExperience: {
     images: string[];
+    title: string;
     description: string;
+    tagline: string;
   };
-  imageBoxPackageIds: number[];
-  flagshipPackageIds: number[];
   letsTalk: {
     image: string;
     description: string;
+  };
+  parallaxSection: {
+    backgroundImage: string;
+  };
+  natureSection: {
+    title: string;
+    description: string;
+    tagline: string;
+  };
+  imageBoxPackageIds: number[];
+  flagshipSection: {
+    title: string;
+    packageIds: number[];
   };
 }
 

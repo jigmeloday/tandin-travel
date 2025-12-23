@@ -1,24 +1,17 @@
-import BestSelling from '@/components/landing-component/best-selling';
-import LetsTalk from '@/components/shared/let-talk';
-import { CULTURE_WELLNESS_PAGE_DATA, getPackageById } from '@/lib/data';
-import { PackageCard } from '@/lib/types';
+import { CULTURE_WELLNESS_PAGE_DATA } from '@/lib/data/pages/culture-wellness.data';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function Page() {
   const {
     hero,
     bhutanFromAbove,
-    gridCards,
+    gridCardsSection,
     heroImages,
     parallax,
     signatureTours,
     freedomSection,
-    letsTalk,
   } = CULTURE_WELLNESS_PAGE_DATA;
-
-  const signaturePackages = signatureTours.packageIds
-    .map((id) => getPackageById(id))
-    .filter((pkg) => pkg !== undefined);
 
   return (
     <main>
@@ -26,47 +19,34 @@ function Page() {
       <section className="h-screen w-full overflow-hidden relative mb-[90px]">
         <Image
           src={hero.backgroundImage.src}
-          alt={hero.backgroundImage.alt || hero.title}
+          alt={hero.backgroundImage.alt}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
-          priority
         />
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <div className="flex flex-col md:flex-row w-full h-full px-4 md:px-[50px] pb-4 md:pb-[40px]">
-            <div className="flex flex-1 items-center justify-center md:justify-start mb-4 md:mb-0">
-              <h1 className="text-4xl md:text-[80px] font-bold drop-shadow-lg text-center md:text-left text-white">
-                {hero.title}
-              </h1>
-            </div>
-            <div className="flex flex-col flex-1 items-center md:items-end justify-center md:justify-end text-center md:text-right text-white">
-              <p className="text-xl md:text-[40px] font-sans">
-                {(hero.subtitle || '').split(',')[0]}
-              </p>
-              <p className="text-xl md:text-[40px] font-sans">
-                {(hero.subtitle || '').split(',')[1] || ''}
-              </p>
-            </div>
-          </div>
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center px-4">
+          <h1 className="text-white text-center text-3xl md:text-5xl">
+            {hero.title}
+          </h1>
         </div>
       </section>
 
-      {/* Intro Section */}
+      {/* Bhutan From Above Section */}
       <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px]">
         <div className="border-[0.5px] border-primary h-20 mb-10" />
         <div className="flex flex-col items-center text-center">
-          <div className="w-full lg:w-[740px]">
+          <div className="w-full md:w-[740px]">
             <h1 className="text-2xl md:text-4xl font-semibold">
               {bhutanFromAbove.title}
             </h1>
           </div>
-          <div className="w-full px-4 md:px-[100px] lg:px-[200px]">
+          <div className="w-full md:w-[920px]">
             <p className="text-[14px] md:text-[16px] my-6">
               {bhutanFromAbove.description}
             </p>
           </div>
           <div className="md:min-w-[250px]">
-            <span className="font-bold text-lg md:text-xl uppercase">
+            <span className="font-bold text-lg md:text-xl">
               {bhutanFromAbove.tagline}
             </span>
           </div>
@@ -75,46 +55,96 @@ function Page() {
       </section>
 
       {/* Grid Cards Section */}
-      <section className="px-4 md:px-8 mb-[90px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-          {gridCards.map((card) => (
+      <section className="px-4 md:px-8 bg-[#111820] py-8 mb-[90px]">
+        <div className="text-center mb-6">
+          <h1 className="text-white text-3xl md:text-4xl">
+            {gridCardsSection.title}
+          </h1>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full my-6">
+          {gridCardsSection.cards.map((card) => (
             <div
               key={card.id}
-              className="relative aspect-square overflow-hidden group"
+              className="bg-primary/40 text-white flex flex-col items-center text-center"
             >
-              <Image
-                src={card.image}
-                alt={card.title}
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center p-4 text-center">
-                <h3 className="text-white text-xl font-bold mb-2">
+              <div className="w-full h-64 md:h-[380px] relative">
+                <Image
+                  src={card.image}
+                  alt={card.title}
+                  fill
+                  className="object-cover h-full w-full"
+                />
+              </div>
+              <div className="p-4 md:p-6 flex flex-col items-center">
+                <h3 className="relative text-xl md:text-2xl font-semibold after:content-[''] after:block after:w-2/5 after:h-[3px] after:bg-white after:mx-auto after:mt-2">
                   {card.title}
                 </h3>
-                <p className="text-white text-sm">{card.subtitle}</p>
+                <p className="text-[14px] md:text-[16px] my-4">
+                  {card.subtitle}
+                </p>
+                <Link
+                  href={card.link}
+                  className="w-[160px] text-white font-semibold py-2 md:py-3 text-center hover:bg-gray-800 transition"
+                >
+                  SAVOR THE SUBLIME
+                </Link>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Hero Images Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2 h-auto md:h-[60vh]">
-          {heroImages.map((img, idx) => (
-            <div key={idx} className="relative h-[300px] md:h-full">
-              <Image
-                src={img}
-                alt="Culture & Wellness"
-                fill
-                className="object-cover"
-              />
             </div>
           ))}
         </div>
       </section>
 
+      {/* Hero Images Section */}
+      <section className="w-full bg-[#111820] mb-[90px] flex flex-col md:flex-row h-auto md:h-[70vh]">
+        {/* Images */}
+        <div className="flex flex-col md:flex-row flex-1 items-center justify-center gap-4 mb-6 md:mb-0">
+          {heroImages.images.map((img, idx) => (
+            <div
+              key={idx}
+              className={`${
+                idx === 0
+                  ? 'transform translate-y-0 md:translate-y-6'
+                  : 'transform translate-y-0 md:-translate-y-6'
+              } w-48 md:w-60 h-[260px] md:h-[430px]`}
+            >
+              <Image
+                src={img}
+                alt="Culture & Wellness"
+                width={800}
+                height={1080}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Text */}
+        <div className="flex flex-col justify-between gap-4 md:gap-6 p-4 md:p-16 flex-1 text-center md:text-left">
+          <div>
+            {heroImages.title.split(', ').map((line, idx) => (
+              <h1
+                key={idx}
+                className={`mb-0 leading-[1.2] text-2xl md:text-4xl ${
+                  idx === 1
+                    ? 'border-b-4 border-white pb-2 w-fit mx-auto md:mx-0'
+                    : ''
+                }`}
+              >
+                {line}
+              </h1>
+            ))}
+          </div>
+          <p className="text-white text-[14px] md:text-[16px]">
+            {heroImages.description}
+          </p>
+          <p className="text-white font-bold text-base md:text-[18px]">
+            {heroImages.tagline}
+          </p>
+        </div>
+      </section>
+
       {/* Parallax Section */}
-      <section className="relative w-full h-[60vh] md:h-[80vh] hidden lg:block mb-[90px]">
+      <section className="relative w-full h-[80vh] hidden lg:block mb-[90px]">
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
@@ -122,62 +152,84 @@ function Page() {
             backgroundAttachment: 'fixed',
           }}
         />
-        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-          <div className="text-white text-center px-4 w-full md:w-[800px]">
-            <h1 className="text-white mb-6 font-bold">{parallax.title}</h1>
-            <p className="text-white text-lg md:text-xl font-medium">
-              {parallax.description}
+        <div className="absolute inset-0 bg-black/40 flex items-center justify-center" />
+      </section>
+
+      {/* Signature Tours Section */}
+      <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-12 md:mb-[90px]">
+        <div className="flex flex-col items-center text-center">
+          <div className="w-full md:w-[740px]">
+            <h1 className="text-2xl md:text-4xl font-semibold">
+              {signatureTours.title}
+            </h1>
+          </div>
+          <div className="w-full md:w-[920px]">
+            <p className="text-[14px] md:text-[16px] text-center my-6">
+              {signatureTours.description}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Signature Journeys */}
-      <section className="flex flex-col items-center justify-center mb-[90px] px-4 md:px-8">
-        <h1 className="mb-10 text-center">{signatureTours.title}</h1>
-        <BestSelling
-          packages={signaturePackages.filter((p): p is PackageCard => p !== undefined)}
-        />
+      {/* Tours Grid */}
+      <section className="px-4 md:px-8 mb-[90px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:grid-cols-2 w-full mb-5">
+          {signatureTours.tours.map((tour) => (
+            <div
+              key={tour.id}
+              className="bg-gray-400/20 flex flex-col items-center text-center shadow-sm"
+            >
+              <div className="w-full h-[520px] relative">
+                <Image
+                  src={tour.image}
+                  alt={tour.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-4 md:p-6 flex flex-col items-center">
+                <h3 className="text-lg md:text-xl">{tour.title}</h3>
+                <p className="text-[14px] md:text-[16px] mb-4">
+                  {tour.subtitle}
+                </p>
+                <Link
+                  href={tour.link}
+                  className="w-[160px] bg-[#111820] text-white font-semibold py-2 md:py-3 text-center hover:bg-gray-800 transition"
+                >
+                  View Detail
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Freedom Section */}
-      <section className="px-4 lg:px-[32px] mb-[90px]">
-        <div className="bg-[#111820] w-full p-6 md:p-12 text-white">
-          <div className="flex flex-col lg:flex-row gap-8 mb-12">
-            <div className="flex-1">
-              <h2 className="text-white text-3xl md:text-4xl leading-tight">
-                {freedomSection.title.split(' ').slice(0, 2).join(' ')} <br />{' '}
-                {freedomSection.title.split(' ').slice(2).join(' ')}
-              </h2>
+      <section className="flex flex-col items-center justify-center mb-[90px] md:px-8 px-4">
+        <div className="bg-[#111820] w-full p-6 md:p-12">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="flex-3">
+              <h1 className="text-2xl md:text-4xl">{freedomSection.title}</h1>
             </div>
-            <div className="flex-1">
+            <div className="flex-2">
               <p className="text-white text-[14px] md:text-[16px]">
                 {freedomSection.description}
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {freedomSection.images.map((img, idx) => (
-              <div key={idx} className="relative h-[250px] md:h-[350px]">
-                <Image
-                  src={img}
-                  alt="Freedom and Independence"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
+          <div
+            className="w-full mt-8 h-[420px] md:h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
+            style={{
+              backgroundImage: `url('${freedomSection.backgroundImage}')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
+            <h2 className="relative z-10 text-white inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full text-xl md:text-2xl">
+              {freedomSection.cta.text}
+            </h2>
           </div>
-        </div>
-      </section>
-
-      {/* Let's Talk Section */}
-      <section className="px-4 lg:px-[32px] mb-[90px]">
-        <div className="h-auto md:h-[70vh] w-full">
-          <LetsTalk
-            description={letsTalk.description}
-            images={letsTalk.image}
-          />
         </div>
       </section>
     </main>
