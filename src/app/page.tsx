@@ -311,7 +311,7 @@ export default function Home() {
           ))}
         </div>
       </section>
-        <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mb-[90px] gap-2">
+      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mb-[90px] gap-2">
         {/* LEFT IMAGE SECTION */}
         <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
           <Image
@@ -345,8 +345,32 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mb-[90px] gap-2 h-[80vh]">
+        <Link href="/" className="w-[50%] border relative flex items-center justify-center">
+          <Image
+            src="/images/birding.jpg"
+            alt="image"
+            width={400}
+            height={400}
+            className="h-full w-full object-cover absolute"
+          />
+          <div className='w-full h-full absolute hover:opacity-50 bg-black transition-all duration-300 ease-in-out opacity-20' />
+          <h2 className='z-40 text-white'>Bhutan Birding</h2>
+        </Link>
+        <Link href="/" className="w-[50%] border relative flex items-center justify-center">
+          <Image
+            src="/images/dummy/img1.jpg"
+            alt="image"
+            width={400}
+            height={400}
+            className="h-full w-full object-cover absolute"
+          />
+          <div className='w-full h-full absolute hover:opacity-50 bg-black transition-all duration-300 ease-in-out opacity-20' />
+          <h2 className='z-40 text-white'>Curated Adventure</h2>
+        </Link>
+      </section>
       <section className="mb-[90px] px-[32px]">
-        <div className="h-[70vh] ">
+        <div className="h-[84vh] ">
           <LetsTalk
             images={letsTalk.image}
             description={letsTalk.description}
