@@ -43,9 +43,9 @@ export default function Page() {
       <section className="gap-[50px] px-[16px] lg:px-[32px] mt-[90px]">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {[1, 2, 3].map((item) => (
-            <div
+            <Link href="/curated-bhutan-birding/birding"
               key={item}
-              className={`aspect-square border flex flex-col items-center justify-center px-[42px] text-center ${
+              className={`aspect-square border cursor-pointer flex flex-col items-center justify-center px-[42px] text-center ${
                 item % 2 !== 0 ? 'bg-primary ' : 'bg-black text-white'
               }`}
             >
@@ -65,7 +65,7 @@ export default function Page() {
                 Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
                 monasteries from the comfort of a spacious, private
               </p>
-            </div>
+            </Link>
           ))}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mt-2">

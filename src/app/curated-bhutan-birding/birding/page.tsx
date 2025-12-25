@@ -2,6 +2,7 @@ import LetsTalk from '@/components/shared/let-talk';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
+import ImageSlider from './components/slider';
 
 export default function Page() {
   return (
@@ -43,6 +44,22 @@ export default function Page() {
           </div>
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
+      </section>
+      <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
+        <ImageSlider
+    images={[
+      "/images/dummy/img1.jpg",
+      "/images/dummy/img2.jpg",
+      "/images/dummy/img3.jpg",
+      "/images/dummy/img4.jpg",
+      "/images/dummy/img5.jpg",
+      "/images/dummy/img6.jpg",
+      "/images/dummy/img7.jpg",
+      "/images/dummy/img8.jpg",
+      "/images/dummy/img9.jpg",
+      "/images/dummy/img1.jpg",
+    ]}
+  />
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <h1 className="text-center">Essential Information for Birding</h1>
