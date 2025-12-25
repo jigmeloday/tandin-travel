@@ -426,7 +426,7 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mb-[90px] gap-2 h-[80vh]">
-        <Link href="/" className="w-[50%] border relative flex items-center justify-center">
+        <Link href="/curated-bhutan-birding" className="w-[50%] border relative flex items-center justify-center">
           <Image
             src="/images/birding.jpg"
             alt="image"
@@ -437,7 +437,7 @@ export default function Home() {
           <div className='w-full h-full absolute hover:opacity-50 bg-black transition-all duration-300 ease-in-out opacity-20' />
           <h2 className='z-40 text-white'>Bhutan Birding</h2>
         </Link>
-        <Link href="/" className="w-[50%] border relative flex items-center justify-center">
+        <Link href="/curated-bhutan-birding" className="w-[50%] border relative flex items-center justify-center">
           <Image
             src="/images/dummy/img1.jpg"
             alt="image"
