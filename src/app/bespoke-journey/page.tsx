@@ -2,47 +2,46 @@ import LetsTalk from '@/components/shared/let-talk';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BESPOKE_JOURNEY_PAGE_DATA, getPackageById } from '@/lib/data';
+import { fetchSingleType, getStrapiMedia } from '@/lib/strapi';
+import { BespokeJourneyPage } from '@/types/strapi';
 
-function Page() {
-  const {
-    hero,
-    packages: packageIds,
-    gridCards,
-    parallax,
-    travelWithPurpose,
-    relatedAdventures,
-    letsTalk,
-  } = BESPOKE_JOURNEY_PAGE_DATA;
+async function Page() {
+  // Fetch bespoke journey page data from Strapi
+  const data = await fetchSingleType<BespokeJourneyPage>('bespoke-journey-page', '*');
 
-  const featuredPackages = packageIds
-    .map((id) => getPackageById(id))
-    .filter((pkg) => pkg !== undefined);
+  if (!data) {
+    return <div>Error loading page data</div>;
+  }
 
-  const otherAdventures = relatedAdventures.packageIds
-    .map((id) => getPackageById(id))
-    .filter((pkg) => pkg !== undefined);
+  // Extract packages from relations (Strapi v5 format)
+  const featuredPackages = Array.isArray(data.packages)
+    ? data.packages
+    : [];
+
+  const otherAdventures = Array.isArray(data.related_packages)
+    ? data.related_packages
+    : [];
 
   return (
     <main>
       {/* Hero */}
       <section className="relative h-[60vh] md:h-screen w-full overflow-hidden mb-[90px]">
         <Image
-          src={hero.backgroundImage.src}
-          alt={hero.backgroundImage.alt || hero.title}
+          src={getStrapiMedia(data.hero_background_image) || ''}
+          alt={data.hero_title || 'Bespoke Journey'}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
           priority
         />
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-          <h1 className="text-white text-center px-4">{hero.title}</h1>
+          <h1 className="text-white text-center px-4">{data.hero_title}</h1>
         </div>
       </section>
 
       {/* Packages */}
       <section className="flex flex-col gap-[50px] px-[16px] lg:px-[32px] mb-[90px]">
-        {featuredPackages.map((pkg, index) => (
+        {featuredPackages.map((pkg: any, index: number) => (
           <div
             key={pkg.id}
             className={`flex flex-col lg:flex-row items-center gap-[32px] ${
@@ -52,8 +51,8 @@ function Page() {
             {/* Image */}
             <div className="w-full lg:w-1/2 h-[240px] sm:h-[320px] lg:h-[480px]">
               <Image
-                src={pkg.image.src}
-                alt={pkg.image.alt}
+                src={getStrapiMedia(pkg.image) || ''}
+                alt={pkg.title}
                 width={620}
                 height={420}
                 className="w-full h-full object-cover"
@@ -81,7 +80,7 @@ function Page() {
       {/* Grid Cards */}
       <section className="px-[16px] lg:px-[32px] mb-[90px]">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full mb-5">
-          {gridCards.map((card, idx) => (
+          {data.grid_cards?.map((card, idx) => (
             <div
               key={idx}
               className="bg-[#f7f7f7] flex flex-col items-center text-center shadow-sm"
@@ -89,7 +88,7 @@ function Page() {
               {/* Image */}
               <div className="w-full h-[280px] sm:h-[350px] relative">
                 <Image
-                  src={card.image}
+                  src={getStrapiMedia(card.image) || ''}
                   alt={card.title}
                   fill
                   className="object-cover h-full w-full"
@@ -103,7 +102,7 @@ function Page() {
                   {card.description}
                 </p>
                 <Link
-                  href="/bespoke-journey"
+                  href={card.link || '/bespoke-journey'}
                   className="w-[160px] bg-black text-white font-semibold py-3 text-center hover:bg-gray-800 transition"
                 >
                   View Detail
@@ -119,7 +118,7 @@ function Page() {
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
-            backgroundImage: `url('${parallax.backgroundImage}')`,
+            backgroundImage: `url('${getStrapiMedia(data.parallax_background_image)}')`,
             backgroundAttachment: 'fixed',
           }}
         ></div>
@@ -132,25 +131,25 @@ function Page() {
           {/* Image */}
           <div className="flex-1 h-[260px] sm:h-[320px] lg:h-[580px] bg-[#2a2423] relative">
             <Image
-              src={travelWithPurpose.image?.src || ''}
-              alt={travelWithPurpose.image?.alt || ''}
+              src={getStrapiMedia(data.travel_purpose_image) || ''}
+              alt={data.travel_purpose_title || 'Travel With Purpose'}
               fill
               className="w-full h-full object-cover"
             />
           </div>
           {/* Text */}
           <div className="flex-1 bg-[#111820] text-white p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
-            <h2 className="text-white">{travelWithPurpose.title}</h2>
+            <h2 className="text-white">{data.travel_purpose_title}</h2>
             <div className="w-[60px] h-[2px] bg-white mb-6" />
-            {travelWithPurpose.description.split('\n\n').map((para, idx) => (
+            {data.travel_purpose_description?.split('\n\n').map((para, idx) => (
               <p key={idx} className="text-base text-white mb-4">
                 {para}
               </p>
             ))}
-            {travelWithPurpose.cta && (
-              <Link href={travelWithPurpose.cta.href}>
+            {data.travel_purpose_cta_text && (
+              <Link href={data.travel_purpose_cta_href || '#'}>
                 <Button className="bg-[#7b1c32] text-white px-6 py-3 font-semibold hover:bg-[#611627] transition w-fit rounded-none">
-                  {travelWithPurpose.cta.text}
+                  {data.travel_purpose_cta_text}
                 </Button>
               </Link>
             )}
@@ -162,15 +161,15 @@ function Page() {
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
-            <h1>{relatedAdventures.title}</h1>
+            <h1>{data.related_title}</h1>
           </div>
           <div className="lg:w-[920px]">
             <p className="text-center my-[24px]">
-              {relatedAdventures.description}
+              {data.related_description}
             </p>
           </div>
           <div className="lg:min-w-[250px]">
-            <span className="font-bold uppercase">{relatedAdventures.tagline}</span>
+            <span className="font-bold uppercase">{data.related_tagline}</span>
           </div>
         </div>
         <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
@@ -178,12 +177,12 @@ function Page() {
 
       <section className="flex flex-col px-4 md:px-8 mb-[90px] md:mb-20 gap-2">
         <div className="grid grid-cols-1 md:grid-cols-3 mx-auto md:max-w-[99%] gap-2">
-          {otherAdventures.slice(0, 3).map((pkg) => (
+          {otherAdventures.slice(0, 3).map((pkg: any) => (
             <div className="bg-gray-100 flex flex-col" key={pkg.id}>
               <div className="h-[400px] relative">
                 <Image
-                  src={pkg.image.src}
-                  alt={pkg.image.alt}
+                  src={getStrapiMedia(pkg.image) || ''}
+                  alt={pkg.title}
                   fill
                   className="object-cover"
                 />
@@ -203,12 +202,12 @@ function Page() {
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 mx-auto md:max-w-[99%] gap-2 mb-4">
-          {otherAdventures.slice(3, 5).map((pkg) => (
+          {otherAdventures.slice(3, 5).map((pkg: any) => (
             <div className="bg-gray-100 flex flex-col" key={pkg.id}>
               <div className="h-[500px] relative">
                 <Image
-                  src={pkg.image.src}
-                  alt={pkg.image.alt}
+                  src={getStrapiMedia(pkg.image) || ''}
+                  alt={pkg.title}
                   fill
                   className="object-cover"
                 />
@@ -232,7 +231,7 @@ function Page() {
       {/* Final CTA */}
       <section className="flex flex-col items-center justify-center mb-[90px] px-[16px] lg:px-[32px]">
         <div className="h-[84vh] w-full">
-          <LetsTalk images={letsTalk.image} description={letsTalk.description} />
+          <LetsTalk />
         </div>
       </section>
     </main>

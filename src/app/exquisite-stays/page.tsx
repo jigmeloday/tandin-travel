@@ -1,41 +1,39 @@
 import BestSelling from '@/components/landing-component/best-selling';
 import LetsTalk from '@/components/shared/let-talk';
-import { EXQUISITE_STAYS_PAGE_DATA } from '@/lib/data/pages/exquisite-stays.data';
-import { getPackageById } from '@/lib/data';
-import { PackageCard } from '@/lib/types';
+import { fetchSingleType, getStrapiMedia, getStrapiMediaArray } from '@/lib/strapi';
+import { ExquisiteStaysPage } from '@/types/strapi';
 import Image from 'next/image';
 import Link from 'next/link';
 
-function Page() {
-  const {
-    hero,
-    twoSquareImages,
-    horizontalSection,
-    luxuryExperience,
-    letsTalk,
-    parallaxSection,
-    natureSection,
-    imageBoxPackageIds,
-    flagshipSection,
-  } = EXQUISITE_STAYS_PAGE_DATA;
+export default async function Page() {
+  // Fetch exquisite stays page data from Strapi
+  const exquisiteStaysData = await fetchSingleType<ExquisiteStaysPage>('exquisite-stays-page', '*');
 
-  // Get image box packages
-  const imageBoxPackages = imageBoxPackageIds
-    .map((id) => getPackageById(id))
-    .filter((pkg): pkg is PackageCard => pkg !== undefined && !pkg.isBestSelling && !pkg.isOther);
+  if (!exquisiteStaysData) {
+    return <div>Error loading exquisite stays page data</div>;
+  }
 
-  // Get flagship packages
-  const flagshipPackages = flagshipSection.packageIds
-    .map((id) => getPackageById(id))
-    .filter((pkg): pkg is PackageCard => pkg !== undefined);
+  // Extract packages from relations (Strapi v5 format)
+  const imageBoxPackages = Array.isArray(exquisiteStaysData.image_box_packages)
+    ? exquisiteStaysData.image_box_packages
+    : [];
+
+  const flagshipPackages = Array.isArray(exquisiteStaysData.flagship_packages)
+    ? exquisiteStaysData.flagship_packages
+    : [];
+
+  // Get image arrays
+  const squareImages = getStrapiMediaArray(exquisiteStaysData.square_images);
+  const horizontalImages = getStrapiMediaArray(exquisiteStaysData.horizontal_images);
+  const luxuryImages = getStrapiMediaArray(exquisiteStaysData.luxury_images);
 
   return (
     <main>
       {/* Hero Section */}
       <section className="relative h-[50vh] md:h-[70vh] w-full overflow-hidden mb-[90px]">
         <Image
-          src={hero.backgroundImage}
-          alt={hero.title}
+          src={getStrapiMedia(exquisiteStaysData.hero_background_image) || ''}
+          alt={exquisiteStaysData.hero_title || 'Exquisite Stays'}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
@@ -48,11 +46,11 @@ function Page() {
           <div className="flex flex-col md:flex-row w-full h-full px-4 md:px-[50px] pb-4 md:pb-[40px]">
             <div className="flex flex-1 items-center justify-center md:justify-start mb-4 md:mb-0">
               <h1 className="text-4xl md:text-[80px] font-bold drop-shadow-lg text-center md:text-left">
-                {hero.title}
+                {exquisiteStaysData.hero_title}
               </h1>
             </div>
             <div className="flex flex-col flex-1 items-center md:items-end justify-center md:justify-end text-center md:text-right">
-              {hero.subtitle.split(', ').map((line, idx) => (
+              {exquisiteStaysData.hero_subtitle?.split(', ').map((line, idx) => (
                 <p key={idx} className="text-xl md:text-[40px] font-sans">
                   {line}
                 </p>
@@ -65,11 +63,11 @@ function Page() {
       {/* Two Square Images */}
       <section className="px-4 lg:px-[32px] mb-[90px]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
-          {twoSquareImages.map((img) => (
-            <div key={img.id} className="aspect-square bg-gray-200">
+          {squareImages.map((img, idx) => (
+            <div key={idx} className="aspect-square bg-gray-200">
               <Image
-                src={img.src}
-                alt={img.alt}
+                src={img}
+                alt="Exquisite Stays"
                 width={800}
                 height={800}
                 className="w-full h-full object-cover"
@@ -81,7 +79,7 @@ function Page() {
         {/* Horizontal Image Section */}
         <div className="flex flex-col md:flex-row w-full mt-3 md:mt-[12px] gap-4 md:gap-2">
           <div className="flex flex-1 gap-2 flex-col md:flex-row">
-            {horizontalSection.images.map((img, idx) => (
+            {horizontalImages.map((img, idx) => (
               <div key={idx} className="w-full h-64 md:h-[440px] bg-gray-200">
                 <Image
                   src={img}
@@ -98,15 +96,15 @@ function Page() {
             <div className="flex flex-col justify-between h-full p-2 md:p-4">
               <div className="w-full md:w-[80%]">
                 <h1 className="text-xl md:text-2xl lg:text-3xl">
-                  {horizontalSection.title}
+                  {exquisiteStaysData.horizontal_title}
                 </h1>
                 <p className="text-[14px] md:text-[16px] mt-2">
-                  {horizontalSection.description}
+                  {exquisiteStaysData.horizontal_description}
                 </p>
               </div>
               <div>
                 <p className="text-sm md:text-[18px] font-bold mt-2">
-                  {horizontalSection.tagline}
+                  {exquisiteStaysData.horizontal_tagline}
                 </p>
               </div>
             </div>
@@ -119,7 +117,7 @@ function Page() {
       <section className="w-full h-auto md:h-[70vh] bg-[#111820] mb-[90px]">
         <div className="flex flex-col md:flex-row h-full">
           <div className="flex-1 flex items-center justify-center gap-2 mb-6 md:mb-0">
-            {luxuryExperience.images.map((img, idx) => (
+            {luxuryImages.map((img, idx) => (
               <div
                 key={idx}
                 className={`${
@@ -139,7 +137,7 @@ function Page() {
           </div>
           <div className="flex flex-col justify-between gap-4 md:gap-6 p-4 md:p-[64px] flex-1 text-center md:text-left">
             <div>
-              {luxuryExperience.title.split(', ').map((line, idx) => (
+              {exquisiteStaysData.luxury_title?.split(', ').map((line, idx) => (
                 <h1
                   key={idx}
                   className={`mb-0 leading-[1.2] text-2xl md:text-4xl ${
@@ -151,10 +149,10 @@ function Page() {
               ))}
             </div>
             <p className="text-white text-[14px] md:text-[16px]">
-              {luxuryExperience.description}
+              {exquisiteStaysData.luxury_description}
             </p>
             <p className="text-white font-bold font-sans text-base md:text-[18px]">
-              {luxuryExperience.tagline}
+              {exquisiteStaysData.luxury_tagline}
             </p>
           </div>
         </div>
@@ -163,10 +161,7 @@ function Page() {
       {/* Let's Talk Section */}
       <section className="flex flex-col items-center justify-center my-12 px-4 md:px-[16px] mb-[90px]">
         <div className="h-[84vh] w-full">
-          <LetsTalk
-            description={letsTalk.description}
-            images={letsTalk.image}
-          />
+          <LetsTalk />
         </div>
       </section>
 
@@ -175,7 +170,7 @@ function Page() {
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
-            backgroundImage: `url('${parallaxSection.backgroundImage}')`,
+            backgroundImage: `url('${getStrapiMedia(exquisiteStaysData.parallax_background_image)}')`,
             backgroundAttachment: 'fixed',
           }}
         ></div>
@@ -187,15 +182,15 @@ function Page() {
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
-            <h1>{natureSection.title}</h1>
+            <h1>{exquisiteStaysData.nature_title}</h1>
           </div>
           <div className="lg:w-[920px]">
             <p className="text-[14px] md:text-[16px] text-center my-[24px]">
-              {natureSection.description}
+              {exquisiteStaysData.nature_description}
             </p>
           </div>
           <div className="lg:min-w-[250px]">
-            <span className="font-bold">{natureSection.tagline}</span>
+            <span className="font-bold">{exquisiteStaysData.nature_tagline}</span>
           </div>
         </div>
         <div className="border-[0.5px] border-primary h-[80px] mt-[40px]" />
@@ -204,7 +199,7 @@ function Page() {
       {/* Grid Section */}
       <section className="px-4 lg:px-[32px] mb-[90px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-          {imageBoxPackages.map((pkg) => (
+          {imageBoxPackages.map((pkg: any) => (
             <Link
               key={pkg.id}
               href={`/packages/${pkg.slug}`}
@@ -212,7 +207,7 @@ function Page() {
             >
               <div
                 className="absolute inset-0 bg-center bg-cover transition duration-300"
-                style={{ backgroundImage: `url('${pkg.image.src}')` }}
+                style={{ backgroundImage: `url('${getStrapiMedia(pkg.image)}')` }}
               ></div>
               <div className="absolute inset-0 bg-black/40 transition duration-300 group-hover:bg-black/60"></div>
               <h3 className="relative z-10 text-white text-lg md:text-xl font-semibold after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full after:origin-center">
@@ -228,11 +223,17 @@ function Page() {
 
       {/* Flagship Section */}
       <section className="flex flex-col justify-center items-center text-center mb-[90px]">
-        <h1 className="mb-10">{flagshipSection.title}</h1>
-        <BestSelling packages={flagshipPackages} />
+        <h1 className="mb-10">{exquisiteStaysData.flagship_title}</h1>
+        <BestSelling
+          packages={flagshipPackages.map((pkg: any) => ({
+            ...pkg,
+            image: {
+              src: getStrapiMedia(pkg.image) || '',
+              alt: pkg.title,
+            },
+          }))}
+        />
       </section>
     </main>
   );
 }
-
-export default Page;

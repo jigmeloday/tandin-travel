@@ -1,27 +1,43 @@
 import ImageBox from '@/components/shared/image-box';
 import LetsTalk from '@/components/shared/let-talk';
-import { getPackageBySlug, getOtherPackages, getImageBoxPackages, RECURRING_CONTENT } from '@/lib/data';
+import { fetchBySlug, fetchCollection, fetchAllSlugs, getStrapiMedia } from '@/lib/strapi';
+import { Package } from '@/types/strapi';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+export async function generateStaticParams() {
+  const slugs = await fetchAllSlugs('package');
+  return slugs.map((slug) => ({ slug }));
+}
+
 async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = (await params) as { slug: string };
-  const data = getPackageBySlug(slug);
+
+  // Fetch package data from Strapi
+  const data = await fetchBySlug<Package>('package', slug, '*');
 
   if (!data) {
     notFound();
   }
 
-  const otherPackages = getOtherPackages();
-  const imageBoxPackages = getImageBoxPackages();
+  // Fetch other packages (with is_other = true or all packages)
+  const otherPackages = await fetchCollection<Package>('package', {
+    populate: '*',
+    pagination: { pageSize: 3 },
+  });
+
+  const imageBoxPackages = await fetchCollection<Package>('package', {
+    populate: '*',
+    pagination: { pageSize: 6 },
+  });
 
   return (
     <main>
       {/* Hero Section */}
       <section className="h-[60vh] lg:h-screen w-full relative overflow-hidden">
         <Image
-          src={data.image.src}
-          alt={data.image.alt}
+          src={getStrapiMedia(data.image) || '/images/placeholder.jpg'}
+          alt={data.title}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
@@ -31,29 +47,31 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-4">
-        {[1, 2, 3, 4].map((id) => (
-          <div
-            key={id}
-            className={`${
-              id % 2 === 0 ? 'bg-black text-white' : 'bg-primary'
-            } h-[350px] flex flex-col items-center justify-center px-8 font-medium`}
-          >
-            <p className="font-bold text-[20px] text-center">
-              A Bird’s-Eye View of Majesty
-            </p>
+      {/* Detailed Sections Grid - Show detailed_sections if available */}
+      {data.detailed_sections && data.detailed_sections.length >= 4 && (
+        <section className="grid grid-cols-1 md:grid-cols-4">
+          {data.detailed_sections.slice(0, 4).map((section, index) => (
             <div
+              key={index}
               className={`${
-                id % 2 === 0 ? 'border border-primary' : ' border border-black'
-              }  w-[40%] my-4`}
-            />
-            <p className="text-center">
-              Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
-              monasteries from the comfort of a spacious, private{' '}
-            </p>
-          </div>
-        ))}
-      </section>
+                (index + 1) % 2 === 0 ? 'bg-black text-white' : 'bg-primary'
+              } h-[350px] flex flex-col items-center justify-center px-8 font-medium`}
+            >
+              <p className="font-bold text-[20px] text-center">
+                {section.title}
+              </p>
+              <div
+                className={`${
+                  (index + 1) % 2 === 0 ? 'border border-primary' : ' border border-black'
+                }  w-[40%] my-4`}
+              />
+              <p className="text-center">
+                {section.description}
+              </p>
+            </div>
+          ))}
+        </section>
+      )}
       <section className="flex flex-col px-[16px] lg:px-[120px] my-[150px] py-[80px] bg-black">
         <div className="flex lg:flex-row flex-col text-start space-x-8">
           <div className="flex-1 relative flex lg:flex-row flex-col space-y-4 lg:space-x-4 w-full">
@@ -95,14 +113,16 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             className={`flex flex-col lg:flex-row gap-2 ${
               index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
             }`}
-            key={pkg.id}
+            key={pkg.slug}
           >
             {/* Left Content */}
             <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-[#111820] p-[20px]">
               <h1>{pkg.title}</h1>
-              <p className="text-white font-bold text-[14px] lg:text-[16px] mt-2">
-                {pkg.subtitle}
-              </p>
+              {pkg.subtitle && (
+                <p className="text-white font-bold text-[14px] lg:text-[16px] mt-2">
+                  {pkg.subtitle}
+                </p>
+              )}
               <div className="px-[20px] lg:px-[60px] mt-[16px] lg:mt-[24px] pb-[20px] lg:pb-[32px]">
                 <p className="text-white text-center text-[14px] lg:text-[16px]">
                   {pkg.description}
@@ -113,8 +133,8 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             {/* Right Image */}
             <div className="w-full lg:w-[50%] relative h-[240px] lg:h-[420px] overflow-hidden">
               <Image
-                src={pkg.image.src}
-                alt={pkg.image.alt}
+                src={getStrapiMedia(pkg.image) || '/images/placeholder.jpg'}
+                alt={pkg.title}
                 fill
                 className="object-cover"
               />
@@ -150,8 +170,8 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         {imageBoxPackages.map((pkg) => (
             <ImageBox
               id={pkg.slug}
-              key={pkg.id}
-              image={pkg.image.src}
+              key={pkg.slug}
+              image={getStrapiMedia(pkg.image) || '/images/placeholder.jpg'}
               label={pkg.title || ''}
               subtitle={pkg.subtitle}
             />
@@ -183,10 +203,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
         <div className="h-[84vh]">
-          <LetsTalk
-            images={RECURRING_CONTENT.letsTalk.image}
-            description={RECURRING_CONTENT.letsTalk.description}
-          />
+          <LetsTalk />
         </div>
       </section>
     </main>

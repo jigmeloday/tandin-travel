@@ -5,10 +5,26 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { getBestSellingPackages } from '@/lib/data';
 
-function SideSelling() {
-  const bestSellingPackages = getBestSellingPackages();
+interface Package {
+  id?: number | string;
+  title: string;
+  image: string;
+}
+
+interface SideSellingProps {
+  packages?: Package[];
+}
+
+function SideSelling({ packages = [] }: SideSellingProps) {
+  // Show placeholder if no packages provided
+  if (!packages || packages.length === 0) {
+    return (
+      <div className="relative w-full overflow-hidden h-[400px] lg:h-full border flex items-center justify-center bg-gray-200">
+        <p className="text-gray-500">No packages available</p>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full overflow-hidden h-[400px] lg:h-full">
@@ -30,13 +46,13 @@ function SideSelling() {
 
         className="w-full h-full border"
       >
-        {bestSellingPackages.map((tour) => (
+        {packages.map((tour, index) => (
           <SwiperSlide
-           key={tour.id}>
-            <div className="flex-shrink-0 w-full h-full overflow-hidden">
+           key={tour.id || index}>
+            <div className="flex-shrink-0 w-full h-full overflow-hidden relative">
                <Image
-                    src={tour.image.src}
-                    alt={tour.image.alt}
+                    src={tour.image}
+                    alt={tour.title}
                     fill
                     className="object-cover"
                   />

@@ -3,13 +3,14 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
-import { PackageCard } from '@/lib/types';
+import { Package } from '@/types/strapi';
+import { getStrapiMedia } from '@/lib/strapi';
 import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 interface BestSellingProps {
-  packages: PackageCard[];
+  packages: Package[];
 }
 
 function BestSelling({ packages }: BestSellingProps) {
@@ -34,17 +35,17 @@ function BestSelling({ packages }: BestSellingProps) {
 
         className="w-full"
       >
-        {packages.map((tour) => (
+        {packages.map((tour, index) => (
           <SwiperSlide
-           key={tour.id}>
+           key={tour.slug || index}>
             <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[400px] border-l-8 border-primary overflow-hidden group">
               {/* Card container */}
               <div className="flex flex-col lg:flex-row h-full w-full bg-[#111820] transition-transform duration-300">
                 {/* Image section */}
                 <div className="w-full flex-1 h-64 lg:h-full relative">
                   <Image
-                    src={tour.image.src}
-                    alt={tour.image.alt}
+                    src={getStrapiMedia(tour.image) || '/images/placeholder.jpg'}
+                    alt={tour.title}
                     fill
                     className="object-cover"
                   />
@@ -68,7 +69,7 @@ function BestSelling({ packages }: BestSellingProps) {
 
                   {/* Call to action */}
                   <div className="mt-2 sm:mt-4 self-center">
-                    <Link href={`/flagship/${tour.slug}`} className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
+                    <Link href={`/packages/${tour.slug}`} className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
                       VIEW DETAILS
                     </Link>
                   </div>

@@ -1,32 +1,31 @@
-import { CULTURE_WELLNESS_PAGE_DATA } from '@/lib/data/pages/culture-wellness.data';
 import Image from 'next/image';
 import Link from 'next/link';
+import LetsTalk from '@/components/shared/let-talk';
+import { fetchSingleType, getStrapiMedia, getStrapiMediaArray } from '@/lib/strapi';
+import { CultureWellnessPage } from '@/types/strapi';
 
-function Page() {
-  const {
-    hero,
-    bhutanFromAbove,
-    gridCardsSection,
-    heroImages,
-    parallax,
-    signatureTours,
-    freedomSection,
-  } = CULTURE_WELLNESS_PAGE_DATA;
+async function Page() {
+  // Fetch culture wellness page data from Strapi
+  const cultureWellnessData = await fetchSingleType<CultureWellnessPage>('culture-wellness-page', '*');
+
+  if (!cultureWellnessData) {
+    return <div>Error loading culture wellness page data</div>;
+  }
 
   return (
     <main>
       {/* Hero Section */}
       <section className="h-screen w-full overflow-hidden relative mb-[90px]">
         <Image
-          src={hero.backgroundImage.src}
-          alt={hero.backgroundImage.alt}
+          src={getStrapiMedia(cultureWellnessData.hero_background_image) || '/images/placeholder.jpg'}
+          alt={cultureWellnessData.hero_title || 'Culture & Wellness'}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center px-4">
           <h1 className="text-white text-center text-3xl md:text-5xl">
-            {hero.title}
+            {cultureWellnessData.hero_title}
           </h1>
         </div>
       </section>
@@ -37,17 +36,17 @@ function Page() {
         <div className="flex flex-col items-center text-center">
           <div className="w-full md:w-[740px]">
             <h1 className="text-2xl md:text-4xl font-semibold">
-              {bhutanFromAbove.title}
+              {cultureWellnessData.from_above_title}
             </h1>
           </div>
           <div className="w-full md:w-[920px]">
             <p className="text-[14px] md:text-[16px] my-6">
-              {bhutanFromAbove.description}
+              {cultureWellnessData.from_above_description}
             </p>
           </div>
           <div className="md:min-w-[250px]">
             <span className="font-bold text-lg md:text-xl">
-              {bhutanFromAbove.tagline}
+              {cultureWellnessData.from_above_tagline}
             </span>
           </div>
         </div>
@@ -58,18 +57,18 @@ function Page() {
       <section className="px-4 md:px-8 bg-[#111820] py-8 mb-[90px]">
         <div className="text-center mb-6">
           <h1 className="text-white text-3xl md:text-4xl">
-            {gridCardsSection.title}
+            {cultureWellnessData.grid_title}
           </h1>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 w-full my-6">
-          {gridCardsSection.cards.map((card) => (
+          {cultureWellnessData.grid_cards?.map((card, idx) => (
             <div
-              key={card.id}
+              key={idx}
               className="bg-primary/40 text-white flex flex-col items-center text-center"
             >
               <div className="w-full h-64 md:h-[380px] relative">
                 <Image
-                  src={card.image}
+                  src={getStrapiMedia(card.image) || '/images/placeholder.jpg'}
                   alt={card.title}
                   fill
                   className="object-cover h-full w-full"
@@ -83,7 +82,7 @@ function Page() {
                   {card.subtitle}
                 </p>
                 <Link
-                  href={card.link}
+                  href={card.link || '#'}
                   className="w-[160px] text-white font-semibold py-2 md:py-3 text-center hover:bg-gray-800 transition"
                 >
                   SAVOR THE SUBLIME
@@ -98,7 +97,7 @@ function Page() {
       <section className="w-full bg-[#111820] mb-[90px] flex flex-col md:flex-row h-auto md:h-[70vh]">
         {/* Images */}
         <div className="flex flex-col md:flex-row flex-1 items-center justify-center gap-4 mb-6 md:mb-0">
-          {heroImages.images.map((img, idx) => (
+          {getStrapiMediaArray(cultureWellnessData.hero_images).map((img, idx) => (
             <div
               key={idx}
               className={`${
@@ -121,7 +120,7 @@ function Page() {
         {/* Text */}
         <div className="flex flex-col justify-between gap-4 md:gap-6 p-4 md:p-16 flex-1 text-center md:text-left">
           <div>
-            {heroImages.title.split(', ').map((line, idx) => (
+            {cultureWellnessData.hero_images_title?.split(', ').map((line, idx) => (
               <h1
                 key={idx}
                 className={`mb-0 leading-[1.2] text-2xl md:text-4xl ${
@@ -135,10 +134,10 @@ function Page() {
             ))}
           </div>
           <p className="text-white text-[14px] md:text-[16px]">
-            {heroImages.description}
+            {cultureWellnessData.hero_images_description}
           </p>
           <p className="text-white font-bold text-base md:text-[18px]">
-            {heroImages.tagline}
+            {cultureWellnessData.hero_images_tagline}
           </p>
         </div>
       </section>
@@ -148,7 +147,7 @@ function Page() {
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
-            backgroundImage: `url('${parallax.backgroundImage}')`,
+            backgroundImage: `url('${getStrapiMedia(cultureWellnessData.parallax_background_image)}')`,
             backgroundAttachment: 'fixed',
           }}
         />
@@ -160,12 +159,12 @@ function Page() {
         <div className="flex flex-col items-center text-center">
           <div className="w-full md:w-[740px]">
             <h1 className="text-2xl md:text-4xl font-semibold">
-              {signatureTours.title}
+              {cultureWellnessData.signature_title}
             </h1>
           </div>
           <div className="w-full md:w-[920px]">
             <p className="text-[14px] md:text-[16px] text-center my-6">
-              {signatureTours.description}
+              {cultureWellnessData.signature_description}
             </p>
           </div>
         </div>
@@ -174,14 +173,14 @@ function Page() {
       {/* Tours Grid */}
       <section className="px-4 md:px-8 mb-[90px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:grid-cols-2 w-full mb-5">
-          {signatureTours.tours.map((tour) => (
+          {cultureWellnessData.signature_tours?.map((tour, idx) => (
             <div
-              key={tour.id}
+              key={idx}
               className="bg-gray-400/20 flex flex-col items-center text-center shadow-sm"
             >
               <div className="w-full h-[520px] relative">
                 <Image
-                  src={tour.image}
+                  src={getStrapiMedia(tour.image) || '/images/placeholder.jpg'}
                   alt={tour.title}
                   fill
                   className="object-cover"
@@ -209,27 +208,34 @@ function Page() {
         <div className="bg-[#111820] w-full p-6 md:p-12">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-3">
-              <h1 className="text-2xl md:text-4xl">{freedomSection.title}</h1>
+              <h1 className="text-2xl md:text-4xl">{cultureWellnessData.freedom_title}</h1>
             </div>
             <div className="flex-2">
               <p className="text-white text-[14px] md:text-[16px]">
-                {freedomSection.description}
+                {cultureWellnessData.freedom_description}
               </p>
             </div>
           </div>
           <div
             className="w-full mt-8 h-[420px] md:h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
             style={{
-              backgroundImage: `url('${freedomSection.backgroundImage}')`,
+              backgroundImage: `url('${getStrapiMedia(cultureWellnessData.freedom_background_image)}')`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
           >
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
             <h2 className="relative z-10 text-white inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full text-xl md:text-2xl">
-              {freedomSection.cta.text}
+              {cultureWellnessData.freedom_cta_text}
             </h2>
           </div>
+        </div>
+      </section>
+
+      {/* Let's Talk Section */}
+      <section className="mb-[90px] px-4 md:px-8">
+        <div className="h-[84vh]">
+          <LetsTalk />
         </div>
       </section>
     </main>

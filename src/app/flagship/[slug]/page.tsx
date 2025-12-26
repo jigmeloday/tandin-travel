@@ -2,28 +2,61 @@ import BestSelling from '@/components/landing-component/best-selling';
 import HeroSwapper from '@/components/landing-component/hero-swapper';
 import LetsTalk from '@/components/shared/let-talk';
 import { Button } from '@/components/ui/button';
-import { getFlagshipTourBySlug, getBestSellingPackages, RECURRING_CONTENT, getOtherPackages } from '@/lib/data';
+import { fetchBySlug, fetchCollection, fetchAllSlugs, getStrapiMedia, getStrapiMediaArray, fetchSingleType } from '@/lib/strapi';
+import { FlagshipTour, Package, SiteSettings } from '@/types/strapi';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
+export async function generateStaticParams() {
+  const slugs = await fetchAllSlugs('flagship-tour');
+  return slugs.map((slug) => ({ slug }));
+}
+
 async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params as { slug: string };
-  const flagshipTour = getFlagshipTourBySlug(slug);
+  const { slug } = await params;
+
+  // Fetch flagship tour data from Strapi
+  const flagshipTour = await fetchBySlug<FlagshipTour>('flagship-tour', slug, '*');
 
   if (!flagshipTour) {
     notFound();
   }
 
-  const bestSelling = getBestSellingPackages();
-  const otherPackages = getOtherPackages();
-  const heroSlides = flagshipTour.hero.images.map((img, idx) => ({ id: idx + 1, image: img, title: flagshipTour.title }));
+  // Fetch best selling packages
+  const bestSelling = await fetchCollection<Package>('package', {
+    filters: { is_best_selling: true },
+    populate: '*'
+  });
+
+  // Fetch other packages
+  const otherPackages = await fetchCollection<Package>('package', {
+    filters: { is_other: true },
+    populate: '*',
+    pagination: { pageSize: 5 }
+  });
+
+  // Fetch recurring content from site-settings
+  const siteSettings = await fetchSingleType<SiteSettings>('site-settings', '*');
+
+  // Get "Where Nature Meets Nirvana" section
+  const whereNatureMeetsNirvana = siteSettings?.recurring_sections?.find(
+    (section) => section.section_key === 'where-nature-meets-nirvana'
+  );
+
+  // Map hero images for HeroSwapper component
+  const heroImages = getStrapiMediaArray(flagshipTour.hero_images);
+  const heroSlides = heroImages.map((img, idx) => ({
+    id: idx + 1,
+    image: img,
+    title: flagshipTour.title
+  }));
 
   return (
     <main>
       <section className="relative h-[60vh] md:h-screen w-full overflow-hidden mb-[90px]">
         <Image
-          src={flagshipTour.hero.images[0]}
+          src={heroImages[0] || '/images/placeholder.jpg'}
           alt={flagshipTour.title}
           width={1920}
           height={1080}
@@ -39,17 +72,17 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         <div className="flex flex-col items-center text-center">
           <div className="w-full md:w-[740px]">
             <h1 className="text-2xl md:text-4xl font-semibold">
-              {RECURRING_CONTENT.whereNatureMeetsNirvana.title}
+              {whereNatureMeetsNirvana?.title || 'Where Nature Meets Nirvana'}
             </h1>
           </div>
           <div className="w-full px-0 md:px-[200px]">
             <p className="text-[14px] md:text-[16px] my-6 text-center">
-              {RECURRING_CONTENT.whereNatureMeetsNirvana.description}
+              {whereNatureMeetsNirvana?.description || ''}
             </p>
           </div>
           <div className="md:min-w-[250px]">
             <span className="font-bold text-lg md:text-xl uppercase">
-              {RECURRING_CONTENT.whereNatureMeetsNirvana.tagline}
+              {whereNatureMeetsNirvana?.cta_text || ''}
             </span>
           </div>
         </div>
@@ -60,7 +93,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
               <h4 className="text-white">WHEN</h4>
             </div>
             <div className="p-[20px] font-bold text-center">
-              <p>{flagshipTour.info.when}</p>
+              <p>{flagshipTour.info_when || 'N/A'}</p>
             </div>
           </div>
           <div className="w-full bg-gray-100">
@@ -68,7 +101,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
               <h4 className="text-white">PRICE</h4>
             </div>
             <div className="p-[20px] font-bold text-center">
-              <p>{flagshipTour.info.price}</p>
+              <p>{flagshipTour.info_price || 'N/A'}</p>
             </div>
           </div>
           <div className="w-full bg-gray-100">
@@ -76,7 +109,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
               <h4 className="text-white">HOW LONG</h4>
             </div>
             <div className="p-[20px] font-bold text-center">
-              <p>{flagshipTour.info.duration}</p>
+              <p>{flagshipTour.info_duration || 'N/A'}</p>
             </div>
           </div>
         </div>
@@ -106,16 +139,16 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         </div>
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-4">
-        {flagshipTour.culturalConnections.map((connection, index) => (
+        {flagshipTour.cultural_connections && flagshipTour.cultural_connections.length > 0 && flagshipTour.cultural_connections.map((connection, index) => (
           <div
-            key={connection.id}
+            key={index}
             className={`flex flex-col md:flex-row w-full justify-center md:space-x-12 px-4 mb-12 ${
               index % 2 !== 0 ? 'md:flex-row-reverse md:space-x-reverse' : ''
             }`}
           >
             <div className="w-full md:w-1/2 h-[300px] md:h-[500px]">
               <Image
-                src={connection.image}
+                src={getStrapiMedia(connection.image) || '/images/placeholder.jpg'}
                 alt={connection.title}
                 className="object-cover h-full w-full"
                 height={500}
@@ -127,9 +160,11 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
               <p className="text-[14px] md:text-[16px]">
                 {connection.description}
               </p>
-              <p className="font-bold mt-4 italic text-[18px] text-primary">
-                {connection.tagline}
-              </p>
+              {connection.tagline && (
+                <p className="font-bold mt-4 italic text-[18px] text-primary">
+                  {connection.tagline}
+                </p>
+              )}
             </div>
           </div>
         ))}
@@ -168,12 +203,12 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
           </div>
           <div className="w-full md:px-4 lg:px-12">
             <p className="text-[14px] md:text-[16px] my-6">
-              {RECURRING_CONTENT.whereNatureMeetsNirvana.description}
+              {whereNatureMeetsNirvana?.description || ''}
             </p>
           </div>
           <div className="md:min-w-[250px]">
             <span className="font-bold text-lg md:text-xl uppercase">
-              {RECURRING_CONTENT.whereNatureMeetsNirvana.tagline}
+              {whereNatureMeetsNirvana?.cta_text || ''}
             </span>
           </div>
         </div>
@@ -182,11 +217,11 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px] w-full">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
           {otherPackages.slice(0, 3).map((pkg) => (
-            <div className="bg-gray-100 flex flex-col h-full" key={pkg.id}>
+            <div className="bg-gray-100 flex flex-col h-full" key={pkg.slug}>
               <div className="w-full h-[250px] md:h-[350px] relative">
                 <Image
-                  src={pkg.image.src}
-                  alt={pkg.image.alt}
+                  src={getStrapiMedia(pkg.image) || '/images/placeholder.jpg'}
+                  alt={pkg.title}
                   fill
                   className="object-cover"
                 />
@@ -207,11 +242,11 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4 w-full">
           {otherPackages.slice(3, 5).map((pkg) => (
-            <div className="bg-gray-100 flex flex-col h-full" key={pkg.id}>
+            <div className="bg-gray-100 flex flex-col h-full" key={pkg.slug}>
               <div className="w-full h-[300px] md:h-[520px] relative">
                 <Image
-                  src={pkg.image.src}
-                  alt={pkg.image.alt}
+                  src={getStrapiMedia(pkg.image) || '/images/placeholder.jpg'}
+                  alt={pkg.title}
                   fill
                   className="object-cover"
                 />
@@ -234,38 +269,8 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       <section className="flex flex-col items-center justify-center px-4 md:px-8 mb-[90px] w-full">
         <BestSelling packages={bestSelling} />
       </section>
-      {/* <section className="bg-[#111820] w-full p-[24px]">
-        <div className="flex flex-col lg:flex-row gap-6">
-          <div className="flex-3">
-            <h1>Let’s Talk</h1>
-          </div>
-          <div className="flex-2">
-            <p className="text-white text-[20px]">
-              Combine helicopter journeys with sustainable luxury lodges,
-              curated local cuisine, and intimate cultural experiences for a
-              fully bespoke Bhutanese exploration.
-            </p>
-          </div>
-        </div>
-        <div
-          className="w-full mt-[32px] h-[540px] flex items-center justify-center relative group cursor-pointer overflow-hidden"
-          style={{
-            backgroundImage: "url('/images/slide.jpg')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        >
-          <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-300"></div>
-          <h4 className="relative z-10 text-white inline-block after:content-[''] after:block after:h-[2px] after:w-0 after:bg-white after:mx-auto after:transition-all after:duration-300 group-hover:after:w-full">
-            Connect Now – We’ll throw in enlightenment
-          </h4>
-        </div>
-      </section> */}
       <div className="h-[84vh] mb-24 px-4 md:px-[32px]">
-        <LetsTalk
-          images={RECURRING_CONTENT.letsTalk.image}
-          description={RECURRING_CONTENT.letsTalk.description}
-        />
+        <LetsTalk />
       </div>
     </main>
   );
