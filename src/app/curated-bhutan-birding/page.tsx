@@ -43,7 +43,8 @@ export default function Page() {
       <section className="gap-[50px] px-[16px] lg:px-[32px] mt-[90px]">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {[1, 2, 3].map((item) => (
-            <Link href="/curated-bhutan-birding/birding"
+            <Link
+              href="/curated-bhutan-birding/birding"
               key={item}
               className={`aspect-square border cursor-pointer flex flex-col items-center justify-center px-[42px] text-center ${
                 item % 2 !== 0 ? 'bg-primary ' : 'bg-black text-white'
@@ -109,7 +110,7 @@ export default function Page() {
         </div>
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mt-[90px]">
-        <h1 className='text-center'>Getaways Crafted For You</h1>
+        <h1 className="text-center">Getaways Crafted For You</h1>
         <p className="lg:px-[240px] text-center font-medium">
           Exclusive itineraries thoughtfully designed to immerse you in unique
           experiences, local culture, and unforgettable adventures, creating
@@ -117,7 +118,7 @@ export default function Page() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-6">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-            <Link href={`/curated-bhutan-birding/trekking/${item}`} key={item} className="w-full border">
+            <div key={item} className="w-full border">
               <div className="h-[560px]">
                 <Image
                   src="/images/dummy/img3.jpg"
@@ -129,15 +130,19 @@ export default function Page() {
               </div>
               <div className="bg-primary p-4 lg:p-[24px] flex flex-col items-center justify-center">
                 <h2 className="text-white text-center">Gangkar Puensum Trek</h2>
-                <p className='text-center font-medium lg:px-[46px] my-6'>
+                <p className="text-center font-medium lg:px-[46px] my-6">
                   Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private Marvel at
                   Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private{' '}
                 </p>
-                <Button className='bg-black rounded-none text-primary font-bold hover:bg-black/60'>View Details</Button>
+                <Link href={`/curated-bhutan-birding/trekking/${item}`}>
+                  <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/60">
+                    View Details
+                  </Button>
+                </Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>

@@ -85,36 +85,51 @@ export default function Page() {
           every traveler must know before embarking on this once-in-a-lifetime
           journey.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-6">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-            <Link
-              href={`/curated-bhutan-birding/trekking/${item}`}
-              key={item}
-              className="w-full border"
-            >
-              <div className="h-[400px]">
-                <Image
-                  src="/images/dummy/img3.jpg"
-                  height={500}
-                  width={500}
-                  className="h-full w-full object-cover"
-                  alt={'img'}
-                />
-              </div>
-              <div className="bg-primary p-4 lg:p-[24px] flex flex-col items-center justify-center">
-                <h2 className="text-white text-center">Gangkar Puensum Trek</h2>
-                <p className="text-center font-medium lg:px-[46px] my-6">
-                  Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
-                  monasteries from the comfort of a spacious, private Marvel at
-                  Bhutan’s towering peaks, emerald valleys, and sacred
-                  monasteries from the comfort of a spacious, private{' '}
-                </p>
-                <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/60">
-                  View Details
-                </Button>
-              </div>
-            </Link>
-          ))}
+        <div className="flex flex-col lg:flex-row w-full gap-2 mt-12">
+          <div className="w-[50%]">
+            {[1, 2, 3, 4].map((item) =>
+              item % 2 !== 0 ? (
+                <div key={item} className="bg-primary h-[540px]">
+                  Image
+                </div>
+              ) : (
+                <div className="py-10" key={item}>
+                  <h2>High Altitude Awareness</h2>
+                  <p>
+                    You will cross several passes over 5,000m. Acclimatization
+                    is built into the itinerary, but trekkers must be aware of
+                    altitude risks, including Acute Mountain Sickness (AMS). Our
+                    guides monitor your health daily and carry emergency oxygen.
+                  </p>
+                  <p className="font-bold text-primary pt-4">
+                    A full gear list will be provided upon booking
+                  </p>
+                </div>
+              )
+            )}
+          </div>
+          <div className="w-[50%]">
+            {[1, 2, 3, 4].map((item) =>
+              item % 2 !== 0 ? (
+                <div className="py-10" key={item}>
+                  <h2>Essential Packing List</h2>
+                  <p>
+                    Layered clothing system for extreme cold . Quality trekking
+                    boots . Sleeping bag rated to –20°C . Gloves, hats, thermal
+                    wear . Trekking poles and headlamp . Personal medication and
+                    first-aid items . Waterproof backpack rain cover
+                  </p>
+                  <p className="font-bold text-primary pt-4">
+                    A full gear list will be provided upon booking
+                  </p>
+                </div>
+              ) : (
+                <div key={item} className="bg-primary h-[540px]">
+                  Image
+                </div>
+              )
+            )}
+          </div>
         </div>
       </section>
 
@@ -194,30 +209,34 @@ export default function Page() {
               <div className="w-full border h-[400px]">Image</div>
               <div className="p-[24px] bg-primary text-center">
                 <h3 className="text-white">Gangkar Puensum Trek</h3>
-                <p className='my-4'>
+                <p className="my-4">
                   Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private Marvel at
                   Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private
                 </p>
-                <Button className='bg-black rounded-none text-primary font-bold'>View Details</Button>
+                <Button className="bg-black rounded-none text-primary font-bold">
+                  View Details
+                </Button>
               </div>
             </div>
           ))}
         </div>
-         <div className="grid grid-cols-2 gap-2 w-full mt-2">
+        <div className="grid grid-cols-2 gap-2 w-full mt-2">
           {[1, 2].map((item) => (
             <div key={item} className="w-full">
               <div className="w-full border h-[540px]">hello</div>
               <div className="p-[24px] bg-primary text-center">
                 <h3 className="text-white">Gangkar Puensum Trek</h3>
-                <p className='my-4'>
+                <p className="my-4">
                   Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private Marvel at
                   Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private
                 </p>
-                <Button className='bg-black rounded-none text-primary font-bold'>View Details</Button>
+                <Button className="bg-black rounded-none text-primary font-bold">
+                  View Details
+                </Button>
               </div>
             </div>
           ))}

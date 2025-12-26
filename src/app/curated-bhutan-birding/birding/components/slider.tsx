@@ -15,7 +15,7 @@ export default function TripSlider({ images }: { images: string[] }) {
     const slides = swiperRef.current.slides;
     const activeIndex = swiperRef.current.activeIndex;
 
-    slides.forEach((slide: HTMLElement, i: number) => {
+    slides?.forEach((slide: HTMLElement, i: number) => {
       // Determine relative position in the 4-slide viewport
       const index = (i - activeIndex + slides.length) % slides.length;
       // small-big-big-small pattern
