@@ -119,7 +119,7 @@ export default function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-6">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
             <div key={item} className="w-full border">
-              <div className="h-[560px]">
+              <div className="h-[500px]">
                 <Image
                   src="/images/dummy/img3.jpg"
                   height={500}
@@ -183,6 +183,31 @@ export default function Page() {
             >
               VIEW DETAILS
             </Link>
+          </div>
+        </div>
+      </section>
+      <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[90px] gap-2">
+        <div className="bg-[#111820] w-full py-10 flex">
+          <div className="flex w-[50%] p-8">
+            <div className="h-full bg-primary w-[25%] border">image</div>
+            <div className="h-full bg-primary w-[30%] scale-y-110 border">image</div>
+            <div className="h-full bg-primary w-[25%] border">image</div>
+          </div>
+          <div className="w-[50%] px-8">
+            <h4 className='text-white'>TRAVEL BROCHURE</h4>
+            <h3>Curated Journeys for the Discerning Traveler</h3>
+            <p className='text-white'>
+              Discover your next extraordinary journey with our Tailormade
+              Journeys guide, featuring meticulously curated itineraries. Each
+              experience is designed to inspire, ignite your imagination, and
+              reveal Bhutan in its most authentic and luxurious form. Let this
+              guide be your gateway to unforgettable adventures, crafted
+              exclusively for discerning travelers.
+            </p>
+            <div className='flex text-white space-x-8 font-bold mt-4'>
+              <span className='border-b'>REQUEST BROCHURE</span>
+              <span className='border-b'>VIEW ALL BROCHURES</span>
+            </div>
           </div>
         </div>
       </section>
