@@ -215,7 +215,7 @@ export default function Page() {
                   Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private
                 </p>
-                <Button className="bg-black rounded-none text-primary font-bold">
+                <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/80">
                   View Details
                 </Button>
               </div>
