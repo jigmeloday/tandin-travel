@@ -47,19 +47,19 @@ export default function Page() {
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <ImageSlider
-    images={[
-      "/images/dummy/img1.jpg",
-      "/images/dummy/img2.jpg",
-      "/images/dummy/img3.jpg",
-      "/images/dummy/img4.jpg",
-      "/images/dummy/img5.jpg",
-      "/images/dummy/img6.jpg",
-      "/images/dummy/img7.jpg",
-      "/images/dummy/img8.jpg",
-      "/images/dummy/img9.jpg",
-      "/images/dummy/img1.jpg",
-    ]}
-  />
+          images={[
+            '/images/dummy/img1.jpg',
+            '/images/dummy/img2.jpg',
+            '/images/dummy/img3.jpg',
+            '/images/dummy/img4.jpg',
+            '/images/dummy/img5.jpg',
+            '/images/dummy/img6.jpg',
+            '/images/dummy/img7.jpg',
+            '/images/dummy/img8.jpg',
+            '/images/dummy/img9.jpg',
+            '/images/dummy/img1.jpg',
+          ]}
+        />
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <h1 className="text-center">Essential Information for Birding</h1>
@@ -198,9 +198,11 @@ export default function Page() {
                   Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private
                 </p>
-                <Button className="bg-black rounded-none text-primary font-bold">
-                  View Details
-                </Button>
+                <Link href={`/curated-bhutan-birding/birding/${item}`}>
+                  <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/60">
+                    View Details
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
@@ -217,9 +219,11 @@ export default function Page() {
                   Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private
                 </p>
-                <Button className="bg-black rounded-none text-primary font-bold">
-                  View Details
-                </Button>
+                <Link href={`/curated-bhutan-birding/birding/${item}`}>
+                  <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/60">
+                    View Details
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}

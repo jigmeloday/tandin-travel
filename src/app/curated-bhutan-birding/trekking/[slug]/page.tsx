@@ -215,9 +215,11 @@ export default function Page() {
                   Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private
                 </p>
-                <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/80">
-                  View Details
-                </Button>
+                <Link href="#" className="text-black font-bold underline">
+                  <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/80">
+                    View Details
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
@@ -234,9 +236,11 @@ export default function Page() {
                   Bhutan’s towering peaks, emerald valleys, and sacred
                   monasteries from the comfort of a spacious, private
                 </p>
-                <Button className="bg-black rounded-none text-primary font-bold">
-                  View Details
-                </Button>
+                <Link href="/" className="text-black font-bold underline">
+                  <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/80">
+                    View Details
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
