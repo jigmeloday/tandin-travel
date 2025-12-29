@@ -187,13 +187,13 @@ export default function Page() {
         </div>
       </section>
       <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] mt-[90px] gap-2">
-        <div className="bg-[#111820] w-full py-10 flex">
-          <div className="flex w-[50%] p-8">
-            <div className="h-full bg-primary w-[25%] border">image</div>
-            <div className="h-full bg-primary w-[30%] scale-y-110 border">image</div>
-            <div className="h-full bg-primary w-[25%] border">image</div>
+        <div className="bg-[#111820] w-full py-10 flex flex-col lg:flex-row">
+          <div className="flex lg:w-[50%] p-8">
+            <div className="h-[240px] lg:h-full bg-primary w-full lg:w-[25%] border">image</div>
+            <div className="h-[240px] lg:h-full bg-primary w-full lg:w-[30%] scale-y-110 border">image</div>
+            <div className="h-[240px] lg:h-full bg-primary w-full lg:w-[25%] border">image</div>
           </div>
-          <div className="w-[50%] px-8">
+          <div className="lg:w-[50%] px-8">
             <h4 className='text-white'>TRAVEL BROCHURE</h4>
             <h3>Curated Journeys for the Discerning Traveler</h3>
             <p className='text-white'>
