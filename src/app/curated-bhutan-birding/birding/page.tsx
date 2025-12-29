@@ -70,7 +70,7 @@ export default function Page() {
           journey.
         </p>
         <div className="flex flex-col lg:flex-row w-full gap-2 mt-12">
-          <div className="w-[50%]">
+          <div className="lg:w-[50%]">
             {[1, 2, 3, 4].map((item) =>
               item % 2 !== 0 ? (
                 <div key={item} className="bg-primary h-[540px]">
@@ -92,7 +92,7 @@ export default function Page() {
               )
             )}
           </div>
-          <div className="w-[50%]">
+          <div className="lg:w-[50%]">
             {[1, 2, 3, 4].map((item) =>
               item % 2 !== 0 ? (
                 <div className="py-10" key={item}>
@@ -179,14 +179,14 @@ export default function Page() {
       </section>
       <section className="flex flex-col px-[16px] lg:px-[32px] items-center justify-center gap-2 mb-[90px]">
         <h2>Next-Level Birding & More</h2>
-        <p className="my-[24px] text-center px-[142px]">
+        <p className="my-[24px] text-center lg:px-[142px]">
           Continue your exploration with our other related adventures, each
           crafted to showcase Bhutan’s rugged beauty, cultural depth, and
           pristine wilderness—perfect for trekkers seeking powerful experiences,
           breathtaking landscapes, and meaningful moments beyond the main
           journey.
         </p>
-        <div className="grid grid-cols-3 gap-2 w-full">
+        <div className="grid lg:grid-cols-3 gap-2 w-full">
           {[1, 2, 3].map((item) => (
             <div key={item} className="w-full">
               <div className="w-full border h-[400px]">Image</div>
@@ -207,7 +207,7 @@ export default function Page() {
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-2 gap-2 w-full mt-2">
+        <div className="grid lg:grid-cols-2 gap-2 w-full mt-2">
           {[1, 2].map((item) => (
             <div key={item} className="w-full">
               <div className="w-full border h-[540px]">hello</div>

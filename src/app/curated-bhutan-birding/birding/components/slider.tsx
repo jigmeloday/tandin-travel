@@ -17,14 +17,15 @@ export default function TripSlider({ images }: { images: string[] }) {
     const activeIndex = swiperRef.current.activeIndex;
 
     slides?.forEach((slide: HTMLElement, i: number) => {
-      // Determine relative position in the 4-slide viewport
+      // position relative to active
       const index = (i - activeIndex + slides.length) % slides.length;
-      // small-big-big-small pattern
+
       if (index === 0 || index === 3) {
         slide.style.transform = 'scaleY(0.7)';
       } else {
         slide.style.transform = 'scaleY(1)';
       }
+
       slide.style.transition = 'transform 0.3s';
     });
   };
@@ -44,15 +45,21 @@ export default function TripSlider({ images }: { images: string[] }) {
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={updateScales}
         modules={[Autoplay]}
-        slidesPerView={4} // exactly 4 slides visible
-        spaceBetween={10}
         loop={true}
         autoplay={{ delay: 3500, disableOnInteraction: false }}
+        spaceBetween={10}
+        slidesPerView={4}
+        breakpoints={{
+          1280: { slidesPerView: 4 },
+          1024: { slidesPerView: 3 },
+          768: { slidesPerView: 1 },
+          0: { slidesPerView: 2 },
+        }}
         className="w-full"
       >
         {images.map((img, i) => (
           <SwiperSlide key={i} className="flex justify-center">
-            <div className="w-[340px] h-[450px]">
+            <div className="w-[340px] h-[450px] max-md:w-[260px] max-md:h-[360px] max-sm:w-[220px] max-sm:h-[300px]">
               <Image
                 src={img}
                 alt="slider"
