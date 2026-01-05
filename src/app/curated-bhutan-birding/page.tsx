@@ -172,7 +172,6 @@ export default function Page() {
           )}
         </div>
       </section>
-
       <section className="flex flex-col items-center justify-center my-[90px] px-[16px] lg:px-[32px]">
         <div className="h-[84vh] w-full">
           <LetsTalk

@@ -176,7 +176,14 @@ function Header() {
                   className="text-[26px] font-medium hover:text-primary transition playfair-sans mt-[18px] py-2"
                   onClick={handleLinkClick}
                 >
-                  Curated Adventure & Bhutan Birding
+                  Curated Adventure
+                </Link>
+                 <Link
+                  href="/curated-bhutan-birding/birding"
+                  className="text-[26px] font-medium hover:text-primary transition playfair-sans mt-[18px] py-2"
+                  onClick={handleLinkClick}
+                >
+                 Bhutan Birding
                 </Link>
                  <Link
                   href="/travel-purpose"
