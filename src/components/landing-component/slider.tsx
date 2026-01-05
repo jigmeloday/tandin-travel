@@ -1,33 +1,18 @@
 'use client';
-
 import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { HeroSlide } from '@/lib/types';
 
-const slides = [
-  {
-    img: 'images/dummy/img10.jpg',
-    id: 1,
-    title: 'UNIQUE TO YOU',
-    subtitle: 'WHY BORN EXPLORER',
-    description:
-      "We listen to your travel goals and craft unique trips that are bespoke to you. We’re with you every step of your life's travel journey, from honeymoons to family trips and beyond.",
-    cta: 'SPEAK TO AN EXPERT',
-  },
-  {
-    id: 2,
-    img: 'images/dummy/img9.jpg',
-    title: 'ADVENTURE AWAITS',
-    subtitle: 'WHY CHOOSE US',
-    description:
-      'Tailored adventures that connect you with the world. Experience moments you’ll never forget.',
-    cta: 'START YOUR JOURNEY',
-  },
-];
+interface SliderComponentProps {
+  slides?: HeroSlide[];
+}
 
-export default function SliderComponent() {
+export default function SliderComponent({ slides = [] }: SliderComponentProps) {
+  if (!slides || slides.length === 0) return null;
+
   return (
     <Swiper
       modules={[Pagination, Autoplay, EffectFade]}
@@ -47,7 +32,7 @@ export default function SliderComponent() {
           <div
             className="w-full h-full relative flex items-center justify-end px-[32px]"
             style={{
-              backgroundImage: `url(${slide.img})`,
+              backgroundImage: `url(${slide.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}

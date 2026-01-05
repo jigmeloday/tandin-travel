@@ -3,22 +3,33 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import SideSelling from '../../components/slider';
+import { getTrekBySlug, RECURRING_CONTENT, getAllTreks } from '@/lib/data';
+import { notFound } from 'next/navigation';
 
-export default function Page() {
+async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params as { slug: string };
+  const trek = getTrekBySlug(slug);
+
+  if (!trek) {
+    notFound();
+  }
+
+  const allTreks = getAllTreks();
+  const otherTreks = allTreks.filter(t => t.slug !== slug).slice(0, 5);
   return (
     <main>
       <section className="relative h-[60vh] md:h-screen w-full overflow-hidden mb-[90px]">
         <Image
-          src="/images/dummy/img5.jpg"
-          alt="Bespoke Journey"
+          src={trek.image.src}
+          alt={trek.image.alt}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
           <h1 className="text-white text-center px-4">
-            Curated Adventure <br />
-            Multi-day Trekking & Exploration
+            {trek.title}
           </h1>
         </div>
       </section>
@@ -26,121 +37,76 @@ export default function Page() {
         <div className="border-[0.5px] border-primary h-[80px] mb-[40px]" />
         <div className="flex flex-col items-center text-center">
           <div className="w-full lg:w-[740px]">
-            <h1>Gangkar Puensum Exploratory Trek</h1>
+            <h1>{trek.title}</h1>
           </div>
           <div className="lg:w-[920px]">
             <p className="text-center my-[24px]">
-              Every journey is crafted entirely around you, blending seamless
-              planning with rare, meaningful encounters. Each experience unfolds
-              with thoughtful detail—from the first welcome to the quiet moments
-              in nature—creating memories that linger long after you return home
-              and leaving a gentle, positive imprint on the places you visit.
+              {RECURRING_CONTENT.whereNatureMeetsNirvana.description}
             </p>
           </div>
           <div className="lg:min-w-[250px]">
-            <span className="font-bold">
-              EVERY JOURNEY TELLS A STORY – FIND THE ONE THAT’S YOURS
+            <span className="font-bold uppercase">
+              {RECURRING_CONTENT.whereNatureMeetsNirvana.tagline}
             </span>
           </div>
         </div>
         <div className="border-[0.5px] border-primary h-[80px] my-[40px]" />
       </section>
-      <section className="flex items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-2">
-        <div className="flex-1 h-[362px] w-[50%]">
+      <section className="flex flex-col md:flex-row items-center justify-center px-[16px] lg:px-[32px] mb-[90px] gap-2">
+        <div className="flex-1 h-[362px] w-full md:w-[50%]">
           <SideSelling />
         </div>
-        <div className="flex-1  space-y-2">
-          <div className="flex gap-2">
-            <div className="flex-2 border p-4 bg-primary">
-              <h3 className="text-black">Best Season</h3>
+        <div className="flex-1 w-full space-y-2">
+          <div className="flex flex-col sm:flex-row gap-2">
+            <div className="flex-2 border p-4 bg-primary text-white">
+              <h3 className="text-white">{RECURRING_CONTENT.trekking.bestSeason}</h3>
               <p className="text-white font-medium">
-                March to May and September to October are the best seasons to
-                visit Bhutan, offering ideal weather, vibrant landscapes, and
-                memorable experiences.
+                {trek.info.bestSeason}
               </p>
             </div>
-            <div className="flex-1 border p-4 bg-primary text-center">
-              <h3 className="text-black">Alt.m</h3>
-              <p className="text-white font-medium">High: 4600m</p>
-              <p className="text-white font-medium">Low: 1350m</p>
+            <div className="flex-1 border p-4 bg-primary text-center text-white">
+              <h3 className="text-white">{RECURRING_CONTENT.trekking.altitude}</h3>
+              <p className="text-white font-medium">{RECURRING_CONTENT.trekking.altitudeHigh} {trek.info.altitude.high}</p>
+              <p className="text-white font-medium">{RECURRING_CONTENT.trekking.altitudeLow} {trek.info.altitude.low}</p>
             </div>
           </div>
-          <div className="flex gap-2">
-            <div className="flex-1 border bg-primary py-6 px-4 text-center">
-              <h3 className="text-black">On Trek</h3>
-              <p className="text-white font-medium">15 Days on Trek</p>
+          <div className="flex flex-col sm:flex-row gap-2">
+            <div className="flex-1 border bg-primary py-6 px-4 text-center text-white">
+              <h3 className="text-white">{RECURRING_CONTENT.trekking.onTrek}</h3>
+              <p className="text-white font-medium">{trek.info.duration}</p>
             </div>
-            <div className="flex-1 border bg-primary py-6 px-4 text-center">
-              <h3 className="text-black">Grade</h3>
-              <p className="text-white font-medium">Strenous</p>
+            <div className="flex-1 border bg-primary py-6 px-4 text-center text-white">
+              <h3 className="text-white">{RECURRING_CONTENT.trekking.grade}</h3>
+              <p className="text-white font-medium">{trek.info.grade}</p>
             </div>
           </div>
         </div>
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
-        <h1 className="text-center">Essential Information for the Trek</h1>
-        <p className="lg:px-[240px] text-center font-medium">
-          The Gangkar puensum Trek is one of Bhutan’s most legendary
-          high-altitude adventures. To help you prepare, here are the key things
-          every traveler must know before embarking on this once-in-a-lifetime
-          journey.
+        <h1 className="text-center">{RECURRING_CONTENT.trekking.essentialInfoTitle}</h1>
+        <p className="lg:px-[240px] text-center font-medium my-6">
+          {trek.description || `The ${trek.title} is one of Bhutan's most legendary high-altitude adventures. To help you prepare, here are the key things every traveler must know before embarking on this once-in-a-lifetime journey.`}
         </p>
-        <div className="flex flex-col lg:flex-row w-full gap-2 mt-12">
-          <div className="w-[50%]">
-            {[1, 2, 3, 4].map((item) =>
-              item % 2 !== 0 ? (
-                <div key={item} className="bg-primary h-[540px]">
-                  Image
-                </div>
-              ) : (
-                <div className="py-10" key={item}>
-                  <h2>High Altitude Awareness</h2>
-                  <p>
-                    You will cross several passes over 5,000m. Acclimatization
-                    is built into the itinerary, but trekkers must be aware of
-                    altitude risks, including Acute Mountain Sickness (AMS). Our
-                    guides monitor your health daily and carry emergency oxygen.
-                  </p>
-                  <p className="font-bold text-primary pt-4">
-                    A full gear list will be provided upon booking
-                  </p>
-                </div>
-              )
-            )}
-          </div>
-          <div className="w-[50%]">
-            {[1, 2, 3, 4].map((item) =>
-              item % 2 !== 0 ? (
-                <div className="py-10" key={item}>
-                  <h2>Essential Packing List</h2>
-                  <p>
-                    Layered clothing system for extreme cold . Quality trekking
-                    boots . Sleeping bag rated to –20°C . Gloves, hats, thermal
-                    wear . Trekking poles and headlamp . Personal medication and
-                    first-aid items . Waterproof backpack rain cover
-                  </p>
-                  <p className="font-bold text-primary pt-4">
-                    A full gear list will be provided upon booking
-                  </p>
-                </div>
-              ) : (
-                <div key={item} className="bg-primary h-[540px]">
-                  Image
-                </div>
-              )
-            )}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-6">
+          {trek.essentialInfo.map((info) => (
+            <div
+              key={info.id}
+              className="w-full border bg-primary p-4 lg:p-[24px] flex flex-col items-center justify-center text-white"
+            >
+              <h2 className="text-white text-center">{info.title}</h2>
+              <p className="text-center font-medium lg:px-[46px] my-6">
+                {info.description}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
-        <div className="h-[84vh]">
+        <div className="h-[84vh] w-full">
           <LetsTalk
-            images="/images/dummy/img2.jpg"
-            description="For decades, our team has been crafting journeys that go beyond the
-                        ordinary. Share your dream destination and your passions with us, and
-                        we’ll design a one-of-a-kind adventure that’s truly yours—a journey
-                        you’ll remember for a lifetime."
+            images={RECURRING_CONTENT.letsTalk.image}
+            description={RECURRING_CONTENT.letsTalk.description}
           />
         </div>
       </section>
@@ -148,7 +114,7 @@ export default function Page() {
         <div
           className="absolute inset-0 bg-center bg-cover bg-no-repeat"
           style={{
-            backgroundImage: "url('/images/slide.jpg')",
+            backgroundImage: `url('${trek.image.src}')`,
             backgroundAttachment: 'fixed',
           }}
         ></div>
@@ -156,91 +122,88 @@ export default function Page() {
       </section>
       <section className="flex flex-col lg:flex-row px-[16px] lg:px-[32px] gap-2 mb-[90px]">
         {/* LEFT IMAGE SECTION */}
-        <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] bg-black/70">
+        <div className="w-full lg:w-[70%] min-h-[40vh] lg:min-h-[80vh] relative">
           <Image
-            src="/images/dummy/img4.jpg"
-            alt="img"
-            height={1000}
-            width={1000}
-            className="h-full w-full object-cover"
+            src={RECURRING_CONTENT.travelWithPurpose.image}
+            alt="Travel with Purpose"
+            fill
+            className="object-cover"
           />
         </div>
 
         {/* RIGHT CONTENT SECTION */}
         <div className="w-full lg:w-[34.5%] bg-[#111820] p-[24px] flex flex-col justify-between">
           <div>
-            <h2>TRAVEL WITH PURPOSE</h2>
+            <h2 className="text-white">{RECURRING_CONTENT.travelWithPurpose.title}</h2>
 
-            <p className="text-white text-[16px] mt-[32px]">
-              At Born Explorer, we believe every journey should enrich both
-              traveler and destination. By embracing sustainable practices,
-              respecting local cultures, and supporting communities, we ensure
-              your Bhutan experience leaves a positive footprint.
-            </p>
-
-            <p className="text-white text-[16px] mt-[32px]">
-              Travel consciously, discover authentically, and create memories
-              that honor the land, its people, and its timeless traditions.
-            </p>
+            {RECURRING_CONTENT.travelWithPurpose.description.split('\n\n').map((para, idx) => (
+              <p key={idx} className="text-white text-[16px] mt-[32px]">
+                {para}
+              </p>
+            ))}
           </div>
 
           <div className="mt-[32px] flex">
             <Link
               className="bg-primary py-2 px-3 text-[20px] font-bold text-white"
-              href="/travel-purpose"
+              href={RECURRING_CONTENT.travelWithPurpose.cta.href}
             >
-              VIEW DETAILS
+              {RECURRING_CONTENT.travelWithPurpose.cta.text}
             </Link>
           </div>
         </div>
       </section>
       <section className="flex flex-col px-[16px] lg:px-[32px] items-center justify-center gap-2 mb-[90px]">
-        <h2>Next-Level Adventures & More</h2>
-        <p className="my-[24px] text-center px-[142px]">
-          Continue your exploration with our other related adventures, each
-          crafted to showcase Bhutan’s rugged beauty, cultural depth, and
-          pristine wilderness—perfect for trekkers seeking powerful experiences,
-          breathtaking landscapes, and meaningful moments beyond the main
-          journey.
+        <h2>{RECURRING_CONTENT.trekking.nextLevelAdventuresTitle}</h2>
+        <p className="my-[24px] text-center px-4 md:px-[142px]">
+          {RECURRING_CONTENT.trekking.nextLevelAdventuresDescription}
         </p>
-        <div className="grid grid-cols-3 gap-2 w-full">
-          {[1, 2, 3].map((item) => (
-            <div key={item} className="w-full">
-              <div className="w-full border h-[400px]">Image</div>
-              <div className="p-[24px] bg-primary text-center">
-                <h3 className="text-white">Gangkar Puensum Trek</h3>
-                <p className="my-4">
-                  Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
-                  monasteries from the comfort of a spacious, private Marvel at
-                  Bhutan’s towering peaks, emerald valleys, and sacred
-                  monasteries from the comfort of a spacious, private
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 w-full">
+          {otherTreks.slice(0, 3).map((otherTrek) => (
+            <div key={otherTrek.id} className="w-full flex flex-col h-full bg-primary overflow-hidden">
+               <Link href={`/curated-bhutan-birding/trekking/${otherTrek.slug}`} className="w-full h-[400px] relative">
+                <Image
+                  src={otherTrek.image.src}
+                  alt={otherTrek.image.alt}
+                  fill
+                  className="object-cover"
+                />
+              </Link>
+              <div className="p-[24px] flex-1 flex flex-col">
+                <h3 className="text-white text-center">{otherTrek.title}</h3>
+                <p className='my-4 text-center flex-1'>
+                  {otherTrek.description || `Explore the majestic ${otherTrek.title} and discover Bhutan's pristine wilderness.`}
                 </p>
-                <Link href="#" className="text-black font-bold underline">
-                  <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/80">
-                    View Details
-                  </Button>
-                </Link>
+                <div className="w-full flex justify-center mt-auto">
+                  <Link href={`/curated-bhutan-birding/trekking/${otherTrek.slug}`}>
+                    <Button className='bg-black rounded-none text-primary font-bold'>{RECURRING_CONTENT.trekking.viewDetails}</Button>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-2 gap-2 w-full mt-2">
-          {[1, 2].map((item) => (
-            <div key={item} className="w-full">
-              <div className="w-full border h-[540px]">hello</div>
-              <div className="p-[24px] bg-primary text-center">
-                <h3 className="text-white">Gangkar Puensum Trek</h3>
-                <p className="my-4">
-                  Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
-                  monasteries from the comfort of a spacious, private Marvel at
-                  Bhutan’s towering peaks, emerald valleys, and sacred
-                  monasteries from the comfort of a spacious, private
+         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-2">
+          {otherTreks.slice(3, 5).map((otherTrek) => (
+             <div key={otherTrek.id} className="w-full flex flex-col h-full bg-primary overflow-hidden">
+               <Link href={`/curated-bhutan-birding/trekking/${otherTrek.slug}`} className="w-full h-[400px] md:h-[540px] relative">
+                <Image
+                  src={otherTrek.image.src}
+                  alt={otherTrek.image.alt}
+                  fill
+                  className="object-cover"
+                />
+              </Link>
+              <div className="p-[24px] flex-1 flex flex-col">
+                <h3 className="text-white text-center">{otherTrek.title}</h3>
+                <p className='my-4 text-center flex-1'>
+                  {otherTrek.description || `Explore the majestic ${otherTrek.title} and discover Bhutan's pristine wilderness.`}
                 </p>
-                <Link href="/" className="text-black font-bold underline">
-                  <Button className="bg-black rounded-none text-primary font-bold hover:bg-black/80">
-                    View Details
-                  </Button>
-                </Link>
+                <div className="w-full flex justify-center mt-auto">
+                  <Link href={`/curated-bhutan-birding/trekking/${otherTrek.slug}`}>
+                    <Button className='bg-black rounded-none text-primary font-bold'>{RECURRING_CONTENT.trekking.viewDetails}</Button>
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
@@ -249,3 +212,5 @@ export default function Page() {
     </main>
   );
 }
+
+export default Page;

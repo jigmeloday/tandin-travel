@@ -3,15 +3,19 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
-import { IMAGE_BOX } from '@/lib/dummy-data/dummy-data';
+import { PackageCard } from '@/lib/types';
 import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-function BestSelling() {
-  
+interface BestSellingProps {
+  packages: PackageCard[];
+}
+
+function BestSelling({ packages }: BestSellingProps) {
+
   return (
-    <div className="relative w-full overflow-hidden px-4">      
+    <div className="relative w-full overflow-hidden px-4">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={10}
@@ -27,10 +31,10 @@ function BestSelling() {
           bulletActiveClass: 'custom-bullet-active',
         }}
         loop={true}
-        
+
         className="w-full"
       >
-        {IMAGE_BOX.filter((item) => item.best_sell).map((tour) => (
+        {packages.map((tour) => (
           <SwiperSlide
            key={tour.id}>
             <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[400px] border-l-8 border-primary overflow-hidden group">
@@ -39,8 +43,8 @@ function BestSelling() {
                 {/* Image section */}
                 <div className="w-full flex-1 h-64 lg:h-full relative">
                   <Image
-                    src={tour.image}
-                    alt={tour.title || 'img'}
+                    src={tour.image.src}
+                    alt={tour.image.alt}
                     fill
                     className="object-cover"
                   />
@@ -64,7 +68,7 @@ function BestSelling() {
 
                   {/* Call to action */}
                   <div className="mt-2 sm:mt-4 self-center">
-                    <Link href={`/flagship/${tour.id}`} className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
+                    <Link href={`/flagship/${tour.slug}`} className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
                       VIEW DETAILS
                     </Link>
                   </div>

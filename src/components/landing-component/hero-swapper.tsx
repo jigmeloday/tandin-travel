@@ -2,20 +2,16 @@
 
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { HeroSlide } from '@/lib/types';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-const slides = [
-  { img: 'images/dummy/img7.jpg', id: 1, title: 'Discover Bhutan, Beyond Imagination' },
-  { img: 'images/dummy/img5.jpg', id: 2, title: 'Every Journey, Exclusively Yours' },
-  { img: 'images/slide.jpg', id: 3, title: 'Where Culture, Nature, and Luxury Meet' },
-  { img: 'images/dummy/img1.jpg', id: 4, title: 'Travel Deeper. Experience Bhutan' },
-  { img: 'images/dummy/img2.jpg', id: 5, title: 'Crafting Moments, Curating Memories' },
+interface HeroSwapperProps {
+  slides: HeroSlide[];
+}
 
-];
-
-export default function HeroSwapper() {
+export default function HeroSwapper({ slides }: HeroSwapperProps) {
 
   return (
     <Swiper
@@ -35,7 +31,7 @@ export default function HeroSwapper() {
           <div
             className="w-full h-full relative flex items-center justify-center px-[32px]"
             style={{
-              backgroundImage: `url(${slide.img})`,
+              backgroundImage: `url(${slide.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
@@ -45,7 +41,7 @@ export default function HeroSwapper() {
           <h2 className="text-white text-3xl lg:text-5xl font-bold mb-2">
             {slide.title}
           </h2>
-          
+
         </div>
           </div>
         </SwiperSlide>
