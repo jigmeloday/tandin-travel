@@ -22,9 +22,6 @@ export default async function Page() {
     ? exquisiteStaysData.flagship_packages
     : [];
 
-  console.log('Flagship packages count:', flagshipPackages.length);
-  console.log('Flagship packages:', flagshipPackages);
-
   // Get image arrays
   const squareImages = getStrapiMediaArray(exquisiteStaysData.square_images);
   const horizontalImages = getStrapiMediaArray(exquisiteStaysData.horizontal_images);
