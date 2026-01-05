@@ -1,5 +1,6 @@
 // Component Types
 export interface HeroSlide {
+  id: number;
   title: string;
   subtitle?: string;
   description?: string;
@@ -30,6 +31,7 @@ export interface BlogCard {
 }
 
 export interface SliderSlide {
+  id: number;
   title: string;
   description: string;
   image: any;
@@ -156,6 +158,7 @@ export interface Trek {
 }
 
 export interface TeamMember {
+  id: number;
   full_name: string;
   position: string;
   bio: string;
@@ -164,6 +167,7 @@ export interface TeamMember {
 }
 
 export interface Testimonial {
+  id: number;
   quote: string;
   author: string;
   role?: string;

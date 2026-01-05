@@ -17,29 +17,75 @@ interface StrapiData<T = StrapiAttributes> {
 
 // Helper to get image URL from Strapi media
 export function getStrapiMedia(media: any): string | null {
-  if (!media?.data) return null;
+  if (!media) return null;
 
-  const imageUrl = media.data.attributes?.url;
-  if (!imageUrl) return null;
+  // Handle Strapi v4/v5 wrapped structure
+  if (media.data) {
+    const item = Array.isArray(media.data) ? media.data[0] : media.data;
+    if (!item) return null;
 
-  // If URL is already absolute, return it
-  if (imageUrl.startsWith('http')) return imageUrl;
+    const url = item.attributes?.url || item.url;
+    if (!url) return null;
+    
+    return url.startsWith('http') ? url : `${STRAPI_URL}${url}`;
+  }
 
-  // Otherwise, prepend Strapi URL
-  return `${STRAPI_URL}${imageUrl}`;
+  // Handle Strapi v5 flat structure
+  if (media.url) {
+    return media.url.startsWith('http') ? media.url : `${STRAPI_URL}${media.url}`;
+  }
+
+  return null;
 }
 
 // Helper to get multiple image URLs
 export function getStrapiMediaArray(media: any): string[] {
-  if (!media?.data || !Array.isArray(media.data)) return [];
+  if (!media) return [];
 
-  return media.data
+  // Handle Strapi v4/v5 wrapped structure vs flat array
+  const data = Array.isArray(media) ? media : (media.data || []);
+
+  if (!Array.isArray(data)) return [];
+
+  return data
     .map((item: any) => {
-      const url = item.attributes?.url;
+      const url = item.attributes?.url || item.url;
       if (!url) return null;
       return url.startsWith('http') ? url : `${STRAPI_URL}${url}`;
     })
     .filter(Boolean) as string[];
+}
+
+// Helper to flatten Strapi v4 response (remove attributes wrapper)
+function flattenStrapiResponse(data: any): any {
+  if (!data) return null;
+
+  if (Array.isArray(data)) {
+    return data.map(flattenStrapiResponse);
+  }
+
+  let flattened = data;
+
+  if (data.attributes) {
+    flattened = {
+      id: data.id,
+      ...data.attributes,
+    };
+  }
+
+  // Recursively flatten all properties
+  for (const key in flattened) {
+    if (flattened[key] !== null && typeof flattened[key] === 'object') {
+      // Handle the data wrapper inside relations
+      if (flattened[key].data !== undefined) {
+        flattened[key] = flattenStrapiResponse(flattened[key].data);
+      } else {
+        flattened[key] = flattenStrapiResponse(flattened[key]);
+      }
+    }
+  }
+
+  return flattened;
 }
 
 // Generic fetch function for Strapi with Next.js caching
@@ -67,7 +113,7 @@ export async function fetchStrapi<T = any>(
   };
 
   if (STRAPI_API_TOKEN) {
-    headers['Authorization'] = `Bearer ${STRAPI_API_TOKEN}`;
+    (headers as any)['Authorization'] = `Bearer ${STRAPI_API_TOKEN}`;
   }
 
   try {
@@ -92,18 +138,130 @@ export async function fetchStrapi<T = any>(
   }
 }
 
-// Fetch single type with deep population support
+// Helper to get specific populate params for each content type
+function getPopulateForType(type: string) {
+  const commonBgImages = {
+    'populate[parallax_background_image]': 'true',
+    'populate[travel_purpose_image]': 'true',
+  };
+
+  const heroBgHelper = {
+      'populate[hero_background_image]': 'true',
+  };
+
+  switch (type) {
+    case 'home-page':
+      return {
+        ...commonBgImages,
+        'populate[hero_slides][populate]': '*',
+        'populate[tour_types][populate]': '*',
+        'populate[flagship_packages][populate]': '*',
+        'populate[process_steps]': '*',
+        'populate[primary_package][populate]': '*',
+        'populate[grid_packages][populate]': '*',
+        'populate[image_box_packages][populate]': '*',
+        'populate[blog_posts][populate]': '*',
+        'populate[slider_slides][populate]': '*',
+        'populate[curated_sections][populate]': '*',
+      };
+    case 'about-page':
+      return {
+        ...heroBgHelper,
+        'populate[testimonials][populate]': '*',
+        'populate[founder_image]': 'true',
+        'populate[team_members][populate]': '*',
+        'populate[process_steps]': '*',
+      };
+    case 'contact-page':
+      return {
+        ...heroBgHelper,
+        'populate[form_image]': 'true',
+        'populate[contact_info]': '*',
+      };
+    case 'bespoke-journey-page':
+      return {
+        ...heroBgHelper,
+        ...commonBgImages, // Has parallax and travel_purpose
+        'populate[packages][populate]': '*',
+        'populate[grid_cards][populate]': '*',
+        'populate[related_packages][populate]': '*',
+      };
+    case 'exquisite-stays-page':
+      return {
+        ...heroBgHelper,
+        'populate[parallax_background_image]': 'true',
+        'populate[square_images]': 'true',
+        'populate[horizontal_images]': 'true',
+        'populate[luxury_images]': 'true',
+        'populate[image_box_packages][populate]': '*',
+        'populate[flagship_packages][populate]': '*',
+      };
+    case 'culture-wellness-page':
+      return {
+        ...heroBgHelper,
+        'populate[parallax_background_image]': 'true',
+        'populate[grid_cards][populate]': '*',
+        'populate[hero_images]': 'true',
+        'populate[signature_tours][populate]': '*',
+        'populate[freedom_background_image]': 'true',
+      };
+    case 'travel-purpose-page':
+      return {
+        ...heroBgHelper, // Check schema
+        'populate[alternating_sections][populate]': '*',
+      };
+    case 'curated-birding-page':
+      return {
+        ...heroBgHelper,
+        'populate[travel_purpose_image]': 'true',
+        'populate[grid_boxes][populate]': '*',
+        'populate[treks][populate]': '*',
+      };
+    case 'birding-detail-page':
+      return {
+        ...heroBgHelper,
+        ...commonBgImages,
+        'populate[essential_info]': '*',
+        'populate[next_level_items][populate]': '*',
+      };
+    case 'site-settings':
+      return {
+        'populate[logo]': 'true',
+        'populate[recurring_sections][populate]': '*',
+      };
+    case 'package':
+    case 'trek':
+    case 'team-member':
+    case 'testimonial':
+      // For collection types, we generally want everything
+      return {
+        'populate[image]': 'true',
+        'populate[full_image]': 'true',
+        'populate[detailed_sections][populate]': '*',
+        'populate[freedom_section][populate]': '*',
+        'populate[hero_images]': 'true',
+        'populate[cultural_highlights][populate]': '*',
+        'populate[essential_info]': '*',
+        'populate[cultural_connections][populate]': '*',
+      };
+    default:
+      console.warn(`No specific populate map for type: ${type}, returning empty.`);
+      return {};
+  }
+}
+
+// Fetch single type with deep population support (Strapi v5)
 export async function fetchSingleType<T = any>(
   contentType: string,
   populate?: string | string[] | Record<string, any>
 ): Promise<T | null> {
   try {
-    const params: Record<string, any> = {};
+    let params: Record<string, any> = {};
 
     if (populate) {
-      // Support for deep population using 'deep' keyword
-      if (populate === 'deep') {
-        params.populate = 'deep';
+      // For Strapi v5 deep population, use special helper
+      if (populate === '*' || populate === 'deep') {
+        params = getPopulateForType(contentType);
       }
       // Support for custom populate object
       else if (typeof populate === 'object' && !Array.isArray(populate)) {
@@ -111,7 +269,7 @@ export async function fetchSingleType<T = any>(
           params[`populate[${key}]`] = value;
         });
       }
-      // Legacy support for array/string (though not recommended for deep population)
+      // Legacy support for array/string
       else {
         params.populate = Array.isArray(populate) ? populate.join(',') : populate;
       }
@@ -123,14 +281,15 @@ export async function fetchSingleType<T = any>(
     );
 
     // Strapi v5 returns data directly, not in attributes
-    return response.data || null;
+    // But we are using v4, so we flatten it to maintain v5-style frontend code
+    return response.data ? flattenStrapiResponse(response.data) : null;
   } catch (error) {
     console.error(`Error fetching single type ${contentType}:`, error);
     return null;
   }
 }
 
-// Fetch collection type (multiple entries) with deep population support
+// Fetch collection type (multiple entries) with deep population support (Strapi v5)
 export async function fetchCollection<T = any>(
   contentType: string,
   options?: {
@@ -144,7 +303,7 @@ export async function fetchCollection<T = any>(
   }
 ): Promise<T[]> {
   try {
-    const params: Record<string, any> = {};
+    let params: Record<string, any> = {};
 
     if (options?.filters) {
       Object.entries(options.filters).forEach(([key, value]) => {
@@ -153,9 +312,10 @@ export async function fetchCollection<T = any>(
     }
 
     if (options?.populate) {
-      // Support for deep population using 'deep' keyword
-      if (options.populate === 'deep') {
-        params.populate = 'deep';
+      // For Strapi v5 deep population
+      if (options.populate === '*' || options.populate === 'deep') {
+        // Populate all fields based on content type
+        params = { ...params, ...getPopulateForType(contentType) };
       }
       // Support for custom populate object
       else if (typeof options.populate === 'object' && !Array.isArray(options.populate)) {
@@ -188,28 +348,30 @@ export async function fetchCollection<T = any>(
     );
 
     // Strapi v5 returns data directly, not in attributes
-    return response.data || [];
+    // But we are using v4, so we flatten it to maintain v5-style frontend code
+    return response.data ? flattenStrapiResponse(response.data) : [];
   } catch (error) {
     console.error(`Error fetching collection ${contentType}:`, error);
     return [];
   }
 }
 
-// Fetch single entry by slug with deep population support
+// Fetch single entry by slug with deep population support (Strapi v5)
 export async function fetchBySlug<T = any>(
   contentType: string,
   slug: string,
   populate?: string | string[] | Record<string, any>
 ): Promise<T | null> {
   try {
-    const params: Record<string, any> = {
+    let params: Record<string, any> = {
       'filters[slug][$eq]': slug,
     };
 
     if (populate) {
-      // Support for deep population using 'deep' keyword
-      if (populate === 'deep') {
-        params.populate = 'deep';
+      // For Strapi v5 deep population
+      if (populate === '*' || populate === 'deep') {
+        // Populate all fields including nested ones
+        params = { ...params, ...getPopulateForType(contentType) };
       }
       // Support for custom populate object
       else if (typeof populate === 'object' && !Array.isArray(populate)) {

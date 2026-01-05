@@ -22,6 +22,9 @@ export default async function Page() {
     ? exquisiteStaysData.flagship_packages
     : [];
 
+  console.log('Flagship packages count:', flagshipPackages.length);
+  console.log('Flagship packages:', flagshipPackages);
+
   // Get image arrays
   const squareImages = getStrapiMediaArray(exquisiteStaysData.square_images);
   const horizontalImages = getStrapiMediaArray(exquisiteStaysData.horizontal_images);
@@ -222,18 +225,12 @@ export default async function Page() {
       </section>
 
       {/* Flagship Section */}
-      <section className="flex flex-col justify-center items-center text-center mb-[90px]">
-        <h1 className="mb-10">{exquisiteStaysData.flagship_title}</h1>
-        <BestSelling
-          packages={flagshipPackages.map((pkg: any) => ({
-            ...pkg,
-            image: {
-              src: getStrapiMedia(pkg.image) || '',
-              alt: pkg.title,
-            },
-          }))}
-        />
-      </section>
+      {flagshipPackages.length > 0 && (
+        <section className="flex flex-col justify-center items-center text-center mb-[90px]">
+          <h1 className="mb-10">{exquisiteStaysData.flagship_title}</h1>
+          <BestSelling packages={flagshipPackages} />
+        </section>
+      )}
     </main>
   );
 }

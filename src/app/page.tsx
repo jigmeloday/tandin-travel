@@ -9,6 +9,14 @@ import Image from "next/image";
 import Link from "next/link";
 import * as LucideIcons from "lucide-react";
 
+// Helper function to convert kebab-case to PascalCase for Lucide icon names
+function kebabToPascal(str: string): string {
+	return str
+		.split('-')
+		.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+		.join('');
+}
+
 export default async function Home() {
 	// Fetch home page data from Strapi
 	// Using wildcard to populate all relations and media fields
@@ -41,17 +49,13 @@ export default async function Home() {
 				<HeroSwapper
 					slides={
 						homeData.hero_slides?.map((slide) => ({
+							id: slide.id,
 							title: slide.title,
 							subtitle: slide.subtitle || "",
 							description: slide.description || "",
-							image: {
-								src: getStrapiMedia(slide.image) || "",
-								alt: slide.title,
-							},
-							cta: {
-								text: slide.cta_text || "",
-								href: slide.cta_href || "#",
-							},
+							image: getStrapiMedia(slide.image) || "",
+							overlayOpacity: slide.overlay_opacity || 0.3,
+							cta: slide.cta_text || "Explore",
 						})) || []
 					}
 				/>
@@ -127,9 +131,11 @@ export default async function Home() {
 				</div>
 				<div className="grid md:grid-cols-2 lg:grid-cols-4 items-start justify-center my-[40px] gap-4">
 					{homeData.process_steps?.map((step) => {
+						// Convert kebab-case icon name to PascalCase for Lucide icons
+						const iconName = kebabToPascal(step.icon_name?.trim() || '');
 						const IconComponent =
 							LucideIcons[
-								step.icon_name as keyof typeof LucideIcons
+								iconName as keyof typeof LucideIcons
 							] as React.ComponentType<{ className?: string }>;
 
 						return (
@@ -349,12 +355,12 @@ export default async function Home() {
 				<section className="my-[42px] px-[16px] lg:px-[32px]">
 					<SliderComponent
 						slides={homeData.slider_slides.map((slide) => ({
+							id: slide.id,
 							title: slide.title,
 							description: slide.description,
-							image: {
-								src: getStrapiMedia(slide.image) || "",
-								alt: slide.title,
-							},
+							image: getStrapiMedia(slide.image) || "",
+							subtitle: "Discover", // Fallback
+							cta: "Learn More", // Fallback
 						}))}
 					/>
 				</section>

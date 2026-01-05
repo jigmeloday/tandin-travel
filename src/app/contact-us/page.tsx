@@ -4,6 +4,14 @@ import { fetchSingleType, getStrapiMedia } from '@/lib/strapi';
 import { ContactPage } from '@/types/strapi';
 import * as LucideIcons from 'lucide-react';
 
+// Helper function to convert kebab-case to PascalCase for Lucide icon names
+function kebabToPascal(str: string): string {
+  return str
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+}
+
 async function Page() {
   // Fetch contact page data from Strapi
   const contactData = await fetchSingleType<ContactPage>('contact-page', '*');
@@ -50,8 +58,10 @@ async function Page() {
       </section>
       <section className="flex flex-col md:flex-row justify-center gap-[54px] mb-[90px]">
         {contactData.contact_info?.map((info, index) => {
+          // Convert kebab-case icon name to PascalCase for Lucide icons
+          const iconName = kebabToPascal(info.icon_name?.trim() || '');
           const IconComponent = LucideIcons[
-            info.icon_name as keyof typeof LucideIcons
+            iconName as keyof typeof LucideIcons
           ] as React.ComponentType<{ size?: number }>;
 
           return (

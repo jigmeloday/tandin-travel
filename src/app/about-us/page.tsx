@@ -5,6 +5,22 @@ import LetsTalk from '@/components/shared/let-talk';
 import { fetchSingleType, getStrapiMedia } from '@/lib/strapi';
 import { AboutPage, Testimonial as TestimonialType, TeamMember } from '@/types/strapi';
 
+
+function getYouTubeEmbedUrl(url: string): string {
+  try {
+    // Handle youtube.com/watch?v=ID and youtu.be/ID
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    if (match && match[2].length === 11) {
+      return `https://www.youtube.com/embed/${match[2]}`;
+    }
+    return url; // Return original if not a standard YouTube link, might fail but better than crashing
+  } catch (error) {
+    return url;
+  }
+}
+
 async function Page() {
   // Fetch about page data from Strapi with all relations populated
   const aboutData = await fetchSingleType<AboutPage>('about-page', '*');
@@ -162,14 +178,15 @@ async function Page() {
             {aboutData.video_title || 'Our Story'}
           </h2>
 
-          <div className="w-full h-full overflow-hidden shadow-lg border border-gray-700">
-            <video className="w-full h-full object-cover" controls>
-              <source
-                src={aboutData.video_url}
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
+
+          <div className="w-full h-full overflow-hidden shadow-lg border border-gray-700 relative">
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src={getYouTubeEmbedUrl(aboutData.video_url)}
+              title={aboutData.video_title || 'Our Story'}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </section>
       )}
