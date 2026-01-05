@@ -1,9 +1,12 @@
 import BestSelling from '@/components/landing-component/best-selling';
 import LetsTalk from '@/components/shared/let-talk';
-import { fetchSingleType, getStrapiMedia, getStrapiMediaArray } from '@/lib/strapi';
+import { fetchSingleType, fetchCollection, getStrapiMedia, getStrapiMediaArray } from '@/lib/strapi';
 import { ExquisiteStaysPage } from '@/types/strapi';
 import Image from 'next/image';
 import Link from 'next/link';
+
+// Revalidate this page every 60 seconds
+export const revalidate = 60;
 
 export default async function Page() {
   // Fetch exquisite stays page data from Strapi
@@ -18,9 +21,22 @@ export default async function Page() {
     ? exquisiteStaysData.image_box_packages
     : [];
 
-  const flagshipPackages = Array.isArray(exquisiteStaysData.flagship_packages)
-    ? exquisiteStaysData.flagship_packages
-    : [];
+  // Fetch flagship tours directly from the flagship-tours collection
+  const flagshipTours = await fetchCollection('flagship-tours', {
+    populate: '*',
+    pagination: { pageSize: 10 },
+  });
+
+  // Map flagship tours to package format for BestSelling component
+  const flagshipPackages = flagshipTours.map((tour: any) => ({
+    id: tour.id,
+    slug: tour.slug,
+    title: tour.title,
+    subtitle: tour.subtitle,
+    description: tour.description,
+    category: tour.subtitle || 'FLAGSHIP TOUR',
+    image: tour.hero_images?.[0] || tour.hero_images,
+  }));
 
   // Get image arrays
   const squareImages = getStrapiMediaArray(exquisiteStaysData.square_images);
@@ -222,12 +238,14 @@ export default async function Page() {
       </section>
 
       {/* Flagship Section */}
-      {flagshipPackages.length > 0 && (
-        <section className="flex flex-col justify-center items-center text-center mb-[90px]">
-          <h1 className="mb-10">{exquisiteStaysData.flagship_title}</h1>
+      <section className="flex flex-col justify-center items-center text-center mb-[90px]">
+        <h1 className="mb-10">{exquisiteStaysData.flagship_title || 'Flagship Signature Journey'}</h1>
+        {flagshipPackages.length > 0 ? (
           <BestSelling packages={flagshipPackages} />
-        </section>
-      )}
+        ) : (
+          <p className="text-gray-500">No flagship tours available</p>
+        )}
+      </section>
     </main>
   );
 }

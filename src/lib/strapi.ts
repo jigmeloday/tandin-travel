@@ -230,9 +230,15 @@ function getPopulateForType(type: string) {
         'populate[recurring_sections][populate]': '*',
       };
     case 'package':
+    case 'packages':
     case 'trek':
+    case 'treks':
     case 'team-member':
+    case 'team-members':
     case 'testimonial':
+    case 'testimonials':
+    case 'flagship-tour':
+    case 'flagship-tours':
       // For collection types, we generally want everything
       return {
         'populate[image]': 'true',
