@@ -241,7 +241,7 @@ export default async function Page() {
       <section className="flex flex-col justify-center items-center text-center mb-[90px]">
         <h1 className="mb-10">{exquisiteStaysData.flagship_title || 'Flagship Signature Journey'}</h1>
         {flagshipPackages.length > 0 ? (
-          <BestSelling packages={flagshipPackages} />
+          <BestSelling packages={flagshipPackages} basePath="/flagship" />
         ) : (
           <p className="text-gray-500">No flagship tours available</p>
         )}

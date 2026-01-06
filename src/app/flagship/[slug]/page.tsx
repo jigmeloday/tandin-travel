@@ -9,7 +9,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
 export async function generateStaticParams() {
-  const slugs = await fetchAllSlugs('flagship-tour');
+  const slugs = await fetchAllSlugs('flagship-tours');
   return slugs.map((slug) => ({ slug }));
 }
 
@@ -17,20 +17,20 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
   // Fetch flagship tour data from Strapi
-  const flagshipTour = await fetchBySlug<FlagshipTour>('flagship-tour', slug, '*');
+  const flagshipTour = await fetchBySlug<FlagshipTour>('flagship-tours', slug, '*');
 
   if (!flagshipTour) {
     notFound();
   }
 
   // Fetch best selling packages
-  const bestSelling = await fetchCollection<Package>('package', {
+  const bestSelling = await fetchCollection<Package>('packages', {
     filters: { is_best_selling: true },
     populate: '*'
   });
 
   // Fetch other packages
-  const otherPackages = await fetchCollection<Package>('package', {
+  const otherPackages = await fetchCollection<Package>('packages', {
     filters: { is_other: true },
     populate: '*',
     pagination: { pageSize: 5 }

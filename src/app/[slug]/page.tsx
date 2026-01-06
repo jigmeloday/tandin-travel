@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
-  const slugs = await fetchAllSlugs('package');
+  const slugs = await fetchAllSlugs('packages');
   return slugs.map((slug) => ({ slug }));
 }
 
@@ -14,19 +14,19 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = (await params) as { slug: string };
 
   // Fetch package data from Strapi
-  const data = await fetchBySlug<Package>('package', slug, '*');
+  const data = await fetchBySlug<Package>('packages', slug, '*');
 
   if (!data) {
     notFound();
   }
 
   // Fetch other packages (with is_other = true or all packages)
-  const otherPackages = await fetchCollection<Package>('package', {
+  const otherPackages = await fetchCollection<Package>('packages', {
     populate: '*',
     pagination: { pageSize: 3 },
   });
 
-  const imageBoxPackages = await fetchCollection<Package>('package', {
+  const imageBoxPackages = await fetchCollection<Package>('packages', {
     populate: '*',
     pagination: { pageSize: 6 },
   });

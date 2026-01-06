@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 export async function generateStaticParams() {
-  const slugs = await fetchAllSlugs('package');
+  const slugs = await fetchAllSlugs('packages');
   return slugs.map((slug) => ({ slug }));
 }
 
@@ -13,14 +13,14 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
   // Fetch package data from Strapi with all relations populated
-  const data = await fetchBySlug<Package>('package', slug, '*');
+  const data = await fetchBySlug<Package>('packages', slug, '*');
 
   if (!data) {
     notFound();
   }
 
   // Fetch image box packages (packages with is_other = true or all packages)
-  const imageBoxPackages = await fetchCollection<Package>('package', {
+  const imageBoxPackages = await fetchCollection<Package>('packages', {
     populate: '*',
     pagination: { pageSize: 6 },
   });

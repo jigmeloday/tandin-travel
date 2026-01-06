@@ -6,14 +6,14 @@ import { notFound } from 'next/navigation';
 
 async function Page() {
   // Fetch Silent Monks package data from Strapi
-  const data = await fetchBySlug<Package>('package', 'silent-monks', '*');
+  const data = await fetchBySlug<Package>('packages', 'silent-monks', '*');
 
   if (!data) {
     notFound();
   }
 
   // Fetch related packages
-  const relatedPackages = await fetchCollection<Package>('package', {
+  const relatedPackages = await fetchCollection<Package>('packages', {
     populate: '*',
     pagination: { pageSize: 6 },
   });

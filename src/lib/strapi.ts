@@ -243,10 +243,10 @@ function getPopulateForType(type: string) {
       return {
         'populate[image]': 'true',
         'populate[full_image]': 'true',
-        'populate[detailed_sections][populate]': '*',
-        'populate[freedom_section][populate]': '*',
+        'populate[detailed_sections][populate][image]': 'true',
+        'populate[freedom_section][populate][background_image]': 'true',
         'populate[hero_images]': 'true',
-        'populate[cultural_highlights][populate]': '*',
+        'populate[cultural_highlights][populate][image]': 'true',
         'populate[essential_info]': '*',
         'populate[cultural_connections][populate]': '*',
       };
@@ -396,8 +396,8 @@ export async function fetchBySlug<T = any>(
       params
     );
 
-    // Strapi v5 returns data directly, not in attributes
-    return response.data?.[0] || null;
+    // Strapi v4 returns data with attributes wrapper - flatten it
+    return response.data?.[0] ? flattenStrapiResponse(response.data[0]) : null;
   } catch (error) {
     console.error(`Error fetching ${contentType} by slug ${slug}:`, error);
     return null;
@@ -407,13 +407,13 @@ export async function fetchBySlug<T = any>(
 // Fetch all slugs for a collection (for static generation)
 export async function fetchAllSlugs(contentType: string): Promise<string[]> {
   try {
-    const response = await fetchStrapi<StrapiResponse<{ slug: string }[]>>(
+    const response = await fetchStrapi<StrapiResponse<any[]>>(
       `/${contentType}`,
       { fields: 'slug' }
     );
 
-    // Strapi v5 returns data directly, not in attributes
-    return response.data?.map((item) => item.slug).filter(Boolean) || [];
+    // Strapi v4 has attributes wrapper
+    return response.data?.map((item) => item.attributes?.slug || item.slug).filter(Boolean) || [];
   } catch (error) {
     console.error(`Error fetching slugs for ${contentType}:`, error);
     return [];
@@ -440,20 +440,20 @@ export const fetchPages = {
 
 // Helper function to fetch packages by type
 export const fetchPackages = {
-  all: () => fetchCollection('package', { populate: '*' }),
-  bestSelling: () => fetchCollection('package', {
+  all: () => fetchCollection('packages', { populate: '*' }),
+  bestSelling: () => fetchCollection('packages', {
     filters: { is_best_selling: true },
     populate: '*'
   }),
-  flagship: () => fetchCollection('package', {
+  flagship: () => fetchCollection('packages', {
     filters: { is_flagship: true },
     populate: '*'
   }),
-  other: () => fetchCollection('package', {
+  other: () => fetchCollection('packages', {
     filters: { is_other: true },
     populate: '*'
   }),
-  bySlug: (slug: string) => fetchBySlug('package', slug, '*'),
+  bySlug: (slug: string) => fetchBySlug('packages', slug, '*'),
 };
 
 // Helper function to fetch treks

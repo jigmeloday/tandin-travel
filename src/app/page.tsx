@@ -119,7 +119,8 @@ export default async function Home() {
 							alt: pkg.title,
 						},
 					}))}
-				/>
+				basePath="/flagship"
+			/>
 			</section>
 
 			{/* Process Section */}

@@ -23,7 +23,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
   }
 
   // Fetch best-selling packages for the slider
-  const bestSellingPackages = await fetchCollection<Package>('package', {
+  const bestSellingPackages = await fetchCollection<Package>('packages', {
     filters: { is_best_selling: true },
     populate: '*',
     pagination: { pageSize: 5 },

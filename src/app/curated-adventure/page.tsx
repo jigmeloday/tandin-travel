@@ -6,14 +6,14 @@ import { notFound } from 'next/navigation';
 
 async function Page() {
   // Fetch Curated Adventure package data from Strapi
-  const data = await fetchBySlug<Package>('package', 'curated-adventure', '*');
+  const data = await fetchBySlug<Package>('packages', 'curated-adventure', '*');
 
   if (!data) {
     notFound();
   }
 
   // Fetch related packages
-  const relatedPackages = await fetchCollection<Package>('package', {
+  const relatedPackages = await fetchCollection<Package>('packages', {
     populate: '*',
     pagination: { pageSize: 6 },
   });
