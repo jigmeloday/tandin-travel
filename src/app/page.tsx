@@ -3,7 +3,7 @@ import HeroSwapper from "@/components/landing-component/hero-swapper";
 import SliderComponent from "@/components/landing-component/slider";
 import ImageBox from "@/components/shared/image-box";
 import LetsTalk from "@/components/shared/let-talk";
-import { fetchSingleType, getStrapiMedia } from "@/lib/strapi";
+import { fetchSingleType, fetchCollection, getStrapiMedia } from "@/lib/strapi";
 import { HomePage as HomePageType } from "@/types/strapi";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,11 +26,22 @@ export default async function Home() {
 		return <div>Error loading home page data</div>;
 	}
 
-	// Extract packages from relations (Strapi v5 format)
-	// Relations are returned as arrays directly, not in data.attributes
-	const flagshipPackages = Array.isArray(homeData.flagship_packages)
-		? homeData.flagship_packages
-		: [];
+	// Fetch flagship tours directly from the flagship-tours collection
+	const flagshipTours = await fetchCollection('flagship-tours', {
+		populate: '*',
+		pagination: { pageSize: 10 },
+	});
+
+	// Map flagship tours to package format for BestSelling component
+	const flagshipPackages = flagshipTours.map((tour: any) => ({
+		id: tour.id,
+		slug: tour.slug,
+		title: tour.title,
+		subtitle: tour.subtitle,
+		description: tour.description,
+		category: tour.subtitle || 'FLAGSHIP TOUR',
+		image: tour.hero_images?.[0] || tour.hero_images,
+	}));
 
 	const primaryPackage = homeData.primary_package || null;
 
@@ -112,13 +123,7 @@ export default async function Home() {
 			<section className="flex flex-col justify-center items-center text-center mb-[90px]">
 				<h1 className="mb-8">{homeData.flagship_title}</h1>
 				<BestSelling
-					packages={flagshipPackages.map((pkg: any) => ({
-						...pkg,
-						image: {
-							src: getStrapiMedia(pkg.image) || "",
-							alt: pkg.title,
-						},
-					}))}
+				packages={flagshipPackages}
 				basePath="/flagship"
 			/>
 			</section>
