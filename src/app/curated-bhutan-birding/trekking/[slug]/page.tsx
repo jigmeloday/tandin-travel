@@ -186,7 +186,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       <section className="flex flex-col px-[16px] lg:px-[32px] items-center justify-center gap-2 mb-[90px]">
         <h2>Next-Level Adventures</h2>
         <p className="my-[24px] text-center px-4 md:px-[142px]">
-          Discover more extraordinary treks through Bhutan's pristine landscapes. Each trek offers unique challenges, breathtaking views, and unforgettable experiences in the heart of the Himalayas.
+          Discover more extraordinary treks through Bhutan&apos;s pristine landscapes. Each trek offers unique challenges, breathtaking views, and unforgettable experiences in the heart of the Himalayas.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2 w-full">
           {otherTreks.slice(0, 3).map((otherTrek) => (

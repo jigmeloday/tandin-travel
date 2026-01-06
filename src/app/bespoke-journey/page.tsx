@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 import { fetchSingleType, getStrapiMedia } from '@/lib/strapi';
-import { BespokeJourneyPage } from '@/types/strapi';
+import { BespokeJourneyPage, Package } from '@/types/strapi';
 
 async function Page() {
   // Fetch bespoke journey page data from Strapi
@@ -41,7 +41,7 @@ async function Page() {
 
       {/* Packages */}
       <section className="flex flex-col gap-[50px] px-[16px] lg:px-[32px] mb-[90px]">
-        {featuredPackages.map((pkg: any, index: number) => (
+        {featuredPackages.map((pkg: Package, index: number) => (
           <div
             key={pkg.id}
             className={`flex flex-col lg:flex-row items-center gap-[32px] ${
@@ -177,7 +177,7 @@ async function Page() {
 
       <section className="flex flex-col px-4 md:px-8 mb-[90px] md:mb-20 gap-2">
         <div className="grid grid-cols-1 md:grid-cols-3 mx-auto md:max-w-[99%] gap-2">
-          {otherAdventures.slice(0, 3).map((pkg: any) => (
+          {otherAdventures.slice(0, 3).map((pkg: Package) => (
             <div className="bg-gray-100 flex flex-col" key={pkg.id}>
               <div className="h-[400px] relative">
                 <Image
@@ -202,7 +202,7 @@ async function Page() {
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 mx-auto md:max-w-[99%] gap-2 mb-4">
-          {otherAdventures.slice(3, 5).map((pkg: any) => (
+          {otherAdventures.slice(3, 5).map((pkg: Package) => (
             <div className="bg-gray-100 flex flex-col" key={pkg.id}>
               <div className="h-[500px] relative">
                 <Image

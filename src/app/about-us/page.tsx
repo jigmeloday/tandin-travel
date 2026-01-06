@@ -3,7 +3,7 @@ import Testimonial from './components/testimonial';
 import Link from 'next/link';
 import LetsTalk from '@/components/shared/let-talk';
 import { fetchSingleType, getStrapiMedia } from '@/lib/strapi';
-import { AboutPage, Testimonial as TestimonialType, TeamMember } from '@/types/strapi';
+import { AboutPage, TeamMember } from '@/types/strapi';
 
 
 function getYouTubeEmbedUrl(url: string): string {
@@ -16,7 +16,7 @@ function getYouTubeEmbedUrl(url: string): string {
       return `https://www.youtube.com/embed/${match[2]}`;
     }
     return url; // Return original if not a standard YouTube link, might fail but better than crashing
-  } catch (error) {
+  } catch {
     return url;
   }
 }
@@ -128,7 +128,7 @@ async function Page() {
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] mb-[90px]">
         <div className="grid grid-col-1 md:grid-cols-3 gap-2">
-          {teamMembers.map((member: any) => (
+          {teamMembers.map((member: TeamMember) => (
             <div key={member.id} className="flex flex-col items-center w-full">
               <Image
                 src={getStrapiMedia(member.image) || '/images/placeholder.jpg'}

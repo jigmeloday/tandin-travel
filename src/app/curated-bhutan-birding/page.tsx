@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SideSelling from './components/slider';
 import { fetchSingleType, fetchCollection, getStrapiMedia } from '@/lib/strapi';
-import { CuratedBirdingPage, Trek, Package } from '@/types/strapi';
+import { CuratedBirdingPage, Package, Trek } from '@/types/strapi';
 
 export default async function Page() {
   // Fetch curated birding page data from Strapi
@@ -129,7 +129,7 @@ export default async function Page() {
           {birdingData.getaways_description || 'Explore our curated trekking experiences'}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full mt-6">
-          {getawayTreks.map((trek: any) => (
+          {getawayTreks.map((trek: Trek) => (
             <Link href={`/curated-bhutan-birding/trekking/${trek.slug}`} key={trek.slug} className="w-full border group">
               <div className="h-[560px] relative overflow-hidden">
                 <Image

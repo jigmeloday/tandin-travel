@@ -10,11 +10,6 @@ interface StrapiAttributes {
   [key: string]: any;
 }
 
-interface StrapiData<T = StrapiAttributes> {
-  id: number;
-  attributes: T;
-}
-
 // Helper to get image URL from Strapi media
 export function getStrapiMedia(media: any): string | null {
   if (!media) return null;

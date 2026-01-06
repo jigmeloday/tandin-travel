@@ -114,6 +114,7 @@ export interface RecurringSection {
 
 // Collection Types
 export interface Package {
+  id: number;
   title: string;
   slug: string;
   subtitle?: string;
@@ -125,12 +126,13 @@ export interface Package {
   full_image?: any;
   detailed_sections?: DetailedSection[];
   freedom_section?: FreedomSection;
-  is_best_selling: boolean;
-  is_flagship: boolean;
-  is_other: boolean;
+  is_best_selling?: boolean;
+  is_flagship?: boolean;
+  is_other?: boolean;
 }
 
 export interface FlagshipTour {
+  id: number;
   slug: string;
   title: string;
   subtitle?: string;
@@ -144,6 +146,7 @@ export interface FlagshipTour {
 }
 
 export interface Trek {
+  id: number;
   slug: string;
   title: string;
   subtitle?: string;

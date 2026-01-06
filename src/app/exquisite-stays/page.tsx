@@ -1,7 +1,7 @@
 import BestSelling from '@/components/landing-component/best-selling';
 import LetsTalk from '@/components/shared/let-talk';
 import { fetchSingleType, fetchCollection, getStrapiMedia, getStrapiMediaArray } from '@/lib/strapi';
-import { ExquisiteStaysPage } from '@/types/strapi';
+import { ExquisiteStaysPage, FlagshipTour, Package } from '@/types/strapi';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -28,7 +28,7 @@ export default async function Page() {
   });
 
   // Map flagship tours to package format for BestSelling component
-  const flagshipPackages = flagshipTours.map((tour: any) => ({
+  const flagshipPackages = flagshipTours.map((tour: FlagshipTour) => ({
     id: tour.id,
     slug: tour.slug,
     title: tour.title,
@@ -215,7 +215,7 @@ export default async function Page() {
       {/* Grid Section */}
       <section className="px-4 lg:px-[32px] mb-[90px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-          {imageBoxPackages.map((pkg: any) => (
+          {imageBoxPackages.map((pkg: Package) => (
             <Link
               key={pkg.id}
               href={`/packages/${pkg.slug}`}

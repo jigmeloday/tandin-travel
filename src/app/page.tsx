@@ -4,7 +4,7 @@ import SliderComponent from "@/components/landing-component/slider";
 import ImageBox from "@/components/shared/image-box";
 import LetsTalk from "@/components/shared/let-talk";
 import { fetchSingleType, fetchCollection, getStrapiMedia } from "@/lib/strapi";
-import { HomePage as HomePageType } from "@/types/strapi";
+import { HomePage as HomePageType, FlagshipTour, Package } from "@/types/strapi";
 import Image from "next/image";
 import Link from "next/link";
 import * as LucideIcons from "lucide-react";
@@ -33,7 +33,7 @@ export default async function Home() {
 	});
 
 	// Map flagship tours to package format for BestSelling component
-	const flagshipPackages = flagshipTours.map((tour: any) => ({
+	const flagshipPackages = flagshipTours.map((tour: FlagshipTour) => ({
 		id: tour.id,
 		slug: tour.slug,
 		title: tour.title,
@@ -205,7 +205,7 @@ export default async function Home() {
 				)}
 				<div className="space-y-2">
 					<div className="flex flex-col lg:flex-row gap-2 items-stretch">
-						{gridPackages.slice(0, 2).map((pkg: any, idx: number) => (
+						{gridPackages.slice(0, 2).map((pkg: Package, idx: number) => (
 							<div
 								key={pkg.id}
 								className={`border w-full ${
@@ -237,7 +237,7 @@ export default async function Home() {
 					</div>
 
 					<div className="flex flex-col lg:flex-row gap-2 items-stretch">
-						{gridPackages.slice(2, 4).map((pkg: any, idx: number) => (
+						{gridPackages.slice(2, 4).map((pkg: Package, idx: number) => (
 							<div
 								key={pkg.id}
 								className={`border w-full ${
@@ -310,7 +310,7 @@ export default async function Home() {
 
 			{/* Image Box Packages */}
 			<section className="grid lg:grid-cols-3 px-[16px] lg:px-[32px] gap-2 mb-[90px]">
-				{imageBoxPackages.map((pkg: any) => (
+				{imageBoxPackages.map((pkg: Package) => (
 					<ImageBox
 						id={pkg.slug}
 						key={pkg.id}
