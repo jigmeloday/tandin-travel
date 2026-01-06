@@ -3,15 +3,21 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
-import { IMAGE_BOX } from '@/lib/dummy-data/dummy-data';
+import { Package } from '@/types/strapi';
+import { getStrapiMedia } from '@/lib/strapi';
 import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-function BestSelling() {
-  
+interface BestSellingProps {
+  packages: Package[];
+  basePath?: string;
+}
+
+function BestSelling({ packages, basePath = '/packages' }: BestSellingProps) {
+
   return (
-    <div className="relative w-full overflow-hidden px-4">      
+    <div className="relative w-full overflow-hidden px-4">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={10}
@@ -27,20 +33,20 @@ function BestSelling() {
           bulletActiveClass: 'custom-bullet-active',
         }}
         loop={true}
-        
+
         className="w-full"
       >
-        {IMAGE_BOX.filter((item) => item.best_sell).map((tour) => (
+        {packages.map((tour, index) => (
           <SwiperSlide
-           key={tour.id}>
+           key={tour.slug || index}>
             <div className="flex-shrink-0 w-full h-[300px] lg:min-h-[400px] border-l-8 border-primary overflow-hidden group">
               {/* Card container */}
               <div className="flex flex-col lg:flex-row h-full w-full bg-[#111820] transition-transform duration-300">
                 {/* Image section */}
                 <div className="w-full flex-1 h-64 lg:h-full relative">
                   <Image
-                    src={tour.image}
-                    alt={tour.title || 'img'}
+                    src={getStrapiMedia(tour.image) || '/images/placeholder.jpg'}
+                    alt={tour.title}
                     fill
                     className="object-cover"
                   />
@@ -64,7 +70,7 @@ function BestSelling() {
 
                   {/* Call to action */}
                   <div className="mt-2 sm:mt-4 self-center">
-                    <Link href={`/flagship/${tour.id}`} className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
+                    <Link href={`${basePath}/${tour.slug}`} className="bg-primary hover:bg-primary/90 text-white font-bold px-4 sm:px-6 py-2 transition-colors duration-200 text-sm sm:text-base">
                       VIEW DETAILS
                     </Link>
                   </div>

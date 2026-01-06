@@ -1,33 +1,46 @@
 import Image from 'next/image';
-import { CONTACT_US } from './constant/contact-us.constant';
 import ContactForm from './components/form';
+import { fetchSingleType, getStrapiMedia } from '@/lib/strapi';
+import { ContactPage } from '@/types/strapi';
+import * as LucideIcons from 'lucide-react';
 
-function Page() {
+// Helper function to convert kebab-case to PascalCase for Lucide icon names
+function kebabToPascal(str: string): string {
+  return str
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+}
+
+async function Page() {
+  // Fetch contact page data from Strapi
+  const contactData = await fetchSingleType<ContactPage>('contact-page', '*');
+
+  if (!contactData) {
+    return <div>Error loading contact page data</div>;
+  }
+
   return (
     <main>
       <section className="h-[calc(100vh-20vh)] w-full overflow-hidden relative mb-[90px]">
         <Image
-          src="/images/dummy/img5.jpg"
-          alt="Bespoke Journey"
+          src={getStrapiMedia(contactData.hero_background_image) || '/images/placeholder.jpg'}
+          alt={contactData.hero_title || 'Contact Us'}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center px-4">
           <h1 className="text-white text-center text-3xl md:text-5xl">
-            Contact Us
+            {contactData.hero_title || 'Contact Us'}
           </h1>
         </div>
       </section>
       <section className="flex flex-col md:flex-row px-[16px] md:px-[32px] mb-[90px] justify-center w-full">
         <div className="bg-[#111820] md:w-[40%] p-[32px]">
-          <h2>Start the Conversation</h2>
+          <h2>{contactData.form_title || 'Get in Touch'}</h2>
           <p className='text-white text-[14px] lg:text-[16px]'>
-            Every remarkable journey begins with a simple hello — share your
-            thoughts, dreams, or travel inspirations with us, and we’ll
-            gracefully guide you forward, transforming your vision into an
-            unforgettable journey woven with meaning, beauty, and lasting
-            memories.
+            {contactData.form_description || 'We would love to hear from you'}
           </p>
           <div>
             <ContactForm />
@@ -35,26 +48,31 @@ function Page() {
         </div>
         <div className="flex-1">
           <Image
-            src="/images/dummy/img1.jpg"
-            alt=""
+            src={getStrapiMedia(contactData.form_image) || '/images/placeholder.jpg'}
+            alt="Contact"
             height={400}
             width={500}
-            className="w-full h-full"
+            className="w-full h-full object-cover"
           />
         </div>
       </section>
       <section className="flex flex-col md:flex-row justify-center gap-[54px] mb-[90px]">
-        {CONTACT_US.map(({ title, description, icon }) => {
-          const Icon = icon;
+        {contactData.contact_info?.map((info, index) => {
+          // Convert kebab-case icon name to PascalCase for Lucide icons
+          const iconName = kebabToPascal(info.icon_name?.trim() || '');
+          const IconComponent = LucideIcons[
+            iconName as keyof typeof LucideIcons
+          ] as React.ComponentType<{ size?: number }>;
+
           return (
-            <div className="flex flex-col items-center md:w-[220px]" key={title}>
+            <div className="flex flex-col items-center md:w-[220px]" key={index}>
               <div className="size-[80px] rounded-full flex items-center justify-center bg-primary text-white">
-                <Icon size={32} />
+                {IconComponent && <IconComponent size={32} />}
               </div>
               <p className="text-[32px] my-[32px] font-sans text-black/70">
-                {title}
+                {info.title}
               </p>
-              <p className="text-[18px] text-center font-sans">{description}</p>
+              <p className="text-[18px] text-center font-sans">{info.description}</p>
             </div>
           );
         })}

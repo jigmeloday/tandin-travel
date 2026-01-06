@@ -6,17 +6,17 @@ function ContactForm(){
   return(
     <div className='text-white my-[42px] space-y-[24px]'>
       <div>
-        <Input placeholder='Name' />
+        <Input placeholder="Your Name" />
       </div>
        <div>
-        <Input placeholder='Email' />
+        <Input placeholder="Your Email" />
       </div>
        <div>
-        <Textarea placeholder='Message' />
+        <Textarea placeholder="Your Message" />
       </div>
       <div className='flex items-center justify-center'>
        <Button className='text-[42px] font-sans w-full bg-white text-primary rounded-none py-[28px] hover:bg-white/90 cursor-pointer'>
-        SUBMIT
+        Submit
        </Button>
       </div>
     </div>

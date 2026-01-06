@@ -1,26 +1,19 @@
 import ImageBox from '@/components/shared/image-box';
-import { fetchBySlug, fetchCollection, fetchAllSlugs, getStrapiMedia } from '@/lib/strapi';
+import { fetchBySlug, fetchCollection, getStrapiMedia } from '@/lib/strapi';
 import { Package } from '@/types/strapi';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-export async function generateStaticParams() {
-  const slugs = await fetchAllSlugs('packages');
-  return slugs.map((slug) => ({ slug }));
-}
-
-async function Page({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-
-  // Fetch package data from Strapi with all relations populated
-  const data = await fetchBySlug<Package>('packages', slug, '*');
+async function Page() {
+  // Fetch Silent Monks package data from Strapi
+  const data = await fetchBySlug<Package>('packages', 'silent-monks', '*');
 
   if (!data) {
     notFound();
   }
 
-  // Fetch image box packages (packages with is_other = true or all packages)
-  const imageBoxPackages = await fetchCollection<Package>('packages', {
+  // Fetch related packages
+  const relatedPackages = await fetchCollection<Package>('packages', {
     populate: '*',
     pagination: { pageSize: 6 },
   });
@@ -148,9 +141,9 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         </section>
       )}
 
-      {/* Grid Section */}
+      {/* Related Packages Grid */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] mb-[90px]">
-        {imageBoxPackages.map((pkg) => (
+        {relatedPackages.slice(0, 6).map((pkg) => (
           <ImageBox
             id={pkg.slug}
             key={pkg.slug}

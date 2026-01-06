@@ -5,12 +5,29 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { IMAGE_BOX } from '@/lib/dummy-data/dummy-data';
 
-function SideSelling() {
-  
+interface Package {
+  id?: number | string;
+  title: string;
+  image: string;
+}
+
+interface SideSellingProps {
+  packages?: Package[];
+}
+
+function SideSelling({ packages = [] }: SideSellingProps) {
+  // Show placeholder if no packages provided
+  if (!packages || packages.length === 0) {
+    return (
+      <div className="relative w-full overflow-hidden h-[400px] lg:h-full border flex items-center justify-center bg-gray-200">
+        <p className="text-gray-500">No packages available</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative w-full overflow-hidden h-[400px] lg:h-full">      
+    <div className="relative w-full overflow-hidden h-[400px] lg:h-full">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={10}
@@ -26,24 +43,23 @@ function SideSelling() {
           bulletActiveClass: 'custom-bullet-active',
         }}
         loop={true}
-        
+
         className="w-full h-full border"
       >
-        {IMAGE_BOX.filter((item) => item.best_sell).map((tour) => (
+        {packages.map((tour, index) => (
           <SwiperSlide
-           key={tour.id}>
-            <div className="flex-shrink-0 w-full h-full overflow-hidden">
+           key={tour.id || index}>
+            <div className="flex-shrink-0 w-full h-full overflow-hidden relative">
                <Image
                     src={tour.image}
-                    alt={tour.title || 'img'}
+                    alt={tour.title}
                     fill
                     className="object-cover"
                   />
-                  hello
             </div>
           </SwiperSlide>
         ))}
-      </Swiper>      
+      </Swiper>
     </div>
   );
 }

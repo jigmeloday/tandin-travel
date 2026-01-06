@@ -1,51 +1,77 @@
 import ImageBox from '@/components/shared/image-box';
 import LetsTalk from '@/components/shared/let-talk';
-import { IMAGE_BOX, OTHER_PACKAGE } from '@/lib/dummy-data/dummy-data';
+import { fetchBySlug, fetchCollection, fetchAllSlugs, getStrapiMedia } from '@/lib/strapi';
+import { Package } from '@/types/strapi';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
+
+export async function generateStaticParams() {
+  const slugs = await fetchAllSlugs('packages');
+  return slugs.map((slug) => ({ slug }));
+}
 
 async function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = (await params) as { slug: string };
-  const data = IMAGE_BOX.find((item) => item.id === parseInt(slug));
+
+  // Fetch package data from Strapi
+  const data = await fetchBySlug<Package>('packages', slug, '*');
+
+  if (!data) {
+    notFound();
+  }
+
+  // Fetch other packages (with is_other = true or all packages)
+  const otherPackages = await fetchCollection<Package>('packages', {
+    populate: '*',
+    pagination: { pageSize: 3 },
+  });
+
+  const imageBoxPackages = await fetchCollection<Package>('packages', {
+    populate: '*',
+    pagination: { pageSize: 6 },
+  });
 
   return (
     <main>
       {/* Hero Section */}
       <section className="h-[60vh] lg:h-screen w-full relative overflow-hidden">
         <Image
-          src={data?.image || ''}
-          alt={data?.title || 'img'}
+          src={getStrapiMedia(data.image) || '/images/placeholder.jpg'}
+          alt={data.title}
           width={1920}
           height={1080}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-          <h1 className="text-white text-center px-4">{data?.title}</h1>
+          <h1 className="text-white text-center px-4">{data.title}</h1>
         </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-4">
-        {[1, 2, 3, 4].map((id) => (
-          <div
-            key={id}
-            className={`${
-              id % 2 === 0 ? 'bg-black text-white' : 'bg-primary'
-            } h-[350px] flex flex-col items-center justify-center px-8 font-medium`}
-          >
-            <p className="font-bold text-[20px] text-center">
-              A Bird’s-Eye View of Majesty
-            </p>
+      {/* Detailed Sections Grid - Show detailed_sections if available */}
+      {data.detailed_sections && data.detailed_sections.length >= 4 && (
+        <section className="grid grid-cols-1 md:grid-cols-4">
+          {data.detailed_sections.slice(0, 4).map((section, index) => (
             <div
+              key={index}
               className={`${
-                id % 2 === 0 ? 'border border-primary' : ' border border-black'
-              }  w-[40%] my-4`}
-            />
-            <p className="text-center">
-              Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
-              monasteries from the comfort of a spacious, private{' '}
-            </p>
-          </div>
-        ))}
-      </section>
+                (index + 1) % 2 === 0 ? 'bg-black text-white' : 'bg-primary'
+              } h-[350px] flex flex-col items-center justify-center px-8 font-medium`}
+            >
+              <p className="font-bold text-[20px] text-center">
+                {section.title}
+              </p>
+              <div
+                className={`${
+                  (index + 1) % 2 === 0 ? 'border border-primary' : ' border border-black'
+                }  w-[40%] my-4`}
+              />
+              <p className="text-center">
+                {section.description}
+              </p>
+            </div>
+          ))}
+        </section>
+      )}
       <section className="flex flex-col px-[16px] lg:px-[120px] my-[150px] py-[80px] bg-black">
         <div className="flex lg:flex-row flex-col text-start space-x-8">
           <div className="flex-1 relative flex lg:flex-row flex-col space-y-4 lg:space-x-4 w-full">
@@ -82,25 +108,24 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
 
       {/* Other Packages */}
       <section className="flex flex-col lg:px-[32px] px-[16px] my-[30px] lg:my-[50px] gap-2">
-        {OTHER_PACKAGE.map(({ id, img }, index) => (
+        {otherPackages.map((pkg, index) => (
           <div
             className={`flex flex-col lg:flex-row gap-2 ${
               index % 2 !== 0 ? 'lg:flex-row-reverse' : ''
             }`}
-            key={id}
+            key={pkg.slug}
           >
             {/* Left Content */}
             <div className="flex flex-col justify-center items-center w-full lg:w-[50%] bg-[#111820] p-[20px]">
-              <h1>Valley & Peak Aerial Tours</h1>
-              <p className="text-white font-bold text-[14px] lg:text-[16px] mt-2">
-                Panoramic Views of Majestic Peaks and Lush Valleys
-              </p>
+              <h1>{pkg.title}</h1>
+              {pkg.subtitle && (
+                <p className="text-white font-bold text-[14px] lg:text-[16px] mt-2">
+                  {pkg.subtitle}
+                </p>
+              )}
               <div className="px-[20px] lg:px-[60px] mt-[16px] lg:mt-[24px] pb-[20px] lg:pb-[32px]">
                 <p className="text-white text-center text-[14px] lg:text-[16px]">
-                  Marvel at Bhutan’s towering peaks, emerald valleys, and sacred
-                  monasteries from the comfort of a spacious, private aircraft,
-                  turning every view into a breathtaking, first-class
-                  experience.
+                  {pkg.description}
                 </p>
               </div>
             </div>
@@ -108,8 +133,8 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
             {/* Right Image */}
             <div className="w-full lg:w-[50%] relative h-[240px] lg:h-[420px] overflow-hidden">
               <Image
-                src={`/images/dummy/${img}`}
-                alt="img"
+                src={getStrapiMedia(pkg.image) || '/images/placeholder.jpg'}
+                alt={pkg.title}
                 fill
                 className="object-cover"
               />
@@ -142,14 +167,13 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
         <div className="border-[0.5px] border-primary h-[40px] lg:h-[80px] mt-[20px] lg:mt-[40px]" />
       </section>
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-[16px] lg:px-[32px] gap-[8px] my-[24px] lg:my-[50px]">
-        {IMAGE_BOX.filter((item) => !item.best_sell && !item.other).map(
-          ({ id, image, title, subtitle }) => (
+        {imageBoxPackages.map((pkg) => (
             <ImageBox
-              id={id}
-              key={id}
-              image={image}
-              label={title || ''}
-              subtitle={subtitle}
+              id={pkg.slug}
+              key={pkg.slug}
+              image={getStrapiMedia(pkg.image) || '/images/placeholder.jpg'}
+              label={pkg.title || ''}
+              subtitle={pkg.subtitle}
             />
           )
         )}
@@ -179,11 +203,7 @@ async function Page({ params }: { params: Promise<{ slug: string }> }) {
       </section>
       <section className="flex flex-col items-center justify-center px-[16px] lg:px-[32px] my-[50px]">
         <div className="h-[84vh]">
-          <LetsTalk
-            images="/images/dummy/img1.jpg"
-            description="For decades, our team has been crafting journeys that go beyond the ordinary. Share your dream destination and your passions with us, and we’ll design a one-of-a-kind adventure that’s truly yours—a
-                journey you’ll remember for a lifetime."
-          />
+          <LetsTalk />
         </div>
       </section>
     </main>
