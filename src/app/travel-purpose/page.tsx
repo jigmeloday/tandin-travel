@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import LetsTalk from '@/components/shared/let-talk';
 import { fetchSingleType, getStrapiMedia } from '@/lib/strapi';
 import { TravelPurposePage } from '@/types/strapi';
 
