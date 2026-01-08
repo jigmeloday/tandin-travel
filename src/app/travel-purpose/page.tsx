@@ -96,13 +96,6 @@ export default async function Page() {
           </div>
         </section>
       )}
-
-      {/* Let's Talk Section */}
-      <section className="mb-[90px] px-[32px]">
-        <div className="h-[84vh]">
-          <LetsTalk />
-        </div>
-      </section>
     </div>
   );
 }
