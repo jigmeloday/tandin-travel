@@ -135,7 +135,7 @@ export default async function Page() {
                 <Image
                   src={getStrapiMedia(trek.image) || '/images/placeholder.jpg'}
                   fill
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="h-full w-full object-cover"
                   alt={trek.title}
                 />
               </div>
