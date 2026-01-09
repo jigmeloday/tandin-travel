@@ -135,7 +135,7 @@ function Header() {
                   Trip types
                 </p>
                 <div className="text-[16px] gap-2 font-[500] grid md:grid-cols-3 text-center items-center justify-items-center playfair-sans my-[5px]">
-                  <Link
+                  {/* <Link
                     href="/packages/silent-monks"
                     className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
                     onClick={handleLinkClick}
@@ -169,29 +169,30 @@ function Header() {
                     onClick={handleLinkClick}
                   >
                     Women Only Tour
-                  </Link>
-                </div>
-                <Link
+                  </Link> */}
+                     <Link
                   href="/curated-bhutan-birding"
-                  className="text-[26px] font-medium hover:text-primary transition playfair-sans mt-[18px] py-2"
+                    className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
                   onClick={handleLinkClick}
                 >
                   Curated Adventure
                 </Link>
                  <Link
                   href="/curated-bhutan-birding/birding"
-                  className="text-[26px] font-medium hover:text-primary transition playfair-sans mt-[18px] py-2"
+                    className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
                   onClick={handleLinkClick}
                 >
                  Bhutan Birding
                 </Link>
                  <Link
                   href="/travel-purpose"
-                  className="text-[26px] font-medium hover:text-primary transition playfair-sans mt-[18px] py-2"
+                    className="hover:text-primary transition px-4 md:leading-[20px] md:border-r-[2.5px] flex items-center"
                   onClick={handleLinkClick}
                 >
-                  Travel With Purpose
+                  Travel Purpose
                 </Link>
+                </div>
+             
                 <Link
                   href="/contact-us"
                   className="text-[26px] font-medium hover:text-primary transition playfair-sans mb-[5px] py-2"
